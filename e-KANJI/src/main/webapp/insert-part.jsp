@@ -9,13 +9,13 @@
 <body>
 参加者情報登録画面<br>
     <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
-	<form action="insert-part-check-servlet.java" method="POST">
+	<form action="insert-part-check-servlet" method="POST">
 	    氏名（漢字）：<input type="text" name="part_name"><br>
 		氏名（かな）：<input type="text" name="part_ruby"><br>
 		性別：<input type="radio" name="part_gender" value="男">男
 		      <input type="radio" name="part_gender" value="女">女<br>
-		年齢：<input type="text" name="part_age">正の整数のみ入力<br>
-		入社年度：<input type="date" name="part_empyear">yyyy/mm/ddで入力<br>
+		年齢：<input type="text" name="part_age" value="正の整数のみ入力"><br>
+		入社年度：<input type="date" name="part_empyear"><br>
 		役職：<select name="part_post">
 		        <option value="1">一般社員</option>
 		        <option value="2">主任・主査</option>
@@ -30,7 +30,7 @@
 		        <option value="11">社長</option>
 		        <option value="12">会長</option>
 		    </select><br>
-		予算：<input type="text" name="part_budget">正の整数のみ入力<br>
+		予算：<input type="text" name="part_budget" value="正の整数のみ入力"><br>
 		アレルギー：<input type="text" name="part_allergy"><br>
 		好きな食べ物のジャンル：<select name="part_genre">
 		        <option value="0">特になし</option>
