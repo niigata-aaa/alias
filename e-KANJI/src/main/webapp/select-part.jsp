@@ -12,7 +12,7 @@
 <%
 		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");
 	%>
-<table>
+<table border=1>
 		<tr>
 			<th>登録した幹事のID</th>
 			<th>参加者ID</th>
