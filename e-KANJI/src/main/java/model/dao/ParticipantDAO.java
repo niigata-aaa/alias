@@ -34,46 +34,46 @@ public class ParticipantDAO {
 			//結果の操作
 			while(res.next()) {
 				//会員ID
-				int partID=res.getInt("partID");
+				int partID=res.getInt("part_id");
 				
 				//参加者ID
-				int userID=res.getInt("userID");
+				int userID=res.getInt("part_user");
 				
 				//参加者名（漢字）
-				String partName=res.getString("partName");
+				String partName=res.getString("part_name");
 				
 				//参加者名（かな）
-				String partRuby=res.getString("partRuby");
+				String partRuby=res.getString("part_ruby");
 				
 				//性別
-				String gender=res.getString("partGender");
+				String gender=res.getString("part_gender");
 				
 				//年齢
-				int age=res.getInt("partAge");
+				int age=res.getInt("part_age");
 				
 				//入社年度
-				int empyear=res.getInt("partEmpyear");
+				int empyear=res.getInt("part_empyear");
 				
 				//役職
-				String post=res.getString("partPost");
+				String post=res.getString("part_post");
 				
 				//予算
-				int partBudget=res.getInt("partBudget");
+				int partBudget=res.getInt("part_budget");
 				
 				//アレルギー
-				String allergy=res.getString("partAllergy");
+				String allergy=res.getString("part_allergy");
 				
 				//食べ物の好み
-				String genre=res.getString("partGenre");
+				String genre=res.getString("part_genre");
 				
 				//好きな料理カテゴリ
-				String category=res.getString("partCategory");
+				String category=res.getString("part_category");
 				
 				//ビールの好み
-				String beer=res.getString("partBeer");
+				String beer=res.getString("part_beer");
 				
 				//喫煙するか
-				int smoke=res.getInt("partSmoke");
+				int smoke=res.getInt("part_smoke");
 				
 				PartBean part=new PartBean();
 				part.setUserID(userID);
