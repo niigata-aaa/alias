@@ -7,6 +7,7 @@
 <title>参加者登録画面</title>
 </head>
 <body>
+aaa
 参加者情報登録画面<br>
     <a href="SelectPartServlet">参加者一覧表示・検索画面へ戻る</a>
 	<form action="insert-part-check-servlet.java" method="POST">
@@ -68,6 +69,7 @@
 		      <input type="radio" name="part_smoke" value="0">吸わない<br>
 	
 		<input type="submit" value="確認画面へ">
+		
 	</form>
 
 </body>
