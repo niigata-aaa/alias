@@ -9,6 +9,44 @@
 </head>
 <body>
 
+<%--検索条件を表示 --%>
+<form action="" method="">
+■性別：<input type="checkbox" name="gender" value="men">男
+	<input type="checkbox" name="gender" value="women">女<br>
+	
+■役職：
+<input type="checkbox" name="post" value="">一般社員
+<input type="checkbox" name="post" value="">主任・主査<br>
+<input type="checkbox" name="post" value="">係長
+<input type="checkbox" name="post" value="">課長代理<br>
+<input type="checkbox" name="post" value="">課長
+<input type="checkbox" name="post" value="">副部長<br>
+<input type="checkbox" name="post" value="">部長・支社長・所長
+<input type="checkbox" name="post" value="">執行役員<br>
+<input type="checkbox" name="post" value="">常務取締役
+<input type="checkbox" name="post" value="">専務取締役<br>
+<input type="checkbox" name="post" value="">社長
+<input type="checkbox" name="post" value="">会長<br>
+
+■入社年度：
+<input type="date" name="part_empyear">yyyy/mm/ddで入力<br>
+
+■喫煙：
+<input type="checkbox" name="smoke" value="yes">吸う
+<input type="checkbox" name="smoke" value="no">吸わない
+
+■ビールの好み：
+<input type="checkbox"name="beer" value="">アサヒ
+<input type="checkbox"name="beer" value="">キリン
+<input type="checkbox"name="beer" value="">サントリー
+<input type="checkbox"name="beer" value="">サッポロ
+<input type="checkbox"name="beer" value="">エビス
+<input type="checkbox"name="beer" value="">特になし
+</form>
+
+
+<%--参加者一覧表示 --%>
+
 <%
 		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");
 	%>
