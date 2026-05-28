@@ -9,7 +9,7 @@
 <body>
 b
 参加者情報登録画面<br>
-    <a href="SelectPartServlet">参加者一覧表示・検索画面へ戻る</a>
+    <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
 	<form action="insert-part-check-servlet.java" method="POST">
 	    氏名（漢字）：<input type="text" name="part_name"><br>
 		氏名（かな）：<input type="text" name="part_ruby"><br>

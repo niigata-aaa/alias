@@ -14,17 +14,17 @@ public class ConnectionManager {
 	/**
 	 * データベースURL
 	 */
-	private static final String URL = "jdbc:mysql://localhost:3306/user_db";
-
+	private static final String URL = "jdbc:mysql://localhost:3306/e_kanji";
+	
 	/**
 	 * ユーザ
 	 */
-	private static final String USER = "appUser";
+	private static final String USER = "alias";
 
 	/**
 	 * パスワード
 	 */
-	private static final String PASSWORD = "appUserP";
+	private static final String PASSWORD = "alias";
 
 	/**
 	 * データベースへの接続を取得して返します。
