@@ -46,19 +46,19 @@ public class SelectPartServlet extends HttpServlet {
 
 		// DAOの生成
 		ParticipantDAO dao = new ParticipantDAO();
-
+		
 		try {
 			// DAOの利用
-			partList = dao.selectAll();
+			 partList = dao.selectAll();
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
 		// リクエストスコープへの属性の設定
-		request.setAttribute("partList", partList);
+		request.setAttribute("partList",partList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("select-part.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/select-part.jsp");
 		rd.forward(request, response);
 
 	}

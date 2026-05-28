@@ -13,10 +13,10 @@ import java.io.Serializable;
 public class PartBean implements Serializable{
 
 	//会員ID
-	private int userID;
+	private String userID;
 	
 	//参加者ID
-	private int partID;
+	private String partID;
 	
 	//参加者名
 	private String partName;
@@ -61,19 +61,19 @@ public class PartBean implements Serializable{
 		
 	}
 
-	public int getPartID() {
+	public String getPartID() {
 		return partID;
 	}
 
-	public void setPartID(int partID) {
+	public void setPartID(String partID) {
 		this.partID = partID;
 	}
 
-	public int getUserID() {
+	public String getUserID() {
 		return userID;
 	}
 
-	public void setUserID(int userID) {
+	public void setUserID(String userID) {
 		this.userID = userID;
 	}
 

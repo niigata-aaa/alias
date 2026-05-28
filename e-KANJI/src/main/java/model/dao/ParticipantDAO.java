@@ -34,10 +34,10 @@ public class ParticipantDAO {
 			//結果の操作
 			while(res.next()) {
 				//会員ID
-				int partID=res.getInt("part_id");
+				String partID=res.getString("part_id");
 				
 				//参加者ID
-				int userID=res.getInt("part_user");
+				String userID=res.getString("part_user");
 				
 				//参加者名（漢字）
 				String partName=res.getString("part_name");

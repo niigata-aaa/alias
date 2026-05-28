@@ -10,8 +10,7 @@
 <body>
 
 <%
-		List<PartBean> partList
-			= (List<PartBean>) request.getAttribute("partList");
+		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");
 	%>
 <table>
 		<tr>
@@ -34,7 +33,7 @@
 		</tr>
 
 		<%
-			for (PartBean part : partList) {
+			for (PartBean part:partList) {
 		%>
 		<tr>
 			<td><%=part.getUserID()%></td>
