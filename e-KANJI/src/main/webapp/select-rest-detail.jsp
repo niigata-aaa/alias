@@ -16,7 +16,7 @@
 				
 		%>
 	<form action="select-rest-ok-servlet" method="POST">
-	<table>
+	<table><table border=1>
 			<tr><th>店舗名</th><td><%=bean.getRestName() %></td></tr>
 			<tr><th>料理ジャンル</th><td><%=bean.getRestGenre() %></td></tr>
 			<tr><th>食材カテゴリ</th><td><%=bean.getRestCategory() %></td></tr>
