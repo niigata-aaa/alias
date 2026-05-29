@@ -10,7 +10,8 @@
 <body>
 
 <%--検索条件を表示 --%>
-<form action="" method="">
+<form action="" method="post">
+<input type="submit" value="検索"><br>
 ■性別：<input type="checkbox" name="gender" value="men">男
 	<input type="checkbox" name="gender" value="women">女<br>
 	
@@ -33,7 +34,7 @@
 
 ■喫煙：
 <input type="checkbox" name="smoke" value="yes">吸う
-<input type="checkbox" name="smoke" value="no">吸わない
+<input type="checkbox" name="smoke" value="no">吸わない<br>
 
 ■ビールの好み：
 <input type="checkbox"name="beer" value="">アサヒ
@@ -41,7 +42,7 @@
 <input type="checkbox"name="beer" value="">サントリー
 <input type="checkbox"name="beer" value="">サッポロ
 <input type="checkbox"name="beer" value="">エビス
-<input type="checkbox"name="beer" value="">特になし
+<input type="checkbox"name="beer" value="">特になし<br>
 </form>
 
 

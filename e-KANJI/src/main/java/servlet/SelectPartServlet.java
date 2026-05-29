@@ -42,14 +42,21 @@ public class SelectPartServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		request.setCharacterEncoding("UTF-8");
 		List<PartBean> partList = null;
 
+		String part_user=request.getParameter("part_user");
+		
+		//PartBean part=new PartBean();
+		
+		//part.setUserID(part_user);
+		
 		// DAOの生成
 		ParticipantDAO dao = new ParticipantDAO();
 		
 		try {
 			// DAOの利用
-			 partList = dao.selectAll();
+			 partList = dao.selectAll(part_user);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
