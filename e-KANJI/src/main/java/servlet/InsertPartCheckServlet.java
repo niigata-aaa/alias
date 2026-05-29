@@ -1,6 +1,5 @@
 package servlet;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -75,14 +74,6 @@ public class InsertPartCheckServlet extends HttpServlet {
 				ParticipantDAO dao = new ParticipantDAO();
 
 				int count = 0;	// 処理件数
-
-				try {
-					// DAOの利用
-					count = dao.insert(part);
-
-				} catch (ClassNotFoundException | SQLException e) {
-					e.printStackTrace();
-				}
 
 				// リクエストスコープへの属性の設定
 				request.setAttribute("count", count);
