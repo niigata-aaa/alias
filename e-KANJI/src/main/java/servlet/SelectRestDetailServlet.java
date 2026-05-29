@@ -62,7 +62,7 @@ public class SelectRestDetailServlet extends HttpServlet {
 		}
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("select-rest-datail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("select-rest-detail.jsp");
 		rd.forward(request, response);
 	}
 }
