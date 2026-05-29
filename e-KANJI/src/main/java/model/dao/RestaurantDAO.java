@@ -13,7 +13,7 @@ public class RestaurantDAO {
 	public List<RestBean> selectAll() throws ClassNotFoundException, SQLException {
 		List<RestBean> list = new ArrayList<RestBean>();
 
-		String sql = "SELECT "
+		String sql = "SELECT " 
 				+ "A.rest_id, "
 				+ "A.rest_name, "
 				+ "B.genre_name, "
