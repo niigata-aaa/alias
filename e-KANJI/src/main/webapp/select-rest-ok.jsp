@@ -30,7 +30,7 @@
 				<tr><th>口コミ</th><td><%=bean.getRestReview() %></td></tr>
 		</table>
 
-		<form action="top-servlet" method="POST">
+		<form action="top" method="POST">
 				<input type="submit" value="トップ画面へ戻る">
 			</form>
 </body>
