@@ -1,0 +1,29 @@
+
+@charset "UTF-8";
+.back-top-form {
+    display: flex;
+    justify-content: flex-end;
+	
+}
+	
+*{
+	text-align: center;
+	font-size: 20px;
+}
+h1{
+	font-size: 30px;
+}
+h2{
+	font-size: 25px;
+}
+
+table,th,td{
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
+
+table {
+    text-align: center;
+    margin: 0 auto; /* ← これを追加：上下マージン0、左右マージンを自動調整して中央配置 */
+}
+
