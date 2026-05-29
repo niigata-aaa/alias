@@ -107,6 +107,7 @@ public class UserDAO {
 	}
 	
 	public int updateStop(String user_id) throws SQLException, ClassNotFoundException {
+		
 		int count = 0; //処理件数
 		String sql = "UPDATE m_user SET user_stop = 1 WHERE user_id = ?";
 

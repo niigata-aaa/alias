@@ -15,8 +15,8 @@
 				if(bean != null){
 				
 		%>
-	<form action="select-rest-ok-servlet" method="POST">
-	<table>
+	<form action="select-rest-ok" method="POST">
+	<table><table border=1>
 			<tr><th>店舗名</th><td><%=bean.getRestName() %></td></tr>
 			<tr><th>料理ジャンル</th><td><%=bean.getRestGenre() %></td></tr>
 			<tr><th>食材カテゴリ</th><td><%=bean.getRestCategory() %></td></tr>
@@ -31,7 +31,8 @@
 			<tr><th>ビールの種類</th><td><%=bean.getRestBeer() %></td></tr>
 			<tr><th>口コミ</th><td><%=bean.getRestReview() %></td></tr>
 	</table>
-		<input type="submit" value="登録">
+		<input type="hidden" name="restId" value="<%=bean.getRestId()%>">
+		<input type="submit" value="ここに決めた！"><br>
 	</form>
 	<%
 			}

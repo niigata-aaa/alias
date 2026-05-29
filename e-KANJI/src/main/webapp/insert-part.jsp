@@ -8,7 +8,10 @@
 </head>
 <body>
 参加者情報登録画面<br>
-    <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
+    <form action="select-part.jsp" method="POST">
+		<input type="submit" value="参加者一覧表示・検索画面へ戻る">
+	</form>
+
 	<form action="insert-part-check-servlet" method="POST">
 	    氏名（漢字）：<input type="text" name="part_name"><br>
 		氏名（かな）：<input type="text" name="part_ruby"><br>
