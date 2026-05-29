@@ -8,10 +8,14 @@
 <title>参加者一覧表示</title>
 </head>
 <body>
-
+<h1>参加者一覧表示・検索画面</h1>
+<br>
 <%--検索条件を表示 --%>
-<form action="" method="">
-■性別：<input type="checkbox" name="gender" value="men">男
+<form action="select-part-servlet" method="post">
+キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
+<input type="submit" value="検索">
+<div>
+性別<br><input type="checkbox" name="gender" value="men">男<br>
 	<input type="checkbox" name="gender" value="women">女<br>
 	
 ■役職：
@@ -44,11 +48,13 @@
 <input type="checkbox"name="beer" value="">特になし
 </form>
 
-
+</div>
 <%--参加者一覧表示 --%>
 
 <%
-		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");
+		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
+		
+	
 	%>
 <table border=1>
 		<tr>
@@ -71,8 +77,12 @@
 		</tr>
 
 		<%
-			for (PartBean part:partList) {
+				if(partList != null){
+					for (PartBean part : partList) {
+				
 		%>
+
+		
 		<tr>
 			<td><%=part.getUserID()%></td>
 			<td><%=part.getPartID()%></td>
@@ -102,8 +112,9 @@
 				</form>
 			</td>
 		</tr>
+		
 		<%
-			}
+			}}
 		%>
 
 	</table>
