@@ -24,10 +24,7 @@
 <form action="select-part-servlet" method="post">
 キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
 <input type="submit" value="検索">
-<div>
-性別<br><input type="checkbox" name="gender" value="men">男<br>
-	<input type="checkbox" name="gender" value="women">女<br>
-	
+
 >>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 ■役職：
 <select name="post">
@@ -63,7 +60,6 @@
 <input type="checkbox"name="beer" value="">特になし<br>
 </form>
 
-</div>
 <%--参加者一覧表示 --%>
 
 <%
