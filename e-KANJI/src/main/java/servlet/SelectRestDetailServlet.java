@@ -42,18 +42,18 @@ public class SelectRestDetailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
-		
+
 		int id = Integer.parseInt(request.getParameter("restId"));
 
 		// DAOの生成
 		RestaurantDAO dao = new RestaurantDAO();
-		
+
 		RestBean bean = new RestBean();
 
 		try {
 			bean = dao.select(id);
-
 
 			request.setAttribute("bean", bean);
 

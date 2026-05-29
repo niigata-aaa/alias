@@ -83,6 +83,8 @@ public class RestaurantDAO {
 	
 	public RestBean select(int restID)
 			throws SQLException, ClassNotFoundException {
+		
+		RestBean rest = new RestBean();
 
 
 		String sql = "SELECT "
@@ -128,7 +130,7 @@ public class RestaurantDAO {
 			// SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();
 
-			RestBean rest = new RestBean();
+			
 			while (res.next()) {
 				
 				rest.setRestId(res.getInt("rest_id"));
