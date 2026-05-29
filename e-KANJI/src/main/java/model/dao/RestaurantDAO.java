@@ -131,7 +131,7 @@ public class RestaurantDAO {
 			ResultSet res = pstmt.executeQuery();
 
 			
-			while (res.next()) {
+			if (res.next()) {
 				
 				rest.setRestId(res.getInt("rest_id"));
 				rest.setRestName(res.getString("rest_name"));
@@ -147,7 +147,7 @@ public class RestaurantDAO {
 				rest.setRestAddress(res.getString("rest_address"));
 				rest.setRestUrl(res.getString("rest_url"));
 				rest.setRestReview(res.getDouble("rest_review"));
-				rest.setRestBeer(res.getString("rest_beer"));
+				rest.setRestBeer(res.getString("beer_name"));
 				rest.setRestSmoke(res.getInt("rest_smoke"));
 				rest.setRestSmokeroom(res.getInt("rest_smokeroom"));
 
