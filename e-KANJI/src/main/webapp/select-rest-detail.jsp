@@ -31,7 +31,7 @@
 			<tr><th>ビールの種類</th><td><%=bean.getRestBeer() %></td></tr>
 			<tr><th>口コミ</th><td><%=bean.getRestReview() %></td></tr>
 	</table>
-		<input type="submit" value="登録">
+		<input type="submit" value="ここに決めた👍">
 	</form>
 	<%
 			}
