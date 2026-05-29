@@ -5,17 +5,18 @@ import java.io.Serializable;
 public class RestBean implements Serializable {
 	private int restId;
 	private String restName;
-	private String genre;
-	private String category;
-	private String open;
-	private String close;
-	private int nextday;
-	private int distance;
+	private String restGenre;
+	private String restCategory;
+	private String restOpen;
+	private String restClose;
+	private int restNextday;
+	private int restDistance;
 	private int restBudget;
-	private int capacity;
-	private String tel;
-	private String address;
-	private String url;
+	private int restCapacity;
+	private String restTel;
+	private String restAddress;
+	private String restUrl;
+	private double restReview;
 	private String restBeer;
 	private String restSmoke;
 	private String restSmokeroom;
@@ -23,103 +24,144 @@ public class RestBean implements Serializable {
 	public RestBean() {
 		
 	}
-	
-	
-	
+
 	public int getRestId() {
 		return restId;
 	}
+
 	public void setRestId(int restId) {
 		this.restId = restId;
 	}
+
 	public String getRestName() {
 		return restName;
 	}
+
 	public void setRestName(String restName) {
 		this.restName = restName;
 	}
-	public String getGenre() {
-		return genre;
+
+	public String getRestGenre() {
+		return restGenre;
 	}
-	public void setGenre(String genre) {
-		this.genre = genre;
+
+	public void setRestGenre(String restGenre) {
+		this.restGenre = restGenre;
 	}
-	public String getCategory() {
-		return category;
+
+	public String getRestCategory() {
+		return restCategory;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+
+	public void setRestCategory(String restCategory) {
+		this.restCategory = restCategory;
 	}
-	public String getOpen() {
-		return open;
+
+	public String getRestOpen() {
+		return restOpen;
 	}
-	public void setOpen(String open) {
-		this.open = open;
+
+	public void setRestOpen(String restOpen) {
+		this.restOpen = restOpen;
 	}
-	public String getClose() {
-		return close;
+
+	public String getRestClose() {
+		return restClose;
 	}
-	public void setClose(String close) {
-		this.close = close;
+
+	public void setRestClose(String restClose) {
+		this.restClose = restClose;
 	}
-	public int getNextday() {
-		return nextday;
+
+	public int getRestNextday() {
+		return restNextday;
 	}
-	public void setNextday(int nextday) {
-		this.nextday = nextday;
+
+	public void setRestNextday(int restNextday) {
+		this.restNextday = restNextday;
 	}
-	public int getDistance() {
-		return distance;
+
+	public int getRestDistance() {
+		return restDistance;
 	}
-	public void setDistance(int distance) {
-		this.distance = distance;
+
+	public void setRestDistance(int restDistance) {
+		this.restDistance = restDistance;
 	}
+
 	public int getRestBudget() {
 		return restBudget;
 	}
+
 	public void setRestBudget(int restBudget) {
 		this.restBudget = restBudget;
 	}
-	public int getCapacity() {
-		return capacity;
+
+	public int getRestCapacity() {
+		return restCapacity;
 	}
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
+
+	public void setRestCapacity(int restCapacity) {
+		this.restCapacity = restCapacity;
 	}
-	public String getTel() {
-		return tel;
+
+	public String getRestTel() {
+		return restTel;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+
+	public void setRestTel(String restTel) {
+		this.restTel = restTel;
 	}
-	public String getAddress() {
-		return address;
+
+	public String getRestAddress() {
+		return restAddress;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setRestAddress(String restAddress) {
+		this.restAddress = restAddress;
 	}
-	public String getUrl() {
-		return url;
+
+	public String getRestUrl() {
+		return restUrl;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+
+	public void setRestUrl(String restUrl) {
+		this.restUrl = restUrl;
 	}
+
+	public double getRestReview() {
+		return restReview;
+	}
+
+	public void setRestReview(double restReview) {
+		this.restReview = restReview;
+	}
+
 	public String getRestBeer() {
 		return restBeer;
 	}
+
 	public void setRestBeer(String restBeer) {
 		this.restBeer = restBeer;
 	}
+
 	public String getRestSmoke() {
 		return restSmoke;
 	}
+
 	public void setRestSmoke(String restSmoke) {
 		this.restSmoke = restSmoke;
 	}
+
 	public String getRestSmokeroom() {
 		return restSmokeroom;
 	}
+
 	public void setRestSmokeroom(String restSmokeroom) {
 		this.restSmokeroom = restSmokeroom;
 	}
+	
+	
+	
+	
 }
