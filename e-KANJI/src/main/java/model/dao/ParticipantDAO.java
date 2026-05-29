@@ -112,7 +112,7 @@ public class ParticipantDAO {
 public List<PartBean> select(String partPartName) throws SQLException, ClassNotFoundException{
 
 	ArrayList<PartBean> narrowList=new ArrayList<PartBean>();
-	String sql="SELECT * FROM m_participant WHERE part_name=?";
+	String sql="SELECT * FROM m_participant WHERE part_name LIKE ?";
 	//DB接続の取得、
 	try(Connection con =ConnectionManager.getConnection();
 
@@ -120,7 +120,7 @@ public List<PartBean> select(String partPartName) throws SQLException, ClassNotF
 			PreparedStatement pstmt=con.prepareStatement(sql)){
 			
 			//String userID=pstmt.getParameter();
-		pstmt.setString(1, partPartName);
+		pstmt.setString(1, "%" + partPartName + "%");
 			
 		
 

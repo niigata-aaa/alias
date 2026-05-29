@@ -64,7 +64,8 @@ public class NarrowPartSavlet extends HttpServlet {
 
 		 
 		// リクエストスコープへの属性の設定
-			request.setAttribute("narrowList", narrowList);
+//			request.setAttribute("narrowList", narrowList);
+			request.setAttribute("partList", narrowList);
 	
 
 		// リクエストの転送

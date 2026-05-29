@@ -35,65 +35,28 @@
 
 <%--検索機能 --%>
 <form action="narrow-part-savlet" method="post">
-キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
+キーワード検索<input type="text" name="part_name" placeholder="苗字か名前で検索してください">
 <input type="submit" value="検索">
+<%
+List<PartBean> narrowList =
+(List<PartBean>) request.getAttribute("narrowList");
+%>
+<%
+if(narrowList != null){
+    for(PartBean part : narrowList){
+%>
 
-■性別：
-<select name="gender">
-<option value="men">男</option>
-<option value="women">女</option>
-</select>
+<tr>
+    <td><%=part.getPartName()%></td>
+  
+</tr>
 
-■役職：
-<select name="post">
-<option value="">一般社員</option>
-<option value="">主任・主査</option>
-<option value="">係長</option>
-<option value="">課長代理</option>
-<option value="">課長</option>
-<option value="">副部長</option>
-<option value="">部長・支社長・所長</option>
-<option value="">執行役員</option>
-<option value="">常務取締役</option>
-<option value="">専務取締役</option>
-<option value="">社長</option>
-<option value="">会長</option>
-</select>
+<%
+    }
+}
+%>
 
-■入社年度：
-<%-- <input type="date" name="part_empyear">yyyy/mm/ddで入力<br>  --%>
-<select name="year">
-<%for (int i=2026;i>=1960;i--){ %>
-<option value=<%=i %>>
-	<%=i %>年
-</option>
-<%} %>
-</select>
 
-■喫煙：
-<select name="smoke">
-<option value="yes">吸う</option>
-<option value="no">吸わない</option>
-</select>
-
-■ビールの好み：
-<select name="beer">
-<option value="asahi">アサヒ</option>
-<option value="kirin">キリン</option>
-<option value="snatory">サントリー</option>
-<option value="sapporo">サッポロ</option>
-<option value="ebisu">エビス</option>
-<option value="all">特になし</option>
-</select>
-
-<%--
-<input type="checkbox"name="beer" value="">アサヒ
-<input type="checkbox"name="beer" value="">キリン
-<input type="checkbox"name="beer" value="">サントリー
-<input type="checkbox"name="beer" value="">サッポロ
-<input type="checkbox"name="beer" value="">エビス
-<input type="checkbox"name="beer" value="">特になし<br>
---%>
 
 </form>
 
