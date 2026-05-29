@@ -34,7 +34,7 @@
 
 
 <%--検索機能 --%>
-<form action="" method="post">
+<form action="narrow-part-savlet" method="post">
 キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
 <input type="submit" value="検索">
 
