@@ -25,7 +25,6 @@
 キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
 <input type="submit" value="検索">
 
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 ■役職：
 <select name="post">
 <option value="">一般社員</option>
