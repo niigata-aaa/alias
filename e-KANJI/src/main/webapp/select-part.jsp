@@ -11,24 +11,20 @@
 <h1>参加者一覧表示・検索画面</h1>
 <br>
 <%--検索条件を表示 --%>
-<<<<<<< HEAD
+
+<%-- <form action="" method="post">
+<input type="submit" value="検索"><br>--%>
+
 <form action="" method="post">
-<input type="submit" value="検索"><br>
+キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
+<input type="submit" value="検索">
+
 ■性別：
 <select name="gender">
 <option value="men">男</option>
 <option value="women">女</option>
 </select>
 
-=======
-<form action="select-part-servlet" method="post">
-キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
-<input type="submit" value="検索">
-<div>
-性別<br><input type="checkbox" name="gender" value="men">男<br>
-	<input type="checkbox" name="gender" value="women">女<br>
-	
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 ■役職：
 <select name="post">
 <option value="">一般社員</option>
@@ -63,13 +59,12 @@
 <input type="checkbox"name="beer" value="">特になし<br>
 </form>
 
-</div>
+
 <%--参加者一覧表示 --%>
 
 <%
 		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
 		
-	
 	%>
 <table border=1>
 		<tr>
@@ -92,9 +87,8 @@
 		</tr>
 
 		<%
-				if(partList != null){
+			
 					for (PartBean part : partList) {
-				
 		%>
 
 		
@@ -129,7 +123,7 @@
 		</tr>
 		
 		<%
-			}}
+			}
 		%>
 
 	</table>

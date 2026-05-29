@@ -16,7 +16,7 @@ public class PartBean implements Serializable{
 	private String userID;
 	
 	//参加者ID
-	private int partID;
+	private String partID;
 	
 	//参加者名
 	private String partName;
@@ -61,11 +61,11 @@ public class PartBean implements Serializable{
 		
 	}
 
-	public int getPartID() {
+	public String getPartID() {
 		return partID;
 	}
 
-	public void setPartID(int partID) {
+	public void setPartID(String partID) {
 		this.partID = partID;
 	}
 
