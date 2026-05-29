@@ -25,6 +25,9 @@
 	<form action="logout" method="POST">
 		<input type="submit" value="ログアウト">
 	</form>
+	<form action="withdraw-servlet" method="POST">
+		<input type="submit" value="退会">
+	</form>
 	<%@ include file="footer.jsp" %>
 </body>
 </html>
