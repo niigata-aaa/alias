@@ -18,8 +18,8 @@ public class RestBean implements Serializable {
 	private String restUrl;
 	private double restReview;
 	private String restBeer;
-	private String restSmoke;
-	private String restSmokeroom;
+	private int restSmoke;
+	private int restSmokeroom;
 	
 	public RestBean() {
 		
@@ -145,19 +145,19 @@ public class RestBean implements Serializable {
 		this.restBeer = restBeer;
 	}
 
-	public String getRestSmoke() {
+	public int getRestSmoke() {
 		return restSmoke;
 	}
 
-	public void setRestSmoke(String restSmoke) {
+	public void setRestSmoke(int restSmoke) {
 		this.restSmoke = restSmoke;
 	}
 
-	public String getRestSmokeroom() {
+	public int getRestSmokeroom() {
 		return restSmokeroom;
 	}
 
-	public void setRestSmokeroom(String restSmokeroom) {
+	public void setRestSmokeroom(int restSmokeroom) {
 		this.restSmokeroom = restSmokeroom;
 	}
 	

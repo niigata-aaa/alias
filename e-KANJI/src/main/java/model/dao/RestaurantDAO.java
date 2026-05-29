@@ -1,3 +1,5 @@
+package model.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,7 +57,21 @@ public class RestaurantDAO {
 				RestBean rest = new RestBean();
 				rest.setRestId(res.getInt("rest_id"));
 				rest.setRestName(res.getString("rest_name"));
-				rest.setGenre
+				rest.setRestGenre(res.getString("genre_name"));
+				rest.setRestCategory(res.getString("category_name"));
+				rest.setRestOpen(res.getString("rest_open"));
+				rest.setRestClose(res.getString("rest_close"));
+				rest.setRestNextday(res.getInt("rest_nextday"));
+				rest.setRestDistance(res.getInt("rest_distance"));
+				rest.setRestBudget(res.getInt("rest_budget"));
+				rest.setRestCapacity(res.getInt("rest_capacity"));
+				rest.setRestTel(res.getString("rest_tel"));
+				rest.setRestAddress(res.getString("rest_address"));
+				rest.setRestUrl(res.getString("rest_url"));
+				rest.setRestReview(res.getDouble("rest_review"));
+				rest.setRestBeer(res.getString("rest_beer"));
+				rest.setRestSmoke(res.getInt("rest_smoke"));
+				rest.setRestSmokeroom(res.getInt("rest_smokeroom"));
 
 				list.add(rest);
 			}
