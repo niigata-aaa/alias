@@ -13,10 +13,10 @@
 <form action="" method="post">
 <input type="submit" value="検索"><br>
 ■性別：
-<seelct name="gender">
+<select name="gender">
 <option value="men">男</option>
 <option value="women">女</option>
-</seelct>
+</select>
 
 ■役職：
 <select name="post">
