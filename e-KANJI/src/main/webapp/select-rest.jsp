@@ -176,7 +176,7 @@ gap:50;
 				</form>
 			</td>
 			<td>
-				<form action="select-rest-ok" method="POST">
+				<form action="select-rest-ok-servlet" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
 					<input type="submit" value="ここに決めた！">
 				</form>
