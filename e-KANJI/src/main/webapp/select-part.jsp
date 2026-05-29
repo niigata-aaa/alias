@@ -8,32 +8,48 @@
 <title>参加者一覧表示</title>
 </head>
 <body>
-
+<h1>参加者一覧表示・検索画面</h1>
+<br>
 <%--検索条件を表示 --%>
-<form action="" method="">
-■性別：<input type="checkbox" name="gender" value="men">男
-	<input type="checkbox" name="gender" value="women">女<br>
-	
+<<<<<<< HEAD
+<form action="" method="post">
+<input type="submit" value="検索"><br>
+■性別：
+<select name="gender">
+<option value="men">男</option>
+<option value="women">女</option>
+</select>
+
+=======
+<form action="select-part-servlet" method="post">
+キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
+<input type="submit" value="検索">
+
+>>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 ■役職：
-<input type="checkbox" name="post" value="">一般社員
-<input type="checkbox" name="post" value="">主任・主査<br>
-<input type="checkbox" name="post" value="">係長
-<input type="checkbox" name="post" value="">課長代理<br>
-<input type="checkbox" name="post" value="">課長
-<input type="checkbox" name="post" value="">副部長<br>
-<input type="checkbox" name="post" value="">部長・支社長・所長
-<input type="checkbox" name="post" value="">執行役員<br>
-<input type="checkbox" name="post" value="">常務取締役
-<input type="checkbox" name="post" value="">専務取締役<br>
-<input type="checkbox" name="post" value="">社長
-<input type="checkbox" name="post" value="">会長<br>
+<select name="post">
+<option value="">一般社員</option>
+<option value="">主任・主査</option>
+<option value="">係長</option>
+<option value="">課長代理</option>
+<option value="">課長</option>
+<option value="">副部長</option>
+<option value="">部長・支社長・所長</option>
+<option value="">執行役員</option>
+<option value="">常務取締役</option>
+<option value="">専務取締役</option>
+<option value="">社長</option>
+<option value="">会長</option>
+</select>
 
 ■入社年度：
 <input type="date" name="part_empyear">yyyy/mm/ddで入力<br>
 
 ■喫煙：
-<input type="checkbox" name="smoke" value="yes">吸う
-<input type="checkbox" name="smoke" value="no">吸わない
+<select name="smoke">
+<option value="yes">吸う</option>
+<option value="no">吸わない</option>
+</select>
 
 ■ビールの好み：
 <input type="checkbox"name="beer" value="">アサヒ
@@ -41,14 +57,15 @@
 <input type="checkbox"name="beer" value="">サントリー
 <input type="checkbox"name="beer" value="">サッポロ
 <input type="checkbox"name="beer" value="">エビス
-<input type="checkbox"name="beer" value="">特になし
+<input type="checkbox"name="beer" value="">特になし<br>
 </form>
-
 
 <%--参加者一覧表示 --%>
 
 <%
-		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");
+		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
+		
+	
 	%>
 <table border=1>
 		<tr>
@@ -71,8 +88,12 @@
 		</tr>
 
 		<%
-			for (PartBean part:partList) {
+				if(partList != null){
+					for (PartBean part : partList) {
+				
 		%>
+
+		
 		<tr>
 			<td><%=part.getUserID()%></td>
 			<td><%=part.getPartID()%></td>
@@ -102,8 +123,9 @@
 				</form>
 			</td>
 		</tr>
+		
 		<%
-			}
+			}}
 		%>
 
 	</table>
