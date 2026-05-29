@@ -37,7 +37,7 @@
 			}
 		%>
 
-	<form action="select-rest-servlet" method="POST">
+	<form action="select-rest" method="POST">
 		<input type="submit" value="飲食店一覧表示・検索画面へ戻る">
 	</form>
 
