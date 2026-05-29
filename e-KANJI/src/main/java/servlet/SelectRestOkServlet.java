@@ -9,14 +9,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.dao.LogDAO;
 import model.dao.RestaurantDAO;
+import model.dao.UserDAO;
 import model.entity.RestBean;
 
 /**
  * Servlet implementation class SelectRestOkServlet
  */
-@WebServlet("/select-rest-ok-servlet")
+@WebServlet("/select-rest-ok")
 public class SelectRestOkServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -49,10 +52,21 @@ public class SelectRestOkServlet extends HttpServlet {
 		// DAOの生成
 		RestaurantDAO dao = new RestaurantDAO();
 
+		LogDAO ldao = new LogDAO();
+
+		UserDAO udao = new UserDAO();
+
 		RestBean bean = new RestBean();
 
 		try {
 			bean = dao.select(id);
+
+			HttpSession session = request.getSession();
+			String userID = (String) session.getAttribute("user_id");
+
+			udao.updateChoice(id, userID);
+
+			ldao.insert(userID, id);
 
 			request.setAttribute("bean", bean);
 
