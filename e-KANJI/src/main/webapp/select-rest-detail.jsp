@@ -11,6 +11,10 @@
 <%
 	RestBean bean = (RestBean) request.getAttribute("bean");
 %>
+<%
+				if(bean != null){
+				
+		%>
 	<form action="select-rest-ok-servlet" method="POST">
 	<table>
 			<tr><th>店舗名</th><td><%=bean.getRestName() %></td></tr>
@@ -26,10 +30,12 @@
 			<tr><th>電話番号</th><td><%=bean.getRestTel() %></td></tr>
 			<tr><th>ビールの種類</th><td><%=bean.getRestBeer() %></td></tr>
 			<tr><th>口コミ</th><td><%=bean.getRestReview() %></td></tr>
-
 	</table>
 		<input type="submit" value="登録">
 	</form>
+	<%
+			}
+		%>
 
 	<form action="select-rest-servlet" method="POST">
 		<input type="submit" value="飲食店一覧表示・検索画面へ戻る">
