@@ -16,6 +16,10 @@
     text-align: left;
   }
   
+  table table{
+     vertical-align: top;
+  }
+  
   .submit-top-right {
         position: fixed;   
         top: 10px;         
@@ -23,7 +27,7 @@
         padding: 10px 20px;
         cursor: pointer;
 
-    }
+   }
   
 </style>
 
@@ -162,6 +166,7 @@
             </table>
 	
 	</form>
+	<br>
 
 <%
 	List<RestBean> list = (List<RestBean>)request.getAttribute("restList");
