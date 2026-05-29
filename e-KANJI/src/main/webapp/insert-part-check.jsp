@@ -11,6 +11,8 @@
     <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
     <h2>この参加者情報を登録します</h2>
 	<form action="insert-user-ok-servlet" method="POST">
+	    会員ID：<input type="hidden" name="user_id" value=""><br>
+	    参加者ID：<input type="hidden" name="part_id" value=""><br>
 	    氏名（漢字）：<input type="hidden" name="part_name" value="<%=part.getPartName()%>"><br>
 		氏名（かな）：<input type="hidden" name="part_ruby" value="<%=part.getPartRuby()%>"><br>
 		性別：<input type="hidden" name="part_gender" value="<%=part.getPartGender()%>"><br>
