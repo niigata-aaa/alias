@@ -32,77 +32,77 @@ public class ParticipantDAO {
 
 				//PreparedStatement pstmt=con.prerareStatement("SELECT * FROM m_participant WHERE user_id=?")
 				PreparedStatement pstmt=con.prepareStatement(url)){
-				
-				//String userID=pstmt.getParameter();
-				pstmt.setString(1, partUserID);
 
-				//Statement stmt=con.createStatement();
-				//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){
-				ResultSet res=pstmt.executeQuery();
+			//String userID=pstmt.getParameter();
+			pstmt.setString(1, partUserID);
 
-				//結果の操作
-				while(res.next()) {
-					//会員ID
-					String userID=res.getString("part_user");
+			//Statement stmt=con.createStatement();
+			//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){
+			ResultSet res=pstmt.executeQuery();
 
-					//参加者ID
-					String partID=res.getString("part_id");
+			//結果の操作
+			while(res.next()) {
+				//会員ID
+				String userID=res.getString("part_user");
 
-					//参加者名（漢字）
-					String partName=res.getString("part_name");
+				//参加者ID
+				String partID=res.getString("part_id");
 
-					//参加者名（かな）
-					String partRuby=res.getString("part_ruby");
+				//参加者名（漢字）
+				String partName=res.getString("part_name");
 
-					//性別
-					String gender=res.getString("part_gender");
+				//参加者名（かな）
+				String partRuby=res.getString("part_ruby");
 
-					//年齢
-					int age=res.getInt("part_age");
+				//性別
+				String gender=res.getString("part_gender");
 
-					//入社年度
-					int empyear=res.getInt("part_empyear");
+				//年齢
+				int age=res.getInt("part_age");
 
-					//役職
-					String post=res.getString("part_post");
+				//入社年度
+				int empyear=res.getInt("part_empyear");
 
-					//予算
-					int partBudget=res.getInt("part_budget");
+				//役職
+				String post=res.getString("part_post");
 
-					//アレルギー
-					String allergy=res.getString("part_allergy");
+				//予算
+				int partBudget=res.getInt("part_budget");
 
-					//食べ物の好み
-					String genre=res.getString("part_genre");
+				//アレルギー
+				String allergy=res.getString("part_allergy");
 
-					//好きな料理カテゴリ
-					String category=res.getString("part_category");
+				//食べ物の好み
+				String genre=res.getString("part_genre");
 
-					//ビールの好み
-					String beer=res.getString("part_beer");
+				//好きな料理カテゴリ
+				String category=res.getString("part_category");
 
-					//喫煙するか
-					int smoke=res.getInt("part_smoke");
+				//ビールの好み
+				String beer=res.getString("part_beer");
 
-					PartBean part=new PartBean();
-					part.setUserID(userID);
-					part.setPartID(partID);
-					part.setPartName(partName);
-					part.setPartRuby(partRuby);
-					part.setPartGender(gender);
-					part.setPartAge(age);
-					part.setPartEmpyear(empyear);
-					part.setPartPost(post);
-					part.setPartBudget(partBudget);
-					part.setPartAllergy(allergy);
-					part.setPartGenre(genre);
-					part.setPartCategory(category);
-					part.setPartBeer(beer);
-					part.setPartSmoke(smoke);
+				//喫煙するか
+				int smoke=res.getInt("part_smoke");
 
-					partList.add(part);
-				}
-	}return partList;
-}
+				PartBean part=new PartBean();
+				part.setUserID(userID);
+				part.setPartID(partID);
+				part.setPartName(partName);
+				part.setPartRuby(partRuby);
+				part.setPartGender(gender);
+				part.setPartAge(age);
+				part.setPartEmpyear(empyear);
+				part.setPartPost(post);
+				part.setPartBudget(partBudget);
+				part.setPartAllergy(allergy);
+				part.setPartGenre(genre);
+				part.setPartCategory(category);
+				part.setPartBeer(beer);
+				part.setPartSmoke(smoke);
+
+				partList.add(part);
+			}
+		}return partList;
+	}
 
 }

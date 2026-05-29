@@ -28,7 +28,8 @@
 </form>
 
 <%--参加者全表示 --%>
-<form action="/select-part-servlet" method="post">
+<form action="select-part-servlet" method="post">
+
 <input type="submit" value="参加者全表示">
 </form>
 
@@ -38,6 +39,7 @@
 キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
 <input type="submit" value="検索">
 
+<%--
 ■性別：
 <select name="gender">
 <option value="men">男</option>
@@ -61,7 +63,7 @@
 </select>
 
 ■入社年度：
-<%-- <input type="date" name="part_empyear">yyyy/mm/ddで入力<br>  --%>
+
 <select name="year">
 <%for (int i=2026;i>=1960;i--){ %>
 <option value=<%=i %>>
@@ -84,6 +86,8 @@
 <option value="sapporo">サッポロ</option>
 <option value="ebisu">エビス</option>
 <option value="all">特になし</option>
+
+--%>
 </select>
 
 <%--

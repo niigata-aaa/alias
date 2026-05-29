@@ -10,22 +10,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import model.dao.ParticipantDAO;
-import model.entity.PartBean;
+import model.dao.RestaurantDAO;
+import model.entity.RestBean;
 
 /**
- * Servlet implementation class SelectPartServlet
+ * Servlet implementation class NarrowRestServlet
  */
-@WebServlet("/select-part-servlet")
-public class SelectPartServlet extends HttpServlet {
+@WebServlet("/narrow-rest-servlet")
+public class NarrowRestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public SelectPartServlet() {
+	public NarrowRestServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -44,36 +43,40 @@ public class SelectPartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
-		List<PartBean> partList = null;
+		List<RestBean> narrowList = null;
 
-		// セッションオブジェクトの取得
-				HttpSession session = request.getSession();
-				
-				session.getAttribute("user_id");
-				
-		String part_user=request.getParameter("part_user");
-		
+		int genre = Integer.parseInt(request.getParameter("genre"));
+		int category = Integer.parseInt(request.getParameter("category"));
+		int beer=Integer.parseInt(request.getParameter("beer"));
+		double review=Double.parseDouble(request.getParameter("review"));
+		int capacity=Integer.parseInt(request.getParameter("capacity"));
+		int log=Integer.parseInt(request.getParameter("log"));
+		int distance=Integer.parseInt(request.getParameter("distance"));
+		int price=Integer.parseInt(request.getParameter("price"));
+		int smoke=Integer.parseInt(request.getParameter("smoke"));
+
 		//PartBean part=new PartBean();
-		
+
 		//part.setUserID(part_user);
-		
+
 		// DAOの生成
-		ParticipantDAO dao = new ParticipantDAO();
-		
+		RestaurantDAO dao = new RestaurantDAO();
+
 		try {
 			// DAOの利用
-			 partList = dao.selectAll(part_user);
+			narrowList = dao.narrowselect(genre, category, beer, review, capacity, log, distance, price, smoke);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
 		// リクエストスコープへの属性の設定
-		request.setAttribute("partList",partList);
+		request.setAttribute("narrowList",narrowList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("/select-part.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/select-rest.jsp");
 		rd.forward(request, response);
 
 	}
-
 }
+
+
