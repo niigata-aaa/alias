@@ -124,5 +124,25 @@ public class UserDAO {
 		return count;
 
 	}
+	
+	public int updateChoice(int rest_id, String user_id) throws SQLException, ClassNotFoundException {
+		int count = 0; //処理件数
+		String sql = "UPDATE m_user SET user_choice = ? WHERE user_id = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// プレースホルダへの値の設定
+			pstmt.setInt(1, rest_id);
+			pstmt.setString(2, user_id);
+
+			// SQLステートメントの実行
+			count = pstmt.executeUpdate();
+		}
+
+		return count;
+
+	}
 
 }
