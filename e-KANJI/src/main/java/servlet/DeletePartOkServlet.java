@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.ParticipantDAOd;
+import model.dao.ParticipantDAO;
 import model.entity.PartBean;
 
 /**
@@ -44,7 +44,7 @@ public class DeletePartOkServlet extends HttpServlet {
 
 		PartBean bean = (PartBean) request.getAttribute("bean");
 
-		ParticipantDAOd dao = new ParticipantDAOd();
+		ParticipantDAO dao = new ParticipantDAO();
 
 		int processingNumber = 0;
 

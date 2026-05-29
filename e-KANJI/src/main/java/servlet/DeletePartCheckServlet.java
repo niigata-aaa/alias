@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.dao.ParticipantDAOd;
+import model.dao.ParticipantDAO;
 import model.entity.PartBean;
 
 /**
@@ -42,14 +42,14 @@ public class DeletePartCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
-		ParticipantDAOd dao = new ParticipantDAOd();
+		ParticipantDAO dao = new ParticipantDAO();
 		
 		PartBean bean = new PartBean();
 
 		int partID = Integer.parseInt(request.getParameter("partID"));
 		
 		try {
-			bean = dao.delete(bean);
+			bean = dao.select(partID);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
