@@ -15,7 +15,7 @@
 				if(bean != null){
 				
 		%>
-	<form action="select-rest-ok-servlet" method="POST">
+	<form action="select-rest-ok" method="POST">
 	<table><table border=1>
 			<tr><th>店舗名</th><td><%=bean.getRestName() %></td></tr>
 			<tr><th>料理ジャンル</th><td><%=bean.getRestGenre() %></td></tr>
