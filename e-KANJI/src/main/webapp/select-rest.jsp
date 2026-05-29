@@ -6,13 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>飲食店一覧表示</title>
-<style>
-.searchArea{
-display:flex;
-gap:50;
-}
 
+<style>
+  .choice{
+  table {
+    border: 3px solid black; /* 外枠の太さと色 */
+    border-collapse: collapse; /* 枠線を重ねて1本にする */
+  }
+  th, td {
+    border: none; /* 内側の枠線を消す */
+    text-align: left; /* 横方向は左寄せ */
+    vertical-align: top; /* 縦方向は上揃え */
 </style>
+
 </head>
 
 <body>
@@ -20,81 +26,97 @@ gap:50;
 <br>
     <form action="select-rest-servlet" method="post">
 	    キーワード検索<input type="text" name="keyword" value="店舗名で検索してください">
-	    <input type="submit" value="検索">
+	    <input type="submit" value="検索"><br>
+        <br>
+        <table>
+        <tr><td>
 
-
-	    <table border=0>
-            <tr>
-                <td><input type="checkbox" name="rest_genre" value="">和食</td>
-                <td><input type="checkbox" name="rest_genre" value="">洋食</td>
-                <td> <input type="checkbox" name="rest_genre" value="">中華</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="rest_genre" value="">フレンチ</td>
-                <td><input type="checkbox" name="rest_genre" value="">韓国</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>カレー</td>
-                <td>居酒屋</td>
-                <td>焼肉</td>
-            </tr>
-            <tr>
-                <td>鍋</td>
-            </tr>
-            
-        </table><br>
-           <div class="searchArea">
-	    <h3>料理ジャンル</h3>
-
-	    <input type="checkbox" name="rest_genre" value="">和食
-	    <input type="checkbox" name="rest_genre" value="">洋食
-	    <input type="checkbox" name="rest_genre" value="">中華<br>
-
-	    <input type="checkbox" name="rest_genre" value="">フレンチ
-	    <input type="checkbox" name="rest_genre" value="">韓国<br>
-
-	    <input type="checkbox" name="rest_genre" value="">アジア・エスニック
-	    <input type="checkbox" name="rest_genre" value="">カレー<br>
-
-	    <input type="checkbox" name="rest_genre" value="">居酒屋
-	    <input type="checkbox" name="rest_genre" value="">焼肉
-	    <input type="checkbox" name="rest_genre" value="">鍋<br>
-
-	    <h3>食材カテゴリ</h3>
-	    <input type="checkbox" name="rest_category" value="">肉
-	    <input type="checkbox" name="rest_category" value="">海鮮
-	    <input type="checkbox" name="rest_category" value="">野菜<br>
-	    <input type="checkbox" name="rest_category" value="">麺
-	    <input type="checkbox" name="rest_category" value="">米
-	    <input type="checkbox" name="rest_category" value="">揚げ物<br>
-	    <input type="checkbox" name="rest_category" value="">酒<br>
-	    <h3>ビールの種類</h3>
-	    <input type="checkbox" name="rest_beer" value="">アサヒ
-	    <input type="checkbox" name="rest_beer" value="">キリン<br>
-	    <input type="checkbox" name="rest_beer" value="">サッポロ
-	    <input type="checkbox" name="rest_beer" value="">サントリー<br>
-	    <input type="checkbox" name="rest_beer" value="">エビス
-	    <input type="checkbox" name="rest_beer" value="">クラフトビール<br>
-	    <input type="checkbox" name="rest_beer" value="">特になし<br>
-	    </div>
+	        <table class="choice" border=0>
+                <tr><th>料理ジャンル</th></tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_genre" value="">和食</td>
+                    <td><input type="checkbox" name="rest_genre" value="">洋食</td>
+                    <td> <input type="checkbox" name="rest_genre" value="">中華</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_genre" value="">フレンチ</td>
+                    <td><input type="checkbox" name="rest_genre" value="">韓国</td>
+                    <td><input type="checkbox" name="rest_genre" value="">アジア・エスニック</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_genre" value="">カレー</td>
+                    <td><input type="checkbox" name="rest_genre" value="">居酒屋</td>
+                    <td><input type="checkbox" name="rest_genre" value="">焼肉</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_genre" value="">鍋</td>
+                </tr>
+            </table>
+            </td>
+            <td>
+            <table class="choice" border=0>
+                <th>食材カテゴリ</th>
+                <tr>
+                    <td><input type="checkbox" name="rest_category" value="">肉</td>
+                    <td><input type="checkbox" name="rest_category" value="">海鮮</td>
+                    <td><input type="checkbox" name="rest_category" value="">野菜</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_category" value="">麺</td>
+                    <td><input type="checkbox" name="rest_category" value="">米</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_category" value="">揚げ物</td>
+                    <td><input type="checkbox" name="rest_category" value="">酒</td>
+                </tr>
+            </table>
+            </td>
+            <td>
+            <table class="choice" border=0>
+                <tr><th>ビールの種類</th></tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_beer" value="">アサヒ</td>
+                    <td><input type="checkbox" name="rest_beer" value="">キリン</td>
+                    <td><input type="checkbox" name="rest_beer" value="">サッポロ</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_beer" value="">サントリー</td>
+                    <td><input type="checkbox" name="rest_beer" value="">エビス</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="rest_beer" value="">クラフトビール</td>
+                    <td><input type="checkbox" name="rest_beer" value="">特になし</td>
+                </tr>
+            </table>
+        </td></tr>
+        </table>
 	    
-	    <h3>評価</h3>
-	    <select name="rest_review">
-	    <option value=""></option>
-	    <option value="">☆１～２</option>
-	    <option value="">☆２～３</option>
-	    <option value="">☆３～４</option>
-	    <option value="">☆４～５</option>
-	    </select>
-	    <h3>最大収容数</h3>
-	    <select name="rest_capacity">
-	    <option value=""></option>
-	    <option value="">1～5</option>
-	    <option value="">5～10</option>
-	    <option value="">10～15</option>
-	    <option value="">15～</option>
-	    </select><br>
+	    <table border=0>
+                <tr><th>評価</th>
+                    <td><select name="rest_review">
+                            <option value=""></option>
+                            <option value="">☆１～２</option>
+                            <option value="">☆２～３</option>
+                            <option value="">☆３～４</option>
+                            <option value="">☆４～５</option>
+                        </select>
+                    </td>
+                    <th>最大収容数</th>
+                    <td><select name="rest_capacity">
+                            <option value=""></option>
+                            <option value="">1～5人</option>
+                            <option value="">5～10人</option>
+                            <option value="">10～15人</option>
+                            <option value="">15～人</option>
+                        </select>
+                    </td>
+                  
+       
+                </tr>
+            </table>
+	
 	    <h3>訪問履歴</h3>
 	    <select name="log>
 	    <option value=""></option>
@@ -176,7 +198,7 @@ gap:50;
 				</form>
 			</td>
 			<td>
-				<form action="select-rest-ok-servlet" method="POST">
+				<form action="select-rest-ok" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
 					<input type="submit" value="ここに決めた！">
 				</form>
