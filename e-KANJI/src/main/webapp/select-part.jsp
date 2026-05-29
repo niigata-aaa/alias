@@ -25,14 +25,10 @@
 <option value="women">女</option>
 </select>
 
-<<<<<<< HEAD
-=======
-=======
-<form action="select-part-servlet" method="post">
-キーワード検索<input type="text" name="keyword" value="苗字か名前で検索してください">
-<input type="submit" value="検索">
 
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
+
+
 ■役職：
 <select name="post">
 <option value="">一般社員</option>
@@ -67,10 +63,7 @@
 <input type="checkbox"name="beer" value="">特になし<br>
 </form>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 <%--参加者一覧表示 --%>
 
 <%
