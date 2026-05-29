@@ -69,7 +69,7 @@ public class RestaurantDAO {
 				rest.setRestAddress(res.getString("rest_address"));
 				rest.setRestUrl(res.getString("rest_url"));
 				rest.setRestReview(res.getDouble("rest_review"));
-				rest.setRestBeer(res.getString("rest_beer"));
+				rest.setRestBeer(res.getString("beer_name"));
 				rest.setRestSmoke(res.getInt("rest_smoke"));
 				rest.setRestSmokeroom(res.getInt("rest_smokeroom"));
 
