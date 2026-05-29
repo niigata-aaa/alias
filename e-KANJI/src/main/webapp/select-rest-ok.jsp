@@ -10,6 +10,9 @@
 <h2>飲食店選択完了</h2><br>
 	以下の飲食店の訪問履歴に追加されました。
 	いってらっしゃいませ👋
+<%
+	RestBean bean = (RestBean) request.getAttribute("bean");
+%>
 
 		<table><table border=1>
 				<tr><th>店舗名</th><td><%=bean.getRestName() %></td></tr>
