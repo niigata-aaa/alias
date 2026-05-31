@@ -28,7 +28,8 @@
 </form>
 
 <%--参加者全表示 --%>
-<form action="/select-part-servlet" method="post">
+<form action="select-part-servlet" method="post">
+
 <input type="submit" value="参加者全表示">
 </form>
 
@@ -46,17 +47,67 @@ if(narrowList != null){
     for(PartBean part : narrowList){
 %>
 
+<<<<<<< HEAD
 <tr>
     <td><%=part.getPartName()%></td>
   
 </tr>
+=======
+<%--
+■性別：
+<select name="gender">
+<option value="men">男</option>
+<option value="women">女</option>
+</select>
+>>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 
 <%
     }
 }
 %>
 
+<<<<<<< HEAD
+=======
+■入社年度：
 
+<select name="year">
+<%for (int i=2026;i>=1960;i--){ %>
+<option value=<%=i %>>
+	<%=i %>年
+</option>
+<%} %>
+</select>
+>>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
+<<<<<<< HEAD
+=======
+■喫煙：
+<select name="smoke">
+<option value="yes">吸う</option>
+<option value="no">吸わない</option>
+</select>
+
+■ビールの好み：
+<select name="beer">
+<option value="asahi">アサヒ</option>
+<option value="kirin">キリン</option>
+<option value="snatory">サントリー</option>
+<option value="sapporo">サッポロ</option>
+<option value="ebisu">エビス</option>
+<option value="all">特になし</option>
+
+--%>
+</select>
+
+<%--
+<input type="checkbox"name="beer" value="">アサヒ
+<input type="checkbox"name="beer" value="">キリン
+<input type="checkbox"name="beer" value="">サントリー
+<input type="checkbox"name="beer" value="">サッポロ
+<input type="checkbox"name="beer" value="">エビス
+<input type="checkbox"name="beer" value="">特になし<br>
+--%>
+>>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 
 </form>
 

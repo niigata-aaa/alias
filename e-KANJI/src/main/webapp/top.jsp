@@ -9,8 +9,8 @@
 <body>
 	<%@ include file="header-logo.jsp" %>
 	<%@ include file="header-user-id.jsp" %>
-	<h2>会員メニュー</h2>
-	<form action="select-part" method="POST">
+	<h2>会員メニュー</h2><%--select-part  --%>
+	<form action="select-part-servlet" method="POST">
 		<input type="submit" value="参加者管理画面">
 	</form>
 	<form action="select-rest" method="POST">
