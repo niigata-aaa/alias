@@ -153,6 +153,7 @@ if(narrowList != null){
 					<input type="submit" value="更新">
 				</form>
 			</td>
+			
 			<td>
 				<form action="delete-part-check-servlet" method="POST">
 					<input type="hidden" name="partID" value="<%=part.getPartID()%>">
