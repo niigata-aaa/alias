@@ -10,9 +10,9 @@
 <body>
 <%	
 	UserBean user = (UserBean)request.getAttribute("user");
-	String user_id = user.getUserId();
-	String user_name = user.getUserName();
-	String user_pass = user.getUserPass();
+	String userId = user.getUserId();
+	String userName = user.getUserName();
+	String userPass = user.getUserPass();
 %>
 
 	<%@ include file="header-logo.jsp"%>
@@ -25,11 +25,23 @@
 		<table>
 			<tr>
 				<th>会員ID</th>
-				<td><%=user_id %></td>
+				<td><%=userId %></td>
 			</tr>
 			<tr>
 				<th>名前</th>
-				<td><%=user_name %></td>
+				<td><%=userName %></td>
+			</tr>
+			<tr>
+				<th>パスワード</th>
+				<td>
+		        <%
+					for(int i = 0; i < userPass.length(); i++){
+		        %>
+					*
+				<%
+		        	}
+		        %>
+    			</td>
 			</tr>
 		</table>
 	</div>
