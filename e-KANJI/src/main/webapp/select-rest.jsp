@@ -201,12 +201,12 @@ table table {
 	</form>
 
 	<br>
-
+</div>
 	<%
 	List<RestBean> list = (List<RestBean>) request.getAttribute("restList");
 	%>
 
-
+<div class="example"><br>
 	<table border=1>
 		<tr>
 			<th>店名</th>
@@ -264,5 +264,6 @@ table table {
 
 
 	</table>
+</div>
 </body>
 </html>
