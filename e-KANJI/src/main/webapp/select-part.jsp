@@ -47,27 +47,34 @@ if(narrowList != null){
     for(PartBean part : narrowList){
 %>
 
-<<<<<<< HEAD
+
 <tr>
-    <td><%=part.getPartName()%></td>
+
+			<td><%=part.getPartID()%></td>
+			<td><%=part.getPartName() %></td>
+			<td><%=part.getPartRuby() %></td>
+			<td><%=part.getPartGender() %></td>
+			<td><%=part.getPartAge() %></td>
+			<td><%=part.getPartEmpyear() %></td>
+			<td><%=part.getPartPost() %></td>
+			<td><%=part.getPartBudget() %></td>
+			<td><%=part.getPartAllergy() %></td>
+			<td><%=part.getPartGenre() %></td>
+			<td><%=part.getPartCategory() %></td>
+			<td><%=part.getPartBeer() %></td>
+			<td><%=part.getPartSmoke() %></td>
   
 </tr>
-=======
-<%--
-■性別：
-<select name="gender">
-<option value="men">男</option>
-<option value="women">女</option>
-</select>
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
+
+
 
 <%
     }
 }
 %>
 
-<<<<<<< HEAD
-=======
+
 ■入社年度：
 
 <select name="year">
@@ -77,10 +84,8 @@ if(narrowList != null){
 </option>
 <%} %>
 </select>
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
 
-<<<<<<< HEAD
-=======
+
 ■喫煙：
 <select name="smoke">
 <option value="yes">吸う</option>
@@ -107,7 +112,7 @@ if(narrowList != null){
 <input type="checkbox"name="beer" value="">エビス
 <input type="checkbox"name="beer" value="">特になし<br>
 --%>
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
 
 </form>
 
