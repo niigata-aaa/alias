@@ -60,7 +60,7 @@ public class DeleteAllPartOkServlet extends HttpServlet {
 		request.setAttribute("num", num);
 
 		if (num > 0) {
-			RequestDispatcher rd = request.getRequestDispatcher("delete-all-ok.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("delete-all-part-ok.jsp");
 			rd.forward(request, response);
 		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("delete-all-part-failure.jsp");
