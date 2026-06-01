@@ -15,12 +15,15 @@
 <%-- <form action="" method="post">
 <input type="submit" value="検索"><br>--%>
 
+<%--トップに戻る --%>
+<form action="top.jsp" method="post">
+<input type="submit" value="トップに戻る">
+</form>
 
 <%--参加者情報登録画面へ --%>
 <form action="insert-part.jsp" method="post">
 <input type="submit" value="参加者情報登録">
 </form>
-
 
 <%--参加者一括削除 --%>
 <form action="dlete-all-part-check-servlet" method="post">
