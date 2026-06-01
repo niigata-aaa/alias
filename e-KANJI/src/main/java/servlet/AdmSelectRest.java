@@ -67,7 +67,7 @@ public class AdmSelectRest extends HttpServlet {
 		request.setAttribute("restList", restList);
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("/select-rest.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("adm-select-rest.jsp");
 		rd.forward(request, response);
 
 
