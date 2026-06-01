@@ -40,40 +40,32 @@ public class NarrowPartSavlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
 		List<PartBean> narrowList = null;
 		
-		String part_name=request.getParameter("part_name");
-		
-		//PartBean part=new PartBean();
-		
-		//part.setUserID(part_user);
+		String part_name = request.getParameter("part_name");
 		
 		// DAOの生成
 		ParticipantDAO dao = new ParticipantDAO();
 		
 		try {
-			// DAOの利用
-			 narrowList = dao.select(part_name);
-		
+			// DAOの利用（名前で部分一致検索）
+			narrowList = dao.select(part_name);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
-		 
-		// リクエストスコープへの属性の設定
-//			request.setAttribute("narrowList", narrowList);
-			request.setAttribute("partList", narrowList);
+		// JSP側が「partList」という名前でテーブル表示を待っているため、ここで設定します
+		request.setAttribute("partList", narrowList);
 	
-
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("/select-part.jsp");
 		rd.forward(request, response);
-
-		
-		
 	}
 
 }

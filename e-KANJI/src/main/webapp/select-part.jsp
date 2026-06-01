@@ -17,7 +17,7 @@
 
 
 <%--参加者情報登録画面へ --%>
-<form action="" method="post">
+<form action="insert-part.jsp" method="post">
 <input type="submit" value="参加者情報登録">
 </form>
 
@@ -47,57 +47,34 @@ if(narrowList != null){
     for(PartBean part : narrowList){
 %>
 
-<<<<<<< HEAD
+
 <tr>
-    <td><%=part.getPartName()%></td>
+
+			<td><%=part.getPartID()%></td>
+			<td><%=part.getPartName() %></td>
+			<td><%=part.getPartRuby() %></td>
+			<td><%=part.getPartGender() %></td>
+			<td><%=part.getPartAge() %></td>
+			<td><%=part.getPartEmpyear() %></td>
+			<td><%=part.getPartPost() %></td>
+			<td><%=part.getPartBudget() %></td>
+			<td><%=part.getPartAllergy() %></td>
+			<td><%=part.getPartGenre() %></td>
+			<td><%=part.getPartCategory() %></td>
+			<td><%=part.getPartBeer() %></td>
+			<td><%=part.getPartSmoke() %></td>
   
 </tr>
-=======
-<%--
-■性別：
-<select name="gender">
-<option value="men">男</option>
-<option value="women">女</option>
-</select>
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
+
+
 
 <%
     }
 }
 %>
 
-<<<<<<< HEAD
-=======
-■入社年度：
 
-<select name="year">
-<%for (int i=2026;i>=1960;i--){ %>
-<option value=<%=i %>>
-	<%=i %>年
-</option>
-<%} %>
-</select>
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
-
-<<<<<<< HEAD
-=======
-■喫煙：
-<select name="smoke">
-<option value="yes">吸う</option>
-<option value="no">吸わない</option>
-</select>
-
-■ビールの好み：
-<select name="beer">
-<option value="asahi">アサヒ</option>
-<option value="kirin">キリン</option>
-<option value="snatory">サントリー</option>
-<option value="sapporo">サッポロ</option>
-<option value="ebisu">エビス</option>
-<option value="all">特になし</option>
-
---%>
-</select>
 
 <%--
 <input type="checkbox"name="beer" value="">アサヒ
@@ -107,7 +84,7 @@ if(narrowList != null){
 <input type="checkbox"name="beer" value="">エビス
 <input type="checkbox"name="beer" value="">特になし<br>
 --%>
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
 
 </form>
 
