@@ -41,42 +41,10 @@
 <form action="narrow-part-savlet" method="post">
 キーワード検索<input type="text" name="part_name" placeholder="苗字か名前で検索してください">
 <input type="submit" value="検索">
-<%
-List<PartBean> narrowList =
-(List<PartBean>) request.getAttribute("narrowList");
-%>
-<%
-if(narrowList != null){
-    for(PartBean part : narrowList){
-%>
 
-
-<tr>
-
-			<td><%=part.getPartID()%></td>
-			<td><%=part.getPartName() %></td>
-			<td><%=part.getPartRuby() %></td>
-			<td><%=part.getPartGender() %></td>
-			<td><%=part.getPartAge() %></td>
-			<td><%=part.getPartEmpyear() %></td>
-			<td><%=part.getPartPost() %></td>
-			<td><%=part.getPartBudget() %></td>
-			<td><%=part.getPartAllergy() %></td>
-			<td><%=part.getPartGenre() %></td>
-			<td><%=part.getPartCategory() %></td>
-			<td><%=part.getPartBeer() %></td>
-			<td><%=part.getPartSmoke() %></td>
-  
-</tr>
-
-
-
-
-<%
-    }
-}
-%>
-
+	<%
+		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
+	%>
 
 
 <%--
@@ -94,9 +62,7 @@ if(narrowList != null){
 
 
 <%--参加者一覧表示 --%>
-	<%
-		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
-	%>
+
 <table border=1>
 		<tr>
 			<th>登録した幹事のID</th>
@@ -118,7 +84,7 @@ if(narrowList != null){
 		</tr>
 
 		<%
-		if(narrowList != null){			
+				
 		for (PartBean part : partList) {
 		%>
 
@@ -154,7 +120,7 @@ if(narrowList != null){
 		
 		<%
 			}
-		}
+		
 		%>
 
 	</table>
