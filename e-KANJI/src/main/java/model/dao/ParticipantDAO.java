@@ -32,14 +32,12 @@ public class ParticipantDAO {
 
 				//PreparedStatement pstmt=con.prerareStatement("SELECT * FROM m_participant WHERE user_id=?")
 				PreparedStatement pstmt=con.prepareStatement(url)){
-<<<<<<< HEAD
+
 				
 				//String userID=pstmt.getParameter();
 				pstmt.setString(1, partUserID);
 				
-			
-=======
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
 
 			//String userID=pstmt.getParameter();
 			pstmt.setString(1, partUserID);
@@ -54,7 +52,7 @@ public class ParticipantDAO {
 				String userID=res.getString("part_user");
 
 				//参加者ID
-				String partID=res.getString("part_id");
+				int partID=res.getInt("part_id");
 
 				//参加者名（漢字）
 				String partName=res.getString("part_name");
@@ -92,8 +90,24 @@ public class ParticipantDAO {
 				//喫煙するか
 				int smoke=res.getInt("part_smoke");
 
-<<<<<<< HEAD
-					partList.add(part);
+				PartBean part=new PartBean();
+				part.setUserID(userID);
+				part.setPartID(partID);
+				part.setPartName(partName);
+				part.setPartRuby(partRuby);
+				part.setPartGender(gender);
+				part.setPartAge(age);
+				part.setPartEmpyear(empyear);
+				part.setPartPost(post);
+				part.setPartBudget(partBudget);
+				part.setPartAllergy(allergy);
+				part.setPartGenre(genre);
+				part.setPartCategory(category);
+				part.setPartBeer(beer);
+				part.setPartSmoke(smoke);
+
+				partList.add(part);
+				
 				}
 	}return partList;
 	}
@@ -126,7 +140,7 @@ public List<PartBean> select(String partPartName) throws SQLException, ClassNotF
 				String userID=res.getString("part_user");
 
 				//参加者ID
-				String partID=res.getString("part_id");
+				int partID=res.getInt("part_id");
 
 				//参加者名（漢字）
 				String partName=res.getString("part_name");
@@ -186,29 +200,100 @@ public List<PartBean> select(String partPartName) throws SQLException, ClassNotF
 }return narrowList;
 
 }
-}
-=======
-				PartBean part=new PartBean();
-				part.setUserID(userID);
-				part.setPartID(partID);
-				part.setPartName(partName);
-				part.setPartRuby(partRuby);
-				part.setPartGender(gender);
-				part.setPartAge(age);
-				part.setPartEmpyear(empyear);
-				part.setPartPost(post);
-				part.setPartBudget(partBudget);
-				part.setPartAllergy(allergy);
-				part.setPartGenre(genre);
-				part.setPartCategory(category);
-				part.setPartBeer(beer);
-				part.setPartSmoke(smoke);
 
-				partList.add(part);
-			}
-		}return partList;
+
+	
+	public PartBean select(int part_ID) throws SQLException, ClassNotFoundException {
+
+		PartBean bean = new PartBean();
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement("SELECT * FROM m_participant WHERE part_id = ?")) {
+
+			pstmt.setInt(1, part_ID);
+
+			ResultSet res = pstmt.executeQuery();
+
+			//結果の操作
+
+			//会員ID
+			int partID=res.getInt("part_id");
+			
+			//参加者ID
+			String userID=res.getString("part_user");
+			
+			//参加者名（漢字）
+			String partName=res.getString("part_name");
+			
+			//参加者名（かな）
+			String partRuby=res.getString("part_ruby");
+			
+			//性別
+			String gender=res.getString("part_gender");
+			
+			//年齢
+			int age=res.getInt("part_age");
+			
+			//入社年度
+			int empyear=res.getInt("part_empyear");
+			
+			//役職
+			String post=res.getString("part_post");
+			
+			//予算
+			int partBudget=res.getInt("part_budget");
+			
+			//アレルギー
+			String allergy=res.getString("part_allergy");
+			
+			//食べ物の好み
+			String genre=res.getString("part_genre");
+			
+			//好きな料理カテゴリ
+			String category=res.getString("part_category");
+			
+			//ビールの好み
+			String beer=res.getString("part_beer");
+			
+			//喫煙するか
+			int smoke=res.getInt("part_smoke");
+
+			bean.setUserID(userID);
+			bean.setPartID(partID);
+			bean.setPartName(partName);
+			bean.setPartRuby(partRuby);
+			bean.setPartGender(gender);
+			bean.setPartAge(age);
+			bean.setPartEmpyear(empyear);
+			bean.setPartPost(post);
+			bean.setPartBudget(partBudget);
+			bean.setPartAllergy(allergy);
+			bean.setPartGenre(genre);
+			bean.setPartCategory(category);
+			bean.setPartBeer(beer);
+			bean.setPartSmoke(smoke);
+
+		}
+		return bean;
 	}
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
+	public int delete(PartBean bean) throws SQLException, ClassNotFoundException {
+		int processingNumber = 0;
+
+		String sql = "DELETE FROM m_participant WHERE part_id = ? and part_user = ?";
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setInt(1, bean.getPartID());
+			pstmt.setString(2, bean.getUserID());
+
+			processingNumber = pstmt.executeUpdate();
+		}
+		return processingNumber;
+	}
 
 
+
+	}
 
