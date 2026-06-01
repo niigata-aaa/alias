@@ -85,6 +85,54 @@ public class UserDAO {
 		}
 		return userList;
 	}
+	
+	public List<UserBean> search(String userId, String userName, Integer userStop)
+			throws SQLException, ClassNotFoundException {
+
+		List<UserBean> list = new ArrayList<>();
+		StringBuilder sql = new StringBuilder("SELECT * FROM m_user WHERE 1=1");
+
+		List<Object> params = new ArrayList<>();
+
+		if (userId != null && !userId.isEmpty()) {
+			sql.append(" AND user_id LIKE ?");
+			params.add("%" + userId + "%");
+		}
+
+		if (userName != null && !userName.isEmpty()) {
+			sql.append(" AND user_name LIKE ?");
+			params.add("%" + userName + "%");
+		}
+
+		if (userStop != null) {
+			sql.append(" AND user_stop = ?");
+			params.add(userStop);
+		}
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql.toString())) {
+
+			for (int i = 0; i < params.size(); i++) {
+				pstmt.setObject(i + 1, params.get(i));
+			}
+
+			ResultSet res = pstmt.executeQuery();
+
+			while (res.next()) {
+				UserBean user = new UserBean();
+
+				user.setUserId(res.getString("user_id"));
+				user.setUserName(res.getString("user_name"));
+				user.setUserPass(res.getString("user_pass"));
+				user.setUserChoice(res.getInt("user_choice"));
+				user.setUserStop(res.getInt("user_stop"));
+
+				list.add(user);
+			}
+		}
+
+		return list;
+	}
 
 	public boolean loginCheck(String userId, String userPass) throws ClassNotFoundException, SQLException {
 
@@ -170,6 +218,24 @@ public class UserDAO {
 
 		return count;
 
+	}
+	
+	public int delete(String userId) throws SQLException, ClassNotFoundException {
+		int count = 0;
+		String sql = "DELETE FROM m_user WHERE user_id = ?";
+
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			// プレースホルダへの値の設定
+			pstmt.setString(1, userId);
+
+			// SQLステートメントの実行
+			count = pstmt.executeUpdate();
+		}
+
+		return count;
 	}
 
 }
