@@ -52,6 +52,12 @@ List<PartBean> narrowList =
 %>
 <%
 if(narrowList != null){
+	
+	
+	
+	
+	
+	
     for(PartBean part : narrowList){
 %>
 
