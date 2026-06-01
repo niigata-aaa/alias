@@ -30,6 +30,7 @@ table table {
 
 </head>
 
+
 <body>
 	<h1>飲食店一覧表示・検索画面</h1>
 	<br>
