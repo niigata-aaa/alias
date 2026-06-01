@@ -23,7 +23,7 @@
 
 
 <%--参加者一括削除 --%>
-<form action="" method="post">
+<form action="dlete-all-part-check-servlet" method="post">
 <input type="submit" value="参加者一括削除">
 </form>
 

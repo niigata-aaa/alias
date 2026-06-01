@@ -23,74 +23,71 @@ public class ParticipantDAO {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public List<PartBean> selectAll(String partUserID) throws SQLException, ClassNotFoundException{
+	public List<PartBean> selectAll(String partUserID) throws SQLException, ClassNotFoundException {
 
-		List<PartBean> partList=new ArrayList<PartBean>();
-		String url="SELECT * FROM m_participant WHERE part_user=?";
+		List<PartBean> partList = new ArrayList<PartBean>();
+		String url = "SELECT * FROM m_participant WHERE part_user=?";
 		//DB接続の取得、
-		try(Connection con =ConnectionManager.getConnection();
+		try (Connection con = ConnectionManager.getConnection();
 
 				//PreparedStatement pstmt=con.prerareStatement("SELECT * FROM m_participant WHERE user_id=?")
-				PreparedStatement pstmt=con.prepareStatement(url)){
+				PreparedStatement pstmt = con.prepareStatement(url)) {
 
-				
-				//String userID=pstmt.getParameter();
-				pstmt.setString(1, partUserID);
-				
-
+			//String userID=pstmt.getParameter();
+			pstmt.setString(1, partUserID);
 
 			//String userID=pstmt.getParameter();
 			pstmt.setString(1, partUserID);
 
 			//Statement stmt=con.createStatement();
 			//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){
-			ResultSet res=pstmt.executeQuery();
+			ResultSet res = pstmt.executeQuery();
 
 			//結果の操作
-			while(res.next()) {
+			while (res.next()) {
 				//会員ID
-				String userID=res.getString("part_user");
+				String userID = res.getString("part_user");
 
 				//参加者ID
-				int partID=res.getInt("part_id");
+				int partID = res.getInt("part_id");
 
 				//参加者名（漢字）
-				String partName=res.getString("part_name");
+				String partName = res.getString("part_name");
 
 				//参加者名（かな）
-				String partRuby=res.getString("part_ruby");
+				String partRuby = res.getString("part_ruby");
 
 				//性別
-				String gender=res.getString("part_gender");
+				String gender = res.getString("part_gender");
 
 				//年齢
-				int age=res.getInt("part_age");
+				int age = res.getInt("part_age");
 
 				//入社年度
-				int empyear=res.getInt("part_empyear");
+				int empyear = res.getInt("part_empyear");
 
 				//役職
-				String post=res.getString("part_post");
+				String post = res.getString("part_post");
 
 				//予算
-				int partBudget=res.getInt("part_budget");
+				int partBudget = res.getInt("part_budget");
 
 				//アレルギー
-				String allergy=res.getString("part_allergy");
+				String allergy = res.getString("part_allergy");
 
 				//食べ物の好み
-				String genre=res.getString("part_genre");
+				String genre = res.getString("part_genre");
 
 				//好きな料理カテゴリ
-				String category=res.getString("part_category");
+				String category = res.getString("part_category");
 
 				//ビールの好み
-				String beer=res.getString("part_beer");
+				String beer = res.getString("part_beer");
 
 				//喫煙するか
-				int smoke=res.getInt("part_smoke");
+				int smoke = res.getInt("part_smoke");
 
-				PartBean part=new PartBean();
+				PartBean part = new PartBean();
 				part.setUserID(userID);
 				part.setPartID(partID);
 				part.setPartName(partName);
@@ -107,104 +104,99 @@ public class ParticipantDAO {
 				part.setPartSmoke(smoke);
 
 				partList.add(part);
-				
-				}
-	}return partList;
-	}
-	
 
-
-	public List<PartBean> select(String partPartName) throws SQLException, ClassNotFoundException{
-	
-		ArrayList<PartBean> narrowList=new ArrayList<PartBean>();
-		String sql="SELECT * FROM m_participant WHERE part_name LIKE ?";
-		//DB接続の取得、
-		try(Connection con =ConnectionManager.getConnection();
-	
-				//PreparedStatement pstmt=con.prerareStatement("SELECT * FROM m_participant WHERE user_id=?")
-				PreparedStatement pstmt=con.prepareStatement(sql)){
-				
-				//String userID=pstmt.getParameter();
-			pstmt.setString(1, "%" + partPartName + "%");
-				
-			
-	
-				//Statement stmt=con.createStatement();
-				//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){
-				ResultSet res=pstmt.executeQuery();
-	
-				//結果の操作
-				while(res.next()) {
-	
-					//会員ID
-					String userID=res.getString("part_user");
-	
-					//参加者ID
-					int partID=res.getInt("part_id");
-	
-					//参加者名（漢字）
-					String partName=res.getString("part_name");
-	
-					//参加者名（かな）
-					String partRuby=res.getString("part_ruby");
-	
-					//性別
-					String gender=res.getString("part_gender");
-	
-					//年齢
-					int age=res.getInt("part_age");
-	
-					//入社年度
-					int empyear=res.getInt("part_empyear");
-	
-					//役職
-					String post=res.getString("part_post");
-	
-					//予算
-					int partBudget=res.getInt("part_budget");
-	
-					//アレルギー
-					String allergy=res.getString("part_allergy");
-	
-					//食べ物の好み
-					String genre=res.getString("part_genre");
-	
-					//好きな料理カテゴリ
-					String category=res.getString("part_category");
-	
-					//ビールの好み
-					String beer=res.getString("part_beer");
-	
-					//喫煙するか
-					int smoke=res.getInt("part_smoke");
-	
-					PartBean part=new PartBean();
-					part.setUserID(userID);
-					part.setPartID(partID);
-					part.setPartName(partName);
-					part.setPartRuby(partRuby);
-					part.setPartGender(gender);
-					part.setPartAge(age);
-					part.setPartEmpyear(empyear);
-					part.setPartPost(post);
-					part.setPartBudget(partBudget);
-					part.setPartAllergy(allergy);
-					part.setPartGenre(genre);
-					part.setPartCategory(category);
-					part.setPartBeer(beer);
-					part.setPartSmoke(smoke);
-	
-					narrowList.add(part);
-					
-				}
+			}
 		}
-		
-		return narrowList;
-	
+		return partList;
 	}
 
+	public List<PartBean> select(String partPartName) throws SQLException, ClassNotFoundException {
 
-	
+		ArrayList<PartBean> narrowList = new ArrayList<PartBean>();
+		String sql = "SELECT * FROM m_participant WHERE part_name LIKE ?";
+		//DB接続の取得、
+		try (Connection con = ConnectionManager.getConnection();
+
+				//PreparedStatement pstmt=con.prerareStatement("SELECT * FROM m_participant WHERE user_id=?")
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			//String userID=pstmt.getParameter();
+			pstmt.setString(1, "%" + partPartName + "%");
+
+			//Statement stmt=con.createStatement();
+			//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){
+			ResultSet res = pstmt.executeQuery();
+
+			//結果の操作
+			while (res.next()) {
+
+				//会員ID
+				String userID = res.getString("part_user");
+
+				//参加者ID
+				int partID = res.getInt("part_id");
+
+				//参加者名（漢字）
+				String partName = res.getString("part_name");
+
+				//参加者名（かな）
+				String partRuby = res.getString("part_ruby");
+
+				//性別
+				String gender = res.getString("part_gender");
+
+				//年齢
+				int age = res.getInt("part_age");
+
+				//入社年度
+				int empyear = res.getInt("part_empyear");
+
+				//役職
+				String post = res.getString("part_post");
+
+				//予算
+				int partBudget = res.getInt("part_budget");
+
+				//アレルギー
+				String allergy = res.getString("part_allergy");
+
+				//食べ物の好み
+				String genre = res.getString("part_genre");
+
+				//好きな料理カテゴリ
+				String category = res.getString("part_category");
+
+				//ビールの好み
+				String beer = res.getString("part_beer");
+
+				//喫煙するか
+				int smoke = res.getInt("part_smoke");
+
+				PartBean part = new PartBean();
+				part.setUserID(userID);
+				part.setPartID(partID);
+				part.setPartName(partName);
+				part.setPartRuby(partRuby);
+				part.setPartGender(gender);
+				part.setPartAge(age);
+				part.setPartEmpyear(empyear);
+				part.setPartPost(post);
+				part.setPartBudget(partBudget);
+				part.setPartAllergy(allergy);
+				part.setPartGenre(genre);
+				part.setPartCategory(category);
+				part.setPartBeer(beer);
+				part.setPartSmoke(smoke);
+
+				narrowList.add(part);
+
+			}
+		}
+
+		return narrowList;
+
+	}
+
 	public PartBean select(int part_ID) throws SQLException, ClassNotFoundException {
 
 		PartBean bean = new PartBean();
@@ -219,46 +211,46 @@ public class ParticipantDAO {
 			//結果の操作
 
 			//会員ID
-			int partID=res.getInt("part_id");
-			
+			int partID = res.getInt("part_id");
+
 			//参加者ID
-			String userID=res.getString("part_user");
-			
+			String userID = res.getString("part_user");
+
 			//参加者名（漢字）
-			String partName=res.getString("part_name");
-			
+			String partName = res.getString("part_name");
+
 			//参加者名（かな）
-			String partRuby=res.getString("part_ruby");
-			
+			String partRuby = res.getString("part_ruby");
+
 			//性別
-			String gender=res.getString("part_gender");
-			
+			String gender = res.getString("part_gender");
+
 			//年齢
-			int age=res.getInt("part_age");
-			
+			int age = res.getInt("part_age");
+
 			//入社年度
-			int empyear=res.getInt("part_empyear");
-			
+			int empyear = res.getInt("part_empyear");
+
 			//役職
-			String post=res.getString("part_post");
-			
+			String post = res.getString("part_post");
+
 			//予算
-			int partBudget=res.getInt("part_budget");
-			
+			int partBudget = res.getInt("part_budget");
+
 			//アレルギー
-			String allergy=res.getString("part_allergy");
-			
+			String allergy = res.getString("part_allergy");
+
 			//食べ物の好み
-			String genre=res.getString("part_genre");
-			
+			String genre = res.getString("part_genre");
+
 			//好きな料理カテゴリ
-			String category=res.getString("part_category");
-			
+			String category = res.getString("part_category");
+
 			//ビールの好み
-			String beer=res.getString("part_beer");
-			
+			String beer = res.getString("part_beer");
+
 			//喫煙するか
-			int smoke=res.getInt("part_smoke");
+			int smoke = res.getInt("part_smoke");
 
 			bean.setUserID(userID);
 			bean.setPartID(partID);
@@ -278,7 +270,7 @@ public class ParticipantDAO {
 		}
 		return bean;
 	}
-	
+
 	public List<PartBean> selectForSC(String partUserID) throws SQLException, ClassNotFoundException {
 
 		List<PartBean> partList = new ArrayList<PartBean>();
@@ -326,7 +318,7 @@ public class ParticipantDAO {
 
 		return partList;
 	}
-
+	//削除
 	public int delete(PartBean bean) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
 
@@ -342,8 +334,20 @@ public class ParticipantDAO {
 		}
 		return processingNumber;
 	}
+	//一括削除
+	public int deleteALL(String userID) throws SQLException, ClassNotFoundException {
+		int processingNumber = 0;
 
+		String sql = "DELETE FROM m_participant WHERE part_user = ?";
 
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
+			pstmt.setString(1, userID);
+
+			processingNumber = pstmt.executeUpdate();
+		}
+		return processingNumber;
 	}
 
+}
