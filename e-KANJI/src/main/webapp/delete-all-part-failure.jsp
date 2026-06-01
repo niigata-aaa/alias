@@ -7,6 +7,7 @@
 <title>参加者情報一括削除エラー画面</title>
 </head>
 <body>
+<h2>参加者情報一括削除エラー</h2>
 <form action="select-part-servlet" method="POST">
 削除に失敗しました。<br>
 もう一度やり直してください。<br>
