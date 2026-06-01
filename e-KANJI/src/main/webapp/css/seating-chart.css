@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+.seatArea {
+	position: relative;
+	width: 700px;
+	margin: auto;
+}
+
+.desk {
+	position: absolute;
+
+	left: 50%;
+	transform: translateX(-50%);
+
+	top: 0;
+	bottom: 0;
+
+	width: 100px;
+
+	background: #d2b48c;
+	border: 2px solid #8b7355;
+	border-radius: 6px;
+
+	z-index: 0;
+}
+
+.seatTable {
+	border-collapse: separate;
+	border-spacing: 120px 10px;
+	/* 席の間隔 */
+	margin: auto;
+	position: relative;
+}
+
+.seatHeader{
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.seat {
+	width: 240px;
+	height: 80px;
+	border: 2px solid #ccc;
+	background: white;
+	text-align: left;
+	vertical-align: top;
+	padding: 8px;
+	line-height: 1.4;
+}
+
+.ruby{
+    font-size: 0.8em;
+}
+
+.name{
+    font-size: 1.3em;
+    font-weight: bold;
+	border-bottom: 1px solid #000;
+	padding-bottom: 2px;
+	margin-bottom: 3px;
+}
+
+.info{
+    font-size: 0.9em;
+}
+
+.alert {
+	color: red;
+}

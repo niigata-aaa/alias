@@ -36,6 +36,31 @@ public class UserDAO {
 		return userList;
 	}
 	
+	public UserBean select(String userId) throws SQLException, ClassNotFoundException {
+
+		UserBean user = new UserBean();
+		String sql = "SELECT * FROM m_user WHERE user_id = ?";
+
+		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			pstmt.setString(1, userId);
+			
+			ResultSet res = pstmt.executeQuery();
+
+			// 結果の操作
+			if (res.next()) {
+				user.setUserId(res.getString("user_id"));
+				user.setUserName(res.getString("user_name"));
+				user.setUserPass(res.getString("user_pass"));
+				user.setUserChoice(res.getInt("user_choice"));
+				user.setUserStop(res.getInt("user_stop"));
+			}
+		}
+		return user;
+	}
+	
 	public List<UserBean> selectStopUser() throws SQLException, ClassNotFoundException {
 
 		List<UserBean> userList = new ArrayList<UserBean>();

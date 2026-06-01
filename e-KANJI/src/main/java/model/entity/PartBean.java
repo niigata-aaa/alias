@@ -33,6 +33,9 @@ public class PartBean implements Serializable{
 	//入社年度
 	private int partEmpyear;
 	
+	//役職ID　（！！！！！！！！！！！！！！！追加！！！！！！！！！！！！！！！！！！）
+	private int partPostId;
+
 	//役職
 	private String partPost;
 	
@@ -61,20 +64,20 @@ public class PartBean implements Serializable{
 		
 	}
 
-	public int getPartID() {
-		return partID;
-	}
-
-	public void setPartID(int partID) {
-		this.partID = partID;
-	}
-
 	public String getUserID() {
 		return userID;
 	}
 
 	public void setUserID(String userID) {
 		this.userID = userID;
+	}
+	
+	public int getPartID() {
+		return partID;
+	}
+
+	public void setPartID(int partID) {
+		this.partID = partID;
 	}
 
 	public String getPartName() {
@@ -115,6 +118,14 @@ public class PartBean implements Serializable{
 
 	public void setPartEmpyear(int partEmpyear) {
 		this.partEmpyear = partEmpyear;
+	}
+	
+	public int getPartPostId() {
+		return partPostId;
+	}
+
+	public void setPartPostId(int partPostId) {
+		this.partPostId = partPostId;
 	}
 
 	public String getPartPost() {
