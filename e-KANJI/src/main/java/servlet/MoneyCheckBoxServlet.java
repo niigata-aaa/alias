@@ -1,7 +1,9 @@
-
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.dao.ParticipantDAO;
+import model.entity.PartBean;
 
 /**
  * Servlet implementation class MoneyCheckBoxServlet
@@ -42,16 +47,19 @@ public class MoneyCheckBoxServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("UTF-8");
 		String url = null;
-		
+
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
-		String userId = (String)session.getAttribute("user_id");
+		String userId = (String) session.getAttribute("user_id");
 
 		String sumStr = request.getParameter("sum");
 		String partyStr = request.getParameter("party");
+
+		List<PartBean> partList = new ArrayList<PartBean>();
+		ParticipantDAO dao = new ParticipantDAO();
 
 		int sum = 0;
 		int party = 0;
@@ -59,6 +67,9 @@ public class MoneyCheckBoxServlet extends HttpServlet {
 		String errorMsg = "";
 
 		try {
+
+			partList = dao.selectAll(userId);
+
 			// 入力チェック（空でないか）
 			if (sumStr != null && !sumStr.isEmpty() && partyStr != null && !partyStr.isEmpty()) {
 				sum = Integer.parseInt(sumStr);
@@ -73,10 +84,14 @@ public class MoneyCheckBoxServlet extends HttpServlet {
 			} else {
 				errorMsg = "合計金額と人数を入力してください。";
 			}
+
 		} catch (NumberFormatException e) {
+
 			errorMsg = "正しい数値を入力してください。";
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		
+
 		// ログイン認証済みかどうかを確認
 		if (session.getAttribute("user_id") != null) {
 			url = "money-check-box.jsp";
@@ -86,6 +101,7 @@ public class MoneyCheckBoxServlet extends HttpServlet {
 
 		// 画面に値を戻す
 		request.setAttribute("user_id", userId);
+		request.setAttribute("partList", partList);
 		request.setAttribute("sum", sumStr);
 		request.setAttribute("party", partyStr);
 		request.setAttribute("result", result);
