@@ -26,6 +26,7 @@ table table {
 	padding: 10px 20px;
 	cursor: pointer;
 }
+
 </style>
 
 </head>
