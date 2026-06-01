@@ -1,43 +1,46 @@
-/*widthとheightの値は、セルのサイズに合わせて微調整する*/
-.example{
-    overflow: auto;
-    width: 945px;
+.example {
+    overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
+    overflow-x: hidden;   /* 横スクロールは禁止 */
+    width: 100%;          /* 画面幅ぴったりに収める */
     height: 504px;
+    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
 }
-.example table{
+
+.example table {
     margin: 0;
     border-spacing: 0;
-
+    width: 100%;
+    table-layout: fixed;  /* 画面幅に強制的に収める設定 */
 }
-.example td{
-    white-space: nowrap;
+
+.example td {
+    white-space: normal;
+    word-break: break-all;
     border-right: 1px solid #999;
     border-bottom: 1px solid #999;
     background: #FFF;
-    padding: 5px;
+    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+    text-align: center;   /* 中央寄せで見やすくする */
 }
-.example th{
-    white-space: nowrap;
+
+.example th {
+    white-space: normal;
+    word-break: break-all; /* ヘッダーも枠内で改行を許可 */
     border-right: 1px solid #999;
     border-bottom: 1px solid #999;
     background: #f2f2f2;
     position: sticky;
     top: 0;
     left: 0;
+    padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
+    font-weight: bold;
 }
-.example tr:first-child th{
+
+.example tr:first-child th {
     border-top: 1px solid #999;
 }
-.example th:first-child{
+.example th:first-child {
     border-left: 1px solid #999;
-}
-.example tr:first-child th:first-child{
-    z-index: 1;
-}
-#table_title{
-    font-weight: bold; 
-    font-size: larger;
-}
-.price{
-    text-align: right; /*数字は右寄せ設定*/
 }
