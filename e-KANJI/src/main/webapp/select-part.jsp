@@ -85,7 +85,7 @@
 		</tr>
 
 		<%
-				
+		if(partList != null){	
 		for (PartBean part : partList) {
 		%>
 
@@ -121,7 +121,7 @@
 		
 		<%
 			}
-		
+		}
 		%>
 
 	</table>
