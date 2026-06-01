@@ -37,6 +37,16 @@ public class InsertUserCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		request.setCharacterEncoding("UTF-8");
+		String userId = request.getParameter("user_id");
+		String userName = request.getParameter("user_name");
+		String userPass = request.getParameter("user_pass");
+
+		request.setAttribute("user_id", userId);
+		request.setAttribute("user_name", userName);
+		request.setAttribute("user_pass", userPass);
+
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("insert-user-check.jsp");
 		rd.forward(request, response);
