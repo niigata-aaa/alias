@@ -46,22 +46,20 @@ public class UpdatePartServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		int partID = Integer.parseInt(request.getParameter("partID"));
-		PartBean bean =null; 
+		PartBean bean = null;
 
-			try {
+		try {
+			ParticipantDAO dao = new ParticipantDAO();
+			bean = dao.select(partID);
 
-				// DAOを使ってデータベースからデータを1件取得
-				ParticipantDAO dao = new ParticipantDAO();
-				bean = dao.select(partID);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 
-
-			} catch (NumberFormatException e) {
-				e.printStackTrace();
-			} catch (SQLException | ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-
-			request.setAttribute("bean", bean);
+		request.setAttribute("bean", bean);
+		
 		// update-part.jsp へ移動して初期値を表示させる
 		RequestDispatcher rd = request.getRequestDispatcher("update-part.jsp");
 		rd.forward(request, response);
