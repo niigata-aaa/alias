@@ -33,7 +33,8 @@ public class SelectPartServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -41,34 +42,28 @@ public class SelectPartServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
 		List<PartBean> partList = null;
 
 		// セッションオブジェクトの取得
-				HttpSession session = request.getSession();
-				
-				session.getAttribute("user_id");
-				
-		String part_user=request.getParameter("part_user");
-		
-		//PartBean part=new PartBean();
-		
-		//part.setUserID(part_user);
-		
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("user_id");
+
 		// DAOの生成
 		ParticipantDAO dao = new ParticipantDAO();
-		
+
 		try {
 			// DAOの利用
-			 partList = dao.selectAll(part_user);
+			partList = dao.selectAll(userId);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
 		// リクエストスコープへの属性の設定
-		request.setAttribute("partList",partList);
+		request.setAttribute("partList", partList);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("/select-part.jsp");

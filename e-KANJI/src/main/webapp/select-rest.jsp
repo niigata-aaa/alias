@@ -46,7 +46,7 @@
         <table class="search">
         <tr><td>
 
-<<<<<<< HEAD
+
 <form action="narrow-rest-servlet" method="post">
 
 <input type="submit" value="検索">
@@ -134,7 +134,7 @@
 <option value="0">なし</option>
 </select>
 </form>
-=======
+
 	        <table border=0>
                 <tr><th>料理ジャンル</th></tr>
                 <tr>
@@ -218,7 +218,7 @@
                     </td>
                 </tr>
                 <tr><th>訪問履歴</th>
-                    <td><select name="log>
+                    <td><select name="log">
 	                        <option value=""></option>
 	                        <option value="">あり</option>
 	                        <option value="">なし</option>
