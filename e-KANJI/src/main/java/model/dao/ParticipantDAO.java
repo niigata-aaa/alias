@@ -26,7 +26,7 @@ public class ParticipantDAO {
 	public List<PartBean> selectAll(String partUserID) throws SQLException, ClassNotFoundException {
 
 		List<PartBean> partList = new ArrayList<PartBean>();
-		String url = "SELECT * FROM m_participant WHERE part_user=?";
+		String url = "SELECT * FROM m_participant WHERE part_user = ?";
 		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();
 
@@ -117,10 +117,10 @@ public class ParticipantDAO {
 		return partList;
 	}
 
-	public List<PartBean> select(String partPartName) throws SQLException, ClassNotFoundException {
+	public List<PartBean> select(String partPartName, String userId) throws SQLException, ClassNotFoundException {
 
 		ArrayList<PartBean> narrowList = new ArrayList<PartBean>();
-		String sql = "SELECT * FROM m_participant WHERE part_name LIKE ?";
+		String sql = "SELECT * FROM m_participant WHERE part_name LIKE ? AND part_user = ?";
 		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();
 
@@ -129,6 +129,7 @@ public class ParticipantDAO {
 
 			//String userID=pstmt.getParameter();
 			pstmt.setString(1, "%" + partPartName + "%");
+			pstmt.setString(2, userId);
 
 			//Statement stmt=con.createStatement();
 			//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){

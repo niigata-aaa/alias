@@ -46,48 +46,9 @@
 
 <input type="submit" value="検索"><br>
 
-<%
-List<PartBean> narrowList =
-(List<PartBean>) request.getAttribute("narrowList");
-%>
-<%
-if(narrowList != null){
-	
-	
-	
-	
-	
-	
-    for(PartBean part : narrowList){
-%>
-
-<input type="submit" value="検索">
-
-<tr>
-
-			<td><%=part.getPartID()%></td>
-			<td><%=part.getPartName() %></td>
-			<td><%=part.getPartRuby() %></td>
-			<td><%=part.getPartGender() %></td>
-			<td><%=part.getPartAge() %></td>
-			<td><%=part.getPartEmpyear() %></td>
-			<td><%=part.getPartPost() %></td>
-			<td><%=part.getPartBudget() %></td>
-			<td><%=part.getPartAllergy() %></td>
-			<td><%=part.getPartGenre() %></td>
-			<td><%=part.getPartCategory() %></td>
-			<td><%=part.getPartBeer() %></td>
-			<td><%=part.getPartSmoke() %></td>
-  
-</tr>
 
 
 
-
-<%
-    }
-}
-%>
 
 	<%
 		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
@@ -174,6 +135,5 @@ if(narrowList != null){
 		%>
 </table>
 </div>
-	</table>
 </body>
 </html>

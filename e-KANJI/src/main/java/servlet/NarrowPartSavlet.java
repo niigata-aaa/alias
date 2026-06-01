@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.ParticipantDAO;
 import model.entity.PartBean;
@@ -50,12 +51,16 @@ public class NarrowPartSavlet extends HttpServlet {
 		
 		String part_name = request.getParameter("part_name");
 		
+		// セッションオブジェクトの取得
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("user_id");
+		
 		// DAOの生成
 		ParticipantDAO dao = new ParticipantDAO();
 		
 		try {
 			// DAOの利用（名前で部分一致検索）
-			narrowList = dao.select(part_name);
+			narrowList = dao.select(part_name, userId);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
