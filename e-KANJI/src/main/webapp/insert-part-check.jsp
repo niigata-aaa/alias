@@ -14,21 +14,102 @@
 PartBean bean = (PartBean) request.getAttribute("bean");
 %>
 	<form action="insert-user-ok-servlet" method="POST">
-	    会員ID：<input type="hidden" name="user_id" value=""><br>
-	    参加者ID：<input type="hidden" name="part_id" value=""><br>
-	    氏名（漢字）：<input type="hidden" name="part_name" value="<%=bean.getPartName()%>"><br>
-		氏名（かな）：<input type="hidden" name="part_ruby" value="<%=bean.getPartRuby()%>"><br>
-		性別：<input type="hidden" name="part_gender" value="<%=bean.getPartGender()%>"><br>
-		年齢：<input type="number" name="part_age" value="<%=bean.getPartAge()%>"><br>
-		入社年度：<input type="number" name="part_empyear" value="<%=bean.getPartEmpyear()%>"><br>
-		役職：<input type="hidden" name="part_post" value="<%=bean.getPartPost()%>"><br>
-		予算：<input type="text" name="part_budget" value="<%=bean.getPartBudget()%>"><br>
-		アレルギー：<input type="text" name="part_allergy" value="<%=bean.getPartAllergy()%>"><br>
-		好きな食べ物のジャンル：<input type="hidden" name="part_genre" value="<%=bean.getPartGenre()%>"><br>
-		好きな食べ物のカテゴリ：<input type="hidden" name="part_category" value="<%=bean.getPartCategory()%>"><br>
-		好きなビールの種類：<input type="hidden" name="part_beer" value="<%=bean.getPartBeer()%>"><br>
-		タバコ：<input type="hidden" name="part_smoke" value="<%=bean.getPartSmoke()%>"><br>
-	
+	    会員ID：<input type="text" name="user_id" value=""><br>
+	    参加者ID：<input type="text" name="part_id" value=""><br>
+	    氏名（漢字）：<%=bean.getPartName()%><br>
+		氏名（かな）：<%=bean.getPartRuby()%><br>
+		性別：<%=bean.getPartGender()%><br>
+		年齢：<%=bean.getPartAge()%><br>
+		入社年度：<%=bean.getPartEmpyear()%><br>
+		<%
+String post = bean.getPartPost();
+		if(post != null){
+		    post = post.trim();
+		}
+switch(post){
+    case "0": post = "一般社員"; break;
+    case "1": post = "主任・主査"; break;
+    case "2": post = "係長"; break;
+    case "3": post = "課長代理"; break;
+    case "4": post = "課長"; break;
+    case "5": post = "副部長"; break;
+    case "6": post = "部長・支社長・所長"; break;
+    case "7": post = "執行役員"; break;
+    case "8": post = "常務取締役"; break;
+    case "9": post = "専務取締役"; break;
+    case "10": post = "社長"; break;
+    case "11": post = "会長"; break;
+    default: post = "不明"; break;
+}
+%>
+役職：<%=post%><br>
+<% 
+				String genre = bean.getPartGenre();
+				if(genre != null) genre = genre.trim();
+
+				switch(genre){
+				    case "0": genre = "特になし"; break;
+				    case "1": genre = "和食"; break;
+				    case "2": genre = "洋食"; break;
+				    case "3": genre = "中華料理"; break;
+				    case "4": genre = "フレンチ"; break;
+				    case "5": genre = "韓国料理"; break;
+				    case "6": genre = "アジア・エスニック"; break;
+				    case "7": genre = "居酒屋"; break;
+				    case "8": genre = "焼肉"; break;
+				    case "9": genre = "カレー"; break;
+				    case "10": genre = "鍋"; break;
+				    default: genre = "不明";
+}
+%>
+
+		好きな食べ物のジャンル：<%=genre%><br>
+<%
+String category = bean.getPartCategory();
+if(category != null) category = category.trim();
+
+switch(category){
+    case "0": category = "特になし"; break;
+    case "1": category = "肉"; break;
+    case "2": category = "魚"; break;
+    case "3": category = "野菜"; break;
+    case "4": category = "麺類"; break;
+    case "5": category = "米料理"; break;
+    case "6": category = "揚げ物"; break;
+    case "7": category = "お酒"; break;
+    default: category = "不明";
+}
+%>
+好きな食べ物のカテゴリ：<%=category%><br>
+
+<%
+String beer = bean.getPartBeer();
+if(beer != null) beer = beer.trim();
+
+switch(beer){
+    case "0": beer = "特になし"; break;
+    case "1": beer = "アサヒ"; break;
+    case "2": beer = "キリン"; break;
+    case "3": beer = "サントリー"; break;
+    case "4": beer = "サッポロ"; break;
+    case "5": beer = "エビス"; break;
+    case "6": beer = "クラフトビール"; break;
+    default: beer = "不明";
+}
+%>
+好きなビールの種類：<%=beer%><br>
+	<%---	<%
+		String smoke = bean.getPartSmoke();
+if("0".equals(smoke)){
+    smoke = "吸う";
+}else if("1".equals(smoke)){
+    smoke = "吸わない";
+}else{
+    smoke = "不明";
+}
+%>
+タバコ：<%=smoke%><br>
+	 --%>
 	<%request.setAttribute("bean", bean); %>
 		<input type="submit" value="この情報を追加する">
 		

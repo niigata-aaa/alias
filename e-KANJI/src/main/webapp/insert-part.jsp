@@ -20,18 +20,18 @@
 		年齢：<input type="number" name="part_age" ><br>
 		入社年度：<input type="number" name="part_empyear" min="1900" max="2100"><br>
 		役職：<select name="part_post">
-		        <option value="1">一般社員</option>
-		        <option value="2">主任・主査</option>
-		        <option value="3">係長</option>
-		        <option value="4">課長代理</option>
-		        <option value="5">課長</option>
-		        <option value="6">副部長</option>
-		        <option value="7">部長・支社長・所長</option>
-		        <option value="8">執行役員</option>
-		        <option value="9">常務取締役</option>
-		        <option value="10">専務取締役</option>
-		        <option value="11">社長</option>
-		        <option value="12">会長</option>
+		        <option value="0">一般社員</option>
+		        <option value="1">主任・主査</option>
+		        <option value="2">係長</option>
+		        <option value="3">課長代理</option>
+		        <option value="4">課長</option>
+		        <option value="5">副部長</option>
+		        <option value="6">部長・支社長・所長</option>
+		        <option value="7">執行役員</option>
+		        <option value="8">常務取締役</option>
+		        <option value="9">専務取締役</option>
+		        <option value="10">社長</option>
+		        <option value="11">会長</option>
 		    </select><br>
 		予算：<input type="text" name="part_budget" ><br>
 		アレルギー：<input type="text" name="part_allergy"><br>
@@ -67,8 +67,8 @@
 		        <option value="5">エビス</option>
 		        <option value="6">クラフトビール</option>
 		    </select><br>
-		タバコ：<input type="radio" name="part_smoke" value="1">吸う
-		      <input type="radio" name="part_smoke" value="0">吸わない<br>
+		タバコ：<input type="radio" name="part_smoke" value="0">吸う
+		      <input type="radio" name="part_smoke" value="1">吸わない<br>
 	
 		<input type="submit" value="確認画面へ">
 		
