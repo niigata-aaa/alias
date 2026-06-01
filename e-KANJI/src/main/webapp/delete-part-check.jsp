@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.List,model.entity.PartBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +10,11 @@
 <h2>参加者情報削除</h2><br>
 以下の参加者情報を削除してもよろしいですか？<br>
 
+<form action="delete-part-ok-servlet" method="post">
 <%
 PartBean bean = (PartBean) request.getAttribute("bean");
 %>
 
-<form action="delete-part-ok-servlet" method="post">
 会員ID：<%=bean.getPartID() %><br>
 参加者ID:<%=bean.getUserID() %><br>
 氏名（漢字）：<%=bean.getPartName() %><br>
@@ -30,7 +30,7 @@ PartBean bean = (PartBean) request.getAttribute("bean");
 予算：<%=bean.getPartBudget() %><br>
 タバコ：<%=bean.getPartSmoke() %><br>
 
-<%request.setAttribute("bean", bean); %>
+<%session.setAttribute("bean", bean); %>
 
 <input type="submit" value="この情報を削除する"><br>
 </form>
