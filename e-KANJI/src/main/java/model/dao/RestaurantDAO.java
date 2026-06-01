@@ -358,7 +358,7 @@ public class RestaurantDAO {
 		}
 
 		if (capacity > 0) {
-			sql.append(" AND A.rest_capacity >= ? ");
+			sql.append(" AND A.rest_capacity <= ? ");
 			params.add(capacity);
 		}
 
