@@ -47,9 +47,6 @@
 <input type="submit" value="検索"><br>
 
 
-
-
-
 	<%
 		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
 	%>
