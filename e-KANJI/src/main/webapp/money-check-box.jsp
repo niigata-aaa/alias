@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>割り勘・集金管理画面</title>
-<link rel="stylesheet" href="money-check-box.css">
+<link rel="stylesheet" href="css/money-check-box.css">
 </head>
 <body>
 <form action="top.jsp" method="post"class="back-top-form">
@@ -26,8 +26,8 @@
 <br><br><br>
 
 
-ログインID：
-
+ログインID：<%=request.getAttribute("user_id") %><br>
+ログインIDに応じた参加者を表示！！
 
 
 
