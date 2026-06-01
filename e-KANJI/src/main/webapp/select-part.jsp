@@ -43,6 +43,7 @@
 <%--検索機能 --%>
 <form action="narrow-part-savlet" method="post">
 キーワード検索<input type="text" name="part_name" placeholder="苗字か名前で検索してください">
+
 <input type="submit" value="検索"><br>
 
 <%
@@ -53,6 +54,8 @@ List<PartBean> narrowList =
 if(narrowList != null){
     for(PartBean part : narrowList){
 %>
+
+<input type="submit" value="検索">
 
 <tr>
 
@@ -80,6 +83,11 @@ if(narrowList != null){
 }
 %>
 
+	<%
+		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
+	%>
+
+
 
 
 <%--
@@ -97,9 +105,7 @@ if(narrowList != null){
 
 
 <%--参加者一覧表示 --%>
-	<%
-		List<PartBean> partList= (List<PartBean>) request.getAttribute("partList");	
-	%>
+
 <table border=1>
 		<tr>
 			<th>登録した幹事のID</th>
@@ -121,7 +127,8 @@ if(narrowList != null){
 		</tr>
 
 		<%
-					for (PartBean part : partList) {
+				
+		for (PartBean part : partList) {
 		%>
 
 		<tr>
@@ -156,6 +163,7 @@ if(narrowList != null){
 		
 		<%
 			}
+		
 		%>
 </table>
 </div>
