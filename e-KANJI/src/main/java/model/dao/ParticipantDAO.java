@@ -38,10 +38,6 @@ public class ParticipantDAO {
 				pstmt.setString(1, partUserID);
 				
 
-
-			//String userID=pstmt.getParameter();
-			pstmt.setString(1, partUserID);
-
 			//Statement stmt=con.createStatement();
 			//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){
 			ResultSet res=pstmt.executeQuery();
