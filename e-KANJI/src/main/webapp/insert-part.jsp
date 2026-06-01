@@ -17,8 +17,8 @@
 		氏名（かな）：<input type="text" name="part_ruby"><br>
 		性別：<input type="radio" name="part_gender" value="男">男
 		      <input type="radio" name="part_gender" value="女">女<br>
-		年齢：<input type="number" name="part_age" value="正の整数のみ入力"><br>
-		入社年度：<input type="date" name="part_empyear"><br>
+		年齢：<input type="number" name="part_age" ><br>
+		入社年度：<input type="number" name="part_empyear" min="1900" max="2100"><br>
 		役職：<select name="part_post">
 		        <option value="1">一般社員</option>
 		        <option value="2">主任・主査</option>
@@ -33,7 +33,7 @@
 		        <option value="11">社長</option>
 		        <option value="12">会長</option>
 		    </select><br>
-		予算：<input type="text" name="part_budget" value="正の整数のみ入力"><br>
+		予算：<input type="text" name="part_budget" ><br>
 		アレルギー：<input type="text" name="part_allergy"><br>
 		好きな食べ物のジャンル：<select name="part_genre">
 		        <option value="0">特になし</option>

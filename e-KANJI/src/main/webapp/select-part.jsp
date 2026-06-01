@@ -118,7 +118,8 @@ if(narrowList != null){
 		</tr>
 
 		<%
-					for (PartBean part : partList) {
+		if(narrowList != null){			
+		for (PartBean part : partList) {
 		%>
 
 		<tr>
@@ -153,6 +154,7 @@ if(narrowList != null){
 		
 		<%
 			}
+		}
 		%>
 
 	</table>

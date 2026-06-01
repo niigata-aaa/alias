@@ -1,5 +1,6 @@
 package servlet;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,42 +43,54 @@ public class InsertPartCheckServlet extends HttpServlet {
 		// リクエストオブジェクトのエンコーディング方式の指定
 				request.setCharacterEncoding("UTF-8");
 
-				// リクエストパラメータの取得
-				String part_name = request.getParameter("part_name");
-				String part_ruby = request.getParameter("part_ruby");
-				String part_gender = request.getParameter("part_gender");
-				int part_age = Integer.parseInt(request.getParameter("part_age"));
-				int part_empyear = Integer.parseInt(request.getParameter("part_empyear"));
-				String part_post = request.getParameter("part_post");
-				int part_budget= Integer.parseInt(request.getParameter("part_budget"));
-				String part_allergy = request.getParameter("part_allergy");
-				String part_genre = request.getParameter("part_genre");
-				String part_category = request.getParameter("part_category");
-				String part_beer = request.getParameter("part_beer");
-				int part_smoke = Integer.parseInt(request.getParameter("part_smoke"));
+				
 
-				PartBean part = new PartBean();
-				part.setPartName(part_name);
-				part.setPartRuby(part_ruby);
-				part.setPartGender(part_gender);
-				part.setPartAge(part_age);
-				part.setPartEmpyear(part_empyear);
-				part.setPartPost(part_post);
-				part.setPartBudget(part_budget);
-				part.setPartAllergy(part_allergy);
-				part.setPartGenre(part_genre);
-				part.setPartCategory(part_category);
-				part.setPartBeer(part_beer);
-				part.setPartSmoke(part_smoke);
+				// リクエストパラメータの取得
 
 				// DAOの生成
 				ParticipantDAO dao = new ParticipantDAO();
+				
+				PartBean bean = new PartBean();
+				
+				String partName = (request.getParameter("part_name"));
+				 String partRuby = (request.getParameter("part_ruby"));
+				String partGender =( request.getParameter("part_gender"));
+			  int partAge = Integer.parseInt(request.getParameter("part_age"));
+			
+			  int partEmpyear =Integer.parseInt(request.getParameter("part_empyear"));
+							String partPost =( request.getParameter("part_post"));
+							int partBudget= Integer.parseInt(request.getParameter("part_budget"));
+							String partAllergy =( request.getParameter("part_allergy"));
+							String partGenre = (request.getParameter("part_genre"));
+								 String partCategory = (request.getParameter("part_category"));
+								String partBeer = (request.getParameter("part_beer"));
+							int partSmoke = Integer.parseInt(request.getParameter("part_smoke"));
+				
+					// DAOの利用
+			
 
-				int count = 0;	// 処理件数
-
-				// リクエストスコープへの属性の設定
-				request.setAttribute("count", count);
-				request.setAttribute("part", part);
+					bean.setPartName(partName);
+					bean.setPartRuby(partRuby);
+					bean.setPartGender(partGender);
+					bean.setPartAge(partAge);
+					bean.setPartEmpyear(partEmpyear);
+					bean.setPartPost(partPost);
+					bean.setPartBudget(partBudget);
+					bean.setPartAllergy(partAllergy);
+					bean.setPartGenre(partGenre);
+					bean.setPartCategory(partCategory);
+					bean.setPartBeer(partBeer);
+					bean.setPartSmoke(partSmoke);
+					
+					try {
+		                    dao.insert(bean);
+		
+				} catch (SQLException | ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+				request.setAttribute("bean",bean);
+		
 
 				// リクエストの転送
 				RequestDispatcher rd = request.getRequestDispatcher("insert-part-check.jsp");
