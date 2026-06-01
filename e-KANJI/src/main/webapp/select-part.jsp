@@ -52,8 +52,6 @@
 	%>
 
 
-
-
 <%--
 <input type="checkbox"name="beer" value="">アサヒ
 <input type="checkbox"name="beer" value="">キリン
