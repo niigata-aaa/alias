@@ -21,7 +21,6 @@
 一人あたりの合計金額 <input type="number" name="result" value="${result }">円<br><br>
 <input type="submit" value="割り算計算">
 
-
 </form>
 <br><br><br>
 
