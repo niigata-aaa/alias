@@ -9,6 +9,7 @@
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
+	
 	<div>
 		<form action="insert-user.jsp" method="post">
 			<input type="submit" value="新規会員登録はこちら">
