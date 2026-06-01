@@ -33,18 +33,18 @@ public class ParticipantDAO {
 				//PreparedStatement pstmt=con.prerareStatement("SELECT * FROM m_participant WHERE user_id=?")
 				PreparedStatement pstmt = con.prepareStatement(url)) {
 
-<<<<<<< HEAD
+
 			//String userID=pstmt.getParameter();
 			pstmt.setString(1, partUserID);
 
 			//String userID=pstmt.getParameter();
 			pstmt.setString(1, partUserID);
-=======
+
 				
 				//String userID=pstmt.getParameter();
 				pstmt.setString(1, partUserID);
 				
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+
 
 			//Statement stmt=con.createStatement();
 			//ResultSet res=stmt.executeQuery("SELECT * FROM m_participant")){
