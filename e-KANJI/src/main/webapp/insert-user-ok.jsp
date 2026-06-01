@@ -31,10 +31,6 @@
 				<th>名前</th>
 				<td><%=user_name %></td>
 			</tr>
-			<tr>
-				<th>パスワード</th>
-				<td><%=user_pass %></td>
-			</tr>
 		</table>
 	</div>
 	
