@@ -17,7 +17,7 @@
 
 
 <%--参加者情報登録画面へ --%>
-<form action="" method="post">
+<form action="insert-part.jsp" method="post">
 <input type="submit" value="参加者情報登録">
 </form>
 
@@ -75,34 +75,6 @@ if(narrowList != null){
 %>
 
 
-■入社年度：
-
-<select name="year">
-<%for (int i=2026;i>=1960;i--){ %>
-<option value=<%=i %>>
-	<%=i %>年
-</option>
-<%} %>
-</select>
-
-
-■喫煙：
-<select name="smoke">
-<option value="yes">吸う</option>
-<option value="no">吸わない</option>
-</select>
-
-■ビールの好み：
-<select name="beer">
-<option value="asahi">アサヒ</option>
-<option value="kirin">キリン</option>
-<option value="snatory">サントリー</option>
-<option value="sapporo">サッポロ</option>
-<option value="ebisu">エビス</option>
-<option value="all">特になし</option>
-
---%>
-</select>
 
 <%--
 <input type="checkbox"name="beer" value="">アサヒ

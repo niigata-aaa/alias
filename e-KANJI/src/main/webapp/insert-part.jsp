@@ -17,7 +17,7 @@
 		氏名（かな）：<input type="text" name="part_ruby"><br>
 		性別：<input type="radio" name="part_gender" value="男">男
 		      <input type="radio" name="part_gender" value="女">女<br>
-		年齢：<input type="text" name="part_age" value="正の整数のみ入力"><br>
+		年齢：<input type="number" name="part_age" value="正の整数のみ入力"><br>
 		入社年度：<input type="date" name="part_empyear"><br>
 		役職：<select name="part_post">
 		        <option value="1">一般社員</option>
