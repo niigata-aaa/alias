@@ -45,6 +45,7 @@ public class NarrowRestServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		List<RestBean> narrowList = null;
 
+		String keyword=request.getParameter("keyword");
 		int genre = Integer.parseInt(request.getParameter("genre"));
 		int category = Integer.parseInt(request.getParameter("category"));
 		int beer=Integer.parseInt(request.getParameter("beer"));
@@ -52,9 +53,19 @@ public class NarrowRestServlet extends HttpServlet {
 		int capacity=Integer.parseInt(request.getParameter("capacity"));
 		int log=Integer.parseInt(request.getParameter("log"));
 		int distance=Integer.parseInt(request.getParameter("distance"));
-		int price=Integer.parseInt(request.getParameter("price"));
+		int budget=Integer.parseInt(request.getParameter("budget"));
 		int smoke=Integer.parseInt(request.getParameter("smoke"));
-
+/*
+		String genre = request.getParameter("genre");
+		String category = request.getParameter("category");
+		String beer=request.getParameter("beer");
+		double review=Double.parseDouble(request.getParameter("review"));
+		int capacity=Integer.parseInt(request.getParameter("capacity"));
+		int log=Integer.parseInt(request.getParameter("log"));
+		int distance=Integer.parseInt(request.getParameter("distance"));
+		int budget=Integer.parseInt(request.getParameter("budget"));
+		int smoke=Integer.parseInt(request.getParameter("smoke"));
+*/
 		//PartBean part=new PartBean();
 
 		//part.setUserID(part_user);
@@ -64,13 +75,13 @@ public class NarrowRestServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			narrowList = dao.narrowselect(genre, category, beer, review, capacity, log, distance, price, smoke);
+			narrowList = dao.narrowselect(keyword, genre, category, beer, review, capacity, log, distance, budget, smoke);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
 		// リクエストスコープへの属性の設定
-		request.setAttribute("narrowList",narrowList);
+		request.setAttribute("restList",narrowList);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("/select-rest.jsp");
