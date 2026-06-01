@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ログアウト</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
