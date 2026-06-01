@@ -36,13 +36,6 @@ public class ParticipantDAO {
 
 			//String userID=pstmt.getParameter();
 			pstmt.setString(1, partUserID);
-
-			//String userID=pstmt.getParameter();
-			pstmt.setString(1, partUserID);
-
-				
-				//String userID=pstmt.getParameter();
-				pstmt.setString(1, partUserID);
 				
 
 
@@ -218,10 +211,10 @@ public class ParticipantDAO {
 
 			//結果の操作
 
-			//会員ID
+			//参加者ID
 			int partID = res.getInt("part_id");
 
-			//参加者ID
+			//会員ID
 			String userID = res.getString("part_user");
 
 			//参加者名（漢字）
