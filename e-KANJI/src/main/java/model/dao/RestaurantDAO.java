@@ -157,7 +157,7 @@ public class RestaurantDAO {
 	}
 
 
-
+/*
 	//	public List<RestBean> selectAll(
 	//	        List<Integer> genreList,
 	//	        List<Integer> categoryList,
@@ -302,7 +302,7 @@ public class RestaurantDAO {
 	//
 	//	    return list;
 	//	}
-
+*/
 	/*
 	public List<RestBean> narrowselect(int genre, int category,int beer,double review,
 			int capacity,int log,int distance,int budget,int smoke)

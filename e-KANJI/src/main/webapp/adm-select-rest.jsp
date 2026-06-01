@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>飲食店一覧表示</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/scroll.css">
+<link rel="stylesheet" href="css/select-rest.css">
 <style>
 .search {
 	border: 2px solid black;
@@ -32,19 +31,10 @@ table table {
 </head>
 
 <body>
-
-<div id="table_title"><h1>飲食店一覧表示・検索画面</h1></div>        
-<div class="example"><br>
-
-<br>
-    
-
-<form action="narrow-rest-servlet" method="post">
-
 	<h1>飲食店一覧表示・検索画面</h1>
 	<br>
-	<form action="top" method="post">
-		<input type="submit" class="submit-top-right" value="トップ画面へ戻る">
+	<form action="adm-top" method="post">
+		<input type="submit" value="トップ画面へ戻る"><%--class="submit-top-right" --%>
 	</form>
 	<form action="narrow-rest-servlet" method="post">
 		店舗名キーワード検索：<input type="text" name="keyword" value="">
