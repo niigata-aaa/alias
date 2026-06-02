@@ -375,6 +375,7 @@ public class ParticipantDAO {
 	}
 	
 	public int insert(PartBean bean) throws ClassNotFoundException, SQLException {
+		int count = 0; // 処理件数
 		 String sql =
 			        "INSERT INTO m_participant(" +"part_user," +
 			        "part_name,"+ "part_ruby,"+ "part_gender,"+ "part_age,"+ "part_empyear," +
