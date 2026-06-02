@@ -45,11 +45,20 @@ public class PartBean implements Serializable{
 	//アレルギー
 	private String partAllergy;
 	
+	//好きな料理ジャンルID （！！！！！！！！！！！！！！！追加！！！！！！！！！！！！！！！！！！）
+	private int partGenreId;
+	
 	//好きな料理ジャンル
 	private String partGenre;
 	
+	//好きな食材カテゴリID （！！！！！！！！！！！！！！！追加！！！！！！！！！！！！！！！！！！）
+	private int partCategoryId;
+	
 	//好きな食材カテゴリ
 	private String partCategory;
+	
+	//好きなビールの種類ID （！！！！！！！！！！！！！！！追加！！！！！！！！！！！！！！！！！！）
+	private int partBeerId;
 	
 	//好きなビールの種類
 	private String partBeer;
@@ -152,6 +161,14 @@ public class PartBean implements Serializable{
 		this.partAllergy = partAllergy;
 	}
 
+	public int getPartGenreId() {
+		return partGenreId;
+	}
+
+	public void setPartGenreId(int partGenreId) {
+		this.partGenreId = partGenreId;
+	}
+
 	public String getPartGenre() {
 		return partGenre;
 	}
@@ -159,6 +176,15 @@ public class PartBean implements Serializable{
 	public void setPartGenre(String partGenre) {
 		this.partGenre = partGenre;
 	}
+	
+	public int getPartCategoryId() {
+		return partCategoryId;
+	}
+
+	public void setPartCategoryId(int partCategoryId) {
+		this.partCategoryId = partCategoryId;
+	}
+
 
 	public String getPartCategory() {
 		return partCategory;
@@ -166,6 +192,14 @@ public class PartBean implements Serializable{
 
 	public void setPartCategory(String partCategory) {
 		this.partCategory = partCategory;
+	}
+	
+	public int getPartBeerId() {
+		return partBeerId;
+	}
+
+	public void setPartBeerId(int partBeerId) {
+		this.partBeerId = partBeerId;
 	}
 
 	public String getPartBeer() {

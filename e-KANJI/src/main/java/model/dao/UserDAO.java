@@ -153,6 +153,24 @@ public class UserDAO {
 		return false;
 	}
 	
+	public boolean loginCheckForPart(String userId) throws ClassNotFoundException, SQLException {
+
+		String sql = "SELECT * FROM m_user WHERE user_id = ? AND user_stop = 0";
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, userId);
+
+			ResultSet res = pstmt.executeQuery();
+
+			if (res.next()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public int insert(UserBean user) throws SQLException, ClassNotFoundException {
 		int count = 0; //処理件数
 		String sql = "INSERT INTO m_user(user_id, user_name, user_pass) VALUES(?, ?, ?)";

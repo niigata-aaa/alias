@@ -412,6 +412,55 @@ public class ParticipantDAO {
 
 	    return 0;
 	}
+	
+	public int insert(String userId, PartBean part) throws ClassNotFoundException, SQLException {
+
+		int count = 0; // 処理件数
+		String sql = "INSERT INTO "
+				+ "m_participant("
+				+ "part_user,"
+				+ "part_name, "
+				+ "part_ruby,"
+				+ "part_gender,"
+				+ "part_age,"
+				+ "part_empyear,"
+				+ "part_post,"
+				+ "part_budget,"
+				+ "part_allergy,"
+				+ "part_genre,"
+				+ "part_category,"
+				+ "part_beer,"
+				+ "part_smoke"
+				+ ") "
+				+ "VALUES"
+				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+		//DB接続の取得、
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, userId);
+			pstmt.setString(2, part.getPartName());
+			pstmt.setString(3, part.getPartRuby());
+			pstmt.setString(4, part.getPartGender());
+			pstmt.setInt(5, part.getPartAge());
+			pstmt.setInt(6, part.getPartEmpyear());
+			pstmt.setInt(7, part.getPartPostId());
+			pstmt.setInt(8, part.getPartBudget());
+			pstmt.setString(9, part.getPartAllergy());
+			pstmt.setInt(10, part.getPartGenreId());
+			pstmt.setInt(11, part.getPartCategoryId());
+			pstmt.setInt(12, part.getPartBeerId());
+			pstmt.setInt(13, part.getPartSmoke());
+
+			count = pstmt.executeUpdate();
+
+		}
+
+		return count;
+	}
+	
+	
 	//一括削除
 	public int deleteALL(String userID) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
