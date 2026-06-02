@@ -10,22 +10,23 @@
 参加者情報登録確認画面<br>
     <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
     <h2>この参加者情報を登録します</h2>
-    <%
-PartBean bean = (PartBean) request.getAttribute("bean");
-%>
-	<form action="insert-user-ok-servlet" method="POST">
-	    会員ID：<input type="text" name="user_id" value=""><br>
-	    参加者ID：<input type="text" name="part_id" value=""><br>
-	    氏名（漢字）：<%=bean.getPartName()%><br>
-		氏名（かな）：<%=bean.getPartRuby()%><br>
-		性別：<%=bean.getPartGender()%><br>
-		年齢：<%=bean.getPartAge()%><br>
-		入社年度：<%=bean.getPartEmpyear()%><br>
+ <jsp:useBean id="part" scope="session" class="model.entity.PartBean" />
+ 
+<form action="<%= request.getContextPath() %>/insert-part-ok-servlet" method="post">
+
+    会員ID：<%= part.getUserID() %><br>
+    参加者ID：登録時に自動採番されます<br>
+    氏名（漢字）：<jsp:getProperty name="part" property="partName" /><br>
+    氏名（かな）：<jsp:getProperty name="part" property="partRuby" /><br>
+    性別：<jsp:getProperty name="part" property="partGender" /><br>
+    年齢：<jsp:getProperty name="part" property="partAge" /><br>
 		<%
-String post = bean.getPartPost();
-		if(post != null){
-		    post = post.trim();
-		}
+String post = part.getPartPost();
+if (post == null) {
+    post = "0"; // 値が取れなかった場合は、ひとまず「0（一般社員）」として扱う
+} else {
+    post = post.trim();
+}
 switch(post){
     case "0": post = "一般社員"; break;
     case "1": post = "主任・主査"; break;
@@ -44,8 +45,12 @@ switch(post){
 %>
 役職：<%=post%><br>
 <% 
-				String genre = bean.getPartGenre();
-				if(genre != null) genre = genre.trim();
+				String genre = part.getPartGenre();
+if (genre == null) {
+    genre = "0"; // 値が取れなかった場合は、ひとまず「0（特になし）」として扱う
+} else {
+    genre = genre.trim();
+}
 
 				switch(genre){
 				    case "0": genre = "特になし"; break;
@@ -65,8 +70,12 @@ switch(post){
 
 		好きな食べ物のジャンル：<%=genre%><br>
 <%
-String category = bean.getPartCategory();
-if(category != null) category = category.trim();
+String category = part.getPartCategory();
+if (category == null) {
+    category = "0"; // 値が取れなかった場合は、ひとまず「0（特になし）」として扱う
+} else {
+    category = category.trim();
+}
 
 switch(category){
     case "0": category = "特になし"; break;
@@ -83,8 +92,12 @@ switch(category){
 好きな食べ物のカテゴリ：<%=category%><br>
 
 <%
-String beer = bean.getPartBeer();
-if(beer != null) beer = beer.trim();
+String beer = part.getPartBeer();
+if (beer == null) {
+    beer = "0"; // 値が取れなかった場合は、ひとまず「0（特になし）」として扱う
+} else {
+    beer = beer.trim();
+}
 
 switch(beer){
     case "0": beer = "特になし"; break;
@@ -98,8 +111,8 @@ switch(beer){
 }
 %>
 好きなビールの種類：<%=beer%><br>
-	<%---	<%
-		String smoke = bean.getPartSmoke();
+		<%
+		String smoke = String.valueOf(part.getPartSmoke()); 
 if("0".equals(smoke)){
     smoke = "吸う";
 }else if("1".equals(smoke)){
@@ -109,8 +122,8 @@ if("0".equals(smoke)){
 }
 %>
 タバコ：<%=smoke%><br>
-	 --%>
-	<%request.setAttribute("bean", bean); %>
+	 
+
 		<input type="submit" value="この情報を追加する">
 		
 	</form>

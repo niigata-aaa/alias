@@ -45,12 +45,7 @@ public class InsertPartCheckServlet extends HttpServlet {
 
 				
 
-				// リクエストパラメータの取得
-
-				// DAOの生成
-				ParticipantDAO dao = new ParticipantDAO();
-				
-				PartBean bean = new PartBean();
+		
 				
 				String partName = (request.getParameter("part_name"));
 				 String partRuby = (request.getParameter("part_ruby"));
@@ -67,7 +62,7 @@ public class InsertPartCheckServlet extends HttpServlet {
 							int partSmoke = Integer.parseInt(request.getParameter("part_smoke"));
 				
 					// DAOの利用
-			
+							   PartBean bean = new PartBean();
 
 					bean.setPartName(partName);
 					bean.setPartRuby(partRuby);
@@ -82,14 +77,20 @@ public class InsertPartCheckServlet extends HttpServlet {
 					bean.setPartBeer(partBeer);
 					bean.setPartSmoke(partSmoke);
 					
-					try {
-		                    dao.insert(bean);
-		
-				} catch (SQLException | ClassNotFoundException e) {
-					e.printStackTrace();
-				}
-				
-				request.setAttribute("bean",bean);
+					 ParticipantDAO dao = new ParticipantDAO();
+				        int count = 0; 
+					
+
+				        try {
+				            count = dao.insert(bean); // ここでDAOのinsertメソッドを呼び出す！
+				        } catch (ClassNotFoundException | SQLException e) {
+				            e.printStackTrace();
+				            // エラーが発生した場合はエラー画面へ（必要に応じて設定してください）
+				        }
+
+					
+				request.getSession().setAttribute("part",bean);
+				request.getSession().setAttribute("count", count);
 		
 
 				// リクエストの転送

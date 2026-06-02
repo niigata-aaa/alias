@@ -337,7 +337,7 @@ public class ParticipantDAO {
 	}
 	
 	public int insert(PartBean bean) throws ClassNotFoundException, SQLException {
-		String sql = "INSERT INTO m_participant(part_name, part_rudy,part_gender,part_age,part_empyear,part_post,part_budget,part_allergy,part_genre,part_category,part_beer,part_smoke) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO m_participant(part_name, part_ruby,part_gender,part_age,part_empyear,part_post,part_budget,part_allergy,part_genre,part_category,part_beer,part_smoke) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 		int count = 0;	// 処理件数
 		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();
