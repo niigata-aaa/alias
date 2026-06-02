@@ -9,10 +9,9 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/scroll.css">
 <style>
-.search {
+.searchTable {
 	border: 2px solid black;
 	border-collapse: collapse;
-	vertical-align: top;
 	text-align: left;
 }
 
@@ -27,6 +26,7 @@ table table {
 	padding: 10px 20px;
 	cursor: pointer;
 }
+
 </style>
 
 </head>
@@ -41,15 +41,14 @@ table table {
 
 <%--<form action="narrow-rest-servlet" method="post">--%>
 
-	<h1>飲食店一覧表示・検索画面</h1>
 	<br>
 	<form action="top" method="post">
 		<input type="submit" class="submit-top-right" value="トップ画面へ戻る">
 	</form>
 	<form action="narrow-rest-servlet" method="post">
-		店舗名キーワード検索：<input type="text" name="keyword" value="">
+		店舗名キーワード検索：<input type="text" name="keyword" value=""><br><br>
 		<%--<input type="submit" value="検索"><br> <br>--%>
-		<table class="search">
+		<table class="searchTable">
 			<tr>
 				<td>
 					<%--<form action="narrow-rest-servlet" method="post"> 
@@ -142,7 +141,7 @@ table table {
 			</tr>
 		</table>
 
-		<table class="search" border=0>
+		<table class="searchTable" border=0>
 			<tr>
 				<th>評価</th>
 				<td><select name="review">
@@ -196,7 +195,7 @@ table table {
 				</select></td>
 
 			</tr>
-		</table>
+		</table><br>
 		<input type="submit" value="検索">
 	</form>
 

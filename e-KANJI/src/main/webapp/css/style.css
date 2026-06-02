@@ -23,3 +23,8 @@ div {
 .required {
 	color: red;
 }
+
+.searchTable {
+	font-size: 28px;
+	height: 100px;
+}
