@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.dao.RestaurantDAO;
+import model.entity.RestBean;
 
 /**
  * Servlet implementation class AdmDeleteRestServlet
@@ -34,8 +41,42 @@ public class AdmDeleteRestServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		int restId = Integer.parseInt(request.getParameter("restId"));
+
+		String url = null;
+
+		RestaurantDAO dao = new RestaurantDAO();
+		RestBean rest = null;
+
+		int processingNumber = 0;
+
+		try {
+			rest = dao.select(restId);
+			processingNumber = dao.delete(rest);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+		if (processingNumber > 0) {
+			url = "adm-delete-rest-ok.jsp";
+		} else {
+			url = "adm-delete-rest-failure.jsp";
+		}
+
+		// セッションオブジェクトの取得
+		HttpSession session = request.getSession();
+
+		// ログイン認証済みかどうかを確認
+		if (session.getAttribute("adm_id") == null) {
+			url = "adm-login.jsp";
+		}
+
+		request.setAttribute("rest", rest);
+
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
+	
 
 }
