@@ -11,6 +11,9 @@
     <%
 		request.setCharacterEncoding("UTF-8");
 	%>
+	
+	<%@ include file="header-logo.jsp" %>
+	
 	参加者情報変更確認画面<br>
 	<br>
 	参加者情報を以下の内容に変更します。よろしいですか？<br>

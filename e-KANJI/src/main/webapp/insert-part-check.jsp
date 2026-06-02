@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 参加者情報登録確認画面<br>
 <%
 String userId = (String)session.getAttribute("user_id");

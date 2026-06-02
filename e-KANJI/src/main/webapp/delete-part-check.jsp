@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h2>参加者情報削除</h2><br>
 以下の参加者情報を削除してもよろしいですか？<br>
 

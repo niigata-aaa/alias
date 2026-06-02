@@ -25,6 +25,7 @@
 </style>
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
     <form action="top" method="post">
         <input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る">
     </form>

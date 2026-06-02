@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <%	
 	String userId = (String)request.getAttribute("user_id");
 	String userName = (String)request.getAttribute("user_name");

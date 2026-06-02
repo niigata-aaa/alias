@@ -51,6 +51,7 @@ table td{
 </style>
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h2>飲食店詳細</h2>
 <%
 	RestBean bean = (RestBean) request.getAttribute("bean");

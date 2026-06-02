@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 参加者情報登録画面<br>
     <form action="select-part.jsp" method="POST">
 		<input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る">

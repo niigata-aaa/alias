@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h1>参加者情報一括削除</h1><br>
 
 <form action="delete-all-part-ok-servlet" method="POST">

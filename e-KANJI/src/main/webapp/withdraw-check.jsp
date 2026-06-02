@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h2>退会確認</h2>
 <form action="withdraw-check-servlet" method="POST">
 退会してよろしいですか？<br>

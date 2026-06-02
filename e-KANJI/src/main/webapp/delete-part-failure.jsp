@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h2>参加者情報削除エラー</h2><br>
 
 削除に失敗しました。<br>

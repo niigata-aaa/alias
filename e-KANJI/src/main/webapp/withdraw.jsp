@@ -7,6 +7,7 @@
 <title>退会画面</title>
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h2>退会画面</h2><br>
 退会するには、パスワードを入力してください。
 <form action="withdraw-check-servlet" method="post">
