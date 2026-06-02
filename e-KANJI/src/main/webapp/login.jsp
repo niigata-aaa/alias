@@ -40,9 +40,6 @@
 			<input type="submit" value="新規会員登録はこちら">
 		</form>
 		</div>
-
-
-
 	
 </body>
 </html>
