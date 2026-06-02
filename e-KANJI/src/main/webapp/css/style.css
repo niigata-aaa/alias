@@ -3,18 +3,26 @@
 body {
 	color: rgb(0, 0, 0);
 	background-color: #F6E3A1;
-	font-family: "Hachi Maru Pop", cursive;
+	
 	font-size: large;
 	text-align: center;
+	margin: 0;
 
-
+}
+*{
+	 font-family: "Zen Maru Gothic", sans-serif;
 }
 
 .logo {
 	width: 100%;
-	max-height: 150px;
+	max-height: 140px;
 	object-fit: contain;
 	background-color: #fff;
+}
+
+.header {
+	margin: 0;
+	padding: 0;
 }
 
 div {
@@ -59,8 +67,14 @@ input[type="password"] {
 	align-items: center;
 	margin: auto;
 }
-.d3 form{
-	margin-bottom: 15px;
+
+.d3 form {
+	margin: 10px;
+}
+
+.d4{
+	font-size: x-large;
+	font-weight: bold;
 }
 
 .background {

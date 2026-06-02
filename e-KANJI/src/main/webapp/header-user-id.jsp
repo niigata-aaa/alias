@@ -3,4 +3,4 @@
 	String userid = (String)session.getAttribute("user_id");
 %>
 
-<%=userid %> さん
+<div class="d4"><%=userid %> さん</div>

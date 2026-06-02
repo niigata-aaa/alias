@@ -2,4 +2,4 @@
 
 <div class="header">
     <img src="img/e_KANJI.jpeg" class="logo" alt="ロゴ">
-</div><br>
+</div>
