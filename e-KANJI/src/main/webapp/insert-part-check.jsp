@@ -8,18 +8,26 @@
 </head>
 <body>
 参加者情報登録確認画面<br>
+<%
+String userId = (String)session.getAttribute("user_id");
+PartBean part = (PartBean) session.getAttribute("part");
+if (part == null) {
+    out.println("partがnullです");
+    return;
+}
+%>
     <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
     <h2>この参加者情報を登録します</h2>
- <jsp:useBean id="part" scope="session" class="model.entity.PartBean" />
- 
+
 <form action="<%= request.getContextPath() %>/insert-part-ok-servlet" method="post">
 
-    会員ID：<%= part.getUserID() %><br>
+    会員ID：<%= userId %><br>
     参加者ID：登録時に自動採番されます<br>
-    氏名（漢字）：<jsp:getProperty name="part" property="partName" /><br>
-    氏名（かな）：<jsp:getProperty name="part" property="partRuby" /><br>
-    性別：<jsp:getProperty name="part" property="partGender" /><br>
-    年齢：<jsp:getProperty name="part" property="partAge" /><br>
+    氏名（漢字）：<%= part.getPartName() %><br>
+    氏名（かな）：<%= part.getPartRuby() %><br>
+    性別：<%= part.getPartGender() %><br>
+    年齢：<%= part.getPartAge() %><br>
+    入社年度：<%= part.getPartEmpyear() %><br>
 		<%
 String post = part.getPartPost();
 if (post == null) {
@@ -44,6 +52,8 @@ switch(post){
 }
 %>
 役職：<%=post%><br>
+ 予算：<%= part.getPartBudget() %><br>
+    アレルギー：<%= part.getPartAllergy() %><br>
 <% 
 				String genre = part.getPartGenre();
 if (genre == null) {

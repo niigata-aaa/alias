@@ -39,7 +39,6 @@ public class InsertPartOkServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PartBean part = (PartBean) request.getSession().getAttribute("part");
-
 		request.setAttribute("part", part);
 
 		RequestDispatcher rd =

@@ -337,43 +337,41 @@ public class ParticipantDAO {
 	}
 	
 	public int insert(PartBean bean) throws ClassNotFoundException, SQLException {
-		String sql = "INSERT INTO m_participant(part_name, part_ruby,part_gender,part_age,part_empyear,part_post,part_budget,part_allergy,part_genre,part_category,part_beer,part_smoke) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-		int count = 0;	// 処理件数
-		//DB接続の取得、
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
-			String partName = bean.getPartName();
-			String partRuby = bean.getPartRuby();
-			String partGender = bean.getPartGender();
-			int partAge = bean.getPartAge();
-			int partEmpyear = bean.getPartEmpyear();
-			String partPost = bean.getPartPost();
-			int partBudget = bean.getPartBudget();
-			String partAllergy = bean.getPartAllergy();
-			String partGenre = bean.getPartGenre();
-			String partCategory = bean.getPartCategory();
-			String partBeer = bean.getPartBeer();
-			int partSmoke = bean.getPartSmoke();
 
-			pstmt.setString(1, partName);
-			pstmt.setString(2, partRuby);
-			pstmt.setString(3, partGender);
-			pstmt.setInt(4, partAge);
-			pstmt.setInt(5, partEmpyear);
-			pstmt.setString(6, partPost);
-			pstmt.setInt(7, partBudget);
-			pstmt.setString(8, partAllergy);
-			pstmt.setString(9, partGenre);
-			pstmt.setString(10, partCategory);
-			pstmt.setString(11, partBeer);
-			pstmt.setInt(12, partSmoke);
-			
-			count = pstmt.executeUpdate();
+	    String sql =
+	        "INSERT INTO m_participant(" +
+	        "part_name, part_ruby, part_gender, part_age, part_empyear, " +
+	        "part_post, part_budget, part_allergy, part_genre, part_category, " +
+	        "part_beer, part_smoke) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		}
+	    try (Connection con = ConnectionManager.getConnection();
+	         PreparedStatement pstmt =
+	             con.prepareStatement(sql)) {
 
-		return count;
+	        pstmt.setString(1, bean.getPartName());
+	        pstmt.setString(2, bean.getPartRuby());
+	        pstmt.setString(3, bean.getPartGender());
+	        pstmt.setInt(4, bean.getPartAge());
+	        pstmt.setInt(5, bean.getPartEmpyear());
+	        pstmt.setString(6, bean.getPartPost());
+	        pstmt.setInt(7, bean.getPartBudget());
+	        pstmt.setString(8, bean.getPartAllergy());
+	        pstmt.setString(9, bean.getPartGenre());
+	        pstmt.setString(10, bean.getPartCategory());
+	        pstmt.setString(11, bean.getPartBeer());
+	        pstmt.setInt(12, bean.getPartSmoke());
+
+	        pstmt.executeUpdate();
+
+	        // ★ここが重要
+	        try (ResultSet rs = pstmt.getGeneratedKeys()) {
+	            if (rs.next()) {
+	                return rs.getInt(1); // part_id
+	            }
+	        }
+	    }
+
+	    return 0;
 	}
 	//一括削除
 	public int deleteALL(String userID) throws SQLException, ClassNotFoundException {

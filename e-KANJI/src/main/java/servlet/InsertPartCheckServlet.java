@@ -45,7 +45,8 @@ public class InsertPartCheckServlet extends HttpServlet {
 
 				
 
-		
+				String userID = request.getParameter("user_id");
+			
 				
 				String partName = (request.getParameter("part_name"));
 				 String partRuby = (request.getParameter("part_ruby"));
@@ -63,7 +64,7 @@ public class InsertPartCheckServlet extends HttpServlet {
 				
 					// DAOの利用
 							   PartBean bean = new PartBean();
-
+								bean.setUserID(userID);
 					bean.setPartName(partName);
 					bean.setPartRuby(partRuby);
 					bean.setPartGender(partGender);
@@ -78,11 +79,12 @@ public class InsertPartCheckServlet extends HttpServlet {
 					bean.setPartSmoke(partSmoke);
 					
 					 ParticipantDAO dao = new ParticipantDAO();
-				        int count = 0; 
+				       
 					
 
 				        try {
-				            count = dao.insert(bean); // ここでDAOのinsertメソッドを呼び出す！
+				        	int partId = dao.insert(bean);
+				        	bean.setPartID(partId);// ここでDAOのinsertメソッドを呼び出す！
 				        } catch (ClassNotFoundException | SQLException e) {
 				            e.printStackTrace();
 				            // エラーが発生した場合はエラー画面へ（必要に応じて設定してください）
@@ -90,8 +92,7 @@ public class InsertPartCheckServlet extends HttpServlet {
 
 					
 				request.getSession().setAttribute("part",bean);
-				request.getSession().setAttribute("count", count);
-		
+				
 
 				// リクエストの転送
 				RequestDispatcher rd = request.getRequestDispatcher("insert-part-check.jsp");
