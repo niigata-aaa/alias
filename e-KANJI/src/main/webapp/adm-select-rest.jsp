@@ -211,8 +211,8 @@ table table {
 			<th>close</th>
 			<th>評価</th>
 			<th>TEL</th>
-			<th>詳細</th>
-			<th>決めたらここ👇</th>
+			<th>変更</th>
+			<th>削除</th>
 		</tr>
 
 		<%
