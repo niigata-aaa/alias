@@ -43,19 +43,19 @@ public class AdmDeleteRestCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		int restId = Integer.parseInt(request.getParameter("rest_id"));
+		int restId = Integer.parseInt(request.getParameter("restId"));
 
 		String url = null;
 		RestaurantDAO dao = new RestaurantDAO();
-		RestBean user = new RestBean();
+		RestBean rest = new RestBean();
 		
 		try {
-			user = dao.select(restId);
+			rest= dao.select(restId);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
-		request.setAttribute("user", user);
+		request.setAttribute("rest", rest);
 		
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
