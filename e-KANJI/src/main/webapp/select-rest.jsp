@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/scroll.css">
 <style>
 .searchTable {
-	border: 2px solid black;
+	border: 1px solid black;
 	border-collapse: collapse;
 	text-align: left;
 }
@@ -43,9 +43,6 @@ td button {
 <div id="table_title"><h1>飲食店一覧表示・検索画面</h1></div>        
 <div class="exampleSearch"><br>
 
-<br>
-    
-
 <%--<form action="narrow-rest-servlet" method="post">--%>
 
 	<br>
@@ -53,7 +50,7 @@ td button {
 		<input type="submit" class="submit-top-right" value="トップ画面へ戻る">
 	</form>
 	<form action="narrow-rest-servlet" method="post">
-		店舗名キーワード検索：<input type="text" name="keyword" value=""><br><br>
+		店舗名キーワード検索：<input type="text" name="keyword" value="">　<input type="submit" value="検索"><br><br>
 		<%--<input type="submit" value="検索"><br> <br>--%>
 		<table class="searchTable">
 			<tr>
@@ -85,7 +82,7 @@ td button {
                 </tr>
                 --%>
 
-						料理ジャンル
+						<h4>料理ジャンル
 						<select name="genre">
 							<option value="0">特になし</option>
 							<option value="1">和食</option>
@@ -99,14 +96,14 @@ td button {
 							<option value="9">カレー</option>
 							<option value="10">鍋</option>
 						</select>
-
+                        </h4>
 						
 					</table>
 				</td>
 				<td>
 					<table border=0>
 				
-						食材カテゴリ
+						<h4>食材カテゴリ
 						
 						<select name="category">
 							<option value="0">特になし</option>
@@ -119,7 +116,7 @@ td button {
 							<option value="7">酒</option>
 						</select>
 						
-						
+						</h4>
 						
 						
 						
@@ -128,7 +125,7 @@ td button {
 				<td>
 					<table border=0>
 						
-						ビールの種類
+						<h4>ビールの種類
 						
 						<select name="beer">
 							<option value="0">特になし</option>
@@ -141,7 +138,7 @@ td button {
 
 						</select>
 						
-						
+						</h4>
 						
 					</table>
 				</td>
@@ -203,7 +200,6 @@ td button {
 
 			</tr>
 		</table><br>
-		<input type="submit" value="検索">
 	</form>
 
 	<br>
