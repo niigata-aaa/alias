@@ -35,17 +35,18 @@ public class ParticipantDAO {
 				+ "A.part_age, "
 				+ "A.part_empyear, "
 				+ "C.post_name, "
+				+ "A.part_budget,"
 				+ "A.part_allergy, "
 				+ "D.genre_name, "
 				+ "E.category_name, "
 				+ "F.beer_name, "
-				+ "A.part_smoke, "
+				+ "A.part_smoke "
 				+ "FROM "
 				+ "m_participant A "
 				+ "LEFT JOIN "
 				+ "m_user B "
 				+ "ON "
-				+ "A.part_user = B.user_name "
+				+ "A.part_user = B.user_id "
 				+ "LEFT JOIN "
 				+ "m_post C "
 				+ "ON "
@@ -80,7 +81,7 @@ public class ParticipantDAO {
 			//結果の操作
 			while (res.next()) {
 				//会員ID
-				String userID = res.getString("part_user");
+				String userID = res.getString("user_id");
 
 				//参加者ID
 				int partID = res.getInt("part_id");
@@ -101,7 +102,7 @@ public class ParticipantDAO {
 				int empyear = res.getInt("part_empyear");
 
 				//役職
-				String post = res.getString("part_post");
+				String post = res.getString("post_name");
 
 				//予算
 				int partBudget = res.getInt("part_budget");
@@ -110,13 +111,13 @@ public class ParticipantDAO {
 				String allergy = res.getString("part_allergy");
 
 				//食べ物の好み
-				String genre = res.getString("part_genre");
+				String genre = res.getString("genre_name");
 
 				//好きな料理カテゴリ
-				String category = res.getString("part_category");
+				String category = res.getString("category_name");
 
 				//ビールの好み
-				String beer = res.getString("part_beer");
+				String beer = res.getString("beer_name");
 
 				//喫煙するか
 				int smoke = res.getInt("part_smoke");
@@ -468,7 +469,7 @@ public class ParticipantDAO {
 	public int update(PartBean bean) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
 
-		String sql = "UPDATE m_employee SET part_name = ?, part_ruby = ?, part_gender = ?, part_age = ?,"
+		String sql = "UPDATE m_participant SET part_name = ?, part_ruby = ?, part_gender = ?, part_age = ?,"
 				+ "part_empyear = ?, part_post = ?, part_budget = ?, part_allergy = ?, part_genre = ?,"
 				+ "part_category = ?, part_beer = ?, part_smoke = ? WHERE  = part_id = ? and part_user = ?";
 
