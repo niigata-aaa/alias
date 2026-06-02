@@ -242,7 +242,7 @@ table table {
 				</form>
 			</td>
 			<td>
-				<form action="select-rest-ok" method="POST">
+				<form action="adm-delete-rest-check" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
 					<input type="submit" value="削除">
 				</form>

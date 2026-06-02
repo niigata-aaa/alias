@@ -9,21 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.RestaurantDAO;
 import model.entity.RestBean;
 
 /**
- * Servlet implementation class AdmUpdateRestServlet
+ * Servlet implementation class AdmDeleteRestCheckServlet
  */
-@WebServlet("/adm-update-rest-servlet")
-public class AdmUpdateRestServlet extends HttpServlet {
+@WebServlet("/adm-delete-rest-check")
+public class AdmDeleteRestCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdmUpdateRestServlet() {
+    public AdmDeleteRestCheckServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,24 +42,32 @@ public class AdmUpdateRestServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		
+		int restId = Integer.parseInt(request.getParameter("rest_id"));
 
-		int restId = Integer.parseInt(request.getParameter("restId"));
-		RestBean bean = null;
-
+		String url = null;
+		RestaurantDAO dao = new RestaurantDAO();
+		RestBean user = new RestBean();
+		
 		try {
-			RestaurantDAO dao = new RestaurantDAO();
-			bean = dao.select(restId);
-
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
+			user = dao.select(restId);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
-		request.setAttribute("bean", bean);
+		request.setAttribute("user", user);
 		
-		// adm-update-rest.jsp へ移動して初期値を表示させる
-		RequestDispatcher rd = request.getRequestDispatcher("adm-update-rest.jsp");
+		// セッションオブジェクトの取得
+		HttpSession session = request.getSession();
+		
+		// ログイン認証済みかどうかを確認
+		if (session.getAttribute("adm_id") != null) {
+			url = "adm-delete-rest-check.jsp";
+		} else {
+			url = "adm-login.jsp";
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 	
