@@ -11,12 +11,6 @@
 <body>
 	<%@ include file="header-logo.jsp" %>
 	
-	<div>
-		<form action="insert-user.jsp" method="post">
-			<input type="submit" value="新規会員登録はこちら">
-		</form>
-	</div>
-	
 	<div class="d1">
 		<h2>会員ログイン</h2>
 		<form action="login" method="post">
@@ -28,11 +22,16 @@
 			<label>パスワード：</label>
 			<input type="password" name="user_pass">
 		</span>
-
 			<p>
 			<input type="submit" value="ログイン">
+		</div>
+		<div class="d2">
+		<form action="insert-user.jsp" method="post">
+			<input type="submit" value="新規会員登録はこちら">
 		</form>
-	</div>
+		</div>
+		</form>
+
 	
 </body>
 </html>
