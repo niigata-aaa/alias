@@ -16,7 +16,6 @@ import model.entity.PartBean;
 //import model.entity.PartBean;
 
 public class ParticipantDAO {
-
 	/**
 	 * 参加者全表示
 	 * @return
