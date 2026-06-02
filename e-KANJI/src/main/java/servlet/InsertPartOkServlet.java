@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.ParticipantDAO;
 import model.entity.PartBean;
 
 /**
@@ -38,11 +39,41 @@ public class InsertPartOkServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PartBean part = (PartBean) request.getSession().getAttribute("part");
-		request.setAttribute("part", part);
+		request.setCharacterEncoding("UTF-8");
+		  
+		String userId = (String) request.getSession().getAttribute("user_id");
+		    if(userId == null) {
+		        throw new ServletException("ログインユーザーが見つかりません");
+		    }
 
-		RequestDispatcher rd =
-		    request.getRequestDispatcher("insert-part-ok.jsp");
-		rd.forward(request, response);
-	}
-}
+		
+		PartBean part = new PartBean();
+
+		part.setUserID(userId);
+		part.setPartName(request.getParameter("part_name"));
+		part.setPartRuby(request.getParameter("part_ruby"));
+		part.setPartGender(request.getParameter("part_gender"));
+		part.setPartAge(Integer.parseInt(request.getParameter("part_age")));
+		part.setPartEmpyear(Integer.parseInt(request.getParameter("part_empyear")));
+		part.setPartPost(request.getParameter("part_post"));
+		part.setPartBudget(Integer.parseInt(request.getParameter("part_budget")));
+		part.setPartAllergy(request.getParameter("part_allergy"));
+		part.setPartGenre(request.getParameter("part_genre"));
+		part.setPartCategory(request.getParameter("part_category"));
+		part.setPartBeer(request.getParameter("part_beer"));
+		part.setPartSmoke(Integer.parseInt(request.getParameter("part_smoke")));
+		try {
+	        ParticipantDAO dao = new ParticipantDAO();
+
+	        dao.insert(part);    // ← DB登録
+
+	    } catch(Exception e) {
+	        throw new ServletException(e);
+	    }
+		   request.setAttribute("part", part);
+
+		    RequestDispatcher rd =
+		        request.getRequestDispatcher("insert-part-ok.jsp");
+
+		    rd.forward(request, response);
+	}}

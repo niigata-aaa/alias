@@ -12,7 +12,7 @@
 参加者情報登録確認画面<br>
 <%
 String userId = (String)session.getAttribute("user_id");
-PartBean part = (PartBean) session.getAttribute("part");
+PartBean part = (PartBean) request.getAttribute("part");
 if (part == null) {
     out.println("partがnullです");
     return;
@@ -21,7 +21,21 @@ if (part == null) {
     <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
     <h2>この参加者情報を登録します</h2>
 
-<form action="<%= request.getContextPath() %>/insert-part-ok-servlet" method="post">
+<form action="insert-part-ok-servlet" method="post">
+
+<input type="hidden" name="user_id" value="<%= part.getUserID() %>">
+<input type="hidden" name="part_name" value="<%= part.getPartName() %>">
+<input type="hidden" name="part_ruby" value="<%= part.getPartRuby() %>">
+<input type="hidden" name="part_gender" value="<%= part.getPartGender() %>">
+<input type="hidden" name="part_age" value="<%= part.getPartAge() %>">
+<input type="hidden" name="part_empyear" value="<%= part.getPartEmpyear() %>">
+<input type="hidden" name="part_post" value="<%= part.getPartPost() %>">
+<input type="hidden" name="part_budget" value="<%= part.getPartBudget() %>">
+<input type="hidden" name="part_allergy" value="<%= part.getPartAllergy() %>">
+<input type="hidden" name="part_genre" value="<%= part.getPartGenre() %>">
+<input type="hidden" name="part_category" value="<%= part.getPartCategory() %>">
+<input type="hidden" name="part_beer" value="<%= part.getPartBeer() %>">
+<input type="hidden" name="part_smoke" value="<%= part.getPartSmoke() %>">
 
     会員ID：<%= userId %><br>
     参加者ID：登録時に自動採番されます<br>

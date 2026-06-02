@@ -20,7 +20,7 @@ String userId = (String)session.getAttribute("user_id");
 
 %>
 <%
-PartBean part = (PartBean) session.getAttribute("part");
+PartBean part = (PartBean) request.getAttribute("part");
 if(part == null){
     out.println("partがnullです（データが渡っていません）");
     return;
@@ -154,6 +154,6 @@ if("0".equals(smoke)){
 		<input type="submit" value="トップ画面に戻る">
 	</form>
 
-	<% session.invalidate(); %>
+
 </body>
 </html>
