@@ -38,7 +38,7 @@
 	<input type="submit" value="削除"><br>
 	</form>
 	
-	<form action="select-part-servlet" method="post">
+	<form action="adm-select-user" method="post">
 	<input type="submit" value="戻る">
 	</form>
 </body>
