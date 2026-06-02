@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h2>参加者情報一括削除エラー</h2>
 <form action="select-part-servlet" method="POST">
 削除に失敗しました。<br>

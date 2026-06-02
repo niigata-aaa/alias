@@ -16,6 +16,7 @@
 </style>
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <%
 PartBean bean = (PartBean) request.getAttribute("bean");
 %>

@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <%
 PartBean bean = (PartBean) request.getAttribute("bean");
 %>

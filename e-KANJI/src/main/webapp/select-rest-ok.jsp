@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
+<%@ include file="header-logo.jsp" %>
 <body>
 <h2>飲食店選択完了</h2><br>
 	以下の飲食店の訪問履歴に追加されました。<br>

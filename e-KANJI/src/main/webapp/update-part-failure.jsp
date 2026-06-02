@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<%@ include file="header-logo.jsp" %>
 <h2>参加者情報変更エラー</h2><br>
 
 入力された情報に誤りがあります。<br>

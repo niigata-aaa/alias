@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<%@ include file="header-logo.jsp" %>
 	<form action="top.jsp" method="post" class="back-top-form">
 		<input type="submit" value="トップ画面に戻る">
 	</form>
