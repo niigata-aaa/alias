@@ -32,15 +32,10 @@
 		<div class="d2">
 		<form action="part-login.jsp" method="post">
 			<input type="submit" value="参加者の方はこちら">
-		</form>
-		</div>
-		
-		<div class="d2">
-		<form action="insert-user.jsp" method="post">
+			<form action="insert-user.jsp" method="post">
 			<input type="submit" value="新規会員登録はこちら">
 		</form>
 		</div>
-
 
 		</form>
 
