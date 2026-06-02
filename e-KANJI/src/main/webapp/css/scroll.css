@@ -6,14 +6,71 @@
     border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
 }
 
-.example table {
+.exampleSearch {
+    overflow-x: hidden;   /* 横スクロールは禁止 */
+    width: 100%;          /* 画面幅ぴったりに収める */
+    height: auto;
+	position: sticky;
+	top:0;
+	z-index: 100;
+    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+}
+
+.exampleResult {
+    overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
+    overflow-x: hidden;   /* 横スクロールは禁止 */
+    width: 100%;          /* 画面幅ぴったりに収める */
+    height: calc(100vh - 504px);
+    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+}
+
+.exampleSearchPart {
+    overflow-x: hidden;   /* 横スクロールは禁止 */
+    width: 100%;          /* 画面幅ぴったりに収める */
+    height: auto;
+	position: sticky;
+	top:0;
+	z-index: 100;
+    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+}
+
+.exampleResultPart {
+    overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
+    overflow-x: hidden;   /* 横スクロールは禁止 */
+    width: 100%;          /* 画面幅ぴったりに収める */
+    height: calc(122vh - 504px);
+    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+}
+
+.exampleSearch table {
     margin: 0;
     border-spacing: 0;
     width: 100%;
     table-layout: fixed;  /* 画面幅に強制的に収める設定 */
 }
 
-.example td {
+.exampleResult table {
+    margin: 0;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;  /* 画面幅に強制的に収める設定 */
+}
+	
+.exampleSearchPart table {
+	margin: 0;
+	border-spacing: 0;
+	width: 100%;
+	table-layout: fixed;  /* 画面幅に強制的に収める設定 */
+}
+
+.exampleResultPart table {
+    margin: 0;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;  /* 画面幅に強制的に収める設定 */
+}
+
+.exampleSearch td {
     white-space: normal;
     word-break: break-all;
     border-right: 1px solid #999;
@@ -24,7 +81,40 @@
     text-align: center;   /* 中央寄せで見やすくする */
 }
 
-.example th {
+.exampleResult td {
+    white-space: normal;
+    word-break: break-all;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #FFF;
+    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+    text-align: center;   /* 中央寄せで見やすくする */
+}
+
+.exampleSearchPart td {
+    white-space: normal;
+    word-break: break-all;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #FFF;
+    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+    text-align: center;   /* 中央寄せで見やすくする */
+}
+
+.exampleResultPart td {
+    white-space: normal;
+    word-break: break-all;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #FFF;
+    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+    text-align: center;   /* 中央寄せで見やすくする */
+}
+
+.exampleSearch th {
     white-space: normal;
     word-break: break-all; /* ヘッダーも枠内で改行を許可 */
     border-right: 1px solid #999;
@@ -38,9 +128,78 @@
     font-weight: bold;
 }
 
-.example tr:first-child th {
+.exampleResult th {
+    white-space: normal;
+    word-break: break-all; /* ヘッダーも枠内で改行を許可 */
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #f2f2f2;
+    position: sticky;
+    top: 0;
+	z-index: 10;
+    left: 0;
+    padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
+    font-weight: bold;
+}
+
+.exampleSearchPart th {
+    white-space: normal;
+    word-break: break-all; /* ヘッダーも枠内で改行を許可 */
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #f2f2f2;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
+    font-weight: bold;
+}
+
+.exampleResultPart th {
+    white-space: normal;
+    word-break: break-all; /* ヘッダーも枠内で改行を許可 */
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #f2f2f2;
+    position: sticky;
+    top: 0;
+	z-index: 10;
+    left: 0;
+    padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
+    font-weight: bold;
+}
+
+.exampleSearch tr:first-child th {
     border-top: 1px solid #999;
 }
-.example th:first-child {
+
+.exampleResult tr:first-child th {
+    border-top: 1px solid #999;
+}
+
+.exampleSearchPart tr:first-child th {
+    border-top: 1px solid #999;
+}
+
+.exampleResultPart tr:first-child th {
+    border-top: 1px solid #999;
+}
+
+.exampleSearch th:first-child {
+    border-left: 1px solid #999;
+}
+
+.exampleResult th:first-child {
+    border-left: 1px solid #999;
+}
+
+.exampleSearchPart th:first-child {
+    border-left: 1px solid #999;
+}
+
+.exampleResultPart th:first-child {
     border-left: 1px solid #999;
 }

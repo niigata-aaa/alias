@@ -34,7 +34,7 @@ table table {
 <body>
 
 <div id="table_title"><h1>飲食店一覧表示・検索画面</h1></div>        
-<div class="example"><br>
+<div class="exampleSearch"><br>
 
 <br>
     
@@ -205,8 +205,9 @@ table table {
 	List<RestBean> list = (List<RestBean>) request.getAttribute("restList");
 	%>
 
-<div class="example"><br>
+<div class="exampleResult"><br>
 	<table border=1>
+	<thead>
 		<tr>
 			<th>店名</th>
 			<th>ジャンル</th>
@@ -221,6 +222,7 @@ table table {
 			<th>詳細</th>
 			<th>決めたらここ👇</th>
 		</tr>
+		</thead>
 
 		<%
 		if (list != null) {

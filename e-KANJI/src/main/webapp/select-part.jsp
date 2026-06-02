@@ -38,7 +38,7 @@
 </form>
 
 <div id="table_title"><h1>参加者一覧表示・検索画面</h1></div>        
-<div class="example"><br>
+<div class="exampleSearchPart"><br>
 
 <%--検索機能 --%>
 <form action="narrow-part-savlet" method="post">
@@ -63,9 +63,9 @@
 
 
 </form>
+</div>
 
-
-
+<div class="exampleResultPart">
 <%--参加者一覧表示 --%>
 
 <table border=1>
@@ -129,6 +129,7 @@
 		}
 		%>
 </table>
+
 </div>
 </body>
 </html>
