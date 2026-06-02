@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.RestaurantDAO;
 import model.entity.RestBean;
@@ -47,19 +48,16 @@ public class SelectRestServlet extends HttpServlet {
 		
 		List<RestBean> restList = new ArrayList<RestBean>();
 		
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("user_id");
 
-//		String part_user = request.getParameter("part_user");
-		
-		//PartBean part=new PartBean();
-		
-		//part.setUserID(part_user);
 		
 		// DAOの生成
 		RestaurantDAO dao = new RestaurantDAO();
 		
 		try {
 			// DAOの利用
-			restList = dao.selectAll();
+			restList = dao.selectAll(userId);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}

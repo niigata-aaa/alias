@@ -20,9 +20,10 @@ public class RestBean implements Serializable {
 	private String restBeer;
 	private int restSmoke;
 	private int restSmokeroom;
-	
+	private int visitCount;
+
 	public RestBean() {
-		
+
 	}
 
 	public int getRestId() {
@@ -160,8 +161,13 @@ public class RestBean implements Serializable {
 	public void setRestSmokeroom(int restSmokeroom) {
 		this.restSmokeroom = restSmokeroom;
 	}
-	
-	
-	
-	
+
+	public int getVisitCount() {
+		return visitCount;
+	}
+
+	public void setVisitCount(int visitCount) {
+		this.visitCount = visitCount;
+	}
+
 }

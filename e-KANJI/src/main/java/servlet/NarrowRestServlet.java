@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.RestaurantDAO;
 import model.entity.RestBean;
@@ -44,6 +45,9 @@ public class NarrowRestServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		List<RestBean> narrowList = null;
+		
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("user_id");
 
 		String keyword=request.getParameter("keyword");
 		int genre = Integer.parseInt(request.getParameter("genre"));
@@ -55,27 +59,13 @@ public class NarrowRestServlet extends HttpServlet {
 		int distance=Integer.parseInt(request.getParameter("distance"));
 		int budget=Integer.parseInt(request.getParameter("budget"));
 		int smoke=Integer.parseInt(request.getParameter("smoke"));
-/*
-		String genre = request.getParameter("genre");
-		String category = request.getParameter("category");
-		String beer=request.getParameter("beer");
-		double review=Double.parseDouble(request.getParameter("review"));
-		int capacity=Integer.parseInt(request.getParameter("capacity"));
-		int log=Integer.parseInt(request.getParameter("log"));
-		int distance=Integer.parseInt(request.getParameter("distance"));
-		int budget=Integer.parseInt(request.getParameter("budget"));
-		int smoke=Integer.parseInt(request.getParameter("smoke"));
-*/
-		//PartBean part=new PartBean();
-
-		//part.setUserID(part_user);
 
 		// DAOの生成
 		RestaurantDAO dao = new RestaurantDAO();
 
 		try {
 			// DAOの利用
-			narrowList = dao.narrowselect(keyword, genre, category, beer, review, capacity, log, distance, budget, smoke);
+			narrowList = dao.narrowselect(userId, keyword, genre, category, beer, review, capacity, log, distance, budget, smoke);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
