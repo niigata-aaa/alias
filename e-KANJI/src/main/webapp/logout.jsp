@@ -9,7 +9,9 @@
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
-	ログアウトしました。<br>
+	<div class="d5">
+	ログアウトしました。<p>
 	<a href="login.jsp">会員ログイン画面に戻る</a>
+	</div>
 </body>
 </html>

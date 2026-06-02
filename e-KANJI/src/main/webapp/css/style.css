@@ -77,6 +77,11 @@ input[type="password"] {
 	font-weight: bold;
 }
 
+.d5{
+	color: red;
+	margin: 10px;
+}
+
 .background {
 	position: fixed;
 	width: 100%;
