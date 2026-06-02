@@ -113,7 +113,7 @@
         
         タバコ：
         <input type="radio" name="partSmoke" value="1" <%= bean.getPartSmoke() == 1 ? "checked" : "" %>>吸う
-        <input type="radio" name="partSmoke" value="0" <%= bean.getPartSmoke() == 0 ? "checked" : "" %>><br>
+        <input type="radio" name="partSmoke" value="0" <%= bean.getPartSmoke() == 0 ? "checked" : "" %>>吸わない<br>
         
         <input type="submit" class="submit-under-right" value="確認画面へ">
     </form>
