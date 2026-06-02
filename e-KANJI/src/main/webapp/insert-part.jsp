@@ -69,8 +69,8 @@
 		        <option value="5">エビス</option>
 		        <option value="6">クラフトビール</option>
 		    </select><br>
-		タバコ：<input type="radio" name="part_smoke" value="0">吸う
-		      <input type="radio" name="part_smoke" value="1">吸わない<br>
+		タバコ：<input type="radio" name="part_smoke" value="1">吸う
+		      <input type="radio" name="part_smoke" value="0">吸わない<br>
 	
 		<input type="submit" value="確認画面へ">
 		

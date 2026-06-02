@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -67,13 +66,15 @@ public class InsertPartOkServlet extends HttpServlet {
 
 	        dao.insert(part);    // ← DB登録
 
-	    } catch(Exception e) {
-	        throw new ServletException(e);
-	    }
-		   request.setAttribute("part", part);
+	        request.setAttribute("part", part);
+            request.getRequestDispatcher("insert-part-ok.jsp")
+                   .forward(request, response);
 
-		    RequestDispatcher rd =
-		        request.getRequestDispatcher("insert-part-ok.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
 
-		    rd.forward(request, response);
-	}}
+            // ★失敗時はここへ
+            request.setAttribute("errorMessage", e.getMessage());
+            request.getRequestDispatcher("insert-part-fail.jsp")
+                   .forward(request, response);
+	}}}

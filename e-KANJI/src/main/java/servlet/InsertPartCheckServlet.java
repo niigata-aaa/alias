@@ -35,30 +35,63 @@ public class InsertPartCheckServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    request.setCharacterEncoding("UTF-8");
+
+	    String smokeStr = request.getParameter("part_smoke");
+	    String ageStr = request.getParameter("part_age");
+	    String empyearStr = request.getParameter("part_empyear");
+	    String budgetStr = request.getParameter("part_budget");
+	    String name = request.getParameter("part_name");
+	    String ruby = request.getParameter("part_ruby");
+	    String gender = request.getParameter("part_gender");
+	    String post = request.getParameter("part_post");
+	    String allergy = request.getParameter("part_allergy");
+	    String genre = request.getParameter("part_genre");
+	    String category = request.getParameter("part_category");
+	    String beer = request.getParameter("part_beer");
+	    String userId = (String) request.getSession().getAttribute("user_id");
+
+	    if (isEmpty(smokeStr) || isEmpty(ageStr) || isEmpty(empyearStr) || isEmpty(budgetStr)) {
+	        request.setAttribute("errorMessage", "未入力があります");
+	        request.getRequestDispatcher("insert-part-failure.jsp").forward(request, response);
+	        return;
+	    }
+
+	    try {
+	        int smoke = Integer.parseInt(smokeStr);
+	        int age = Integer.parseInt(ageStr);
+	        int empyear = Integer.parseInt(empyearStr);
+	        int budget = Integer.parseInt(budgetStr);
+
+	        PartBean bean = new PartBean();
+
+bean.setUserID(userId);
+bean.setPartName(name);
+bean.setPartRuby(ruby);
+bean.setPartGender(gender);
+bean.setPartPost(post);
+bean.setPartAllergy(allergy);
+bean.setPartCategory(category);
+bean.setPartBeer(beer);
+bean.setPartGenre(genre);
+	        bean.setPartSmoke(smoke);
+	        bean.setPartAge(age);
+	        bean.setPartEmpyear(empyear);
+	        bean.setPartBudget(budget);
+
+	        request.setAttribute("part", bean);
+	        request.getRequestDispatcher("insert-part-check.jsp").forward(request, response);
+
+	    } catch (NumberFormatException e) {
+	        request.setAttribute("errorMessage", "数値が不正です");
+	        request.getRequestDispatcher("insert-part-failure.jsp").forward(request, response);
+	    }
+	    }
 	
-		    request.setCharacterEncoding("UTF-8");
-
-		    PartBean bean = new PartBean();
-
-		    bean.setUserID(request.getParameter("user_id"));
-		    bean.setPartName(request.getParameter("part_name"));
-		    bean.setPartRuby(request.getParameter("part_ruby"));
-		    bean.setPartGender(request.getParameter("part_gender"));
-		    bean.setPartAge(Integer.parseInt(request.getParameter("part_age")));
-		    bean.setPartEmpyear(Integer.parseInt(request.getParameter("part_empyear")));
-		    bean.setPartPost(request.getParameter("part_post"));
-		    bean.setPartBudget(Integer.parseInt(request.getParameter("part_budget")));
-		    bean.setPartAllergy(request.getParameter("part_allergy"));
-		    bean.setPartGenre(request.getParameter("part_genre"));
-		    bean.setPartCategory(request.getParameter("part_category"));
-		    bean.setPartBeer(request.getParameter("part_beer"));
-		    bean.setPartSmoke(Integer.parseInt(request.getParameter("part_smoke")));
-
-		    // ★確認画面用にrequestへ
-		    request.setAttribute("part", bean);
-
-		    request.getRequestDispatcher("insert-part-check.jsp")
-		           .forward(request, response);
-		}
+	private boolean isEmpty(String val) {
+	    return val == null || val.trim().isEmpty();
+	}
 }
