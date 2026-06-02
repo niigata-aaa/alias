@@ -23,7 +23,8 @@
 			ユーザID：
 			<input type="text" name="user_id"><br>
 			パスワード：
-			<input type="password" name="user_pass"><br>
+			<input type="password" name="user_pass">
+			<p>
 			<input type="submit" value="ログイン">
 		</form>
 	</div>

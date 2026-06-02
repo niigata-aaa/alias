@@ -3,8 +3,8 @@
 body {
 	color: rgb(0, 0, 0);
 	background-color: #F6E3A1; 
-	font-family:"Hachi Maru Pop", cursive;
 	text-align: center;
+	font-family:"Hachi Maru Pop", cursive;
 	margin: 20px 0;
 }
 .logo {
@@ -25,4 +25,14 @@ div {
 .searchTable {
 	font-size: 28px;
 	height: 100px;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  font-size: 18px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
 }
