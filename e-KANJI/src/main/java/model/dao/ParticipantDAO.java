@@ -26,6 +26,45 @@ public class ParticipantDAO {
 	public List<PartBean> selectAll(String partUserID) throws SQLException, ClassNotFoundException {
 
 		List<PartBean> partList = new ArrayList<PartBean>();
+		
+		String sql = "SELECT " 
+				+ "B.user_id, "
+				+ "A.part_id, "
+				+ "A.part_name, "
+				+ "A.part_ruby, "
+				+ "A.part_gender, "
+				+ "A.part_age, "
+				+ "A.part_empyear, "
+				+ "C.post_name, "
+				+ "A.part_allergy, "
+				+ "D.genre_name, "
+				+ "E.category_name, "
+				+ "F.beer_name, "
+				+ "A.part_smoke, "
+				+ "FROM "
+				+ "m_participant A "
+				+ "LEFT JOIN "
+				+ "m_user B "
+				+ "ON "
+				+ "A.part_user = B.user_name "
+				+ "LEFT JOIN "
+				+ "m_post C "
+				+ "ON "
+				+ "A.part_post = C.post_id "
+				+ "LEFT JOIN "
+				+ "m_genre D "
+				+ "ON "
+				+ "A.part_genre = D.genre_id "
+				+ "LEFT JOIN "
+				+ "m_category E "
+				+ "ON "
+				+ "A.part_category = E.category_id "
+				+ "LEFT JOIN "
+				+ "m_beer F "
+				+ "ON "
+				+ "A.part_beer = F.beer_id ";
+				
+		
 		String url = "SELECT * FROM m_participant WHERE part_user = ?";
 		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();

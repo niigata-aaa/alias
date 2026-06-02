@@ -27,10 +27,10 @@ table table {
 	cursor: pointer;
 }
 
-.decide-btn {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+td button {
+  width: 90%;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 </style>
@@ -260,7 +260,7 @@ table table {
 			<td>
 				<form action="select-rest-ok" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input class="square-btn" type="submit" value="ここに決めた！">
+					<input type="submit" value="ここに決めた！">
 				</form>
 			</td>
 		</tr>

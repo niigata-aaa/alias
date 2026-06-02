@@ -61,7 +61,7 @@ td button {
 <form action="narrow-part-savlet" method="post">
 キーワード検索<input type="text" name="part_name" placeholder="苗字か名前で検索してください">
 
-<input type="submit" value="検索"><br>
+<input type="submit" value="検索"><br><br>
 
 
 	<%
@@ -129,14 +129,14 @@ td button {
 			<td>
 				<form action="update-part-servlet" method="POST">
 					<input type="hidden" name="partID" value="<%=part.getPartID()%>">
-					<input class="square-btn" type="submit" value="更新">
+					<input type="submit" value="更新">
 				</form>
 			</td>
 			
 			<td>
 				<form action="delete-part-check-servlet" method="POST">
 					<input type="hidden" name="partID" value="<%=part.getPartID()%>">
-					<input class="square-btn" type="submit" value="削除">
+					<input type="submit" value="削除">
 				</form>
 			</td>
 		</tr>
