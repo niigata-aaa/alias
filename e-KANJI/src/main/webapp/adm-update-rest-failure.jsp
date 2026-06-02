@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>参加者情報変更エラー画面</title>
+<title>飲食店情報変更エラー画面</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,10 +13,8 @@
 入力された情報に誤りがあります。<br>
 もう一度入力してください。
 
-
-<form action="update-part-servlet" method="post">
-<input type="submit" value="参加者情報変更画面へ戻る"><br>
+<form action="adm-update-rest-servlet" method="post">
+<input type="submit" value="飲食店情報変更画面へ戻る"><br>
 </form>
-
 </body>
 </html>

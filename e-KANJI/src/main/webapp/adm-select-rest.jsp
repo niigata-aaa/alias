@@ -236,7 +236,7 @@ table table {
 
 
 			<td>
-				<form action="select-rest-detail" method="POST">
+				<form action="adm-update-rest-servlet" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
 					<input type="submit" value="変更">
 				</form>

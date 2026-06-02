@@ -17,13 +17,19 @@
 		</form>
 	</div>
 	
-	<div>
+	<div class="d1">
 		<h2>会員ログイン</h2>
 		<form action="login" method="post">
-			ユーザID：
-			<input type="text" name="user_id"><br>
-			パスワード：
-			<input type="password" name="user_pass"><br>
+		<span class="form-row">
+			<label>ユーザID：</label>
+			<input type="text" name="user_id">
+		</span><br>
+		<span class="form-row">
+			<label>パスワード：</label>
+			<input type="password" name="user_pass">
+		</span>
+
+			<p>
 			<input type="submit" value="ログイン">
 		</form>
 	</div>
