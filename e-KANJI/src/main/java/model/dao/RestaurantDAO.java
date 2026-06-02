@@ -488,6 +488,20 @@ public class RestaurantDAO {
 	}
 	
 	//削除
-	
+	public int delete(RestBean bean) throws SQLException, ClassNotFoundException {
+		int processingNumber = 0;
+
+		String sql = "DELETE FROM m_redstaurant WHERE rest_id = ?";
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setInt(1, bean.getRestId());
+		
+
+			processingNumber = pstmt.executeUpdate();
+		}
+		return processingNumber;
+	}
 	
 }
