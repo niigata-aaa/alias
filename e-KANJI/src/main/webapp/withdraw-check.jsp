@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>退会確認画面</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <h2>退会確認</h2>

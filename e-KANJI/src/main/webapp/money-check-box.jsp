@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>割り勘・集金管理画面</title>
 <link rel="stylesheet" href="css/money-check-box.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<form action="top.jsp" method="post" class="back-top-form">

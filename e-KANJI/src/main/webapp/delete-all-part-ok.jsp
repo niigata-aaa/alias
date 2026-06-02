@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>参加者情報一括削除完了画面</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <h2>参加者情報一括削除完了</h2>
