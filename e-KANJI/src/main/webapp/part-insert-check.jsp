@@ -250,6 +250,24 @@
 	</div>
 	
 	<div>
+		<form action="part-insert" method="post">
+			<input type="hidden" name="part_name" value="<%=partName %>">
+			<input type="hidden" name="part_ruby" value="<%=partRuby %>">
+			<input type="hidden" name="part_gender" value="<%=partGender %>">
+			<input type="hidden" name="part_age" value="<%=partAge %>">
+			<input type="hidden" name="part_empyear" value="<%=partEmpyear %>">
+			<input type="hidden" name="part_post" value="<%=partPost %>">
+			<input type="hidden" name="part_budget" value="<%=partBudget %>">
+			<input type="hidden" name="part_allergy" value="<%=partAllergy %>">
+			<input type="hidden" name="part_genre" value="<%=partGenre %>">
+			<input type="hidden" name="part_category" value="<%=partCategory %>">
+			<input type="hidden" name="part_beer" value="<%=partBeer %>">
+			<input type="hidden" name="part_smoke" value="<%=partSmoke %>">
+			<input type="submit" value="登録">
+		</form>
+	</div>
+	
+	<div>
 		<form action="part-insert-back" method="post">
 			<input type="hidden" name="part_name" value="<%=partName %>">
 			<input type="hidden" name="part_ruby" value="<%=partRuby %>">
@@ -267,23 +285,7 @@
 		</form>
 	</div>
 	
-	<div>
-		<form action="part-insert" method="post">
-			<input type="hidden" name="part_name" value="<%=partName %>">
-			<input type="hidden" name="part_ruby" value="<%=partRuby %>">
-			<input type="hidden" name="part_gender" value="<%=partGender %>">
-			<input type="hidden" name="part_age" value="<%=partAge %>">
-			<input type="hidden" name="part_empyear" value="<%=partEmpyear %>">
-			<input type="hidden" name="part_post" value="<%=partPost %>">
-			<input type="hidden" name="part_budget" value="<%=partBudget %>">
-			<input type="hidden" name="part_allergy" value="<%=partAllergy %>">
-			<input type="hidden" name="part_genre" value="<%=partGenre %>">
-			<input type="hidden" name="part_category" value="<%=partCategory %>">
-			<input type="hidden" name="part_beer" value="<%=partBeer %>">
-			<input type="hidden" name="part_smoke" value="<%=partSmoke %>">
-			<input type="submit" value="登録">
-		</form>
-	</div>
+
 
 </body>
 </html>

@@ -13,6 +13,11 @@
 	<div class="bubble" style="left:10%"></div>
 <div class="bubble" style="left:30%; animation-delay:2s;"></div>
 <div class="bubble" style="left:70%; animation-delay:4s;"></div>
+	<div class="d2">
+		<form action="part-login.jsp" method="post">
+			<input type="submit" value="参加者の方はこちら">
+		</form>
+	</div>
 	
 	<div class="d1">
 		<h2>会員ログイン</h2>
@@ -27,17 +32,16 @@
 		</span>
 			<p>
 			<input type="submit" value="ログイン">
+		</form>
 		</div>	
 			
 		<div class="d2">
-		<form action="part-login.jsp" method="post">
-			<input type="submit" value="参加者の方はこちら">
-			<form action="insert-user.jsp" method="post">
+		<form action="insert-user.jsp" method="post">
 			<input type="submit" value="新規会員登録はこちら">
 		</form>
 		</div>
 
-		</form>
+
 
 	
 </body>
