@@ -146,12 +146,12 @@ if("0".equals(smoke)){
 }
 %>
 タバコ：<%=smoke%><br>
-    
+    <form action="select-part.jsp" method="POST">
     <input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る"><br>
 </form>
 
-	<form action="menu.html" method="POST">
-		<input type="submit" value="メニュー画面に戻る">
+	<form action="top.jsp" method="POST">
+		<input type="submit" value="トップ画面に戻る">
 	</form>
 
 	<% session.invalidate(); %>
