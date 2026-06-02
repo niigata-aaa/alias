@@ -39,6 +39,7 @@ table table {
 
 <body>
 
+
 <div id="table_title"><h1>飲食店一覧表示・検索画面</h1></div>        
 <div class="exampleSearch"><br>
 
@@ -257,9 +258,9 @@ table table {
 				</form>
 			</td>
 			<td>
-				<form class="decide-btn" action="select-rest-ok" method="POST">
+				<form action="select-rest-ok" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" value="ここに決めた！">
+					<input class="square-btn" type="submit" value="ここに決めた！">
 				</form>
 			</td>
 		</tr>

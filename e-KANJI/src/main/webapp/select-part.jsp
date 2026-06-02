@@ -8,34 +8,51 @@
 <title>参加者一覧表示</title>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/scroll.css">
+<style>
+td button {
+  width: 90%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+</style>
 </head>
 <body>
+
 <br>
 <%--検索条件を表示 --%>
 
 <%-- <form action="" method="post">
 <input type="submit" value="検索"><br>--%>
-
+<table border=0>
+<tr>
+<td>
 <%--トップに戻る --%>
 <form action="top.jsp" method="post">
 <input type="submit" value="トップに戻る">
 </form>
+</td>
 
+<td>
 <%--参加者情報登録画面へ --%>
 <form action="insert-part.jsp" method="post">
 <input type="submit" value="参加者情報登録">
 </form>
+</td>
 
+<td>
 <%--参加者一括削除 --%>
 <form action="dlete-all-part-check-servlet" method="post">
 <input type="submit" value="参加者一括削除">
 </form>
-
+</td>
+<td>
 <%--参加者全表示 --%>
 <form action="select-part-servlet" method="post">
-
 <input type="submit" value="参加者全表示">
 </form>
+</td>
+</tr>
+</table>
 
 <div id="table_title"><h1>参加者一覧表示・検索画面</h1></div>        
 <div class="exampleSearchPart"><br>
@@ -112,14 +129,14 @@
 			<td>
 				<form action="update-part-servlet" method="POST">
 					<input type="hidden" name="partID" value="<%=part.getPartID()%>">
-					<input type="submit" value="更新">
+					<input class="square-btn" type="submit" value="更新">
 				</form>
 			</td>
 			
 			<td>
 				<form action="delete-part-check-servlet" method="POST">
 					<input type="hidden" name="partID" value="<%=part.getPartID()%>">
-					<input type="submit" value="削除">
+					<input class="square-btn" type="submit" value="削除">
 				</form>
 			</td>
 		</tr>

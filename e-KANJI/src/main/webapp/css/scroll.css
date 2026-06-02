@@ -1,73 +1,90 @@
 .example {
     overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
     overflow-x: hidden;   /* 横スクロールは禁止 */
-    width: 100%;          /* 画面幅ぴったりに収める */
+    width: 95%;          /* 画面幅ぴったりに収める */
     height: 504px;
     border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+	display: flex;
+	align-items: center;
+	margin:0 auto;
 }
 
 .exampleSearch {
     overflow-x: hidden;   /* 横スクロールは禁止 */
-    width: 100%;          /* 画面幅ぴったりに収める */
+    width: 95%;          /* 画面幅ぴったりに収める */
     height: auto;
 	position: sticky;
 	top:0;
 	z-index: 100;
-    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+    border: 0px solid #999; /* テーブル全体の境界をはっきりさせる */
+	margin:0 auto;
 }
 
 .exampleResult {
     overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
     overflow-x: hidden;   /* 横スクロールは禁止 */
-    width: 100%;          /* 画面幅ぴったりに収める */
+    width: 95%;          /* 画面幅ぴったりに収める */
     height: calc(100vh - 504px);
     border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+	margin:0 auto;
 }
 
 .exampleSearchPart {
     overflow-x: hidden;   /* 横スクロールは禁止 */
-    width: 100%;          /* 画面幅ぴったりに収める */
+    width: 95%;          /* 画面幅ぴったりに収める */
     height: auto;
 	position: sticky;
 	top:0;
 	z-index: 100;
     border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+	margin:0 auto;
 }
 
 .exampleResultPart {
     overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
     overflow-x: hidden;   /* 横スクロールは禁止 */
     width: 100%;          /* 画面幅ぴったりに収める */
-    height: calc(122vh - 504px);
+    height: calc(128vh - 504px);
     border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+	display: flex;
+	align-items: center;
+	margin:0 auto;
 }
 
 .exampleSearch table {
     margin: 0;
     border-spacing: 0;
-    width: 100%;
+    width: 95%;
     table-layout: fixed;  /* 画面幅に強制的に収める設定 */
+	margin:0 auto;
 }
 
 .exampleResult table {
     margin: 0;
     border-spacing: 0;
-    width: 100%;
+    width: 95%;
     table-layout: fixed;  /* 画面幅に強制的に収める設定 */
+	margin:0 auto;
 }
 	
 .exampleSearchPart table {
 	margin: 0;
 	border-spacing: 0;
-	width: 100%;
+	width: 95%;
 	table-layout: fixed;  /* 画面幅に強制的に収める設定 */
+	display: flex;
+	align-items: center;
+	margin:0 auto;
 }
 
 .exampleResultPart table {
     margin: 0;
     border-spacing: 0;
-    width: 100%;
+    width: 95%;
     table-layout: fixed;  /* 画面幅に強制的に収める設定 */
+	display: flex;
+	align-items: center;
+	margin:0 auto;
 }
 
 .exampleSearch td {
@@ -77,8 +94,9 @@
     border-bottom: 1px solid #999;
     background: #FFF;
     padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
-    font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+    font-size: 15px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
     text-align: center;   /* 中央寄せで見やすくする */
+	margin:0 auto;
 }
 
 .exampleResult td {
@@ -90,6 +108,7 @@
     padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
     font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
     text-align: center;   /* 中央寄せで見やすくする */
+	margin:0 auto;
 }
 
 .exampleSearchPart td {
@@ -101,6 +120,7 @@
     padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
     font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
     text-align: center;   /* 中央寄せで見やすくする */
+	margin:0 auto;
 }
 
 .exampleResultPart td {
@@ -112,6 +132,7 @@
     padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
     font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
     text-align: center;   /* 中央寄せで見やすくする */
+	margin:0 auto;
 }
 
 .exampleSearch th {
@@ -124,8 +145,9 @@
     top: 0;
     left: 0;
     padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
-    font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
+    font-size: 15px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
     font-weight: bold;
+	margin:0 auto;
 }
 
 .exampleResult th {
@@ -141,6 +163,7 @@
     padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
     font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
     font-weight: bold;
+	margin:0 auto;
 }
 
 .exampleSearchPart th {
@@ -155,6 +178,7 @@
     padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
     font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
     font-weight: bold;
+	margin:0 auto;
 }
 
 .exampleResultPart th {
@@ -168,8 +192,9 @@
 	z-index: 10;
     left: 0;
     padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
-    font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
+    font-size: 15px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
     font-weight: bold;
+	margin:0 auto;
 }
 
 .exampleSearch tr:first-child th {
