@@ -14,6 +14,7 @@
 	<div class="bubble" style="left:30%; animation-delay:2s;"></div>
 	<div class="bubble" style="left:70%; animation-delay:4s;"></div>
 	<h2>会員メニュー</h2><%--select-part  --%>
+	<div class="d3">
 	<form action="select-part-servlet" method="POST">
 		<input type="submit" value="参加者管理画面">
 	</form>
@@ -32,6 +33,7 @@
 	<form action="withdraw-servlet" method="POST">
 		<input type="submit" value="退会">
 	</form>
+	</div>
 	<%@ include file="footer.jsp" %>
 </body>
 </html>

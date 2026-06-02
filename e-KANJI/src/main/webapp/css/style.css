@@ -60,6 +60,9 @@ input[type="password"] {
 	align-items: center;
 	margin: auto;
 }
+.d3 form{
+	margin-bottom: 15px;
+}
 
 .background {
 	position: fixed;
