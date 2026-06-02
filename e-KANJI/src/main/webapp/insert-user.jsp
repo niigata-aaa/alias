@@ -28,15 +28,18 @@
 			<table>
 				<tr>
 					<th>会員ID <span class="required">*</span></th>
-					<td><input type="text" name="user_id" value="<%=userId %>" required></td>
+					<td><input type="text" name="user_id" value="<%=userId %>" 
+						maxlength="16" required></td>
 				</tr>
 				<tr>
 					<th>名前 <span class="required">*</span></th>
-					<td><input type="text" name="user_name" value="<%=userName %>" required></td>
+					<td><input type="text" name="user_name" value="<%=userName %>" 
+						maxlength="32" required></td>
 				</tr>
 				<tr>
 					<th>パスワード <span class="required">*</span></th>
-					<td><input type="password" name="user_pass" value="<%=userPass %>" minlength="8" required></td>
+					<td><input type="password" name="user_pass" value="<%=userPass %>"
+						 minlength="8" maxlength="255" required></td>
 				</tr>
 			</table>
 
