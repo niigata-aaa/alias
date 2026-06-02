@@ -49,6 +49,5 @@
 			<input type="submit" value="ログイン画面に戻る">
 		</form>
 	</div>
-
 </body>
 </html>
