@@ -238,13 +238,13 @@ table table {
 			<td>
 				<form action="select-rest-detail" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" value="詳細">
+					<input type="submit" value="変更">
 				</form>
 			</td>
 			<td>
 				<form action="select-rest-ok" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" value="ここに決めた！">
+					<input type="submit" value="削除">
 				</form>
 			</td>
 		</tr>

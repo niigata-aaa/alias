@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>配席システム</title>
 <link rel="stylesheet" href="css/seating-chart.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
