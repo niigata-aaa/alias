@@ -45,8 +45,9 @@
 	</div>
 	
 	<div>
-		<a href="login.jsp">ログイン画面に戻る</a>
+		<form action="login.jsp" method="post">
+			<input type="submit" value="ログイン画面に戻る">
+		</form>
 	</div>
-
 </body>
 </html>
