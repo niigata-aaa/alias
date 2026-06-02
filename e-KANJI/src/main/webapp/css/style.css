@@ -5,8 +5,10 @@ body {
 	background-color: #F6E3A1;
 	font-family: "Hachi Maru Pop", cursive;
 	margin: 20px 0;
-	
+
 	text-align: center;
+
+
 }
 
 .logo {
@@ -45,15 +47,18 @@ input[type="reset"] {
 	height: fit-content;
 	border-style: solid;
 	border-radius: 0%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 2px;
 }
 
 .form-row label {
-  width: 120px;   
-  text-align: right;
+	width: 120px;
+	text-align: right;
 }
