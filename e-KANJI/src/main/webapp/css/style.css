@@ -2,11 +2,9 @@
 
 body {
 	color: rgb(0, 0, 0);
-	background-color: #F6E3A1;
+	background-color: #F6E3A1; 
+	font-family:"Hachi Maru Pop", cursive;
 	text-align: center;
-	font-family: Georgia, 'Times New Roman', Times, serif;
-	font-weight: bold;
-	font-size: medium;
 	margin: 20px 0;
 }
 .logo {
