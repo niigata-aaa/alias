@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>参加者情報変更画面</title>
+<link rel="stylesheet" href="css/style.css">
 <style>
 .submit-top-right {
         position: fixed;   

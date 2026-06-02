@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>参加者削除画面</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <h2>参加者情報削除</h2><br>
