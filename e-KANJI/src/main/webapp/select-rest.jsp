@@ -226,6 +226,7 @@ td button {
 			<th>close</th>
 			<th>評価</th>
 			<th>TEL</th>
+			<th>訪問履歴</th>
 			<th>詳細</th>
 			<th>決めたらここ👇</th>
 		</tr>
@@ -235,7 +236,6 @@ td button {
 		if (list != null) {
 			for (RestBean rest : list) {
 		%>
-
 
 		<tr>
 			<td><%=rest.getRestName()%></td>
@@ -248,9 +248,8 @@ td button {
 			<td><%=rest.getRestClose()%></td>
 			<td><%=rest.getRestReview()%></td>
 			<td><%=rest.getRestTel()%></td>
-
-
-
+			<td>回</td>
+			
 			<td>
 				<form action="select-rest-detail" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
