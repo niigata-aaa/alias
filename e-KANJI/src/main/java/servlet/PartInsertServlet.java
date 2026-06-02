@@ -63,8 +63,10 @@ public class PartInsertServlet extends HttpServlet {
 		part.setPartCategoryId(Integer.parseInt(request.getParameter("part_category")));
 		part.setPartBeerId(Integer.parseInt(request.getParameter("part_beer")));
 		
-		int partSmoke = request.getParameter("part_smoke") != null ? 1 : 0;
-		part.setPartSmoke(partSmoke);
+//		int partSmoke = request.getParameter("part_smoke") != null ? 1 : 0;
+//		part.setPartSmoke(partSmoke);
+		
+		part.setPartSmoke(Integer.parseInt(request.getParameter("part_smoke")));
 
 		ParticipantDAO dao = new ParticipantDAO();
 		int result = 0;
