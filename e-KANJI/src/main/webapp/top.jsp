@@ -6,10 +6,13 @@
 <meta charset="UTF-8">
 <title>会員メニュー</title>
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
 	<%@ include file="header-user-id.jsp" %>
+	<div class="bubble" style="left:30%; animation-delay:2s;"></div>
+	<div class="bubble" style="left:70%; animation-delay:4s;"></div>
 	<h2>会員メニュー</h2><%--select-part  --%>
 	<form action="select-part-servlet" method="POST">
 		<input type="submit" value="参加者管理画面">
