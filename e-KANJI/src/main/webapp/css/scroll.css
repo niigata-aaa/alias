@@ -193,7 +193,7 @@
 	z-index: 10;
     left: 0;
     padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
-    font-size: 15px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
+    font-size: 13px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
     font-weight: bold;
 	margin:0 auto;
 }

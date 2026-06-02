@@ -27,3 +27,36 @@ table {
     margin: 0 auto; /* ← これを追加：上下マージン0、左右マージンを自動調整して中央配置 */
 }
 
+table th{
+    white-space: normal;
+    word-break: break-all;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    background: #FFF;
+    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
+    font-size: 15px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+    text-align: center;   /* 中央寄せで見やすくする */
+	margin:0 auto;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.row_label {
+    width: 220px;      /* ラベル幅を固定 */
+    text-align: right; /* 右揃え */
+    margin-right: 10px;
+}
+
+.row input {
+    width: 300px;
+}
+
+.row span {
+	    display: inline-block;
+	    width: 40px;
+	    text-align: left;
+}

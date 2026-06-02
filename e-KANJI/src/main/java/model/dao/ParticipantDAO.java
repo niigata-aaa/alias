@@ -26,7 +26,7 @@ public class ParticipantDAO {
 
 		List<PartBean> partList = new ArrayList<PartBean>();
 
-		String sql = "SELECT "
+		String url = "SELECT "
 				+ "B.user_id, "
 				+ "A.part_id, "
 				+ "A.part_name, "
@@ -61,9 +61,9 @@ public class ParticipantDAO {
 				+ "LEFT JOIN "
 				+ "m_beer F "
 				+ "ON "
-				+ "A.part_beer = F.beer_id ";
-
-		String url = "SELECT * FROM m_participant WHERE part_user = ?";
+				+ "A.part_beer = F.beer_id "
+				+ "WHERE part_user = ?";
+		
 		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();
 
