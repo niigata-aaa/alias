@@ -6,8 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>飲食店一覧表示</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/select-rest.css">
 <link rel="stylesheet" href="css/scroll.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 .searchTable {
 	border: 1px solid black;
@@ -19,22 +20,16 @@ table table {
 	vertical-align: top;
 }
 
-.submit-top-right {
-	position: fixed;
-	top: 10px;
-	right: 10px;
-	padding: 10px 20px;
-	cursor: pointer;
-}
-
-td button {
-    width: 90%;
-    padding: 5px;
-    box-sizing: border-box;
-}
-
 .explain_text{
     text-align:left;
+    margin-top:18px;
+    margin-bottom:4px;
+}
+
+.title{
+    margin-left:35px;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 </style>
@@ -44,19 +39,18 @@ td button {
 <body>
 
 
-<div id="table_title"><h1>飲食店一覧表示・検索画面</h1></div>        
-<div class="exampleSearch"><br>
+<div id="table_title"><h2>飲食店一覧表示・検索画面</h2></div>        
+<div class="exampleSearch">
 
 <%--<form action="narrow-rest-servlet" method="post">--%>
-
-	<br>
-	<form action="top" method="post">
-		<input type="submit" class="submit-top-right" value="トップ画面へ戻る">
+    <form action="top" method="post">
+		<input type="submit" id="submit-top-right" value="トップ画面へ戻る">
 	</form>
 	<form action="narrow-rest-servlet" method="post">
-		店舗名キーワード検索：<input type="text" name="keyword" value="">　<input type="submit" value="検索"><br><br>
+		店舗名キーワード検索：<input type="text" name="keyword" value="">　<input type="submit" id="sub-btn" value="検索">
 		<%--<input type="submit" value="検索"><br> <br>--%>
-		<span class="explain_text"><h4>　　◆条件検索</h4></span>
+		<br>
+		<div class="explain_text"><span class="title">◆条件検索</span><br>　　　：以下の項目により条件検索が可能です。ビール銘柄による店舗検索もできます！</div>
 		<table class="searchTable">
 			<tr>
 				<td>
@@ -86,7 +80,7 @@ td button {
                 </tr>
                 --%>
 
-						<h4>料理ジャンル
+						<h4>料理ジャンル　
 						<select name="genre">
 							<option value="0">特になし</option>
 							<option value="1">和食</option>
@@ -107,7 +101,7 @@ td button {
 				<td>
 					<table border=0>
 				
-						<h4>食材カテゴリ
+						<h4>食材カテゴリ　
 						
 						<select name="category">
 							<option value="0">特になし</option>
@@ -129,7 +123,7 @@ td button {
 				<td>
 					<table border=0>
 						
-						<h4>ビールの種類
+						<h4>ビールの種類　
 						
 						<select name="beer">
 							<option value="0">特になし</option>
@@ -151,7 +145,7 @@ td button {
 
 		<table class="searchTable" border=0>
 			<tr>
-				<th>評価</th>
+				<th>　　評価</th>
 				<td><select name="review">
 						<option value="0.0">指定なし</option>
 						<option value="1.0">☆～１</option>
@@ -160,7 +154,7 @@ td button {
 						<option value="4.0">☆～４</option>
 						<option value="5.0">☆～５</option>
 				</select></td>
-				<th>最大収容数</th>
+				<th>　　最大収容数</th>
 				<td><select name="capacity">
 						<option value="0">指定なし</option>
 						<option value="5">1～5人</option>
@@ -170,13 +164,13 @@ td button {
 				</select></td>
 			</tr>
 			<tr>
-				<th>訪問履歴</th>
+				<th>　　訪問履歴</th>
 				<td><select name="log">
 						<option value="0">指定なし</option>
 						<option value="1">あり</option>
 						<option value="2">なし</option>
 				</select></td>
-				<th>新潟駅からの距離</th>
+				<th>　　新潟駅からの距離</th>
 				<td><select name="distance">
 						<option value="0">指定なし</option>
 						<option value="500">～５００ｍ</option>
@@ -187,7 +181,7 @@ td button {
 				</select></td>
 			</tr>
 			<tr>
-				<th>予算</th>
+				<th>　　予算</th>
 				<td><select name="budget">
 						<option value="0">指定なし</option>
 						<option value="3000">3,000円以下</option>
@@ -195,7 +189,7 @@ td button {
 						<option value="10000">5,000～10,000円</option>
 						<option value="1000000">10,000円～</option>
 				</select></td>
-				<th>喫煙席の有無</th>
+				<th>　　喫煙席の有無</th>
 				<td><select name="smoke">
 						<option value="0">指定なし</option>
 						<option value="1">あり</option>
@@ -210,8 +204,9 @@ td button {
 	List<RestBean> list = (List<RestBean>) request.getAttribute("restList");
 	double distance = 0;
 	%>
-<span class="explain_text"><h4>　　◆店舗検索結果</h4></span>
-<div class="exampleResult"><br>
+<div class="explain_text"><span class="title">　　◆店舗検索結果</span><br>　　　　　：条件指定なしで検索をした場合はすべての店舗が表示されます。</div>
+<div class="exampleResult">
+<br>
 	<table border=1>
 	<thead>
 		<tr>
@@ -251,13 +246,13 @@ td button {
 			<td>
 				<form action="select-rest-detail" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" value="詳細">
+					<input type="submit" class="decide-btn" value="詳細">
 				</form>
 			</td>
 			<td>
 				<form action="select-rest-ok" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" value="ここに決めた！">
+					<input type="submit" class="decide-btn" value="ここに決めた！">
 				</form>
 			</td>
 		</tr>
