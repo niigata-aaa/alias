@@ -30,6 +30,25 @@ div {
 	margin: 20px 0;
 }
 
+.formArea {
+    display: flex;
+    justify-content: center;
+}
+
+.formArea table {
+	background-color: white;
+}
+
+.formArea tr {
+	padding: 10px;
+}
+.formArea th {
+	padding: 10px;
+}
+.formArea td {
+	padding: 10px;
+}
+
 .required {
 	color: red;
 }

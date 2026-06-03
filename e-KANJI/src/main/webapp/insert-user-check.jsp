@@ -7,7 +7,6 @@
 <title>新規会員登録</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
 <%@ include file="header-logo.jsp" %>
@@ -18,12 +17,12 @@
 %>
 
 	<%@ include file="header-logo.jsp"%>
-	<div>
+	<div class="center">
 		<h2>新規会員登録</h2>
 		以下の内容で新規会員登録を行いますか？
 	</div>
 	
-	<div>
+	<div class="formArea">
 		<table>
 			<tr>
 				<th>会員ID</th>
