@@ -19,6 +19,7 @@ row span {
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
+	<div class="container">
 	<form action="top.jsp" method="post" class="back-top-form">
 		<input type="submit" value="トップ画面に戻る">
 	</form>
@@ -82,6 +83,6 @@ row span {
 		}
 		%>
 	</table>
-
+</div>
 </body>
 </html>

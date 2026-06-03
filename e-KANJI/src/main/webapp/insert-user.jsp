@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>新規会員登録</title>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
 </head>

@@ -27,6 +27,7 @@ td {
 	border: 1px solid #000000;
 	border-left:2px solid #000000;;
 	border-collapse: collapse;
+	letter-spacing: 3px;
 }
 
 table {
@@ -42,9 +43,9 @@ table th {
 	word-break: break-all;
 	border: 3px solid #000;
 	border-collapse: collapse;
-	padding: 4px 2px;
+	padding: 20px 8px;
 	/* ★上下左右の余白を少し詰める */
-	font-size: 15px;
+	font-size: 16px;
 	/* ★文字サイズを小さくして、横一列に入る文字数を増やす */
 	text-align: center;
 	/* 中央寄せで見やすくする */
