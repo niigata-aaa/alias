@@ -472,7 +472,7 @@ public class ParticipantDAO {
 
 		String sql = "UPDATE m_participant SET part_name = ?, part_ruby = ?, part_gender = ?, part_age = ?,"
 				+ "part_empyear = ?, part_post = ?, part_budget = ?, part_allergy = ?, part_genre = ?,"
-				+ "part_category = ?, part_beer = ?, part_smoke = ? WHERE  = part_id = ? and part_user = ?";
+				+ "part_category = ?, part_beer = ?, part_smoke = ? WHERE part_id = ? and part_user = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();

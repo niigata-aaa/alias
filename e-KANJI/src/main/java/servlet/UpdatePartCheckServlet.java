@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.entity.PartBean;
+
 /**
  * Servlet implementation class UpdatePartCheckServlet
  */
@@ -37,6 +39,27 @@ public class UpdatePartCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		 request.setCharacterEncoding("UTF-8");
+		PartBean bean = new PartBean();
+
+	    bean.setUserID(request.getParameter("userID"));
+	    bean.setPartID(Integer.parseInt(request.getParameter("partID")));
+	    bean.setPartName(request.getParameter("partName"));
+	    bean.setPartRuby(request.getParameter("partRuby"));
+	    bean.setPartGender(request.getParameter("partGender"));
+	    bean.setPartAge(Integer.parseInt(request.getParameter("partAge")));
+	    bean.setPartEmpyear(Integer.parseInt(request.getParameter("partEmpyear")));
+	    bean.setPartPostId(Integer.parseInt(request.getParameter("partPostId")));
+	    bean.setPartPost(request.getParameter("partPost"));
+	    bean.setPartBudget(Integer.parseInt(request.getParameter("partBudget")));
+	    bean.setPartAllergy(request.getParameter("partAllergy"));
+	    bean.setPartGenre(request.getParameter("partGenre"));
+	    bean.setPartCategory(request.getParameter("partCategory"));
+	    bean.setPartBeer(request.getParameter("partBeer"));
+	    bean.setPartSmoke(Integer.parseInt(request.getParameter("partSmoke")));
+	    
+	    request.getSession().setAttribute("part", bean);
+	    
 		RequestDispatcher rd = request.getRequestDispatcher("update-part-check.jsp");
 		rd.forward(request, response);
 	}

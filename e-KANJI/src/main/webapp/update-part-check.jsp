@@ -18,20 +18,23 @@
 	<br>
 	参加者情報を以下の内容に変更します。よろしいですか？<br>
 	<jsp:useBean id="part" scope="session" class="model.entity.PartBean" />
-	
+<%--
+	<jsp:setProperty name="part" property="userID" param="userID" />
+	<jsp:setProperty name="part" property="partID" param="partID" />
 	<jsp:setProperty name="part" property="partName" param="partName" />
 	<jsp:setProperty name="part" property="partRuby" param="partRuby" />
 	<jsp:setProperty name="part" property="partGender" param="partGender" />
 	<jsp:setProperty name="part" property="partAge" param="partAge" />
 	<jsp:setProperty name="part" property="partEmpyear" param="partEmpyear" />
 	<jsp:setProperty name="part" property="partPostId" param="partPostId" />
+	<jsp:setProperty name="part" property="partPost" param="partPost" />
 	<jsp:setProperty name="part" property="partBudget" param="partBudget" />
 	<jsp:setProperty name="part" property="partAllergy" param="partAllergy" />
 	<jsp:setProperty name="part" property="partGenre" param="partGenre" />
 	<jsp:setProperty name="part" property="partCategory" param="partCategory" />
 	<jsp:setProperty name="part" property="partBeer" param="partBeer" />
 	<jsp:setProperty name="part" property="partSmoke" param="partSmoke" />
-	
+--%>
 	会員ID：<jsp:getProperty name="part" property="userID" /><br>
 	参加者ID：<jsp:getProperty name="part" property="partID" /><br>
 	氏名（漢字）：<jsp:getProperty name="part" property="partName" /><br>
@@ -48,20 +51,20 @@
     タバコ：<jsp:getProperty name="part" property="partSmoke" /><br>
 
 	<form action="update-part-ok-servlet" method="POST">
-		<input type="hidden" name="partID" value="${part.partID}">
-		<input type="hidden" name="userID" value="${part.userID}">
-		<input type="hidden" name="partName" value="${part.partName}">
-		<input type="hidden" name="partRuby" value="${part.partRuby}">
-		<input type="hidden" name="partGender" value="${part.partGender}">
-		<input type="hidden" name="partAge" value="${part.partAge}">
-		<input type="hidden" name="partEmpyear" value="${part.partEmpyear}">
-		<input type="hidden" name="partPostId" value="${part.partPostId}">
-		<input type="hidden" name="partBudget" value="${part.partBudget}">
-		<input type="hidden" name="partAllergy" value="${part.partAllergy}">
-		<input type="hidden" name="partGenre" value="${part.partGenre}">
-		<input type="hidden" name="partCategory" value="${part.partCategory}">
-		<input type="hidden" name="partBeer" value="${part.partBeer}">
-		<input type="hidden" name="partSmoke" value="${part.partSmoke}">
+		<input type="hidden" name="partID" value="<%=part.getPartID()%>">
+		<input type="hidden" name="userID" value="<%=part.getUserID()%>">
+		<input type="hidden" name="partName" value="<%=part.getPartName()%>">
+		<input type="hidden" name="partRuby" value="<%=part.getPartRuby()%>">
+		<input type="hidden" name="partGender" value="<%=part.getPartGender()%>">
+		<input type="hidden" name="partAge" value="<%=part.getPartAge()%>">
+		<input type="hidden" name="partEmpyear" value="<%=part.getPartEmpyear()%>">
+		<input type="hidden" name="partPostId" value="<%=part.getPartPostId()%>">
+		<input type="hidden" name="partBudget" value="<%=part.getPartBudget()%>">
+		<input type="hidden" name="partAllergy" value="<%=part.getPartAllergy()%>">
+		<input type="hidden" name="partGenre" value="<%=part.getPartGenre()%>">
+		<input type="hidden" name="partCategory" value="<%=part.getPartCategory()%>">
+		<input type="hidden" name="partBeer" value="<%=part.getPartBeer()%>">
+		<input type="hidden" name="partSmoke" value="<%=part.getPartSmoke()%>">
 		<input type="submit" value="変更する">
 	</form>
 
