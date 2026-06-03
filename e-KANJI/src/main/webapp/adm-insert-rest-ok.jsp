@@ -116,7 +116,7 @@ if(rest== null){
 		食材カテゴリ：<%=category%><br> オープン：<%=rest.getRestOpen()%><br>
 		クローズ：<%=rest.getRestClose()%><br>
 
-		<%
+		<%--
 		String nextday = rest.getRestNextday();
 		if (nextday == null) {
 			nextday = "2";
@@ -134,8 +134,24 @@ if(rest== null){
 			nextday = "不明";
 			break;
 		}
+		--%>
+		<%
+		int nextday = rest.getRestNextday();
+		String nextdayText;
+		
+		switch (nextday) {
+		case 0:
+			nextdayText = "やっている";
+			break;
+		case 1:
+			nextdayText = "やっていない";
+			break;
+		default:
+			nextdayText = "不明";
+			break;
+		}
 		%>
-		日跨ぎ営業：<%=nextday%><br> 距離：<%=rest.getRestDistance()%><br>
+		日跨ぎ営業：<%=nextdayText%><br> 距離：<%=rest.getRestDistance()%><br>
 		予算：<%=rest.getRestBudget()%><br> 最大収容数：<%=rest.getRestCapacity()%><br>
 		電話番号：<%=rest.getRestTel()%><br> 住所：<%=rest.getRestAddress()%><br>
 		詳細URL：<%=rest.getRestUrl()%><br> 口コミ：<%=rest.getRestReview()%><br>
@@ -176,25 +192,45 @@ if(rest== null){
 		%>
 		ビールの種類：<%=beer%><br>
 
-		<%
+		<%--
 		String smoke = rest.getRestSmoke();
 		if ("0".equals(smoke)) {
 			smoke = "あり";
 		} else if ("1".equals(smoke)) {
 			smoke = "なし";
 		}
+		--%>
+			<%
+		int smoke = rest.getRestSmoke();
+		String smokeText="なし";
+		
+		if (smoke==0) {
+			smokeText = "あり";
+		} else{
+			smokeText = "なし";
+		}
 		%>
-		喫煙席の有無：<%=smoke%><br>
+		喫煙席の有無：<%=smokeText%><br>
 
-		<%
+		<%--
 		String smokeroom = rest.getRestSmokeroom();
 		if ("0".equals(smokeroom)) {
 			smokeroom = "あり";
 		} else if ("1".equals(smokeroom)) {
 			smokeroom = "なし";
 		}
+		--%>
+		<%
+		int smokeroom = rest.getRestSmokeroom();
+		String smokeroomText="なし";
+		
+		if (smokeroom==0) {
+			smokeroomText = "あり";
+		} else  {
+			smokeroomText = "なし";
+		}
 		%>
-		店内に喫煙所：<%= smokeroom%><br>
+		店内に喫煙所：<%= smokeroomText%><br>
 		
 	<form action="adm-top.jsp" method="post">
 		<input type="submit" class="submit-top-right" value="管理者トップ画面へ戻る"><br>
