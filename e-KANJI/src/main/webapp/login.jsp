@@ -10,9 +10,18 @@
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
-	<div class="bubble" style="left:10%"></div>
-<div class="bubble" style="left:30%; animation-delay:2s;"></div>
-<div class="bubble" style="left:70%; animation-delay:4s;"></div>
+	<div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+</div>
+
 	<div class="d2">
 		<form action="part-login.jsp" method="post">
 			<input type="submit" value="参加者の方はこちら">

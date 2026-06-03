@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>飲食店選択完了画面</title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/select-rest-table.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 
 </head>
@@ -17,7 +18,7 @@
 <%
 	RestBean bean = (RestBean) request.getAttribute("bean");
 %>
-
+		<p>
 		<table><table border=1>
 				<tr><th>店舗名</th><td><%=bean.getRestName() %></td></tr>
 				<tr><th>料理ジャンル</th><td><%=bean.getRestGenre() %></td></tr>
@@ -33,7 +34,7 @@
 				<tr><th>ビールの種類</th><td><%=bean.getRestBeer() %></td></tr>
 				<tr><th>口コミ</th><td><%=bean.getRestReview() %></td></tr>
 		</table>
-
+		<br>
 		<form action="top" method="POST">
 				<input type="submit" value="トップ画面へ戻る">
 			</form>

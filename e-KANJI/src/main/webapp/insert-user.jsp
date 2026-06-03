@@ -13,9 +13,17 @@
 </head>
 <body>
 	<%@ include file="header-logo.jsp"%>
-	<div class="bubble" style="left: 10%"></div>
-	<div class="bubble" style="left: 30%; animation-delay: 2s;"></div>
-	<div class="bubble" style="left: 70%; animation-delay: 4s;"></div>
+	<div class="background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+</div>
 
 	<%	
 	String userId = (String)request.getAttribute("user_id");
