@@ -372,36 +372,36 @@ public class ParticipantDAO {
 		return processingNumber;
 	}
 
-	public int insert(PartBean bean) throws ClassNotFoundException, SQLException {
-		int count = 0; // 処理件数
-		String sql = "INSERT INTO m_participant(" + "part_user," +
-				"part_name," + "part_ruby," + "part_gender," + "part_age," + "part_empyear," +
-				"part_post," + "part_budget," + "part_allergy," + "part_genre," + "part_category," +
-				"part_beer," + "part_smoke" + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			pstmt.setString(1, bean.getUserID());
-			pstmt.setString(2, bean.getPartName());
-			pstmt.setString(3, bean.getPartRuby());
-			pstmt.setString(4, bean.getPartGender());
-			pstmt.setInt(5, bean.getPartAge());
-			pstmt.setInt(6, bean.getPartEmpyear());
-			pstmt.setString(7, bean.getPartPost());
-			pstmt.setInt(8, bean.getPartBudget());
-			pstmt.setString(9, bean.getPartAllergy());
-			pstmt.setString(10, bean.getPartGenre());
-			pstmt.setString(11, bean.getPartCategory());
-			pstmt.setString(12, bean.getPartBeer());
-			pstmt.setInt(13, bean.getPartSmoke());
-
-			count = pstmt.executeUpdate();
-
-		}
-
-		return count; // part_id
-
-	}
+//	public int insert(PartBean bean) throws ClassNotFoundException, SQLException {
+//		int count = 0; // 処理件数
+//		String sql = "INSERT INTO m_participant(" + "part_user," +
+//				"part_name," + "part_ruby," + "part_gender," + "part_age," + "part_empyear," +
+//				"part_post," + "part_budget," + "part_allergy," + "part_genre," + "part_category," +
+//				"part_beer," + "part_smoke" + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//
+//		try (Connection con = ConnectionManager.getConnection();
+//				PreparedStatement pstmt = con.prepareStatement(sql)) {
+//			pstmt.setString(1, bean.getUserID());
+//			pstmt.setString(2, bean.getPartName());
+//			pstmt.setString(3, bean.getPartRuby());
+//			pstmt.setString(4, bean.getPartGender());
+//			pstmt.setInt(5, bean.getPartAge());
+//			pstmt.setInt(6, bean.getPartEmpyear());
+//			pstmt.setString(7, bean.getPartPost());
+//			pstmt.setInt(8, bean.getPartBudget());
+//			pstmt.setString(9, bean.getPartAllergy());
+//			pstmt.setString(10, bean.getPartGenre());
+//			pstmt.setString(11, bean.getPartCategory());
+//			pstmt.setString(12, bean.getPartBeer());
+//			pstmt.setInt(13, bean.getPartSmoke());
+//
+//			count = pstmt.executeUpdate();
+//
+//		}
+//
+//		return count; // part_id
+//
+//	}
 
 	public int insert(String userId, PartBean part) throws ClassNotFoundException, SQLException {
 
