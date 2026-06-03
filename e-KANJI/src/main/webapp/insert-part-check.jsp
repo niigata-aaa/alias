@@ -10,149 +10,288 @@
 <body>
 <%@ include file="header-logo.jsp" %>
 参加者情報登録確認画面<br>
-<%
-String userId = (String)session.getAttribute("user_id");
-PartBean part = (PartBean) request.getAttribute("part");
-if (part == null) {
-    out.println("partがnullです");
-    return;
-}
-%>
-    <a href="select-part.jsp">参加者一覧表示・検索画面へ戻る</a>
+<!--<%-->
+<!--String userId = (String)session.getAttribute("user_id");-->
+<!--PartBean part = (PartBean) request.getAttribute("part");-->
+<!--if (part == null) {-->
+<!--    out.println("partがnullです");-->
+<!--    return;-->
+<!--}-->
+<!--%>-->
+
+	<%
+	String userId = (String) session.getAttribute("user_id");
+	String userName = (String) session.getAttribute("user_name");
+
+	String partName = (String) request.getAttribute("part_name");
+	String partRuby = (String) request.getAttribute("part_ruby");
+	String partGender = (String) request.getAttribute("part_gender");
+
+	Integer partAgeObj = (Integer) request.getAttribute("part_age");
+	int partAge = (partAgeObj != null) ? partAgeObj : 0;
+
+	Integer partEmpyearObj = (Integer) request.getAttribute("part_empyear");
+	int partEmpyear = (partEmpyearObj != null) ? partEmpyearObj : 0;
+
+	Integer partPostObj = (Integer) request.getAttribute("part_post");
+	int partPost = (partPostObj != null) ? partPostObj : 0;
+
+	Integer partBudgetObj = (Integer) request.getAttribute("part_budget");
+	int partBudget = (partBudgetObj != null) ? partBudgetObj : 0;
+
+	String partAllergy = (String) request.getAttribute("part_allergy");
+
+	Integer partGenreObj = (Integer) request.getAttribute("part_genre");
+	int partGenre = (partGenreObj != null) ? partGenreObj : 0;
+
+	Integer partCategoryObj = (Integer) request.getAttribute("part_category");
+	int partCategory = (partCategoryObj != null) ? partCategoryObj : 0;
+
+	Integer partBeerObj = (Integer) request.getAttribute("part_beer");
+	int partBeer = (partBeerObj != null) ? partBeerObj : 0;
+
+	Integer partSmokeObj = (Integer) request.getAttribute("part_smoke");
+	int partSmoke = (partSmokeObj != null) ? partSmokeObj : 0;
+
+	if (partName == null)
+		partName = "";
+	if (partRuby == null)
+		partRuby = "";
+	if (partGender == null)
+		partGender = "";
+	if (partAllergy == null)
+		partAllergy = "";
+	%>
+
+
+	<form action="select-part-servlet" method="post">
+		<input type="submit" value="参加者一覧表示・検索画面へ戻る">
+	</form>
     <h2>この参加者情報を登録します</h2>
 
-<form action="insert-part-ok-servlet" method="post">
 
-<input type="hidden" name="user_id" value="<%= part.getUserID() %>">
-<input type="hidden" name="part_name" value="<%= part.getPartName() %>">
-<input type="hidden" name="part_ruby" value="<%= part.getPartRuby() %>">
-<input type="hidden" name="part_gender" value="<%= part.getPartGender() %>">
-<input type="hidden" name="part_age" value="<%= part.getPartAge() %>">
-<input type="hidden" name="part_empyear" value="<%= part.getPartEmpyear() %>">
-<input type="hidden" name="part_post" value="<%= part.getPartPost() %>">
-<input type="hidden" name="part_budget" value="<%= part.getPartBudget() %>">
-<input type="hidden" name="part_allergy" value="<%= part.getPartAllergy() %>">
-<input type="hidden" name="part_genre" value="<%= part.getPartGenre() %>">
-<input type="hidden" name="part_category" value="<%= part.getPartCategory() %>">
-<input type="hidden" name="part_beer" value="<%= part.getPartBeer() %>">
-<input type="hidden" name="part_smoke" value="<%= part.getPartSmoke() %>">
+	<div>
+			<table>
+				<tr>
+					<th>名前<span class="required"> *</span></th>
+					<td><%=partName%></td>
+				</tr>
+				<tr>
+					<th>名前（かな）</th>
+					<td><%=partRuby%></td>
+				</tr>
+				<tr>
+					<th>性別</th>
+					<td><%=partGender%></td>
+				</tr>
+				<tr>
+					<th>年齢</th>
+					<td><%=partAge%></td>
+				</tr>
+				<tr>
+					<th>入社年度</th>
+					<td><%=partEmpyear%></td>
+				</tr>
+				<tr>
+					<th>役職名</th>
+					<td>
+					<%
+					switch(partPost){
+					case 0:
+					    out.print("-");
+					    break;
+					case 1:
+					    out.print("一般社員");
+					    break;
+					case 2:
+					    out.print("主任・主査");
+					    break;
+					case 3:
+					    out.print("係長");
+					    break;
+					case 4:
+					    out.print("課長代理");
+					    break;
+					case 5:
+					    out.print("課長");
+					    break;
+					case 6:
+					    out.print("副部長");
+					    break;
+					case 7:
+					    out.print("部長・支社長・所長");
+					    break;
+					case 8:
+					    out.print("執行役員");
+					    break;
+					case 9:
+					    out.print("常務取締役");
+					    break;
+					case 10:
+					    out.print("専務取締役");
+					    break;
+					case 11:
+					    out.print("社長");
+					    break;
+					case 12:
+					    out.print("会長");
+					    break;
+					}
+					%>
+					</td>
+				</tr>
+				<tr>
+					<th>希望予算</th>
+					<td><%=partBudget%></td>
+				</tr>
+				<tr>
+					<th>アレルギー</th>
+					<td><%=partAllergy%></td>
+				</tr>
+				<tr>
+					<th>希望店ジャンル</th>
+					<td>
+					<%
+					switch(partGenre){
+					case 0:
+					    out.print("特になし");
+					    break;
+					case 1:
+					    out.print("和食");
+					    break;
+					case 2:
+					    out.print("洋食");
+					    break;
+					case 3:
+					    out.print("中華料理");
+					    break;
+					case 4:
+					    out.print("フレンチ");
+					    break;
+					case 5:
+					    out.print("韓国料理");
+					    break;
+					case 6:
+					    out.print("アジア・エスニック");
+					    break;
+					case 7:
+					    out.print("居酒屋");
+					    break;
+					case 8:
+					    out.print("焼肉");
+					    break;
+					case 9:
+					    out.print("カレー");
+					    break;
+					case 10:
+					    out.print("鍋");
+					    break;
+					}
+					%>
+					</td>
+				</tr>
+				<tr>
+					<th>希望食材カテゴリ</th>
+					<td>
+					<%
+					switch(partCategory){
+					case 0:
+					    out.print("特になし");
+					    break;
+					case 1:
+					    out.print("肉");
+					    break;
+					case 2:
+					    out.print("魚");
+					    break;
+					case 3:
+					    out.print("野菜");
+					    break;
+					case 4:
+					    out.print("麺類");
+					    break;
+					case 5:
+					    out.print("米料理");
+					    break;
+					case 6:
+					    out.print("揚げ物");
+					    break;
+					case 7:
+					    out.print("お酒");
+					    break;
+					}
+					%>
+					</td>
+				</tr>
+				<tr>
+					<th>ビールの好み</th>
+					<td>
+					<%
+					switch(partBeer){
+					case 0:
+					    out.print("特になし");
+					    break;
+					case 1:
+					    out.print("アサヒ");
+					    break;
+					case 2:
+					    out.print("キリン");
+					    break;
+					case 3:
+					    out.print("サントリー");
+					    break;
+					case 4:
+					    out.print("サッポロ");
+					    break;
+					case 5:
+					    out.print("エビス");
+					    break;
+					case 6:
+					    out.print("クラフトビール");
+					    break;
+					}
+					%>
+					</td>
+				</tr>
+				<tr>
+					<th>たばこ</th>
+					<td><%= partSmoke == 1 ? "吸う" : "吸わない" %></td>
+				</tr>
+			</table>
+	</div>
 
-    会員ID：<%= userId %><br>
-    参加者ID：登録時に自動採番されます<br>
-    氏名（漢字）：<%= part.getPartName() %><br>
-    氏名（かな）：<%= part.getPartRuby() %><br>
-    性別：<%= part.getPartGender() %><br>
-    年齢：<%= part.getPartAge() %><br>
-    入社年度：<%= part.getPartEmpyear() %><br>
-		<%
-String post = part.getPartPost();
-if (post == null) {
-    post = "0"; // 値が取れなかった場合は、ひとまず「0（一般社員）」として扱う
-} else {
-    post = post.trim();
-}
-switch(post){
-    case "0": post = "一般社員"; break;
-    case "1": post = "主任・主査"; break;
-    case "2": post = "係長"; break;
-    case "3": post = "課長代理"; break;
-    case "4": post = "課長"; break;
-    case "5": post = "副部長"; break;
-    case "6": post = "部長・支社長・所長"; break;
-    case "7": post = "執行役員"; break;
-    case "8": post = "常務取締役"; break;
-    case "9": post = "専務取締役"; break;
-    case "10": post = "社長"; break;
-    case "11": post = "会長"; break;
-    default: post = "不明"; break;
-}
-%>
-役職：<%=post%><br>
- 予算：<%= part.getPartBudget() %><br>
-    アレルギー：<%= part.getPartAllergy() %><br>
-<% 
-				String genre = part.getPartGenre();
-if (genre == null) {
-    genre = "0"; // 値が取れなかった場合は、ひとまず「0（特になし）」として扱う
-} else {
-    genre = genre.trim();
-}
 
-				switch(genre){
-				    case "0": genre = "特になし"; break;
-				    case "1": genre = "和食"; break;
-				    case "2": genre = "洋食"; break;
-				    case "3": genre = "中華料理"; break;
-				    case "4": genre = "フレンチ"; break;
-				    case "5": genre = "韓国料理"; break;
-				    case "6": genre = "アジア・エスニック"; break;
-				    case "7": genre = "居酒屋"; break;
-				    case "8": genre = "焼肉"; break;
-				    case "9": genre = "カレー"; break;
-				    case "10": genre = "鍋"; break;
-				    default: genre = "不明";
-}
-%>
-
-		好きな食べ物のジャンル：<%=genre%><br>
-<%
-String category = part.getPartCategory();
-if (category == null) {
-    category = "0"; // 値が取れなかった場合は、ひとまず「0（特になし）」として扱う
-} else {
-    category = category.trim();
-}
-
-switch(category){
-    case "0": category = "特になし"; break;
-    case "1": category = "肉"; break;
-    case "2": category = "魚"; break;
-    case "3": category = "野菜"; break;
-    case "4": category = "麺類"; break;
-    case "5": category = "米料理"; break;
-    case "6": category = "揚げ物"; break;
-    case "7": category = "お酒"; break;
-    default: category = "不明";
-}
-%>
-好きな食べ物のカテゴリ：<%=category%><br>
-
-<%
-String beer = part.getPartBeer();
-if (beer == null) {
-    beer = "0"; // 値が取れなかった場合は、ひとまず「0（特になし）」として扱う
-} else {
-    beer = beer.trim();
-}
-
-switch(beer){
-    case "0": beer = "特になし"; break;
-    case "1": beer = "アサヒ"; break;
-    case "2": beer = "キリン"; break;
-    case "3": beer = "サントリー"; break;
-    case "4": beer = "サッポロ"; break;
-    case "5": beer = "エビス"; break;
-    case "6": beer = "クラフトビール"; break;
-    default: beer = "不明";
-}
-%>
-好きなビールの種類：<%=beer%><br>
-		<%
-		String smoke = String.valueOf(part.getPartSmoke()); 
-if("1".equals(smoke)){
-    smoke = "吸う";
-}else if("0".equals(smoke)){
-    smoke = "吸わない";
-}else{
-    smoke = "不明";
-}
-%>
-タバコ：<%=smoke%><br>
-	 
-
+	 <form action="insert-part-ok-servlet" method="post">
+			<input type="hidden" name="part_name" value="<%=partName %>">
+			<input type="hidden" name="part_ruby" value="<%=partRuby %>">
+			<input type="hidden" name="part_gender" value="<%=partGender %>">
+			<input type="hidden" name="part_age" value="<%=partAge %>">
+			<input type="hidden" name="part_empyear" value="<%=partEmpyear %>">
+			<input type="hidden" name="part_post" value="<%=partPost %>">
+			<input type="hidden" name="part_budget" value="<%=partBudget %>">
+			<input type="hidden" name="part_allergy" value="<%=partAllergy %>">
+			<input type="hidden" name="part_genre" value="<%=partGenre %>">
+			<input type="hidden" name="part_category" value="<%=partCategory %>">
+			<input type="hidden" name="part_beer" value="<%=partBeer %>">
+			<input type="hidden" name="part_smoke" value="<%=partSmoke %>">
 		<input type="submit" value="この情報を追加する">
-		
 	</form>
+	
+		<form action="insert-part-back" method="post">
+			<input type="hidden" name="part_name" value="<%=partName %>">
+			<input type="hidden" name="part_ruby" value="<%=partRuby %>">
+			<input type="hidden" name="part_gender" value="<%=partGender %>">
+			<input type="hidden" name="part_age" value="<%=partAge %>">
+			<input type="hidden" name="part_empyear" value="<%=partEmpyear %>">
+			<input type="hidden" name="part_post" value="<%=partPost %>">
+			<input type="hidden" name="part_budget" value="<%=partBudget %>">
+			<input type="hidden" name="part_allergy" value="<%=partAllergy %>">
+			<input type="hidden" name="part_genre" value="<%=partGenre %>">
+			<input type="hidden" name="part_category" value="<%=partCategory %>">
+			<input type="hidden" name="part_beer" value="<%=partBeer %>">
+			<input type="hidden" name="part_smoke" value="<%=partSmoke %>">
+			<input type="submit" value="戻る">
+		</form>
 
 </body>
 </html>
