@@ -30,7 +30,7 @@
 
 <td>
 <%--参加者情報登録画面へ --%>
-<form action="insert-part.jsp" method="post">
+<form action="insert-part-form" method="post">
 <input type="submit" class="sub-btn" value="参加者情報登録">
 </form>
 </td>
