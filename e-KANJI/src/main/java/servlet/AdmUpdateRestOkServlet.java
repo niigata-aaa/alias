@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.RestaurantDAO;
 import model.entity.RestBean;
@@ -40,8 +41,32 @@ public class AdmUpdateRestOkServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RestBean bean = (RestBean) request.getAttribute("bean");
+		
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		RestBean bean = (RestBean) session.getAttribute("rest");
+		//RestBean bean = (RestBean) request.getAttribute("rest");
 
+		// RestBean bean = new RestBean();
+
+		    bean.setRestId(Integer.parseInt(request.getParameter("restId")));
+		    bean.setRestName(request.getParameter("restName"));
+		    bean.setRestGenre(request.getParameter("restGenre"));
+		    bean.setRestCategory(request.getParameter("restCategory"));
+		    bean.setRestOpen(request.getParameter("restOpen"));
+		    bean.setRestClose(request.getParameter("restClose"));
+		    bean.setRestNextday(Integer.parseInt(request.getParameter("restNextday")));
+		    bean.setRestDistance(Integer.parseInt(request.getParameter("restDistance")));
+		    bean.setRestBudget(Integer.parseInt(request.getParameter("restBudget")));
+		    bean.setRestCapacity(Integer.parseInt(request.getParameter("restCapacity")));
+		    bean.setRestTel(request.getParameter("restTel"));
+		    bean.setRestAddress(request.getParameter("restAddress"));
+		    bean.setRestUrl(request.getParameter("restUrl"));
+		    bean.setRestReview(Double.parseDouble(request.getParameter("restReview")));
+		    bean.setRestBeer(request.getParameter("restBeer"));
+		    bean.setRestSmoke(Integer.parseInt(request.getParameter("restSmoke")));
+		    bean.setRestSmokeroom(Integer.parseInt(request.getParameter("restSmokeroom")));
+		
 		RestaurantDAO dao = new RestaurantDAO();
 
 		int processingNumber = 0;

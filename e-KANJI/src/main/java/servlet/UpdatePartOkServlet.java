@@ -41,7 +41,7 @@ public class UpdatePartOkServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		PartBean bean = (PartBean) request.getAttribute("bean");
+		PartBean bean = (PartBean) request.getAttribute("part");
 
 		ParticipantDAO dao = new ParticipantDAO();
 

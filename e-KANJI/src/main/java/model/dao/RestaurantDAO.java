@@ -651,7 +651,7 @@ public class RestaurantDAO {
 		String sql = "UPDATE m_restaurant SET rest_name = ?, rest_genre = ?, rest_category = ?, rest_open = ?,"
 				+ "rest_close = ?, rest_nextday = ?, rest_distance = ?, rest_budget = ?, rest_capacity = ?,"
 				+ "rest_tel = ?, rest_address = ?, rest_url = ?, rest_review=?,"
-				+ "rest_beer=?, rest_smoke=?, rest_smokeroom=? WHERE  = rest_id = ? ";
+				+ "rest_beer=?, rest_smoke=?, rest_smokeroom=? WHERE  rest_id = ? ";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
@@ -692,7 +692,7 @@ public class RestaurantDAO {
 			pstmt.setString(14, restBeer);
 			pstmt.setInt(15, restSmoke);
 			pstmt.setInt(16, restSmokeroom);
-
+			pstmt.setInt(17, bean.getRestId());
 			// SQLステートメントの実行
 			processingNumber = pstmt.executeUpdate();
 		}

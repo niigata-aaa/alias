@@ -32,7 +32,7 @@
 	<jsp:setProperty name="rest" property="restSmoke" param="restSmoke" />
 	<jsp:setProperty name="rest" property="restSmokeroom" param="restSmokeroom" />
 	
-	テスト<br>
+<br>
 	飲食店ID:<jsp:getProperty name="rest" property="restId" /><br>
 	飲食店名：<jsp:getProperty name="rest" property="restName" /><br>
 	店ジャンル：<jsp:getProperty name="rest" property="restGenre" /><br>
@@ -52,6 +52,23 @@
 	店内に喫煙所：<jsp:getProperty name="rest" property="restSmokeroom" /><br>
 
 	<form action="adm-update-rest-ok-servlet" method="POST">
+		<input type="hidden" name="restId" value="${rest.restId}">
+		<input type="hidden" name="restName" value="${rest.restName}">
+		<input type="hidden" name="restGenre" value="${rest.restGenre}">
+		<input type="hidden" name="restCategory" value="${rest.restCategory}">
+		<input type="hidden" name="restOpen" value="${rest.restOpen}">
+		<input type="hidden" name="restClose" value="${rest.restClose}">
+		<input type="hidden" name="restNextday" value="${rest.restNextday}">
+		<input type="hidden" name="restDistance" value="${rest.restDistance}">
+		<input type="hidden" name="restBudget" value="${rest.restBudget}">
+		<input type="hidden" name="restCapacity" value="${rest.restCapacity}">
+		<input type="hidden" name="restTel" value="${rest.restTel}">
+		<input type="hidden" name="restAddress" value="${rest.restAddress}">
+		<input type="hidden" name="restUrl" value="${rest.restUrl}">
+		<input type="hidden" name="restReview" value="${rest.restReview}">
+		<input type="hidden" name="restBeer" value="${rest.restBeer}">
+		<input type="hidden" name="restSmoke" value="${rest.restSmoke}">
+		<input type="hidden" name="restSmokeroom" value="${rest.restSmokeroom}">
 		<input type="submit" value="変更する">
 	</form>
 
