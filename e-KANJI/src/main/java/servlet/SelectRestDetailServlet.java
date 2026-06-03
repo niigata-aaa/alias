@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.RestaurantDAO;
 import model.entity.RestBean;
@@ -44,17 +45,17 @@ public class SelectRestDetailServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		int restId = Integer.parseInt(request.getParameter("restId"));
 
-		int id = Integer.parseInt(request.getParameter("restId"));
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("user_id");
 
 		// DAOの生成
 		RestaurantDAO dao = new RestaurantDAO();
-
 		RestBean bean = new RestBean();
 
 		try {
-			bean = dao.select(id);
-
+			bean = dao.select(userId, restId);
 			request.setAttribute("bean", bean);
 
 		} catch (ClassNotFoundException | SQLException e) {

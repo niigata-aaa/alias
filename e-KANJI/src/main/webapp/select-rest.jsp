@@ -206,6 +206,7 @@ td button {
 </div>
 	<%
 	List<RestBean> list = (List<RestBean>) request.getAttribute("restList");
+	double distance = 0;
 	%>
 
 <div class="exampleResult"><br>
@@ -231,18 +232,19 @@ td button {
 		<%
 		if (list != null) {
 			for (RestBean rest : list) {
+				distance = rest.getRestDistance() / 1000.0;
 		%>
 
 		<tr>
 			<td><%=rest.getRestName()%></td>
 			<td><%=rest.getRestGenre()%></td>
 			<td><%=rest.getRestCategory()%></td>
-			<td><%=rest.getRestDistance()%></td>
-			<td><%=rest.getRestBudget()%></td>
-			<td><%=rest.getRestCapacity()%></td>
-			<td><%=rest.getRestOpen()%></td>
-			<td><%=rest.getRestClose()%></td>
-			<td><%=rest.getRestReview()%></td>
+			<td><%=distance%> km</td>
+			<td><%=rest.getRestBudget()%> 円</td>
+			<td><%=rest.getRestCapacity()%> 席</td>
+			<td><%=rest.getRestOpen().substring(0, 5)%></td>
+			<td><%=rest.getRestClose().substring(0, 5)%></td>
+			<td>★ <%=rest.getRestReview()%></td>
 			<td><%=rest.getRestTel()%></td>
 			<td><%= rest.getVisitCount() == 0 ? "未訪問" : rest.getVisitCount() + "回" %></td>
 			
@@ -261,7 +263,7 @@ td button {
 		</tr>
 
 		<%
-		}
+			}
 		}
 		%>
 
