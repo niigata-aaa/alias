@@ -116,15 +116,15 @@ td button {
 			<td><%=part.getPartName() %></td>
 			<td><%=part.getPartRuby() %></td>
 			<td><%=part.getPartGender() %></td>
-			<td><%=part.getPartAge() %></td>
-			<td><%=part.getPartEmpyear() %></td>
+			<td><%=part.getPartAge() %> 歳</td>
+			<td><%=part.getPartEmpyear() %> 年</td>
 			<td><%=part.getPartPost() %></td>
-			<td><%=part.getPartBudget() %></td>
+			<td><%=part.getPartBudget() %> 円</td>
 			<td><%=part.getPartAllergy() %></td>
 			<td><%=part.getPartGenre() %></td>
 			<td><%=part.getPartCategory() %></td>
 			<td><%=part.getPartBeer() %></td>
-			<td><%=part.getPartSmoke() %></td>
+			<td><%=part.getPartSmoke() == 1 ? "🚬" : "" %></td>
 			
 			<td>
 				<form action="update-part-servlet" method="POST">

@@ -221,8 +221,7 @@ td button {
 			<th>距離</th>
 			<th>予算</th>
 			<th>席数</th>
-			<th>open</th>
-			<th>close</th>
+			<th>営業時間</th>
 			<th>評価</th>
 			<th>TEL</th>
 			<th>訪問履歴</th>
@@ -244,8 +243,7 @@ td button {
 			<td><%=distance%> km</td>
 			<td><%=rest.getRestBudget()%> 円</td>
 			<td><%=rest.getRestCapacity()%> 席</td>
-			<td><%=rest.getRestOpen().substring(0, 5)%></td>
-			<td><%=rest.getRestClose().substring(0, 5)%></td>
+			<td><%=rest.getRestOpen().substring(0, 5)%> ~ <%=rest.getRestClose().substring(0, 5)%></td>
 			<td>★ <%=rest.getRestReview()%></td>
 			<td><%=rest.getRestTel()%></td>
 			<td><%= rest.getVisitCount() == 0 ? "未訪問" : rest.getVisitCount() + "回" %></td>
