@@ -7,6 +7,7 @@
 <title>配席システム</title>
 <link rel="stylesheet" href="css/seating-chart.css">
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>

@@ -30,9 +30,11 @@
 	<form action="logout" method="POST">
 		<input type="submit" value="ログアウト">
 	</form>
+	<br>	
 	<form action="withdraw-servlet" method="POST">
 		<input type="submit" value="退会">
 	</form>
+
 	</div>
 	<%@ include file="footer.jsp" %>
 </body>
