@@ -64,7 +64,7 @@ public class ParticipantDAO {
 				+ "ON "
 				+ "A.part_beer = F.beer_id "
 				+ "WHERE part_user = ?";
-		
+
 		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();
 
@@ -372,36 +372,36 @@ public class ParticipantDAO {
 		return processingNumber;
 	}
 
-//	public int insert(PartBean bean) throws ClassNotFoundException, SQLException {
-//		int count = 0; // 処理件数
-//		String sql = "INSERT INTO m_participant(" + "part_user," +
-//				"part_name," + "part_ruby," + "part_gender," + "part_age," + "part_empyear," +
-//				"part_post," + "part_budget," + "part_allergy," + "part_genre," + "part_category," +
-//				"part_beer," + "part_smoke" + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-//
-//		try (Connection con = ConnectionManager.getConnection();
-//				PreparedStatement pstmt = con.prepareStatement(sql)) {
-//			pstmt.setString(1, bean.getUserID());
-//			pstmt.setString(2, bean.getPartName());
-//			pstmt.setString(3, bean.getPartRuby());
-//			pstmt.setString(4, bean.getPartGender());
-//			pstmt.setInt(5, bean.getPartAge());
-//			pstmt.setInt(6, bean.getPartEmpyear());
-//			pstmt.setString(7, bean.getPartPost());
-//			pstmt.setInt(8, bean.getPartBudget());
-//			pstmt.setString(9, bean.getPartAllergy());
-//			pstmt.setString(10, bean.getPartGenre());
-//			pstmt.setString(11, bean.getPartCategory());
-//			pstmt.setString(12, bean.getPartBeer());
-//			pstmt.setInt(13, bean.getPartSmoke());
-//
-//			count = pstmt.executeUpdate();
-//
-//		}
-//
-//		return count; // part_id
-//
-//	}
+	//	public int insert(PartBean bean) throws ClassNotFoundException, SQLException {
+	//		int count = 0; // 処理件数
+	//		String sql = "INSERT INTO m_participant(" + "part_user," +
+	//				"part_name," + "part_ruby," + "part_gender," + "part_age," + "part_empyear," +
+	//				"part_post," + "part_budget," + "part_allergy," + "part_genre," + "part_category," +
+	//				"part_beer," + "part_smoke" + ") VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	//
+	//		try (Connection con = ConnectionManager.getConnection();
+	//				PreparedStatement pstmt = con.prepareStatement(sql)) {
+	//			pstmt.setString(1, bean.getUserID());
+	//			pstmt.setString(2, bean.getPartName());
+	//			pstmt.setString(3, bean.getPartRuby());
+	//			pstmt.setString(4, bean.getPartGender());
+	//			pstmt.setInt(5, bean.getPartAge());
+	//			pstmt.setInt(6, bean.getPartEmpyear());
+	//			pstmt.setString(7, bean.getPartPost());
+	//			pstmt.setInt(8, bean.getPartBudget());
+	//			pstmt.setString(9, bean.getPartAllergy());
+	//			pstmt.setString(10, bean.getPartGenre());
+	//			pstmt.setString(11, bean.getPartCategory());
+	//			pstmt.setString(12, bean.getPartBeer());
+	//			pstmt.setInt(13, bean.getPartSmoke());
+	//
+	//			count = pstmt.executeUpdate();
+	//
+	//		}
+	//
+	//		return count; // part_id
+	//
+	//	}
 
 	public int insert(String userId, PartBean part) throws ClassNotFoundException, SQLException {
 
@@ -465,57 +465,102 @@ public class ParticipantDAO {
 		}
 		return processingNumber;
 	}
-	
 
 	//更新
-	public int update(PartBean bean) throws SQLException, ClassNotFoundException {
-		int processingNumber = 0;
+	//	public int update(PartBean bean) throws SQLException, ClassNotFoundException {
+	//		int processingNumber = 0;
+	//
+	//		String sql = "UPDATE m_participant SET part_name = ?, part_ruby = ?, part_gender = ?, part_age = ?,"
+	//				+ "part_empyear = ?, part_post = ?, part_budget = ?, part_allergy = ?, part_genre = ?,"
+	//				+ "part_category = ?, part_beer = ?, part_smoke = ? WHERE part_id = ? and part_user = ?";
+	//
+	//		// データベースへの接続の取得、PreparedStatementの取得
+	//		try (Connection con = ConnectionManager.getConnection();
+	//				PreparedStatement pstmt = con.prepareStatement(sql)) {
+	//
+	//			// DTOからのデータの取り出し
+	//			String partName = bean.getPartName();
+	//			String partRuby = bean.getPartRuby();
+	//			String partGender = bean.getPartGender();
+	//			int partAge = bean.getPartAge();
+	//			int partEmpyear = bean.getPartEmpyear();
+	//			String partPost = bean.getPartPost();
+	//			int partBudget = bean.getPartBudget();
+	//			String partAllergy = bean.getPartAllergy();
+	//			String partGenre = bean.getPartGenre();
+	//			String partCategory = bean.getPartCategory();
+	//			String partBeer = bean.getPartBeer();
+	//			int partSmoke = bean.getPartSmoke();
+	//			int partID = bean.getPartID();
+	//			String userID = bean.getUserID();
+	//
+	//			// プレースホルダへの値の設定
+	//			pstmt.setString(1, partName);
+	//			pstmt.setString(2, partRuby);
+	//			pstmt.setString(3, partGender);
+	//			pstmt.setInt(4, partAge);
+	//			pstmt.setInt(5, partEmpyear);
+	//			pstmt.setString(6, partPost);
+	//			pstmt.setInt(7, partBudget);
+	//			pstmt.setString(8, partAllergy);
+	//			pstmt.setString(9, partGenre);
+	//			pstmt.setString(10, partCategory);
+	//			pstmt.setString(11, partBeer);
+	//			pstmt.setInt(12, partSmoke);
+	//			pstmt.setInt(13, partID);
+	//			pstmt.setString(14, userID);
+	//
+	//			// SQLステートメントの実行
+	//			processingNumber = pstmt.executeUpdate();
+	//		}
+	//		return processingNumber;
+	//
+	//	}
 
-		String sql = "UPDATE m_participant SET part_name = ?, part_ruby = ?, part_gender = ?, part_age = ?,"
-				+ "part_empyear = ?, part_post = ?, part_budget = ?, part_allergy = ?, part_genre = ?,"
-				+ "part_category = ?, part_beer = ?, part_smoke = ? WHERE part_id = ? and part_user = ?";
+	public int update(PartBean part) throws ClassNotFoundException, SQLException {
 
-		// データベースへの接続の取得、PreparedStatementの取得
+		int count = 0; // 処理件数
+		String sql = "UPDATE "
+				+ "m_participant "
+				+ "SET "
+				+ "part_name = ?, "
+				+ "part_ruby = ?, "
+				+ "part_gender = ?, "
+				+ "part_age = ?, "
+				+ "part_empyear = ?, "
+				+ "part_post = ?, "
+				+ "part_budget = ?, "
+				+ "part_allergy = ?, "
+				+ "part_genre = ?, "
+				+ "part_category = ?, "
+				+ "part_beer = ?, "
+				+ "part_smoke = ? "
+				+ "WHERE "
+				+ "part_id = ?";
+
+		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			// DTOからのデータの取り出し
-			String partName = bean.getPartName();
-			String partRuby = bean.getPartRuby();
-			String partGender = bean.getPartGender();
-			int partAge = bean.getPartAge();
-			int partEmpyear = bean.getPartEmpyear();
-			String partPost = bean.getPartPost();
-			int partBudget = bean.getPartBudget();
-			String partAllergy = bean.getPartAllergy();
-			String partGenre = bean.getPartGenre();
-			String partCategory = bean.getPartCategory();
-			String partBeer = bean.getPartBeer();
-			int partSmoke = bean.getPartSmoke();
-			int partID = bean.getPartID();
-			String userID = bean.getUserID();
+			pstmt.setString(1, part.getPartName());
+			pstmt.setString(2, part.getPartRuby());
+			pstmt.setString(3, part.getPartGender());
+			pstmt.setInt(4, part.getPartAge());
+			pstmt.setInt(5, part.getPartEmpyear());
+			pstmt.setInt(6, part.getPartPostId());
+			pstmt.setInt(7, part.getPartBudget());
+			pstmt.setString(8, part.getPartAllergy());
+			pstmt.setInt(9, part.getPartGenreId());
+			pstmt.setInt(10, part.getPartCategoryId());
+			pstmt.setInt(11, part.getPartBeerId());
+			pstmt.setInt(12, part.getPartSmoke());
+			pstmt.setInt(13, part.getPartID());
 
-			// プレースホルダへの値の設定
-			pstmt.setString(1, partName);
-			pstmt.setString(2, partRuby);
-			pstmt.setString(3, partGender);
-			pstmt.setInt(4, partAge);
-			pstmt.setInt(5, partEmpyear);
-			pstmt.setString(6, partPost);
-			pstmt.setInt(7, partBudget);
-			pstmt.setString(8, partAllergy);
-			pstmt.setString(9, partGenre);
-			pstmt.setString(10, partCategory);
-			pstmt.setString(11, partBeer);
-			pstmt.setInt(12, partSmoke);
-			pstmt.setInt(13, partID);
-			pstmt.setString(14, userID);
+			count = pstmt.executeUpdate();
 
-			// SQLステートメントの実行
-			processingNumber = pstmt.executeUpdate();
 		}
-		return processingNumber;
 
+		return count;
 	}
 
 }
