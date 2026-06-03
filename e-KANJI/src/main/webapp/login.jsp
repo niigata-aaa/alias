@@ -10,17 +10,16 @@
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
-	<div class="background">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-
-</div>
+	<div>
+	    <div class="bubble"></div>
+	    <div class="bubble"></div>
+	    <div class="bubble"></div>
+	    <div class="bubble"></div>
+	    <div class="bubble"></div>
+	    <div class="bubble"></div>
+	    <div class="bubble"></div>
+	    <div class="bubble"></div>
+    </div>
 
 	<div class="d2">
 		<form action="part-login.jsp" method="post">

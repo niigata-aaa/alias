@@ -57,11 +57,12 @@
 	%>
 
 
-	<div>
-		<h2>新規参加者登録</h2>
-		<a><%=userName%>さんの参加者</a><br> 
-		<span class="required">*は必須入力です</span><br>
-		<br>
+	
+	<h2>新規参加者登録</h2>
+	<a><%=userName%>さんの参加者</a><br> 
+	<span class="required">*は必須入力です</span><br>
+	<br>
+	<div class="formArea">
 		<form action="part-insert-check" method="post">
 			<table>
 				<tr>

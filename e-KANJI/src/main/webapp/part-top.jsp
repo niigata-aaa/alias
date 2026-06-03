@@ -10,6 +10,7 @@
 
 </head>
 <body>
+
 	<%
 	String userId = (String) request.getAttribute("user_id");
 	String userName = (String) request.getAttribute("user_name");
@@ -17,6 +18,8 @@
 
 
 	<%@ include file="header-logo.jsp"%>
+	
+	
 	<h2>
 		あなたの幹事は<%=userName %>さんですか？
 	</h2>
@@ -26,6 +29,7 @@
 		<input type="hidden" name="user_name" value="<%=userName %>">
 		<input type="submit" value="はい">
 	</form>
+	<br>
 	<form action="part-login.jsp" method="POST">
 		<input type="submit" value="いいえ">
 	</form>

@@ -10,6 +10,7 @@
 
 </head>
 <body>
+
 	<%
 	String userId = (String) session.getAttribute("user_id");
 	String userName = (String) session.getAttribute("user_name");
@@ -61,7 +62,7 @@
 		以下の内容で新規参加者登録を行いますか？
 	</div>
 	
-	<div>
+	<div class="formArea">
 			<table>
 				<tr>
 					<th>名前<span class="required"> *</span></th>
