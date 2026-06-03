@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>参加者情報削除完了画面</title>
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <%@ include file="header-logo.jsp" %>
