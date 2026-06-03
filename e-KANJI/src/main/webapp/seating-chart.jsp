@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>配席システム</title>
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/seating-chart.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
@@ -35,7 +35,8 @@
 			if(rest != null){
 		%>
 		
-		<table class="rest">
+		<div class="restArea">
+		<table border="1">
 			<tr>
 				<th>店名</th>
 				<th>ジャンル</th>
@@ -53,9 +54,9 @@
 				<td><%=rest.getRestGenre()%></td>
 				<td><%=rest.getRestCategory() %></td>
 				<td><%=rest.getRestDistance() / 1000.0 %> km</td>
-				<td><%=rest.getRestBudget() %></td>
+				<td><%=rest.getRestBudget() %> 円</td>
 				<td><%=rest.getRestCapacity() %> 席</td>
-				<td><%=rest.getRestOpen() %> ~ <%=rest.getRestClose() %></td>
+				<td><%=rest.getRestOpen().substring(0, 5)%> ~ <%=rest.getRestClose().substring(0, 5)%></td>
 				<td>★ <%=rest.getRestReview() %></td>
 				<td><%=rest.getRestTel() %></td>
 			</tr>
@@ -75,6 +76,7 @@
 		<%
 			}
 		%>
+		</div>
 
 	
 	<br>
