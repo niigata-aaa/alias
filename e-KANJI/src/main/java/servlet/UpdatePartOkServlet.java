@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.ParticipantDAO;
 import model.entity.PartBean;
@@ -41,7 +42,10 @@ public class UpdatePartOkServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		PartBean bean = (PartBean) request.getAttribute("part");
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		PartBean bean = (PartBean) session.getAttribute("part");
+		//PartBean bean = (PartBean) request.getAttribute("part");
 
 		ParticipantDAO dao = new ParticipantDAO();
 
