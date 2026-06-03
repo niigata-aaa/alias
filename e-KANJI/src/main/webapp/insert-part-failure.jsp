@@ -7,11 +7,11 @@
 <title>参加者登録エラー画面</title>
 </head>
 <body>
-<%@ include file="header-logo.jsp"%>
-	<div>
+
+
 		<h2>参加者登録画面</h2>
 		参加者情報登録ができませんでした。
-	</div>
+
 	<%
 String msg = (String)request.getAttribute("errorMessage");
 if(msg != null){
@@ -22,9 +22,9 @@ if(msg != null){
 %>
 
 <br>
-	<div>
+	
 		<a href="insert-part.jsp">参加者登録画面に戻る</a>
-	</div>
+	
 
 </body>
 </html>

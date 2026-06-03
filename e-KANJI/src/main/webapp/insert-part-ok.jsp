@@ -137,9 +137,9 @@ switch(beer){
   
     <%
 		String smoke = String.valueOf(part.getPartSmoke()); 
-if("0".equals(smoke)){
+if("1".equals(smoke)){
     smoke = "吸う";
-}else if("1".equals(smoke)){
+}else if("0".equals(smoke)){
     smoke = "吸わない";
 }else{
     smoke = "不明";
