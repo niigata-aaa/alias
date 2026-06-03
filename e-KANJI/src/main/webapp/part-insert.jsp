@@ -89,7 +89,7 @@
 				</tr>
 				<tr>
 					<th>入社年度<span class="required"> *</span></th>
-					<td><input type="number" name="part_empyear" value="<%=partEmpyear == 0 ? "0" :partEmpyear%>" 
+					<td><input type="number" name="part_empyear" value="<%=partEmpyear == 0 ? "1965" :partEmpyear%>" 
 							min="1950" required></td>
 				</tr>
 				<tr>
