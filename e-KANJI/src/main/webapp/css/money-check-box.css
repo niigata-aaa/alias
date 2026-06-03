@@ -1,62 +1,87 @@
-
 @charset "UTF-8";
-.back-top-form {
-    display: flex;
-    justify-content: flex-end;
-	
+body {
+    text-align: center;
 }
-	
-*{
-	text-align: center;
+
+.back-top-form {
+	display: flex;
+	justify-content: flex-end;
+
+}
+
+* {
 	font-size: 20px;
 }
-h1{
+
+h1 {
 	font-size: 30px;
 }
-h2{
+
+h2 {
 	font-size: 25px;
 }
 
-table,th,td{
+table,
+th,
+td {
 	border: 1px solid #000000;
+	border-left:2px solid #000000;;
 	border-collapse: collapse;
 }
 
 table {
-    text-align: center;
-    margin: 0 auto; /* ← これを追加：上下マージン0、左右マージンを自動調整して中央配置 */
+	border: 2px solid #000;
+	text-align: center;
+	margin: 0 auto;
+	/* ← これを追加：上下マージン0、左右マージンを自動調整して中央配置 */
+	background-color: rgb(255, 255, 255);
 }
 
-table th{
-    white-space: normal;
-    word-break: break-all;
-    border-right: 1px solid #999;
-    border-bottom: 1px solid #999;
-    background: #FFF;
-    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
-    font-size: 15px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
-    text-align: center;   /* 中央寄せで見やすくする */
-	margin:0 auto;
+table th {
+	white-space: normal;
+	word-break: break-all;
+	border: 3px solid #000;
+	border-collapse: collapse;
+	padding: 4px 2px;
+	/* ★上下左右の余白を少し詰める */
+	font-size: 15px;
+	/* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+	text-align: center;
+	/* 中央寄せで見やすくする */
+	margin: 0 auto;
 }
 
 .row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 15px;
 }
 
 .row_label {
-    width: 220px;      /* ラベル幅を固定 */
-    text-align: right; /* 右揃え */
-    margin-right: 10px;
+	width: 220px;
+	/* ラベル幅を固定 */
+	text-align: right;
+	/* 右揃え */
+	margin-right: 10px;
 }
 
 .row input {
-    width: 300px;
+	width: 300px;
 }
 
 .row span {
-	    display: inline-block;
-	    width: 40px;
-	    text-align: left;
+	display: inline-block;
+	width: 40px;
+	text-align: left;
+}
+
+.moneyForm {
+    width: 60%;
+    margin-left: auto;
+	margin-right: auto;
+}
+
+.moneyForm input {
+    text-align: center;
 }

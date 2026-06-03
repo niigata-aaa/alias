@@ -6,15 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>参加者一覧表示</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/select-part.css">
 <link rel="stylesheet" href="css/scroll.css">
-<style>
-td button {
-  width: 90%;
-  padding: 5px;
-  box-sizing: border-box;
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -28,27 +22,27 @@ td button {
 <td>
 <%--トップに戻る --%>
 <form action="top.jsp" method="post">
-<input type="submit" value="トップに戻る">
+<input type="submit" class="sub-btn" value="トップに戻る">
 </form>
 </td>
 
 <td>
 <%--参加者情報登録画面へ --%>
 <form action="insert-part.jsp" method="post">
-<input type="submit" value="参加者情報登録">
+<input type="submit" class="sub-btn" value="参加者情報登録">
 </form>
 </td>
 
 <td>
 <%--参加者一括削除 --%>
 <form action="dlete-all-part-check-servlet" method="post">
-<input type="submit" value="参加者一括削除">
+<input type="submit" class="sub-btn" value="参加者一括削除">
 </form>
 </td>
 <td>
 <%--参加者全表示 --%>
 <form action="select-part-servlet" method="post">
-<input type="submit" value="参加者全表示">
+<input type="submit" class="sub-btn" value="参加者全表示">
 </form>
 </td>
 </tr>
@@ -61,7 +55,7 @@ td button {
 <form action="narrow-part-savlet" method="post">
 キーワード検索<input type="text" name="part_name" placeholder="苗字か名前で検索してください">
 
-<input type="submit" value="検索"><br><br>
+<input type="submit"  class="sub-btn" value="検索"><br><br>
 
 
 	<%
@@ -129,14 +123,14 @@ td button {
 			<td>
 				<form action="update-part-servlet" method="POST">
 					<input type="hidden" name="partID" value="<%=part.getPartID()%>">
-					<input type="submit" value="更新">
+					<input type="submit" class="decide-btn" value="更新">
 				</form>
 			</td>
 			
 			<td>
 				<form action="delete-part-check-servlet" method="POST">
 					<input type="hidden" name="partID" value="<%=part.getPartID()%>">
-					<input type="submit" value="削除">
+					<input type="submit" class="decide-btn" value="削除">
 				</form>
 			</td>
 		</tr>

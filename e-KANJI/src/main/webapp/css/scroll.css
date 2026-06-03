@@ -11,7 +11,7 @@
 
 .exampleSearch {
     overflow-x: hidden;   /* 横スクロールは禁止 */
-    width: 100%;          /* 画面幅ぴったりに収める */
+    width: 95%;          /* 画面幅ぴったりに収める */
     height: auto;
 	position: sticky;
 	top:0;
@@ -21,11 +21,11 @@
 }
 
 .exampleResult {
-    overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
     overflow-x: hidden;   /* 横スクロールは禁止 */
-    width: 95%;          /* 画面幅ぴったりに収める */
-    height: calc(100vh - 504px);
-    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
+    width: 95%;          
+	height: calc(100vh - 490px);
+	overflow-y: auto;
+ 
 	margin:0 auto;
 }
 
@@ -43,10 +43,9 @@
 .exampleResultPart {
     overflow-y: auto;     /* 縦スクロールはデータが溢れたら出す */
     overflow-x: hidden;   /* 横スクロールは禁止 */
-    width: 100%;          /* 画面幅ぴったりに収める */
-    height: calc(128vh - 504px);
-    border: 1px solid #999; /* テーブル全体の境界をはっきりさせる */
-	display: flex;
+    width: 100%;          
+    height: calc(100vh - 328px);
+	display: auto;
 	align-items: center;
 	margin:0 auto;
 }
@@ -130,7 +129,7 @@
     border-right: 1px solid #999;
     border-bottom: 1px solid #999;
     background: #FFF;
-    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
+    padding: 4px 4px;     /* ★上下左右の余白を少し詰める */
     font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
     text-align: center;   /* 中央寄せで見やすくする */
 	margin:0 auto;
@@ -192,7 +191,7 @@
     top: 0;
 	z-index: 10;
     left: 0;
-    padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
+    padding: 6px 6.2px;     /* ★上下左右の余白を少し詰める */
     font-size: 13px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
     font-weight: bold;
 	margin:0 auto;

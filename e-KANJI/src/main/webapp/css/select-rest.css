@@ -1,53 +1,173 @@
 @charset "UTF-8";
 
-.decide-btn {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+body {
+	color: rgb(0, 0, 0);
+	background-color: #F6E3A1;
+	
+	font-size: large;
+	text-align: center;
+	margin: 0;
+
+}
+*{
+	 font-family: "Zen Maru Gothic", sans-serif;
+}
+
+.logo {
+	width: 100%;
+	max-height: 140px;
+	object-fit: contain;
+	background-color: #fff;
+}
+
+.header {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 20px 0;
+}
+
+.required {
+	color: red;
 }
 
 .searchTable {
-	border: 2px solid black;
-	border-collapse: collapse;
-	text-align: left;
+	font-size: 28px;
+	height: 60px;
 }
 
-.submit-top-right {
+#submit-top-right {
 	position: fixed;
 	top: 10px;
 	right: 10px;
 	padding: 10px 20px;
 	cursor: pointer;
+	min-width: 160px;
+	padding: 12px 24px;
+	font-size: 16px;
+	border-radius: 6px;
+	box-sizing: border-box;
 }
 
-.detailTable{
-    border-collapse: collapse; /* 枠線を重ねる */
-    margin: 0 auto;            /* 左右のマージンを自動にして中央寄せ */
-    width: 40%;                /* 任意の幅（%やpxで指定可能） */
-    text-align: center;        /* セル内の文字を中央揃え */
+#sub-btn{
+	min-width: 160px;
+	padding: 12px 24px;
+	font-size: 16px;
+	border-radius: 6px;
+	box-sizing: border-box;
 }
 
-.detailTable th {
-    white-space: normal;
-    word-break: break-all; /* ヘッダーも枠内で改行を許可 */
-    border-right: 1px solid #999;
-    border-bottom: 1px solid #999;
-    background: #f2f2f2;
-    position: sticky;
-    top: 0;
-    left: 0;
-    padding: 6px 2px;     /* ★上下左右の余白を少し詰める */
-    font-size: 11px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
-    font-weight: bold;
+.decide-btn{
+	width:90%;
+	box-sizing: border-box;
 }
 
-.detailTable td{
-    white-space: normal;
-    word-break: break-all;
-    border-right: 1px solid #999;
-    border-bottom: 1px solid #999;
-    background: #FFF;
-    padding: 4px 2px;     /* ★上下左右の余白を少し詰める */
-    font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
-    text-align: center;   /* 中央寄せで見やすくする */
+input[type="text"],
+input[type="password"] {
+	width: 300px;
+	height: 40px;
+	font-size: 16px;
+}
+
+.d1 {
+	width: 450px;
+	height: fit-content;
+	border-style: dotted;
+	border-radius: 3%;
+	border-color: rgb(255, 128, 0);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+}
+
+.d3 form {
+	margin: 10px;
+}
+
+.d4{
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.d5{
+	color: red;
+	margin: 10px;
+}
+
+.background {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.bubble {
+	position: absolute;
+	bottom: -50px;
+	width: 20px;
+	height: 20px;
+	background: rgb(255, 255, 255);
+	border-radius: 50%;
+	animation: rise 6s infinite ease-in;
+}
+
+/* ランダム配置 */
+.bubble:nth-child(1) {
+	left: 10%;
+	animation-duration: 5s;
+}
+
+.bubble:nth-child(2) {
+	left: 25%;
+	animation-duration: 7s;
+	width: 15px;
+	height: 15px;
+}
+
+.bubble:nth-child(3) {
+	left: 40%;
+	animation-duration: 6s;
+}
+
+.bubble:nth-child(4) {
+	left: 70%;
+	animation-duration: 8s;
+	width: 25px;
+	height: 25px;
+}
+
+.bubble:nth-child(5) {
+	left: 85%;
+	animation-duration: 4.5s;
+}
+
+@keyframes rise {
+	0% {
+		transform: translateY(0) scale(1);
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(-110vh) scale(0.5);
+		opacity: 0;
+	}
+}
+
+.form-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2px;
+}
+
+.form-row label {
+	width: 120px;
+	text-align: right;
 }
