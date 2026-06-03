@@ -13,10 +13,10 @@
 	<br>
 
 	<%
-	ReatBean rest = (RestBean) request.getAttribute("rest");
+		RestBean rest = (RestBean) request.getAttribute("rest");
 	%>
 
-	<form action="" method="post">
+	<form action="adm-select-rest" method="post">
 
 		<table>
 			<tr>
@@ -138,5 +138,6 @@
 		</table>
 		
 		<input type="submit" value="戻る">
+		</form>
 </body>
 </html>
