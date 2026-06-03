@@ -42,11 +42,23 @@ public class UpdatePartOkServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		PartBean bean = (PartBean) request.getSession().getAttribute("part");
-		/*HttpSession session = request.getSession();
-		PartBean bean = (PartBean) session.getAttribute("part");
-		//PartBean bean = (PartBean) request.getAttribute("part");
-*/
+		PartBean bean = new PartBean();
+
+		bean.setPartID(Integer.parseInt(request.getParameter("partID")));
+		bean.setPartName(request.getParameter("partName"));
+		bean.setPartRuby(request.getParameter("partRuby"));
+		bean.setPartGender(request.getParameter("partGender"));
+		bean.setPartAge(Integer.parseInt(request.getParameter("partAge")));
+		bean.setPartEmpyear(Integer.parseInt(request.getParameter("partEmpyear")));
+		bean.setPartPostId(Integer.parseInt(request.getParameter("partPostId")));
+		bean.setPartBudget(Integer.parseInt(request.getParameter("partBudget")));
+		bean.setPartAllergy(request.getParameter("partAllergy"));
+		bean.setPartGenreId(Integer.parseInt(request.getParameter("partGenreId")));
+		bean.setPartCategoryId(Integer.parseInt(request.getParameter("partCategoryId")));
+		bean.setPartBeerId(Integer.parseInt(request.getParameter("partBeerId")));
+		bean.setPartSmoke(Integer.parseInt(request.getParameter("partSmoke")));
+		
+		
 		ParticipantDAO dao = new ParticipantDAO();
 
 		int processingNumber = 0;

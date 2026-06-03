@@ -44,23 +44,21 @@ public class UpdatePartCheckServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		PartBean bean = new PartBean();
 
-		bean.setUserID(request.getParameter("userID"));
-		bean.setPartID(Integer.parseInt(request.getParameter("partID")));
+		bean.setPartID(Integer.parseInt(request.getParameter("partId")));
 		bean.setPartName(request.getParameter("partName"));
 		bean.setPartRuby(request.getParameter("partRuby"));
 		bean.setPartGender(request.getParameter("partGender"));
 		bean.setPartAge(Integer.parseInt(request.getParameter("partAge")));
 		bean.setPartEmpyear(Integer.parseInt(request.getParameter("partEmpyear")));
 		bean.setPartPostId(Integer.parseInt(request.getParameter("partPostId")));
-		bean.setPartPost(request.getParameter("partPost"));
 		bean.setPartBudget(Integer.parseInt(request.getParameter("partBudget")));
 		bean.setPartAllergy(request.getParameter("partAllergy"));
-		bean.setPartGenre(request.getParameter("partGenre"));
-		bean.setPartCategory(request.getParameter("partCategory"));
-		bean.setPartBeer(request.getParameter("partBeer"));
+		bean.setPartGenreId(Integer.parseInt(request.getParameter("partGenreId")));
+		bean.setPartCategoryId(Integer.parseInt(request.getParameter("partCategoryId")));
+		bean.setPartBeerId(Integer.parseInt(request.getParameter("partBeerId")));
 		bean.setPartSmoke(Integer.parseInt(request.getParameter("partSmoke")));
 
-		request.getSession().setAttribute("part", bean);
+		request.setAttribute("part", bean);
 
 		RequestDispatcher rd = request.getRequestDispatcher("update-part-check.jsp");
 		rd.forward(request, response);
