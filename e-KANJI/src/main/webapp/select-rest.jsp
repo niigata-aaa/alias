@@ -246,7 +246,7 @@ td button {
 			<td><%=rest.getRestOpen().substring(0, 5)%> ~ <%=rest.getRestClose().substring(0, 5)%></td>
 			<td>★ <%=rest.getRestReview()%></td>
 			<td><%=rest.getRestTel()%></td>
-			<td><%= rest.getVisitCount() == 0 ? "未訪問" : rest.getVisitCount() + "回" %></td>
+			<td><%= rest.getVisitCount() == 0 ? "未訪問" : rest.getVisitCount() + "件" %></td>
 			
 			<td>
 				<form action="select-rest-detail" method="POST">
