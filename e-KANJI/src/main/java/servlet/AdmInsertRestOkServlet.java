@@ -57,11 +57,13 @@ public class AdmInsertRestOkServlet extends HttpServlet {
 		rest.setRestClose(request.getParameter("rest_close"));
 		rest.setRestNextday(Integer.parseInt(request.getParameter("rest_nextday")));
 		rest.setRestDistance(Integer.parseInt(request.getParameter("rest_distance")));
+		rest.setRestBudget(Integer.parseInt(request.getParameter("rest_budget")));
 		rest.setRestCapacity(Integer.parseInt(request.getParameter("rest_capacity")));
 		rest.setRestTel(request.getParameter("rest_tel"));
 		rest.setRestAddress(request.getParameter("rest_address"));
 		rest.setRestUrl(request.getParameter("rest_url"));
 		rest.setRestReview(Double.parseDouble(request.getParameter("rest_review")));
+		rest.setRestBeer(request.getParameter("rest_beer"));
 		rest.setRestSmoke(Integer.parseInt(request.getParameter("rest_smoke")));
 		rest.setRestSmokeroom(Integer.parseInt(request.getParameter("rest_smokeroom")));
 		
@@ -71,16 +73,14 @@ public class AdmInsertRestOkServlet extends HttpServlet {
 			dao.insert(rest);    // ← DB登録
 
 			request.setAttribute("rest", rest);
-			request.getRequestDispatcher("adm-insert-rest-ok.jsp")
-			.forward(request, response);
+			request.getRequestDispatcher("adm-insert-rest-ok.jsp").forward(request, response);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 
 			// ★失敗時はここへ
 			request.setAttribute("errorMessage", e.getMessage());
-			request.getRequestDispatcher("adm-insert-rest-failure.jsp")
-			.forward(request, response);
+			request.getRequestDispatcher("adm-insert-rest-failure.jsp").forward(request, response);
 		}
 	}
 }

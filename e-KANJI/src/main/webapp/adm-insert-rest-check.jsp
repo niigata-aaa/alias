@@ -23,21 +23,19 @@
 	<a href="adm-select-rest.jsp">飲食店一覧表示・検索画面へ戻る</a>
 	<h2>この飲食店を登録します</h2>
 
-	<form action="adm-insert-rest-ok" method="post">
+	<form action="adm-insert-rest-ok" method="POST">
 
 		<input type="hidden" name="rest_name" value="<%=rest.getRestName()%>">
 		<input type="hidden" name="rest_genre"
 			value="<%=rest.getRestGenre()%>">
 			 <input type="hidden"
 			name="rest_category" value="<%=rest.getRestCategory()%>">
-			 <input
-			type="hidden" name="rest_open" value="<%=rest.getRestOpne()%>">
+			 <input type="hidden" name="rest_open" value="<%=rest.getRestOpen()%>">
 		<input type="hidden" name="rest_close"
 			value="<%=rest.getRestClose()%>">
 			 <input type="hidden"
 			name="rest_nextday" value="<%=rest.getRestNextday()%>">
-			 <input
-			type="hidden" name="rest_distance"
+			 <input type="hidden" name="rest_distance"
 			value="<%=rest.getRestDistance()%>">
 			 <input type="hidden"
 			name="rest_budget" value="<%=rest.getRestBudget()%>">
@@ -62,7 +60,7 @@
 		} else {
 			genre = genre.trim();
 		}
-		switch (rest) {
+		switch (genre) {
 		case "0":
 			genre = "特になし";
 			break;
@@ -140,29 +138,27 @@
 			break;
 		}
 		%>
-		食材カテゴリ：<%=category%><br> オープン：<%=rest.getRestOpen()%><br>
+		食材カテゴリ：<%=category%><br> 
+		オープン：<%=rest.getRestOpen()%><br>
 		クローズ：<%=rest.getRestClose()%><br>
 
 		<%
-		String nextday = rest.getRestNextday();
-		if (nextday == null) {
-			nextday = "2";
-		} else {
-			nextday = nextday.trim();
-		}
+		int nextday = rest.getRestNextday();
+		String nextdayText;
+		
 		switch (nextday) {
-		case "0":
-			nextday = "やっている";
+		case 0:
+			nextdayText = "やっている";
 			break;
-		case "1":
-			nextday = "やっていない";
+		case 1:
+			nextdayText = "やっていない";
 			break;
 		default:
-			nextday = "不明";
+			nextdayText = "不明";
 			break;
 		}
 		%>
-		日跨ぎ営業：<%=nextday%><br> 距離：<%=rest.getRestDistance()%><br>
+		日跨ぎ営業：<%=nextdayText%><br> 距離：<%=rest.getRestDistance()%><br>
 		予算：<%=rest.getRestBudget()%><br> 最大収容数：<%=rest.getRestCapacity()%><br>
 		電話番号：<%=rest.getRestTel()%><br> 住所：<%=rest.getRestAddress()%><br>
 		詳細URL：<%=rest.getRestUrl()%><br> 口コミ：<%=rest.getRestReview()%><br>
@@ -204,24 +200,28 @@
 		ビールの種類：<%=beer%><br>
 
 		<%
-		String smoke = rest.getRestSmoke();
-		if ("0".equals(smoke)) {
-			smoke = "あり";
-		} else if ("1".equals(smoke)) {
-			smoke = "なし";
+		int smoke = rest.getRestSmoke();
+		String smokeText="なし";
+		
+		if (smoke==0) {
+			smokeText = "あり";
+		} else{
+			smokeText = "なし";
 		}
 		%>
-		喫煙席の有無：<%=smoke%><br>
+		喫煙席の有無：<%=smokeText%><br>
 
 		<%
-		String smokeroom = rest.getRestSmokeroom();
-		if ("0".equals(smokeroom)) {
-			smokeroom = "あり";
-		} else if ("1".equals(smokeroom)) {
-			smokeroom = "なし";
+		int smokeroom = rest.getRestSmokeroom();
+		String smokeroomText="なし";
+		
+		if (smokeroom==0) {
+			smokeroomText = "あり";
+		} else  {
+			smokeroomText = "なし";
 		}
 		%>
-		店内に喫煙所：<%= smokeroom%><br> 
+		店内に喫煙所：<%= smokeroomText%><br> 
 		<input type="submit" value="この飲食店を登録する">
 	</form>
 </body>

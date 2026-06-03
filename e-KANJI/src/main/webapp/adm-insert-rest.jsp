@@ -46,9 +46,9 @@
 			<option value="7">酒</option>
 		</select> <br>
 		
-		オープン：<input type="time" name="rest_opne" required><br>
+		オープン：<input type="time" name="rest_open" required><br>
 		  
-		クローズ：<input type="time" name="rest_clese" required><br>
+		クローズ：<input type="time" name="rest_close" required><br>
 		
 		日跨ぎ営業：
 		<select name="rest_nextday">
@@ -69,7 +69,7 @@
 		
 		詳細URL：<input type="text" name="rest_url"><br>  
 		
-		口コミ：☆<input type="number" name="rest_restReview"
+		口コミ：☆<input type="number" name="rest_review"
 				 min="0.0" max="5.0" step="0.1" required><br>  
 		
 		ビールの種類：

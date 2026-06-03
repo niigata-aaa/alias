@@ -12,6 +12,7 @@
         right: 10px;       
         padding: 10px 20px;
         cursor: pointer;
+        }
 </style>
 </head>
 <body>
@@ -34,7 +35,7 @@ if(rest== null){
 		} else {
 			genre = genre.trim();
 		}
-		switch (rest) {
+		switch (genre) {
 		case "0":
 			genre = "特になし";
 			break;
@@ -200,7 +201,7 @@ if(rest== null){
 	</form>
 	
 	<form action="adm-select-rest.jsp" method="post">
-		<input type="submit" value="飲食店一覧表示・検索画面へ戻る"
+		<input type="submit" value="飲食店一覧表示・検索画面へ戻る">
 	</form>
 </body>
 </html>
