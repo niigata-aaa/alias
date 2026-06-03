@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>参加者一覧表示</title>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/select-part.css">
 <link rel="stylesheet" href="css/scroll.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
