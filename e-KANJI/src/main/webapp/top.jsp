@@ -11,8 +11,9 @@
 <body>
 	<%@ include file="header-logo.jsp" %>
 	<%@ include file="header-user-id.jsp" %>
-	<div class="bubble" style="left:30%; animation-delay:2s;"></div>
-	<div class="bubble" style="left:70%; animation-delay:4s;"></div>
+	<div class="bubble" style="left:10%"></div>
+<div class="bubble" style="left:30%; animation-delay:2s;"></div>
+<div class="bubble" style="left:70%; animation-delay:4s;"></div>
 	<h2>会員メニュー</h2><%--select-part  --%>
 	<div class="d3">
 	<form action="select-part-servlet" method="POST">
