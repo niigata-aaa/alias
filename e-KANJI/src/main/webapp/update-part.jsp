@@ -55,18 +55,19 @@
         
         役職：
         <select name="partPostId"> 
-            <option value="1" <%= bean.getPartPost() == "一般社員" ? "selected" : "" %>>一般社員</option>
-            <option value="2" <%= bean.getPartPost() == "主任・主査" ? "selected" : "" %>>主任・主査</option>
-            <option value="3" <%= bean.getPartPost() == "係長" ? "selected" : "" %>>係長</option>
-            <option value="4" <%= bean.getPartPost() == "課長代理" ? "selected" : "" %>>課長代理</option>
-            <option value="5" <%= bean.getPartPost() == "課長" ? "selected" : "" %>>課長</option>
-            <option value="6" <%= bean.getPartPost() == "副部長" ? "selected" : "" %>>副部長</option>
-            <option value="7" <%= bean.getPartPost() == "部長・支社長・所長" ? "selected" : "" %>>部長・支社長・所長</option>
-            <option value="8" <%= bean.getPartPost() == "執行役員" ? "selected" : "" %>>執行役員</option>
-            <option value="9" <%= bean.getPartPost() == "常務取締役" ? "selected" : "" %>>常務取締役</option>
-            <option value="10" <%= bean.getPartPost() == "専務取締役" ? "selected" : "" %>>専務取締役</option>
-            <option value="11" <%= bean.getPartPost() == "社長" ? "selected" : "" %>>社長</option>
-            <option value="12" <%= bean.getPartPost() == "会長" ? "selected" : "" %>>会長</option>
+        	
+            <option value="1" <%= "一般社員".equals(bean.getPartPost()) ? "selected" : "" %>>一般社員</option>
+            <option value="2" <%= "主任・主査".equals(bean.getPartPost()) ? "selected" : "" %>>主任・主査</option>
+            <option value="3" <%= "係長".equals(bean.getPartPost()) ? "selected" : "" %>>係長</option>
+            <option value="4" <%= "課長代理".equals(bean.getPartPost()) ? "selected" : "" %>>課長代理</option>
+            <option value="5" <%= "課長".equals(bean.getPartPost()) ? "selected" : "" %>>課長</option>
+            <option value="6" <%= "副部長".equals(bean.getPartPost()) ? "selected" : "" %>>副部長</option>
+            <option value="7" <%= "部長・支社長・所長".equals(bean.getPartPost()) ? "selected" : "" %>>部長・支社長・所長</option>
+            <option value="8" <%= "執行役員".equals(bean.getPartPost()) ? "selected" : "" %>>執行役員</option>
+            <option value="9" <%= "常務取締役".equals(bean.getPartPost()) ? "selected" : "" %>>常務取締役</option>
+            <option value="10" <%= "専務取締役".equals(bean.getPartPost()) ? "selected" : "" %>>専務取締役</option>
+            <option value="11" <%= "社長".equals(bean.getPartPost()) ? "selected" : "" %>>社長</option>
+            <option value="12" <%= "会長".equals(bean.getPartPost()) ? "selected" : "" %>>会長</option>
         </select>
         <br>
         
