@@ -80,7 +80,7 @@ table td{
 			<tr><th>口コミ</th><td>★ <%=bean.getRestReview() %></td></tr>
 			<tr><th>喫煙席</th><td><%= bean.getRestSmoke() == 0 ? "なし" : "あり" %></td></tr>
 			<tr><th>店内喫煙所</th><td><%= bean.getRestSmokeroom() == 0 ? "なし" : "あり" %></td></tr>
-			<tr><th>訪問回数</th><td><%= bean.getVisitCount() == 0 ? "未訪問" : bean.getVisitCount() + "回" %></td></tr>
+			<tr><th>訪問履歴</th><td><%= bean.getVisitCount() == 0 ? "未訪問" : bean.getVisitCount() + "回" %></td></tr>
 	</table>
 	<br>
 		<input type="hidden" name="restId" value="<%=bean.getRestId()%>">

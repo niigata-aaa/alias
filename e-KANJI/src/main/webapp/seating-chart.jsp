@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>配席システム</title>
-<link rel="stylesheet" href="css/seating-chart.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/seating-chart.css">
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
@@ -35,7 +35,7 @@
 			if(rest != null){
 		%>
 		
-		<table border=1>
+		<table class="rest">
 			<tr>
 				<th>店名</th>
 				<th>ジャンル</th>
@@ -43,8 +43,7 @@
 				<th>距離</th>
 				<th>予算</th>
 				<th>席数</th>
-				<th>open</th>
-				<th>close</th>
+				<th>営業時間</th>
 				<th>評価</th>
 				<th>TEL</th>
 			</tr>
@@ -53,27 +52,26 @@
 				<td><%=rest.getRestName()%></td>
 				<td><%=rest.getRestGenre()%></td>
 				<td><%=rest.getRestCategory() %></td>
-				<td><%=rest.getRestDistance() %></td>
+				<td><%=rest.getRestDistance() / 1000.0 %> km</td>
 				<td><%=rest.getRestBudget() %></td>
-				<td><%=rest.getRestCapacity() %></td>
-				<td><%=rest.getRestOpen() %></td>
-				<td><%=rest.getRestClose() %></td>
-				<td><%=rest.getRestReview() %></td>
+				<td><%=rest.getRestCapacity() %> 席</td>
+				<td><%=rest.getRestOpen() %> ~ <%=rest.getRestClose() %></td>
+				<td>★ <%=rest.getRestReview() %></td>
 				<td><%=rest.getRestTel() %></td>
 			</tr>
 			
 		</table>
 		
 		<%
-				if (rest.getRestCapacity() < partList.size()) {
+			if (rest.getRestCapacity() < partList.size()) {
 		%>
 				<a class="alert">参加者数がお店の最大収容数を超えています。</a>
 		<%	
-				}
+			}
 		
 			} else {
 		%>
-			お店が選択されていません。
+				お店が選択されていません。
 		<%
 			}
 		%>
@@ -87,7 +85,7 @@
 	<form action="seating-chart" method="post">
 
 	    <input type="radio" name="sortType" value="random" <%= sortType.equals("random") ? "checked" : "" %>>
-	    ランダム順
+	    ランダム
 	
 	    <input type="radio" name="sortType" value="post" <%= sortType.equals("post") ? "checked" : "" %>>
 	    役職順
@@ -96,7 +94,7 @@
 	    性別順
 	
 	    <input type="radio" name="sortType" value="smoke" <%= sortType.equals("smoke") ? "checked" : "" %>>
-	    喫煙順
+	    喫煙者配慮
 
 	    <br>
 	    <input type="submit" value="並び替える">
