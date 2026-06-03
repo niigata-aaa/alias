@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.entity.PartBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +24,7 @@
 	<jsp:setProperty name="part" property="partGender" param="partGender" />
 	<jsp:setProperty name="part" property="partAge" param="partAge" />
 	<jsp:setProperty name="part" property="partEmpyear" param="partEmpyear" />
-	<jsp:setProperty name="part" property="part_post" param="part_post" />
+	<jsp:setProperty name="part" property="partPostId" param="partPostId" />
 	<jsp:setProperty name="part" property="partBudget" param="partBudget" />
 	<jsp:setProperty name="part" property="partAllergy" param="partAllergy" />
 	<jsp:setProperty name="part" property="partGenre" param="partGenre" />
@@ -48,6 +48,20 @@
     タバコ：<jsp:getProperty name="part" property="partSmoke" /><br>
 
 	<form action="update-part-ok-servlet" method="POST">
+		<input type="hidden" name="partID" value="${part.partID}">
+		<input type="hidden" name="userID" value="${part.userID}">
+		<input type="hidden" name="partName" value="${part.partName}">
+		<input type="hidden" name="partRuby" value="${part.partRuby}">
+		<input type="hidden" name="partGender" value="${part.partGender}">
+		<input type="hidden" name="partAge" value="${part.partAge}">
+		<input type="hidden" name="partEmpyear" value="${part.partEmpyear}">
+		<input type="hidden" name="partPostId" value="${part.partPostId}">
+		<input type="hidden" name="partBudget" value="${part.partBudget}">
+		<input type="hidden" name="partAllergy" value="${part.partAllergy}">
+		<input type="hidden" name="partGenre" value="${part.partGenre}">
+		<input type="hidden" name="partCategory" value="${part.partCategory}">
+		<input type="hidden" name="partBeer" value="${part.partBeer}">
+		<input type="hidden" name="partSmoke" value="${part.partSmoke}">
 		<input type="submit" value="変更する">
 	</form>
 

@@ -466,6 +466,7 @@ public class ParticipantDAO {
 		return processingNumber;
 	}
 
+	//更新
 	public int update(PartBean bean) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
 
