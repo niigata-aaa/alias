@@ -53,7 +53,7 @@
 
 <%--検索機能 --%>
 <form action="narrow-part-savlet" method="post">
-キーワード検索<input type="text" name="part_name" placeholder="苗字か名前で検索してください">
+キーワード検索　<input type="text" name="part_name" placeholder="苗字か名前で検索してください">
 
 <input type="submit"  class="sub-btn" value="検索"><br><br>
 
@@ -81,7 +81,7 @@
 
 <table border=1>
 		<tr>
-			<th>登録した幹事のID</th>
+			<th>登録した幹事<br>のID</th>
 			<th>参加者ID</th>
 			<th>氏名（漢字）</th>
 			<th>氏名（かな）</th>
@@ -91,8 +91,8 @@
 			<th>役職</th>
 			<th>予算</th>
 			<th>アレルギー</th>
-			<th>好きな食べ物のジャンル</th>
-			<th>好きな食べ物のカテゴリ</th>
+			<th>好きな食べ物の<br>ジャンル</th>
+			<th>好きな食べ物の<br>カテゴリ</th>
 			<th>ビールの好み</th>
 			<th>喫煙するか</th>
 			<th>参加者情報変更</th>

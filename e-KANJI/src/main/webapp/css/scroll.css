@@ -129,8 +129,8 @@
     border-right: 1px solid #999;
     border-bottom: 1px solid #999;
     background: #FFF;
-    padding: 4px 4px;     /* ★上下左右の余白を少し詰める */
-    font-size: 11px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
+    padding: 4px 8px;     /* ★上下左右の余白を少し詰める */
+    font-size: 12px;      /* ★文字サイズを小さくして、横一列に入る文字数を増やす */
     text-align: center;   /* 中央寄せで見やすくする */
 	margin:0 auto;
 }
@@ -191,7 +191,7 @@
     top: 0;
 	z-index: 10;
     left: 0;
-    padding: 6px 6.2px;     /* ★上下左右の余白を少し詰める */
+    padding: 6px 8px;     /* ★上下左右の余白を少し詰める */
     font-size: 13px;      /* ★文字サイズを11pxに下げて縦伸びを抑える */
     font-weight: bold;
 	margin:0 auto;
