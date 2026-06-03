@@ -56,7 +56,7 @@
 	%>
 	
 	
-    <form action="select-part.jsp" method="POST">
+    <form action="select-part-servlet" method="POST">
 		<input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る">
 	</form>
 	
