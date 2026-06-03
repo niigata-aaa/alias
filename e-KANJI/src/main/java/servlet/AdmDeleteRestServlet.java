@@ -41,19 +41,20 @@ public class AdmDeleteRestServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
-		int restId = Integer.parseInt(request.getParameter("restId"));
+		int restId = Integer.parseInt(request.getParameter("rest_id"));
 
 		String url = null;
 
-		RestaurantDAO dao = new RestaurantDAO();
-		RestBean rest = null;
-
 		int processingNumber = 0;
+		
+		RestaurantDAO dao = new RestaurantDAO();
+		RestBean rest = new RestBean();
 
 		try {
 			rest = dao.select(restId);
-			processingNumber = dao.delete(rest);
+			processingNumber = dao.delete(restId);
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -71,6 +72,8 @@ public class AdmDeleteRestServlet extends HttpServlet {
 		if (session.getAttribute("adm_id") == null) {
 			url = "adm-login.jsp";
 		}
+		
+		
 
 		request.setAttribute("rest", rest);
 

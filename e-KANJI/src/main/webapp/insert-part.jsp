@@ -56,7 +56,7 @@
 	%>
 	
 	
-    <form action="select-part.jsp" method="POST">
+    <form action="select-part-servlet" method="POST">
 		<input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る">
 	</form>
 	
@@ -136,6 +136,8 @@
 		喫煙者は☑：<input type="checkbox" name="part_smoke" value="1"
 						<%=partSmoke == 1 ? "checked" : ""%>><br>
 	
+	<br>※個人情報の取扱いについては<a href="https://www.inet.co.jp/privacypolicy.html" target="_blank" rel="noopener noreferrer">
+  こちら</a>をご確認のうえで確認画面へお進みください。<br>
 		<input type="submit" value="確認画面へ">
 	</form>
 	

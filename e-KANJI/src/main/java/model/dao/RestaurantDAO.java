@@ -578,71 +578,70 @@ public class RestaurantDAO {
 
 	public int insert(RestBean rest) throws ClassNotFoundException, SQLException {
 
-	int count = 0; // 処理件数
-	String sql = "INSERT INTO "
-			+ "m_restaurant("
-			+ "rest_name,"
-			+ "rest_genre, "
-			+ "rest_category,"
-			+ "rest_open,"
-			+ "rest_close,"
-			+ "rest_nextday,"
-			+ "rest_distance,"
-			+ "rest_budget,"
-			+ "rest_capacity,"
-			+ "rest_tel,"
-			+ "rest_address,"
-			+ "rest_url,"
-			+ "rest_review,"
-			+ "rest_beer,"
-			+ "rest_smoke, "
-			+ "rest_smokeroom"
-			+ ") "
-			+ "VALUES"
-			+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		int count = 0; // 処理件数
+		String sql = "INSERT INTO "
+				+ "m_restaurant("
+				+ "rest_name,"
+				+ "rest_genre, "
+				+ "rest_category,"
+				+ "rest_open,"
+				+ "rest_close,"
+				+ "rest_nextday,"
+				+ "rest_distance,"
+				+ "rest_budget,"
+				+ "rest_capacity,"
+				+ "rest_tel,"
+				+ "rest_address,"
+				+ "rest_url,"
+				+ "rest_review,"
+				+ "rest_beer,"
+				+ "rest_smoke, "
+				+ "rest_smokeroom"
+				+ ") "
+				+ "VALUES"
+				+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-	//DB接続の取得、
-	try (Connection con = ConnectionManager.getConnection();
-			PreparedStatement pstmt = con.prepareStatement(sql)) {
-/*
-		pstmt.setString(1, );
-		pstmt.setString(2, rest.getRestName());
-		pstmt.setString(3, part.getPartRuby());
-		pstmt.setString(4, part.getPartGender());
-		pstmt.setInt(5, part.getPartAge());
-		pstmt.setInt(6, part.getPartEmpyear());
-		pstmt.setInt(7, part.getPartPostId());
-		pstmt.setInt(8, part.getPartBudget());
-		pstmt.setString(9, part.getPartAllergy());
-		pstmt.setInt(10, part.getPartGenreId());
-		pstmt.setInt(11, part.getPartCategoryId());
-		pstmt.setInt(12, part.getPartBeerId());
-		pstmt.setInt(13, part.getPartSmoke());
-*/
-		pstmt.setString(1, rest.getRestName());
-		pstmt.setString(2, rest.getRestGenre());
-		pstmt.setString(3, rest.getRestCategory());
-		pstmt.setString(4, rest.getRestOpen());
-		pstmt.setString(5, rest.getRestClose());
-		pstmt.setInt(6, rest.getRestNextday());
-		pstmt.setInt(7, rest.getRestDistance());
-		pstmt.setInt(8, rest.getRestBudget());
-		pstmt.setInt(9, rest.getRestCapacity());
-		pstmt.setString(10, rest.getRestTel());
-		pstmt.setString(11, rest.getRestAddress());
-		pstmt.setString(12, rest.getRestUrl());
-		pstmt.setDouble(13, rest.getRestReview());
-		pstmt.setString(14, rest.getRestBeer());
-		pstmt.setInt(15, rest.getRestSmoke());
-		pstmt.setInt(16, rest.getRestSmokeroom());
-		
-		count = pstmt.executeUpdate();
+		//DB接続の取得、
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			/*
+					pstmt.setString(1, );
+					pstmt.setString(2, rest.getRestName());
+					pstmt.setString(3, part.getPartRuby());
+					pstmt.setString(4, part.getPartGender());
+					pstmt.setInt(5, part.getPartAge());
+					pstmt.setInt(6, part.getPartEmpyear());
+					pstmt.setInt(7, part.getPartPostId());
+					pstmt.setInt(8, part.getPartBudget());
+					pstmt.setString(9, part.getPartAllergy());
+					pstmt.setInt(10, part.getPartGenreId());
+					pstmt.setInt(11, part.getPartCategoryId());
+					pstmt.setInt(12, part.getPartBeerId());
+					pstmt.setInt(13, part.getPartSmoke());
+			*/
+			pstmt.setString(1, rest.getRestName());
+			pstmt.setString(2, rest.getRestGenre());
+			pstmt.setString(3, rest.getRestCategory());
+			pstmt.setString(4, rest.getRestOpen());
+			pstmt.setString(5, rest.getRestClose());
+			pstmt.setInt(6, rest.getRestNextday());
+			pstmt.setInt(7, rest.getRestDistance());
+			pstmt.setInt(8, rest.getRestBudget());
+			pstmt.setInt(9, rest.getRestCapacity());
+			pstmt.setString(10, rest.getRestTel());
+			pstmt.setString(11, rest.getRestAddress());
+			pstmt.setString(12, rest.getRestUrl());
+			pstmt.setDouble(13, rest.getRestReview());
+			pstmt.setString(14, rest.getRestBeer());
+			pstmt.setInt(15, rest.getRestSmoke());
+			pstmt.setInt(16, rest.getRestSmokeroom());
 
+			count = pstmt.executeUpdate();
+
+		}
+
+		return count;
 	}
-
-	return count;
-}
-	
 
 	//更新
 	public int update(RestBean bean) throws SQLException, ClassNotFoundException {
@@ -701,18 +700,37 @@ public class RestaurantDAO {
 	}
 
 	//削除
-	public int delete(RestBean bean) throws SQLException, ClassNotFoundException {
+	public int delete(int restId) throws SQLException, ClassNotFoundException {
+
 		int processingNumber = 0;
 
-		String sql = "DELETE FROM m_redstaurant WHERE rest_id = ?";
+		String sqlLog = "DELETE FROM t_log WHERE log_rest = ?";
 
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)) {
+		String sqlRest = "DELETE FROM m_restaurant WHERE rest_id = ?";
 
-			pstmt.setInt(1, bean.getRestId());
+		try (Connection con = ConnectionManager.getConnection()) {
 
-			processingNumber = pstmt.executeUpdate();
+			con.setAutoCommit(false);
+
+			try (PreparedStatement pstmtLog = con.prepareStatement(sqlLog);
+					PreparedStatement pstmtRest = con.prepareStatement(sqlRest)) {
+
+				// 訪問履歴削除
+				pstmtLog.setInt(1, restId);
+				pstmtLog.executeUpdate();
+
+				// 店舗削除
+				pstmtRest.setInt(1, restId);
+				processingNumber = pstmtRest.executeUpdate();
+
+				con.commit();
+
+			} catch (Exception e) {
+				con.rollback();
+				throw e;
+			}
 		}
+
 		return processingNumber;
 	}
 
