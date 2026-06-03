@@ -503,7 +503,72 @@ public class RestaurantDAO {
 	
 	
 	//登録
-	
+	public int insert(RestBean rest) throws ClassNotFoundException, SQLException {
+
+	int count = 0; // 処理件数
+	String sql = "INSERT INTO "
+			+ "m_restaurant("
+			+ "rest_name,"
+			+ "rest_genre, "
+			+ "rest_category,"
+			+ "rest_open,"
+			+ "rest_close,"
+			+ "rest_nextday,"
+			+ "rest_distance,"
+			+ "rest_budget,"
+			+ "rest_capacity,"
+			+ "rest_tel,"
+			+ "rest_address,"
+			+ "rest_url,"
+			+ "rest_review,"
+			+ "rest_beer,"
+			+ "rest_smoke, "
+			+ "rest_smokeroom"
+			+ ") "
+			+ "VALUES"
+			+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+	//DB接続の取得、
+	try (Connection con = ConnectionManager.getConnection();
+			PreparedStatement pstmt = con.prepareStatement(sql)) {
+/*
+		pstmt.setString(1, );
+		pstmt.setString(2, rest.getRestName());
+		pstmt.setString(3, part.getPartRuby());
+		pstmt.setString(4, part.getPartGender());
+		pstmt.setInt(5, part.getPartAge());
+		pstmt.setInt(6, part.getPartEmpyear());
+		pstmt.setInt(7, part.getPartPostId());
+		pstmt.setInt(8, part.getPartBudget());
+		pstmt.setString(9, part.getPartAllergy());
+		pstmt.setInt(10, part.getPartGenreId());
+		pstmt.setInt(11, part.getPartCategoryId());
+		pstmt.setInt(12, part.getPartBeerId());
+		pstmt.setInt(13, part.getPartSmoke());
+*/
+		pstmt.setString(1, rest.getRestName());
+		pstmt.setString(2, rest.getRestGenre());
+		pstmt.setString(3, rest.getRestCategory());
+		pstmt.setString(4, rest.getRestOpen());
+		pstmt.setString(5, rest.getRestClose());
+		pstmt.setInt(6, rest.getRestNextday());
+		pstmt.setInt(7, rest.getRestDistance());
+		pstmt.setInt(8, rest.getRestBudget());
+		pstmt.setInt(9, rest.getRestCapacity());
+		pstmt.setString(10, rest.getRestTel());
+		pstmt.setString(11, rest.getRestAddress());
+		pstmt.setString(12, rest.getRestUrl());
+		pstmt.setDouble(13, rest.getRestReview());
+		pstmt.setString(14, rest.getRestBeer());
+		pstmt.setInt(15, rest.getRestSmoke());
+		pstmt.setInt(16, rest.getRestSmokeroom());
+		
+		count = pstmt.executeUpdate();
+
+	}
+
+	return count;
+}
 	
 	//更新
 	public int update(RestBean bean) throws SQLException, ClassNotFoundException {

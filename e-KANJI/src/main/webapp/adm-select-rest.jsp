@@ -35,6 +35,9 @@ table table {
 <body>
 	<h1>飲食店一覧表示・検索画面</h1>
 	<br>
+	<form action="adm-insert-rest.jsp" method="post">
+		<input type="submit" value="飲食店追加はこちら">
+	</form>
 	<form action="adm-top" method="post">
 		<input type="submit"class="submit-top-right" value="管理者トップ画面へ戻る"><%--class="submit-top-right" --%>
 	</form>
@@ -144,7 +147,8 @@ table table {
 						<option value="3.0">☆～３</option>
 						<option value="4.0">☆～４</option>
 						<option value="5.0">☆～５</option>
-				</select></td>
+				</select>
+				</td>
 				<th>最大収容数</th>
 				<td><select name="capacity">
 						<option value="0">指定なし</option>
