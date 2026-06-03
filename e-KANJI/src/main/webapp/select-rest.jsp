@@ -252,7 +252,7 @@ table table {
 			<td>
 				<form action="select-rest-ok" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" class="decide-btn" value="ここに決めた！">
+					<input type="submit" class="decide-btn" value="ここに決めた!!">
 				</form>
 			</td>
 		</tr>
