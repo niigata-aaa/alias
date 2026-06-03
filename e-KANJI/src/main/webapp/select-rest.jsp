@@ -28,9 +28,13 @@ table table {
 }
 
 td button {
-  width: 90%;
-  padding: 5px;
-  box-sizing: border-box;
+    width: 90%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.explain_text{
+    text-align:left;
 }
 
 </style>
@@ -52,12 +56,12 @@ td button {
 	<form action="narrow-rest-servlet" method="post">
 		店舗名キーワード検索：<input type="text" name="keyword" value="">　<input type="submit" value="検索"><br><br>
 		<%--<input type="submit" value="検索"><br> <br>--%>
+		<span class="explain_text"><h4>　　◆条件検索</h4></span>
 		<table class="searchTable">
 			<tr>
 				<td>
 					<%--<form action="narrow-rest-servlet" method="post"> 
 					<input type="submit" value="検索">--%>
-
 					<table border=0>
 						<%--
                 <tr><th>料理ジャンル</th></tr>
@@ -199,15 +203,13 @@ td button {
 				</select></td>
 
 			</tr>
-		</table><br>
+		</table>
 	</form>
-
-	<br>
 </div>
 	<%
 	List<RestBean> list = (List<RestBean>) request.getAttribute("restList");
 	%>
-
+<span class="explain_text"><h4>　　◆店舗検索結果</h4></span>
 <div class="exampleResult"><br>
 	<table border=1>
 	<thead>
