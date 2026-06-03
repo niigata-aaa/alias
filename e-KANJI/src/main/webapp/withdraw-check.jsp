@@ -6,17 +6,19 @@
 <meta charset="UTF-8">
 <title>退会確認画面</title>
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <%@ include file="header-logo.jsp" %>
 <h2>退会確認</h2>
+<div class="d5">
 <form action="withdraw-check-servlet" method="POST">
-退会してよろしいですか？<br>
+退会してよろしいですか？<p>
 <input type="submit" value="確認">
 </form>
-
 <form action="top" method="POST">
 <input type="submit" value="トップ画面へ戻る">
 </form>
+</div>
 </body>
 </html>

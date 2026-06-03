@@ -10,10 +10,11 @@ import java.util.List;
 import model.entity.RestBean;
 
 public class RestaurantDAO {
+	// 管理者用全表示
 	public List<RestBean> selectAll() throws ClassNotFoundException, SQLException {
 		List<RestBean> list = new ArrayList<RestBean>();
 
-		String sql = "SELECT " 
+		String sql = "SELECT "
 				+ "A.rest_id, "
 				+ "A.rest_name, "
 				+ "B.genre_name, "
@@ -80,47 +81,47 @@ public class RestaurantDAO {
 		return list;
 
 	}
-	
+
+	// ユーザー用全表示 訪問履歴表示対応
 	public List<RestBean> selectAll(String userId) throws ClassNotFoundException, SQLException {
 		List<RestBean> list = new ArrayList<RestBean>();
 
-		String sql =
-			    "SELECT "
-			    + "A.rest_id, "
-			    + "A.rest_name, "
-			    + "B.genre_name, "
-			    + "C.category_name, "
-			    + "A.rest_open, "
-			    + "A.rest_close, "
-			    + "A.rest_nextday, "
-			    + "A.rest_distance, "
-			    + "A.rest_budget, "
-			    + "A.rest_capacity, "
-			    + "A.rest_tel, "
-			    + "A.rest_address, "
-			    + "A.rest_url, "
-			    + "A.rest_review, "
-			    + "D.beer_name, "
-			    + "A.rest_smoke, "
-			    + "A.rest_smokeroom, "
-			    + "COUNT(E.log_rest) AS visit_count "
-			    + "FROM m_restaurant A "
-			    + "LEFT JOIN m_genre B "
-			    + "ON A.rest_genre = B.genre_id "
-			    + "LEFT JOIN m_category C "
-			    + "ON A.rest_category = C.category_id "
-			    + "LEFT JOIN m_beer D "
-			    + "ON A.rest_beer = D.beer_id "
-			    + "LEFT JOIN t_log E "
-			    + "ON A.rest_id = E.log_rest "
-			    + "AND E.log_user = ? "
-			    + "GROUP BY "
-			    + "A.rest_id";
+		String sql = "SELECT "
+				+ "A.rest_id, "
+				+ "A.rest_name, "
+				+ "B.genre_name, "
+				+ "C.category_name, "
+				+ "A.rest_open, "
+				+ "A.rest_close, "
+				+ "A.rest_nextday, "
+				+ "A.rest_distance, "
+				+ "A.rest_budget, "
+				+ "A.rest_capacity, "
+				+ "A.rest_tel, "
+				+ "A.rest_address, "
+				+ "A.rest_url, "
+				+ "A.rest_review, "
+				+ "D.beer_name, "
+				+ "A.rest_smoke, "
+				+ "A.rest_smokeroom, "
+				+ "COUNT(E.log_rest) AS visit_count "
+				+ "FROM m_restaurant A "
+				+ "LEFT JOIN m_genre B "
+				+ "ON A.rest_genre = B.genre_id "
+				+ "LEFT JOIN m_category C "
+				+ "ON A.rest_category = C.category_id "
+				+ "LEFT JOIN m_beer D "
+				+ "ON A.rest_beer = D.beer_id "
+				+ "LEFT JOIN t_log E "
+				+ "ON A.rest_id = E.log_rest "
+				+ "AND E.log_user = ? "
+				+ "GROUP BY "
+				+ "A.rest_id";
 
 		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
+
 			pstmt.setString(1, userId);
 
 			ResultSet res = pstmt.executeQuery();
@@ -155,11 +156,11 @@ public class RestaurantDAO {
 
 	}
 
+	// 管理者用詳細画面
 	public RestBean select(int restID)
 			throws SQLException, ClassNotFoundException {
 
 		RestBean rest = new RestBean();
-
 
 		String sql = "SELECT "
 				+ "A.rest_id, "
@@ -194,7 +195,7 @@ public class RestaurantDAO {
 				+ "ON "
 				+ "A.rest_beer = D.beer_id "
 				+ "WHERE "
-				+ "rest_id = ?";
+				+ "A.rest_id = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
@@ -205,7 +206,6 @@ public class RestaurantDAO {
 
 			// SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();
-
 
 			if (res.next()) {
 
@@ -232,19 +232,95 @@ public class RestaurantDAO {
 		}
 	}
 
+	// ユーザー用詳細画面 訪問履歴表示対応
+	public RestBean select(String userId, int restId)
+			throws SQLException, ClassNotFoundException {
 
+		RestBean rest = new RestBean();
+		String sql = "SELECT "
+				+ "A.rest_id, "
+				+ "A.rest_name, "
+				+ "B.genre_name, "
+				+ "C.category_name, "
+				+ "A.rest_open, "
+				+ "A.rest_close, "
+				+ "A.rest_nextday, "
+				+ "A.rest_distance, "
+				+ "A.rest_budget, "
+				+ "A.rest_capacity, "
+				+ "A.rest_tel, "
+				+ "A.rest_address, "
+				+ "A.rest_url, "
+				+ "A.rest_review, "
+				+ "D.beer_name, "
+				+ "A.rest_smoke, "
+				+ "A.rest_smokeroom, "
+				+ "COUNT(E.log_rest) AS visit_count "
+				+ "FROM "
+				+ "m_restaurant A "
+				+ "LEFT JOIN "
+				+ "m_genre B "
+				+ "ON "
+				+ "A.rest_genre = B.genre_id "
+				+ "LEFT JOIN "
+				+ "m_category C "
+				+ "ON "
+				+ "A.rest_category = C.category_id "
+				+ "LEFT JOIN "
+				+ "m_beer D "
+				+ "ON "
+				+ "A.rest_beer = D.beer_id "
+				+ "LEFT JOIN t_log E "
+				+ "ON A.rest_id = E.log_rest "
+				+ "AND E.log_user = ? "
+				+ "WHERE "
+				+ "A.rest_id = ? "
+				+ "GROUP BY "
+				+ "A.rest_id";
 
+		// データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-	/*
-	public List<RestBean> narrowselect(int genre, int category,int beer,double review,
-			int capacity,int log,int distance,int budget,int smoke)
-					throws ClassNotFoundException, SQLException {
-	 */
+			// プレースホルダへの値の設定
+			pstmt.setString(1, userId);
+			pstmt.setInt(2, restId);
+
+			// SQLステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+
+			if (res.next()) {
+
+				rest.setRestId(res.getInt("rest_id"));
+				rest.setRestName(res.getString("rest_name"));
+				rest.setRestGenre(res.getString("genre_name"));
+				rest.setRestCategory(res.getString("category_name"));
+				rest.setRestOpen(res.getString("rest_open"));
+				rest.setRestClose(res.getString("rest_close"));
+				rest.setRestNextday(res.getInt("rest_nextday"));
+				rest.setRestDistance(res.getInt("rest_distance"));
+				rest.setRestBudget(res.getInt("rest_budget"));
+				rest.setRestCapacity(res.getInt("rest_capacity"));
+				rest.setRestTel(res.getString("rest_tel"));
+				rest.setRestAddress(res.getString("rest_address"));
+				rest.setRestUrl(res.getString("rest_url"));
+				rest.setRestReview(res.getDouble("rest_review"));
+				rest.setRestBeer(res.getString("beer_name"));
+				rest.setRestSmoke(res.getInt("rest_smoke"));
+				rest.setRestSmokeroom(res.getInt("rest_smokeroom"));
+				rest.setVisitCount(res.getInt("visit_count"));
+
+			}
+			return rest;
+		}
+	}
+
+	// 管理者用絞り込み検索
 	public List<RestBean> narrowselect(
 			String keyword, int genre, int category, int beer,
 			double review, int capacity, int log,
 			int distance, int budget, int smoke)
-					throws ClassNotFoundException, SQLException {
+			throws ClassNotFoundException, SQLException {
 
 		List<RestBean> narrowList = new ArrayList<>();
 
@@ -263,12 +339,12 @@ public class RestaurantDAO {
 		List<Object> params = new ArrayList<>();
 
 		// ⭐ 条件はすべて AND で追加する（ここが重要）
-	
+
 		if (keyword != null && !keyword.trim().isEmpty()) {
-		    sql.append(" AND A.rest_name LIKE ? ");
-		    params.add("%" + keyword.trim() + "%");
+			sql.append(" AND A.rest_name LIKE ? ");
+			params.add("%" + keyword.trim() + "%");
 		}
-	
+
 		if (genre > 0) {
 			sql.append(" AND A.rest_genre = ? ");
 			params.add(genre);
@@ -342,32 +418,30 @@ public class RestaurantDAO {
 				rest.setRestBeer(res.getString("beer_name"));
 				rest.setRestSmoke(res.getInt("rest_smoke"));
 				rest.setRestSmokeroom(res.getInt("rest_smokeroom"));
-/*
-				System.out.println("SQL=");
-				System.out.println(sql.toString());
-
-				System.out.println("PARAMS=");
-				System.out.println(params);
-*/
+				/*
+								System.out.println("SQL=");
+								System.out.println(sql.toString());
+				
+								System.out.println("PARAMS=");
+								System.out.println(params);
+				*/
 				System.out.println(sql.toString());
 				System.out.println(params);
 
 				narrowList.add(rest);
 			}
 
-
 			return narrowList;
 		}
 
 	}
-	
-	
-	
+
+	// ユーザー用絞り込み検索 訪問履歴表示対応
 	public List<RestBean> narrowselect(
 			String userId, String keyword, int genre, int category, int beer,
 			double review, int capacity, int log,
 			int distance, int budget, int smoke)
-					throws ClassNotFoundException, SQLException {
+			throws ClassNotFoundException, SQLException {
 
 		List<RestBean> narrowList = new ArrayList<>();
 
@@ -378,7 +452,7 @@ public class RestaurantDAO {
 		sql.append("A.rest_distance, A.rest_budget, A.rest_capacity, ");
 		sql.append("A.rest_tel, A.rest_address, A.rest_url, A.rest_review, ");
 		sql.append("D.beer_name, A.rest_smoke, A.rest_smokeroom, ");
-	    sql.append("COUNT(E.log_rest) AS visit_count ");
+		sql.append("COUNT(E.log_rest) AS visit_count ");
 		sql.append("FROM m_restaurant A ");
 		sql.append("LEFT JOIN t_log E ");
 		sql.append("ON A.rest_id = E.log_rest ");
@@ -387,17 +461,17 @@ public class RestaurantDAO {
 		sql.append("LEFT JOIN m_category C ON A.rest_category = C.category_id ");
 		sql.append("LEFT JOIN m_beer D ON A.rest_beer = D.beer_id ");
 		sql.append("WHERE 1=1 ");
-		
+
 		List<Object> params = new ArrayList<>();
 		params.add(userId);
 
 		// ⭐ 条件はすべて AND で追加する（ここが重要）
-	
+
 		if (keyword != null && !keyword.trim().isEmpty()) {
-		    sql.append(" AND A.rest_name LIKE ? ");
-		    params.add("%" + keyword.trim() + "%");
+			sql.append(" AND A.rest_name LIKE ? ");
+			params.add("%" + keyword.trim() + "%");
 		}
-	
+
 		if (genre > 0) {
 			sql.append(" AND A.rest_genre = ? ");
 			params.add(genre);
@@ -423,10 +497,10 @@ public class RestaurantDAO {
 			params.add(capacity);
 		}
 
-//		if (log > 0) {
-//			sql.append(" AND A.rest_log = ? ");
-//			params.add(log);
-//		}
+		//		if (log > 0) {
+		//			sql.append(" AND A.rest_log = ? ");
+		//			params.add(log);
+		//		}
 
 		if (distance > 0) {
 			sql.append(" AND A.rest_distance <= ? ");
@@ -442,15 +516,15 @@ public class RestaurantDAO {
 			sql.append(" AND A.rest_smoke = ? ");
 			params.add(smoke);
 		}
-		
+
 		if (log == 1) {
-		    sql.append(" AND E.log_rest IS NOT NULL ");
+			sql.append(" AND E.log_rest IS NOT NULL ");
 		}
-		
+
 		if (log == 2) {
-		    sql.append(" AND E.log_rest IS NULL ");
+			sql.append(" AND E.log_rest IS NULL ");
 		}
-		
+
 		sql.append(" GROUP BY A.rest_id ");
 
 		try (Connection con = ConnectionManager.getConnection();
@@ -482,27 +556,26 @@ public class RestaurantDAO {
 				rest.setRestSmoke(res.getInt("rest_smoke"));
 				rest.setRestSmokeroom(res.getInt("rest_smokeroom"));
 				rest.setVisitCount(res.getInt("visit_count"));
-/*
-				System.out.println("SQL=");
-				System.out.println(sql.toString());
-
-				System.out.println("PARAMS=");
-				System.out.println(params);
-*/
+				/*
+								System.out.println("SQL=");
+								System.out.println(sql.toString());
+				
+								System.out.println("PARAMS=");
+								System.out.println(params);
+				*/
 				System.out.println(sql.toString());
 				System.out.println(params);
 
 				narrowList.add(rest);
 			}
 
-
 			return narrowList;
 		}
 
 	}
-	
-	
+
 	//登録
+
 	public int insert(RestBean rest) throws ClassNotFoundException, SQLException {
 
 	int count = 0; // 処理件数
@@ -570,6 +643,7 @@ public class RestaurantDAO {
 	return count;
 }
 	
+
 	//更新
 	public int update(RestBean bean) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
@@ -592,14 +666,14 @@ public class RestaurantDAO {
 			int restNextday = bean.getRestNextday();
 			int restDistance = bean.getRestDistance();
 			int restBudget = bean.getRestBudget();
-			int restCapacity  = bean.getRestCapacity();
+			int restCapacity = bean.getRestCapacity();
 			String restTel = bean.getRestTel();
 			String restAddress = bean.getRestAddress();
 			String restUrl = bean.getRestUrl();
-			double restReview  = bean.getRestReview();
+			double restReview = bean.getRestReview();
 			String restBeer = bean.getRestBeer();
-			int restSmoke=bean.getRestSmoke();
-			int restSmokeroom=bean.getRestSmokeroom();
+			int restSmoke = bean.getRestSmoke();
+			int restSmokeroom = bean.getRestSmokeroom();
 
 			// プレースホルダへの値の設定
 			pstmt.setString(1, restName);
@@ -625,7 +699,7 @@ public class RestaurantDAO {
 		return processingNumber;
 
 	}
-	
+
 	//削除
 	public int delete(RestBean bean) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
@@ -636,11 +710,10 @@ public class RestaurantDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			pstmt.setInt(1, bean.getRestId());
-		
 
 			processingNumber = pstmt.executeUpdate();
 		}
 		return processingNumber;
 	}
-	
+
 }

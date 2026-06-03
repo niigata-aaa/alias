@@ -74,7 +74,7 @@ public class SeatingChartServlet extends HttpServlet {
 			user = uDao.select(userId);
 			
 			if (user.getUserChoice() != 0) {
-				rest = rDao.select(user.getUserChoice());
+				rest = rDao.select(userId, user.getUserChoice());
 			}
 
 			if (sortType != null) {

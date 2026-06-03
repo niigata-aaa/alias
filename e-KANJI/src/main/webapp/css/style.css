@@ -35,7 +35,7 @@ div {
 
 .searchTable {
 	font-size: 28px;
-	height: 100px;
+	height: 60px;
 }
 
 button,
@@ -75,6 +75,11 @@ input[type="password"] {
 .d4{
 	font-size: x-large;
 	font-weight: bold;
+}
+
+.d5 {
+	color: red;
+	font-size: 40px;
 }
 
 .background {

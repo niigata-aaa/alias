@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>新規会員登録</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 	<%@ include file="header-logo.jsp"%>
@@ -24,7 +26,7 @@
 	<div>
 		<h2>新規会員登録</h2>
 		<span class="required">*は必須入力です</span><br><br>
-		<form action="insert-user-check" method="post">
+		<form action="insert-user-check" method="post" class="insert-user"s>
 			<table>
 				<tr>
 					<th>会員ID <span class="required">*</span></th>

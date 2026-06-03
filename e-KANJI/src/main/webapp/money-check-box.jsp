@@ -7,6 +7,8 @@
 <title>割り勘・集金管理画面</title>
 <link rel="stylesheet" href="css/money-check-box.css">
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
 row span {
 	    display: inline-block;
@@ -26,33 +28,31 @@ row span {
 	%>
 
 
-	<h1>割り勘・集金管理画面</h1>
-	<br>
-	
+	<h1>割り勘・集金管理</h1>
+	<div class="moneyForm">
 	<form action="money-check-box" method="post">
 	<div class="row">
 		<label class="row_label">合計金額</label>
 		<input type="number" name="sum" value="${sum}" required>
-		<span>円</span>
+		<span>　円</span>
 	</div>
 	
 	<div class="row">
 		<label class="row_label">割り勘人数</label>
 		<input type="number" name="party" value="${party}"required>
-		<span>人</span><br> 
+		<span>　人</span><br> 
 	</div>
 	
 	<div class="row">
 	    <label class="row_label">	一人あたりの合計金額</label>
 	    <input type="number" name="result" value="${result}">
-	    <span>円</span><br> <br> 
-	    <input type="submit" value="割り算計算">
+	    <span>　円</span><br>
 	</div>
+	</div>
+	 <input type="submit" value="割り算計算">
 
 	</form>
-	<br>
-	<br>
-	<br> 会員ID：<%=request.getAttribute("user_id")%><br>
+	<p> 会員ID：<%=request.getAttribute("user_id")%><br>
 
 
 

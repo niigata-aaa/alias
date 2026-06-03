@@ -2,6 +2,8 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +11,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import model.dao.LogDAO;
 import model.dao.RestaurantDAO;
+import model.entity.LogBean;
 import model.entity.RestBean;
 
 /**
@@ -44,18 +49,24 @@ public class SelectRestDetailServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		int restId = Integer.parseInt(request.getParameter("restId"));
 
-		int id = Integer.parseInt(request.getParameter("restId"));
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("user_id");
 
 		// DAOの生成
-		RestaurantDAO dao = new RestaurantDAO();
-
+		RestaurantDAO rDao = new RestaurantDAO();
 		RestBean bean = new RestBean();
 
+		LogDAO lDao = new LogDAO();
+		List<LogBean> logList = new ArrayList<LogBean>();
+
 		try {
-			bean = dao.select(id);
+			bean = rDao.select(userId, restId);
+			logList = lDao.select(userId, restId);
 
 			request.setAttribute("bean", bean);
+			request.setAttribute("logList", logList);
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

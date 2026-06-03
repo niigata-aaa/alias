@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+.restArea {
+    display: flex;
+    justify-content: center;
+}
+
+.restArea table {
+	background-color: white;
+}
+
+.restArea tr {
+	padding: 10px;
+}
+.restArea th {
+	padding: 10px;
+}
+.restArea td {
+	padding: 10px;
+}
+
 .seatArea {
 	position: relative;
 	width: 700px;
