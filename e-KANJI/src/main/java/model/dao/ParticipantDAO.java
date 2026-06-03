@@ -466,56 +466,7 @@ public class ParticipantDAO {
 		return processingNumber;
 	}
 
-	//更新
-	//	public int update(PartBean bean) throws SQLException, ClassNotFoundException {
-	//		int processingNumber = 0;
-	//
-	//		String sql = "UPDATE m_participant SET part_name = ?, part_ruby = ?, part_gender = ?, part_age = ?,"
-	//				+ "part_empyear = ?, part_post = ?, part_budget = ?, part_allergy = ?, part_genre = ?,"
-	//				+ "part_category = ?, part_beer = ?, part_smoke = ? WHERE part_id = ? and part_user = ?";
-	//
-	//		// データベースへの接続の取得、PreparedStatementの取得
-	//		try (Connection con = ConnectionManager.getConnection();
-	//				PreparedStatement pstmt = con.prepareStatement(sql)) {
-	//
-	//			// DTOからのデータの取り出し
-	//			String partName = bean.getPartName();
-	//			String partRuby = bean.getPartRuby();
-	//			String partGender = bean.getPartGender();
-	//			int partAge = bean.getPartAge();
-	//			int partEmpyear = bean.getPartEmpyear();
-	//			String partPost = bean.getPartPost();
-	//			int partBudget = bean.getPartBudget();
-	//			String partAllergy = bean.getPartAllergy();
-	//			String partGenre = bean.getPartGenre();
-	//			String partCategory = bean.getPartCategory();
-	//			String partBeer = bean.getPartBeer();
-	//			int partSmoke = bean.getPartSmoke();
-	//			int partID = bean.getPartID();
-	//			String userID = bean.getUserID();
-	//
-	//			// プレースホルダへの値の設定
-	//			pstmt.setString(1, partName);
-	//			pstmt.setString(2, partRuby);
-	//			pstmt.setString(3, partGender);
-	//			pstmt.setInt(4, partAge);
-	//			pstmt.setInt(5, partEmpyear);
-	//			pstmt.setString(6, partPost);
-	//			pstmt.setInt(7, partBudget);
-	//			pstmt.setString(8, partAllergy);
-	//			pstmt.setString(9, partGenre);
-	//			pstmt.setString(10, partCategory);
-	//			pstmt.setString(11, partBeer);
-	//			pstmt.setInt(12, partSmoke);
-	//			pstmt.setInt(13, partID);
-	//			pstmt.setString(14, userID);
-	//
-	//			// SQLステートメントの実行
-	//			processingNumber = pstmt.executeUpdate();
-	//		}
-	//		return processingNumber;
-	//
-	//	}
+
 
 	public int update(PartBean part) throws ClassNotFoundException, SQLException {
 
