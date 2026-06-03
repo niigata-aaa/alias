@@ -18,39 +18,168 @@
 <body>
 <%@ include file="header-logo.jsp" %>
 <%
-PartBean bean = (PartBean) request.getAttribute("bean");
+PartBean part = (PartBean) request.getAttribute("bean");
 %>
+<h2>参加者情報変更成功</h2><br>
 
-以下の参加者情報を変更しました。<br>
+以下のように参加者情報を変更しました<br>
 
 <form action="select-part-servlet" method="post">
 
-	以下の参加者情報を変更しました。<br>
 
-	<jsp:useBean id="part" scope="session" class="model.entity.PartBean" />
-	会員ID：<jsp:getProperty name="part" property="userID" /><br>
-	参加者ID：<jsp:getProperty name="part" property="partID" /><br>
-	氏名（漢字）：<jsp:getProperty name="part" property="partName" /><br>
-	氏名（かな）：<jsp:getProperty name="part" property="partRuby" /><br>
-	性別：<jsp:getProperty name="part" property="partGender" /><br>
-	年齢：<jsp:getProperty name="part" property="partAge" /><br>
-	入社年度：<jsp:getProperty name="part" property="partEmpyear" /><br>
-	役職：<jsp:getProperty name="part" property="partPost" /><br>
-    予算：<jsp:getProperty name="part" property="partBudget" /><br>
-    アレルギー：<jsp:getProperty name="part" property="partAllergy" /><br>
-    好きな食べ物のジャンル：<jsp:getProperty name="part" property="partGenre" /><br>
-    好きな食べ物のカテゴリ：<jsp:getProperty name="part" property="partCategory" /><br>
-    好きなビールの種類：<jsp:getProperty name="part" property="partBeer" /><br>
-    タバコ：<jsp:getProperty name="part" property="partSmoke" /><br>
+	氏名（漢字）：<%=part.getPartName()%><br>
+	氏名（かな）：<%=part.getPartRuby()%><br>
+	性別：<%=part.getPartGender()%><br>
+	年齢：<%=part.getPartAge()%><br>
+	入社年度：<%=part.getPartEmpyear()%><br>
+	役職：
+	<%
+					switch(part.getPartPostId()){
+					case 0:
+					    out.print("-");
+					    break;
+					case 1:
+					    out.print("一般社員");
+					    break;
+					case 2:
+					    out.print("主任・主査");
+					    break;
+					case 3:
+					    out.print("係長");
+					    break;
+					case 4:
+					    out.print("課長代理");
+					    break;
+					case 5:
+					    out.print("課長");
+					    break;
+					case 6:
+					    out.print("副部長");
+					    break;
+					case 7:
+					    out.print("部長・支社長・所長");
+					    break;
+					case 8:
+					    out.print("執行役員");
+					    break;
+					case 9:
+					    out.print("常務取締役");
+					    break;
+					case 10:
+					    out.print("専務取締役");
+					    break;
+					case 11:
+					    out.print("社長");
+					    break;
+					case 12:
+					    out.print("会長");
+					    break;
+					}
+					%><br>
+    予算：<%=part.getPartBudget()%><br>
+    アレルギー：<%=part.getPartAllergy()%><br>
+    好きな食べ物のジャンル：
+    <%
+					switch(part.getPartGenreId()){
+					case 0:
+					    out.print("特になし");
+					    break;
+					case 1:
+					    out.print("和食");
+					    break;
+					case 2:
+					    out.print("洋食");
+					    break;
+					case 3:
+					    out.print("中華料理");
+					    break;
+					case 4:
+					    out.print("フレンチ");
+					    break;
+					case 5:
+					    out.print("韓国料理");
+					    break;
+					case 6:
+					    out.print("アジア・エスニック");
+					    break;
+					case 7:
+					    out.print("居酒屋");
+					    break;
+					case 8:
+					    out.print("焼肉");
+					    break;
+					case 9:
+					    out.print("カレー");
+					    break;
+					case 10:
+					    out.print("鍋");
+					    break;
+					}
+					%><br>
+    好きな食べ物のカテゴリ：
+    <%
+					switch(part.getPartCategoryId()){
+					case 0:
+					    out.print("特になし");
+					    break;
+					case 1:
+					    out.print("肉");
+					    break;
+					case 2:
+					    out.print("魚");
+					    break;
+					case 3:
+					    out.print("野菜");
+					    break;
+					case 4:
+					    out.print("麺類");
+					    break;
+					case 5:
+					    out.print("米料理");
+					    break;
+					case 6:
+					    out.print("揚げ物");
+					    break;
+					case 7:
+					    out.print("お酒");
+					    break;
+					}
+					%><br>
+    好きなビールの種類：
+    <%
+					switch(part.getPartBeerId()){
+					case 0:
+					    out.print("特になし");
+					    break;
+					case 1:
+					    out.print("アサヒ");
+					    break;
+					case 2:
+					    out.print("キリン");
+					    break;
+					case 3:
+					    out.print("サントリー");
+					    break;
+					case 4:
+					    out.print("サッポロ");
+					    break;
+					case 5:
+					    out.print("エビス");
+					    break;
+					case 6:
+					    out.print("クラフトビール");
+					    break;
+					}
+					%><br>
+    タバコ：<%= part.getPartSmoke() == 1 ? "吸う" : "吸わない" %><br>
     
-    <input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る"><br>
+    <input type="submit" class="top" value="トップに戻る"><br>
 </form>
 
-	<form action="menu.html" method="POST">
-		<input type="submit" value="メニュー画面に戻る">
+	<form action="select-part-servlet" method="POST">
+		<input type="submit" value="参加者一覧表示・検索画面へ戻る">
 	</form>
 
-	<% session.invalidate(); %>
 
 </body>
 </html>
