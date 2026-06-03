@@ -23,7 +23,6 @@ public class InsertPartCheckServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,60 +39,58 @@ public class InsertPartCheckServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-//		request.setCharacterEncoding("UTF-8");
-//
-//		String smokeStr = request.getParameter("part_smoke");
-//		String ageStr = request.getParameter("part_age");
-//		String empyearStr = request.getParameter("part_empyear");
-//		String budgetStr = request.getParameter("part_budget");
-//		String name = request.getParameter("part_name");
-//		String ruby = request.getParameter("part_ruby");
-//		String gender = request.getParameter("part_gender");
-//		String post = request.getParameter("part_post");
-//		String allergy = request.getParameter("part_allergy");
-//		String genre = request.getParameter("part_genre");
-//		String category = request.getParameter("part_category");
-//		String beer = request.getParameter("part_beer");
-//		String userId = (String) request.getSession().getAttribute("user_id");
-//
-//		if (isEmpty(smokeStr) || isEmpty(ageStr) || isEmpty(empyearStr) || isEmpty(budgetStr)) {
-//			request.setAttribute("errorMessage", "未入力があります");
-//			request.getRequestDispatcher("insert-part-failure.jsp").forward(request, response);
-//			return;
-//		}
-//
-//		try {
-//			int smoke = Integer.parseInt(smokeStr);
-//			int age = Integer.parseInt(ageStr);
-//			int empyear = Integer.parseInt(empyearStr);
-//			int budget = Integer.parseInt(budgetStr);
-//
-//			PartBean bean = new PartBean();
-//
-//			bean.setUserID(userId);
-//			bean.setPartName(name);
-//			bean.setPartRuby(ruby);
-//			bean.setPartGender(gender);
-//			bean.setPartPost(post);
-//			bean.setPartAllergy(allergy);
-//			bean.setPartCategory(category);
-//			bean.setPartBeer(beer);
-//			bean.setPartGenre(genre);
-//			bean.setPartSmoke(smoke);
-//			bean.setPartAge(age);
-//			bean.setPartEmpyear(empyear);
-//			bean.setPartBudget(budget);
-//
-//			request.setAttribute("part", bean);
-//			request.getRequestDispatcher("insert-part-check.jsp").forward(request, response);
-//
-//		} catch (NumberFormatException e) {
-//			request.setAttribute("errorMessage", "数値が不正です");
-//			request.getRequestDispatcher("insert-part-failure.jsp").forward(request, response);
-//		}
-		
-		
-		
+		//		request.setCharacterEncoding("UTF-8");
+		//
+		//		String smokeStr = request.getParameter("part_smoke");
+		//		String ageStr = request.getParameter("part_age");
+		//		String empyearStr = request.getParameter("part_empyear");
+		//		String budgetStr = request.getParameter("part_budget");
+		//		String name = request.getParameter("part_name");
+		//		String ruby = request.getParameter("part_ruby");
+		//		String gender = request.getParameter("part_gender");
+		//		String post = request.getParameter("part_post");
+		//		String allergy = request.getParameter("part_allergy");
+		//		String genre = request.getParameter("part_genre");
+		//		String category = request.getParameter("part_category");
+		//		String beer = request.getParameter("part_beer");
+		//		String userId = (String) request.getSession().getAttribute("user_id");
+		//
+		//		if (isEmpty(smokeStr) || isEmpty(ageStr) || isEmpty(empyearStr) || isEmpty(budgetStr)) {
+		//			request.setAttribute("errorMessage", "未入力があります");
+		//			request.getRequestDispatcher("insert-part-failure.jsp").forward(request, response);
+		//			return;
+		//		}
+		//
+		//		try {
+		//			int smoke = Integer.parseInt(smokeStr);
+		//			int age = Integer.parseInt(ageStr);
+		//			int empyear = Integer.parseInt(empyearStr);
+		//			int budget = Integer.parseInt(budgetStr);
+		//
+		//			PartBean bean = new PartBean();
+		//
+		//			bean.setUserID(userId);
+		//			bean.setPartName(name);
+		//			bean.setPartRuby(ruby);
+		//			bean.setPartGender(gender);
+		//			bean.setPartPost(post);
+		//			bean.setPartAllergy(allergy);
+		//			bean.setPartCategory(category);
+		//			bean.setPartBeer(beer);
+		//			bean.setPartGenre(genre);
+		//			bean.setPartSmoke(smoke);
+		//			bean.setPartAge(age);
+		//			bean.setPartEmpyear(empyear);
+		//			bean.setPartBudget(budget);
+		//
+		//			request.setAttribute("part", bean);
+		//			request.getRequestDispatcher("insert-part-check.jsp").forward(request, response);
+		//
+		//		} catch (NumberFormatException e) {
+		//			request.setAttribute("errorMessage", "数値が不正です");
+		//			request.getRequestDispatcher("insert-part-failure.jsp").forward(request, response);
+		//		}
+
 		request.setCharacterEncoding("UTF-8");
 
 		String partName = request.getParameter("part_name");
@@ -125,10 +122,10 @@ public class InsertPartCheckServlet extends HttpServlet {
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("insert-part-check.jsp");
 		rd.forward(request, response);
-		
+
 	}
 
-//	private boolean isEmpty(String val) {
-//		return val == null || val.trim().isEmpty();
-//	}
+	//	private boolean isEmpty(String val) {
+	//		return val == null || val.trim().isEmpty();
+	//	}
 }
