@@ -90,7 +90,7 @@ form {
 	<span class="required">*は必須入力です</span><br>
 	<form action="insert-part-check-servlet" method="POST">
 	<div class="part-data">
-	    氏名（漢字）　　：<span class="required"> *</span>
+	    氏名　　　　　：<span class="required"> *</span>
 	    	<input type="text" name="part_name" value="<%=partName%>"
 	    				maxlength="100" required><br>
 		氏名（かな）　　：<span class="required"> *</span>

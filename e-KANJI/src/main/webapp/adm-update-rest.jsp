@@ -100,22 +100,23 @@
 			<option value="6"<%= bean.getRestBeer() == "クラフトビール" ? "selected" : "" %>>クラフトビール</option>
 		</select><br>
 		
-		オープン時間： <input type="time" name="restOpen"
-			value=<%=bean.getRestOpen() %>><br> 
+		オープン時間： <input type="time" name="restOpen" value=<%=bean.getRestOpen() %>><br> 
 			
-		クローズ時間： <input
-			type="time" name="restClose" value=<%=bean.getRestClose() %>><br>
+		クローズ時間： <input type="time" name="restClose" value=<%=bean.getRestClose() %>><br>
 
-		日跨ぎ営業： <input type="text" name="restNextday" value=<%=bean.getRestNextday() %>><br> 
+		日跨ぎ営業：
+		
+		<input type="radio" name="restNextday" value="1" <%= bean.getRestNextday() == 1 ? "checked" : "" %>>してる
+        <input type="radio" name="restNextday" value="0" <%= bean.getRestNextday() == 0 ? "checked" : "" %>>してない
+        <br>
 			
-		距離： <input
-			type="text" name="restDistance" value=<%=bean.getRestDistance() %>><br>
+		距離： <input type="number" name="restDistance" value=<%=bean.getRestDistance() %>><br>
 
-		予算： <input type="text" name="restBudget"
+		予算： <input type="number" name="restBudget"
 			value=<%=bean.getRestBudget() %>><br> 
 			
 		最大収容数： <input
-			type="text" name="restCapacity" value=<%=bean.getRestCapacity() %>><br>
+			type="number" name="restCapacity" value=<%=bean.getRestCapacity() %>><br>
 
 		電話番号： <input type="text" name="restTel" value=<%=bean.getRestTel() %>><br>
 
@@ -125,14 +126,18 @@
 		詳細URL： <input
 			type="text" name="restUrl" value=<%=bean.getRestUrl() %>><br>
 
-		口コミ： <input type="text" name="restReview"
+		口コミ： <input type="number" name="restReview" min="0.0" max="5.0" step="0.1" required
 			value=<%=bean.getRestReview() %>><br> 
 			
-		喫煙席の有無： <input
-			type="text" name="restSmoke" value=<%=bean.getRestSmoke() %>><br>
-
-		店内に喫煙所： <input type="text" name="restSmokeroom"
-			value=<%=bean.getRestSmokeroom() %>><br>
+		喫煙席の有無：
+		<input type="radio" name="restSmoke" value="1" <%= bean.getRestSmoke() == 1 ? "checked" : "" %>>ある
+        <input type="radio" name="restSmoke" value="0" <%= bean.getRestSmoke() == 0 ? "checked" : "" %>>ない
+		<br>
+		
+		店内に喫煙所：	
+		<input type="radio" name="restSmokeRoom" value="1" <%= bean.getRestSmokeroom() == 1 ? "checked" : "" %>>ある
+        <input type="radio" name="restSmokeRoom" value="0" <%= bean.getRestSmokeroom() == 0 ? "checked" : "" %>>ない
+		<br>
 		<%-- 
 		店ジャンル：<input type="text" name="partRuby"
 			value=<%=bean.getPartRuby() %>><br> 食材カテゴリ： <input
