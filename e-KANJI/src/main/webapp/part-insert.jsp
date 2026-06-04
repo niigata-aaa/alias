@@ -69,12 +69,12 @@
 		<form action="part-insert-check" method="post">
 			<table>
 				<tr>
-					<th>名前<span class="required"> *</span></th>
+					<th>氏名<span class="required"> *</span></th>
 					<td><input type="text" name="part_name" value="<%=partName%>"
 						maxlength="100" required></td>
 				</tr>
 				<tr>
-					<th>名前（かな）<span class="required"> *</span></th>
+					<th>氏名（かな）<span class="required"> *</span></th>
 					<td><input type="text" name="part_ruby" value="<%=partRuby%>"
 						maxlength="100" required></td>
 				</tr>

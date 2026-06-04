@@ -53,7 +53,7 @@ form {
 
     <form action="update-part-check-servlet" method="post">
     <div class="part-data">
-        氏名（漢字）：<span class="required"> *</span><input type="text" name="partName"
+        氏名：<span class="required"> *</span><input type="text" name="partName"
             value=<%=bean.getPartName() %> maxlength="100" required><br>
         氏名（かな）：<span class="required"> *</span><input type="text" name="partRuby"
             value=<%=bean.getPartRuby() %> maxlength="100" required><br>
