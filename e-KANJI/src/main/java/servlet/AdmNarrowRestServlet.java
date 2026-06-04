@@ -50,10 +50,11 @@ public class AdmNarrowRestServlet extends HttpServlet {
 		int beer=Integer.parseInt(request.getParameter("beer"));
 		double review=Double.parseDouble(request.getParameter("review"));
 		int capacity=Integer.parseInt(request.getParameter("capacity"));
-		int log=Integer.parseInt(request.getParameter("log"));
+		//int log=Integer.parseInt(request.getParameter("log"));
 		int distance=Integer.parseInt(request.getParameter("distance"));
 		int budget=Integer.parseInt(request.getParameter("budget"));
 		int smoke=Integer.parseInt(request.getParameter("smoke"));
+		//int smokeroom=Integer.parseInt(request.getParameter("smokeroom"));
 /*
 		String genre = request.getParameter("genre");
 		String category = request.getParameter("category");
@@ -74,7 +75,7 @@ public class AdmNarrowRestServlet extends HttpServlet {
 
 		try {
 			// DAOの利用
-			narrowList = dao.narrowselect(keyword, genre, category, beer, review, capacity, log, distance, budget, smoke);
+			narrowList = dao.narrowselect(keyword, genre, category, beer, review, capacity, distance, budget, smoke);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}

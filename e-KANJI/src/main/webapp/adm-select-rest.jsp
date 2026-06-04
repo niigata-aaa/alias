@@ -190,6 +190,13 @@ table table {
 						<option value="1">あり</option>
 						<option value="2">なし</option>
 				</select></td>
+				<%--<th>店内に喫煙所の有無</th>
+				<td><select name="smokeroom">
+						<option value="0">指定なし</option>
+						<option value="1">あり</option>
+						<option value="2">なし</option>
+				</select></td>--%>
+				
 
 			</tr>
 		</table>

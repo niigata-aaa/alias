@@ -318,8 +318,7 @@ public class RestaurantDAO {
 	// 管理者用絞り込み検索
 	public List<RestBean> narrowselect(
 			String keyword, int genre, int category, int beer,
-			double review, int capacity, int log,
-			int distance, int budget, int smoke)
+			double review, int capacity, int distance, int budget, int smoke)
 			throws ClassNotFoundException, SQLException {
 
 		List<RestBean> narrowList = new ArrayList<>();
@@ -370,10 +369,10 @@ public class RestaurantDAO {
 			params.add(capacity);
 		}
 
-		if (log > 0) {
+		/*if (log > 0) {
 			sql.append(" AND A.rest_log = ? ");
 			params.add(log);
-		}
+		}*/
 
 		if (distance > 0) {
 			sql.append(" AND A.rest_distance <= ? ");
@@ -439,7 +438,7 @@ public class RestaurantDAO {
 	// ユーザー用絞り込み検索 訪問履歴表示対応
 	public List<RestBean> narrowselect(
 			String userId, String keyword, int genre, int category, int beer,
-			double review, int capacity, int log,
+			double review, int capacity,int log,
 			int distance, int budget, int smoke)
 			throws ClassNotFoundException, SQLException {
 
@@ -524,6 +523,7 @@ public class RestaurantDAO {
 		if (log == 2) {
 			sql.append(" AND E.log_rest IS NULL ");
 		}
+		
 
 		sql.append(" GROUP BY A.rest_id ");
 

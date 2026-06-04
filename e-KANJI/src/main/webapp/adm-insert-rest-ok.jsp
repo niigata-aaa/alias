@@ -25,6 +25,7 @@ if(rest== null){
 }
 %>
 
+<h2>以下の飲食店情報を登録しました。</h2>
 飲食店ID：登録時に自動採番されます<br>
 		飲食店名：<%=rest.getRestName()%><br>
 
@@ -234,10 +235,12 @@ if(rest== null){
 		
 	<form action="adm-top.jsp" method="post">
 		<input type="submit" class="submit-top-right" value="管理者トップ画面へ戻る"><br>
+		<input type="hidden" name="" >
 	</form>
 	
 	<form action="adm-select-rest.jsp" method="post">
 		<input type="submit" value="飲食店一覧表示・検索画面へ戻る">
+		
 	</form>
 </body>
 </html>
