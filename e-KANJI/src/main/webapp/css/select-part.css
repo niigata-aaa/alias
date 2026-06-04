@@ -1,5 +1,4 @@
 @charset "UTF-8";
-<<<<<<< HEAD
 body {
 	color: rgb(0, 0, 0);
 	background-color: #F6E3A1;
@@ -161,7 +160,7 @@ input[type="password"] {
 	width: 120px;
 	text-align: right;
 }
-=======
+
 
 body {
 	color: rgb(0, 0, 0);
@@ -323,5 +322,4 @@ input[type="password"] {
 .form-row label {
 	width: 120px;
 	text-align: right;
-}@charset "UTF-8";
->>>>>>> branch 'master' of https://github.com/niigata-aaa/alias.git
+}
