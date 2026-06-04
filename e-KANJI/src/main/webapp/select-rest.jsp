@@ -245,6 +245,7 @@ table table {
 			<td><%=rest.getRestTel()%></td>
 			<td><%= rest.getVisitCount() == 0 ? "未訪問" : rest.getVisitCount() + "件" %></td>
 			
+			
 			<td>
 				<form action="select-rest-detail" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
