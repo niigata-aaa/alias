@@ -23,7 +23,7 @@ RestBean bean = (RestBean) request.getAttribute("bean");
 
 以下の参加者情報を変更しました。<br>
 
-<form action="adm-select-rest-servlet" method="post">
+<form action="adm-select-rest" method="post">
 
 	以下の飲食店情報を変更しました。<br>
 
@@ -53,6 +53,6 @@ RestBean bean = (RestBean) request.getAttribute("bean");
 		<input type="submit" value="メニュー画面に戻る">
 	</form>
 --%>
-	<% session.invalidate(); %>
+	<%--<% session.invalidate();%>--%>
 </body>
 </html>
