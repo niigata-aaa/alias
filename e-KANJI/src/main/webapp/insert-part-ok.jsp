@@ -50,7 +50,7 @@ table td {
 	<div>
 			<table>
 				<tr>
-					<th>名前　　　　　　：<span class="required"> *</span></th>
+					<th>名前　　　　　　：</th>
 					<td><%=part.getPartName() %></td>
 				</tr>
 				<tr>

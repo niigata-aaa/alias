@@ -105,7 +105,7 @@ form {
 			<input type="number" name="part_age" value="<%= partAge == 0 ? "18" : partAge %>"
 						min="18" max="100" required><br>
 		入社年度　　　　：<span class="required"> *</span>
-			<input type="number" name="part_empyear" min="1900" max="2100" required
+			<input type="number" name="part_empyear" min="1965" value="<%= partAge == 0 ? "1965" : partAge %>" required
 					value="<%=partEmpyear == 0 ? "0" :partEmpyear%>"><br>
 		役職　　　　　　：<select name="part_post">
 						<option value="0" <%=partPost == 0 ? "selected" : ""%>>-</option>
@@ -164,9 +164,8 @@ form {
 	</div>
 	※個人情報の取扱いについては<a href="https://www.bsnnet.co.jp/company/privacy-policy.html" target="_blank" rel="noopener noreferrer">
   こちら</a>をご確認のうえで確認画面へお進みください。<br>
-		<input type="submit"  value="確認画面へ">
+		<input type="submit"  value="確認画面へ" class="formArea">
 	</form>
-	
 	
 
 </body>

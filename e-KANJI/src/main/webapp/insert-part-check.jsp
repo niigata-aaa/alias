@@ -88,10 +88,10 @@ table td {
     <h2>この参加者情報を登録します</h2>
 
 
-	<div>
+	<div class="formArea">
 			<table>
 				<tr>
-					<th>名前　　　　　　：<span class="required"> *</span></th>
+					<th>名前　　　　　　：</th>
 					<td><%=partName%></td>
 				</tr>
 				<tr>
