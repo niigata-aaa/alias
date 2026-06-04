@@ -37,13 +37,14 @@
         RestBean bean = (RestBean) request.getAttribute("bean");
  
     %>
-
+<span class="required">*は必須入力です</span><br>
 	<form action="adm-update-rest-check-servlet" method="post">
+	
 		飲食店ID：
 		<%=bean.getRestId() %><br> 
 		
-		飲食店名：
-		<input type="text" name="restName" value=<%=bean.getRestName() %>><br>
+		飲食店名：<span class="required"> *</span>
+		<input type="text" name="restName" value=<%=bean.getRestName() %> required><br> 
 
 		店ジャンル： <select name="restGenre">
 			<option value="0"
@@ -110,13 +111,16 @@
         <input type="radio" name="restNextday" value="0" <%= bean.getRestNextday() == 0 ? "checked" : "" %>>してない
         <br>
 			
-		距離： <input type="number" name="restDistance" value=<%=bean.getRestDistance() %>><br>
+		距離： <span class="required"> *</span>
+		<input type="number" name="restDistance" value=<%=bean.getRestDistance() %> min="0" required><br>
 
-		予算： <input type="number" name="restBudget"
-			value=<%=bean.getRestBudget() %>><br> 
+		予算：<span class="required"> *</span> 
+		<input type="number" name="restBudget"
+			value=<%=bean.getRestBudget() %> min="0" required><br> 
 			
-		最大収容数： <input
-			type="number" name="restCapacity" value=<%=bean.getRestCapacity() %>><br>
+		最大収容数：
+		<span class="required"> *</span> <input
+			type="number" name="restCapacity" value=<%=bean.getRestCapacity() %> min="0" required><br>
 
 		電話番号： <input type="text" name="restTel" value=<%=bean.getRestTel() %>><br>
 
@@ -126,7 +130,8 @@
 		詳細URL： <input
 			type="text" name="restUrl" value=<%=bean.getRestUrl() %>><br>
 
-		口コミ： <input type="number" name="restReview" min="0.0" max="5.0" step="0.1" required
+		口コミ：<span class="required"> *</span>
+		 <input type="number" name="restReview" min="0.0" max="5.0" step="0.1" required
 			value=<%=bean.getRestReview() %>><br> 
 			
 		喫煙席の有無：

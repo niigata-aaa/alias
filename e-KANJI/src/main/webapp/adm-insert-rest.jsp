@@ -18,9 +18,11 @@
 		<input type="submit" class="submit-top-right" value="飲食店一覧表示・検索画面へ戻る">
 	</form>
 
+<span class="required">*は必須入力です</span><br>
 <%--飲食店情報入力＆確認画面へボタン --%>
 	<form action="adm-insert-rest-check" method="post">
-		飲食店名： <input type="text" name="rest_name"><br> 
+		飲食店名：<span class="required"> *</span> 
+		 <input type="text" name="rest_name" required><br> 
 		
 		店ジャンル： <select name="rest_genre">
 			<option value="0">特になし</option>
@@ -47,9 +49,11 @@
 			<option value="7">酒</option>
 		</select> <br>
 		
-		オープン：<input type="time" name="rest_open" required><br>
+		オープン：<span class="required"> *</span> 
+		<input type="time" name="rest_open" required><br>
 		  
-		クローズ：<input type="time" name="rest_close" required><br>
+		クローズ：<span class="required"> *</span> 
+		<input type="time" name="rest_close" required><br>
 		
 		日跨ぎ営業：
 		<select name="rest_nextday">
@@ -58,11 +62,14 @@
 		</select>
 		<br>  
 		
-		距離：<input type="number" name="rest_distance">ｍ<br>  
+		距離：<span class="required"> *</span> 
+		<input type="number" name="rest_distance" min="0" required>ｍ<br>  
 		
-		予算：<input type="number" name="rest_budget">円<br>  
+		予算：<span class="required"> *</span> 
+		<input type="number" name="rest_budget" min="0" required>円<br>  
 		
-		最大収容数：<input type="number" name="rest_capacity">人<br>  
+		最大収容数：<span class="required"> *</span> 
+		<input type="number" name="rest_capacity" min="0" required>人<br>  
 		
 		電話番号(-あり)：<input type="text" name="rest_tel"><br>  
 		
@@ -70,7 +77,8 @@
 		
 		詳細URL：<input type="text" name="rest_url"><br>  
 		
-		口コミ：☆<input type="number" name="rest_review"
+		口コミ：<span class="required"> *</span> 
+		☆<input type="number" name="rest_review"
 				 min="0.0" max="5.0" step="0.1" required><br>  
 		
 		ビールの種類：
