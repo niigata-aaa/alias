@@ -105,7 +105,7 @@ form {
 			<input type="number" name="part_age" value="<%= partAge == 0 ? "18" : partAge %>"
 						min="18" max="100" required><br>
 		入社年度　　　　：<span class="required"> *</span>
-			<input type="number" name="part_empyear" min="1965" value="<%= partAge == 0 ? "1965" : partAge %>" required
+			<input type="number" name="part_empyear" min="1950" value="<%= partAge == 0 ? "1950" : partAge %>" required
 					value="<%=partEmpyear == 0 ? "0" :partEmpyear%>"><br>
 		役職　　　　　　：<select name="part_post">
 						<option value="0" <%=partPost == 0 ? "selected" : ""%>>-</option>

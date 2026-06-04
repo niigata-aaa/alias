@@ -14,7 +14,6 @@
 	
 	<h2>管理者ログイン</h2>
 	<div class="formArea">
-		
 		<form action="adm-login" method="post">
 			<table>
 			<tr>

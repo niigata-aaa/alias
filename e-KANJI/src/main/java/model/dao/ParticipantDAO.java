@@ -148,7 +148,44 @@ public class ParticipantDAO {
 	public List<PartBean> select(String partPartName, String userId) throws SQLException, ClassNotFoundException {
 
 		ArrayList<PartBean> narrowList = new ArrayList<PartBean>();
-		String sql = "SELECT * FROM m_participant WHERE part_name LIKE ? AND part_user = ?";
+		String sql = "SELECT "
+				+ "B.user_id, "
+				+ "A.part_id, "
+				+ "A.part_name, "
+				+ "A.part_ruby, "
+				+ "A.part_gender, "
+				+ "A.part_age, "
+				+ "A.part_empyear, "
+				+ "C.post_name, "
+				+ "A.part_budget,"
+				+ "A.part_allergy, "
+				+ "D.genre_name, "
+				+ "E.category_name, "
+				+ "F.beer_name, "
+				+ "A.part_smoke "
+				+ "FROM "
+				+ "m_participant A "
+				+ "LEFT JOIN "
+				+ "m_user B "
+				+ "ON "
+				+ "A.part_user = B.user_id "
+				+ "LEFT JOIN "
+				+ "m_post C "
+				+ "ON "
+				+ "A.part_post = C.post_id "
+				+ "LEFT JOIN "
+				+ "m_genre D "
+				+ "ON "
+				+ "A.part_genre = D.genre_id "
+				+ "LEFT JOIN "
+				+ "m_category E "
+				+ "ON "
+				+ "A.part_category = E.category_id "
+				+ "LEFT JOIN "
+				+ "m_beer F "
+				+ "ON "
+				+ "A.part_beer = F.beer_id "
+				+ "WHERE part_name LIKE ? AND part_user = ?";
 		//DB接続の取得、
 		try (Connection con = ConnectionManager.getConnection();
 
@@ -167,7 +204,7 @@ public class ParticipantDAO {
 			while (res.next()) {
 
 				//会員ID
-				String userID = res.getString("part_user");
+				String userID = res.getString("user_id");
 
 				//参加者ID
 				int partID = res.getInt("part_id");
@@ -188,7 +225,7 @@ public class ParticipantDAO {
 				int empyear = res.getInt("part_empyear");
 
 				//役職
-				String post = res.getString("part_post");
+				String post = res.getString("post_name");
 
 				//予算
 				int partBudget = res.getInt("part_budget");
@@ -197,13 +234,13 @@ public class ParticipantDAO {
 				String allergy = res.getString("part_allergy");
 
 				//食べ物の好み
-				String genre = res.getString("part_genre");
+				String genre = res.getString("genre_name");
 
 				//好きな料理カテゴリ
-				String category = res.getString("part_category");
+				String category = res.getString("category_name");
 
 				//ビールの好み
-				String beer = res.getString("part_beer");
+				String beer = res.getString("beer_name");
 
 				//喫煙するか
 				int smoke = res.getInt("part_smoke");
