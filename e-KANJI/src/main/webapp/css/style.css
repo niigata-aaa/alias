@@ -54,6 +54,30 @@ div {
 	padding: 10px;
 }
 
+.tableArea {
+	display: flex;
+	justify-content: center;
+}
+
+.tableArea table {
+	margin: 10px;
+	border: 1px;
+	background-color: white;
+}
+
+.tableArea tr {
+	padding: 10px;
+}
+
+.tableArea th {
+	padding: 10px;
+	background-color: lightgray;
+}
+
+.tableArea td {
+	padding: 10px;
+}
+
 .required {
 	color: red;
 }

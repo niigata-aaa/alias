@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>管理者メニュー</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 	<%@ include file="adm-header-logo.jsp" %>
@@ -14,11 +16,11 @@
 	<form action="adm-select-rest" method="POST">
 		<input type="submit" value="飲食店管理画面">
 	</form>
-	
+	<br>
 	<form action="adm-select-user" method="POST">
 		<input type="submit" value="会員管理画面">
 	</form>
-	
+	<br>
 	<form action="adm-logout" method="POST">
 		<input type="submit" value="ログアウト">
 	</form>

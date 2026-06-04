@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/style.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 	<h2>会員情報削除完了</h2>
@@ -16,6 +19,7 @@
 		RestBean rest = (RestBean) request.getAttribute("rest");
 	%>
 
+	<div class="formArea">
 	<form action="adm-select-rest" method="post">
 
 		<table>
@@ -138,6 +142,7 @@
 		</table>
 		
 		<input type="submit" value="戻る">
-		</form>
+	</form>
+	</div>
 </body>
 </html>

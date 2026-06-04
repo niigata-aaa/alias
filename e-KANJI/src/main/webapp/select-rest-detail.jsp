@@ -37,7 +37,7 @@
 				<th>営業時間</th>
 				<td><%=bean.getRestOpen().substring(0, 5) %> ~ <%=bean.getRestClose().substring(0, 5) %></td>
 			</tr>
-			<tr><th>店のURL</th><td><%=bean.getRestUrl() %></td></tr>
+			<tr><th>店のURL</th><td><a href="<%=bean.getRestUrl() %>"><%=bean.getRestUrl() %></a></td></tr>
 			<tr><th>電話番号</th><td><%=bean.getRestTel() %></td></tr>
 			<tr><th>ビールの種類</th><td><%=bean.getRestBeer() %></td></tr>
 			<tr><th>口コミ</th><td>★ <%=bean.getRestReview() %></td></tr>

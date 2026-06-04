@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>飲食店情報変更エラー画面</title>
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <h2>参加者情報変更エラー</h2><br>

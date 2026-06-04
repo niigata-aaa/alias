@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>会員一覧表示</title>
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -26,11 +27,14 @@
 	<h1>会員一覧表示・検索画面</h1>
 	<br>
 	
-	
+		<form action="adm-top" method="post">
+		<input type="submit"class="submit-top-right" value="管理者トップ画面へ戻る"><%--class="submit-top-right" --%>
+	</form>
 	
 	
 	
 	<%--検索機能 --%>
+	<div class="formArea">
 	<form action="adm-select-user" method="post">
 		<table>
 			<tr>
@@ -49,6 +53,7 @@
 		</table>
 		<input type="submit" value="絞り込む">
 	</form>
+	</div>
 	
 	
 	
@@ -59,6 +64,7 @@
 	
 	<br><br>
 	
+	<div class="tableArea">
 	<table border=1>
 		<tr>
 			<th>会員ID</th>
@@ -90,5 +96,6 @@
 		%>
 
 	</table>
+	</div>
 </body>
 </html>

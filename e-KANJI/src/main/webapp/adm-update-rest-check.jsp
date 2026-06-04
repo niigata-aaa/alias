@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>飲食店情報変更確認画面</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 	<%request.setCharacterEncoding("UTF-8");%>

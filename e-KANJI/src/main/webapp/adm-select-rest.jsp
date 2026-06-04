@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>飲食店一覧表示</title>
 <link rel="stylesheet" href="css/select-rest.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 .search {
 	border: 2px solid black;

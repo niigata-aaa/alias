@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>会員削除確認</title>
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 	<h2>会員情報削除</h2><br>
@@ -16,6 +17,7 @@
 	String userId = user.getUserId();
 	%>
 	
+	<div class="formArea">
 	<form action="adm-delete-user" method="post">
 
 		<table>
@@ -37,6 +39,7 @@
 
 	<input type="submit" value="削除"><br>
 	</form>
+	</div>
 	
 	<form action="adm-select-user" method="post">
 	<input type="submit" value="戻る">

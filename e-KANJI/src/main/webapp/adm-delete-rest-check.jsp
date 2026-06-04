@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>飲食店削除画面</title>
 <link rel="stylesheet" href="css/style.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 	<h2>飲食店情報削除</h2>
@@ -16,6 +19,7 @@
 	int restId=rest.getRestId();
 	%>
 	
+	<div class="formArea">
 	<form action="adm-delete-rest" method="post">
 		
 		<table>
@@ -141,6 +145,7 @@
 
 	<input type="submit" value="削除"><br>
 	</form>
+	</div>
 	
 	<form action="adm-select-rest" method="post">
 	<input type="submit" value="戻る">
