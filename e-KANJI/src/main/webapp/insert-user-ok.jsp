@@ -23,7 +23,7 @@
 		以下の内容で会員登録しました。
 	</div>
 	
-	<div>
+	<div class="formArea">
 		<table>
 			<tr>
 				<th>会員ID</th>

@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+body {
+	color: rgb(0, 0, 0);
+	background-color: #F6E3A1;
+
+	font-size: large;
+	text-align: center;
+	margin: 0;
+
+}
+
+* {
+	font-family: "Zen Maru Gothic", sans-serif;
+}
+
+.logo {
+	width: 100%;
+	max-height: 140px;
+	object-fit: contain;
+	background-color: #fff;
+}
+
+.header {
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin: 20px 0;
+}
+
+.required {
+	color: red;
+}
+
+.searchTable {
+	font-size: 28px;
+	height: 60px;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+	min-width: 160px;
+	padding: 12px 24px;
+	font-size: 16px;
+	border-radius: 6px;
+	box-sizing: border-box;
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 300px;
+	height: 40px;
+	font-size: 16px;
+}
+
+.d1 {
+	width: 450px;
+	height: fit-content;
+	border-style: dotted;
+	border-radius: 3%;
+	border-color: rgb(255, 128, 0);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+}
+
+.d3 form {
+	margin: 10px;
+}
+
+.d4 {
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.d5 {
+	color: red;
+	font-size: 40px;
+}
+
+.background {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.bubble {
+	position: absolute;
+	bottom: 0px;
+	width: 20px;
+	height: 20px;
+	background: rgb(255, 255, 255);
+	border-radius: 50%;
+	animation: rise 6s infinite ease-in;
+}
+
+/* ランダム配置 */
+.bubble:nth-child(1) {
+	left: 10%;
+	animation-duration: 5s;
+}
+
+.bubble:nth-child(2) {
+	left: 25%;
+	animation-duration: 7s;
+	width: 15px;
+	height: 15px;
+}
+
+.bubble:nth-child(3) {
+	left: 40%;
+	animation-duration: 6s;
+}
+
+.bubble:nth-child(4) {
+	left: 70%;
+	animation-duration: 8s;
+	width: 25px;
+	height: 25px;
+}
+
+.bubble:nth-child(5) {
+	left: 85%;
+	animation-duration: 4.5s;
+}
+
+@keyframes rise {
+	0% {
+		transform: translateY(0) scale(1);
+		opacity: 0;
+	}
+
+	20% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(-110vh) scale(0.5);
+		opacity: 0;
+	}
+}
+
+.form-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 2px;
+}
+
+.form-row label {
+	width: 120px;
+	text-align: right;
+}
+
+.container {
+	width: 90%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.center {
+	text-align: center;
+}
+
+.center table {
+	margin: 0 auto;
+}
+
+.insert-user {
+	display: inline-block;
+}

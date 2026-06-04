@@ -16,7 +16,6 @@
 	String userPass = (String)request.getAttribute("user_pass");
 %>
 
-	<%@ include file="header-logo.jsp"%>
 	<div class="center">
 		<h2>新規会員登録</h2>
 		以下の内容で新規会員登録を行いますか？
