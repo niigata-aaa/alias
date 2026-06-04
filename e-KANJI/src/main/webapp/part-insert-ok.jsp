@@ -21,7 +21,7 @@
 		以下の内容で参加者登録しました。
 	</div>
 	
-	<div class="formArea">
+	<div class="tableArea">
 			<table>
 				<tr>
 					<th>名前<span class="required"> *</span></th>

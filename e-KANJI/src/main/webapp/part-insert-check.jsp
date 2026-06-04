@@ -62,7 +62,7 @@
 		以下の内容で新規参加者登録を行いますか？
 	</div>
 	
-	<div class="formArea">
+	<div class="tableArea">
 			<table>
 				<tr>
 					<th>名前<span class="required"> *</span></th>
