@@ -7,7 +7,23 @@
 <title>参加者登録確認画面</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+table {
+	border: 2px solid #000;
+	text-align: center;
+	margin: 0 auto;
+	/* ← これを追加：上下マージン0、左右マージンを自動調整して中央配置 */
+	background-color: rgb(255, 255, 255);
+}
 
+table th,
+table td {
+    text-align: left;
+    margin-left:6px;
+    margin-right:6px;
+}
+
+</style>
 </head>
 <body>
 <%@ include file="header-logo.jsp" %>
@@ -75,27 +91,27 @@
 	<div>
 			<table>
 				<tr>
-					<th>名前<span class="required"> *</span></th>
+					<th>名前　　　　　　：<span class="required"> *</span></th>
 					<td><%=partName%></td>
 				</tr>
 				<tr>
-					<th>名前（かな）</th>
+					<th>名前（かな）　　：</th>
 					<td><%=partRuby%></td>
 				</tr>
 				<tr>
-					<th>性別</th>
+					<th>性別　　　　　　：</th>
 					<td><%=partGender%></td>
 				</tr>
 				<tr>
-					<th>年齢</th>
+					<th>年齢　　　　　　：</th>
 					<td><%=partAge%></td>
 				</tr>
 				<tr>
-					<th>入社年度</th>
+					<th>入社年度　　　　：</th>
 					<td><%=partEmpyear%></td>
 				</tr>
 				<tr>
-					<th>役職名</th>
+					<th>役職名　　　　　：</th>
 					<td>
 					<%
 					switch(partPost){
@@ -143,15 +159,15 @@
 					</td>
 				</tr>
 				<tr>
-					<th>希望予算</th>
+					<th>希望予算　　　　：</th>
 					<td><%=partBudget%></td>
 				</tr>
 				<tr>
-					<th>アレルギー</th>
+					<th>アレルギー　　　：</th>
 					<td><%=partAllergy%></td>
 				</tr>
 				<tr>
-					<th>希望店ジャンル</th>
+					<th>希望店ジャンル　：</th>
 					<td>
 					<%
 					switch(partGenre){
@@ -193,7 +209,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>希望食材カテゴリ</th>
+					<th>希望食材カテゴリ：</th>
 					<td>
 					<%
 					switch(partCategory){
@@ -226,7 +242,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>ビールの好み</th>
+					<th>ビールの好み　　：</th>
 					<td>
 					<%
 					switch(partBeer){
@@ -256,7 +272,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>たばこ</th>
+					<th>たばこ　　　　　：</th>
 					<td><%= partSmoke == 1 ? "吸う" : "吸わない" %></td>
 				</tr>
 			</table>

@@ -15,6 +15,23 @@
         right: 10px;       
         padding: 10px 20px;
         cursor: pointer;
+}
+        
+table {
+	border: 2px solid #000;
+	text-align: center;
+	margin: 0 auto;
+	/* ← これを追加：上下マージン0、左右マージンを自動調整して中央配置 */
+	background-color: rgb(255, 255, 255);
+}
+
+table th,
+table td {
+    text-align: left;
+    margin-left:6px;
+    margin-right:6px;
+}
+
 </style>
 </head>
 <body>
@@ -26,34 +43,34 @@
 
 
 	<div>
-		<h2>新規参加者登録</h2>
+		<h4>新規参加者登録</h4>
 		以下の内容で参加者登録しました。
 	</div>
 
 	<div>
 			<table>
 				<tr>
-					<th>名前<span class="required"> *</span></th>
+					<th>名前　　　　　　：<span class="required"> *</span></th>
 					<td><%=part.getPartName() %></td>
 				</tr>
 				<tr>
-					<th>名前（かな）</th>
+					<th>名前（かな）　　：</th>
 					<td><%=part.getPartRuby() %></td>
 				</tr>
 				<tr>
-					<th>性別</th>
+					<th>性別　　　　　　：</th>
 					<td><%=part.getPartGender() %></td>
 				</tr>
 				<tr>
-					<th>年齢</th>
+					<th>年齢　　　　　　：</th>
 					<td><%=part.getPartAge() %></td>
 				</tr>
 				<tr>
-					<th>入社年度</th>
+					<th>入社年度　　　　：</th>
 					<td><%=part.getPartEmpyear() %></td>
 				</tr>
 				<tr>
-					<th>役職名</th>
+					<th>役職名　　　　　：</th>
 					<td>
 					<%
 					switch(part.getPartPostId()){
@@ -101,15 +118,15 @@
 					</td>
 				</tr>
 				<tr>
-					<th>希望予算</th>
+					<th>希望予算　　　　：</th>
 					<td><%=part.getPartBudget() %></td>
 				</tr>
 				<tr>
-					<th>アレルギー</th>
+					<th>アレルギー　　　：</th>
 					<td><%=part.getPartAllergy() %></td>
 				</tr>
 				<tr>
-					<th>希望店ジャンル</th>
+					<th>希望店ジャンル　：</th>
 					<td>
 					<%
 					switch(part.getPartGenreId()){
@@ -151,7 +168,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>希望食材カテゴリ</th>
+					<th>希望食材カテゴリ：</th>
 					<td>
 					<%
 					switch(part.getPartCategoryId()){
@@ -184,7 +201,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>ビールの好み</th>
+					<th>ビールの好み　　：</th>
 					<td>
 					<%
 					switch(part.getPartBeerId()){
@@ -214,15 +231,14 @@
 					</td>
 				</tr>
 				<tr>
-					<th>たばこ</th>
+					<th>たばこ　　　　　：</th>
 					<td><%= part.getPartSmoke() == 1 ? "吸う" : "吸わない" %></td>
 				</tr>
 			</table>
 	</div>
 
-	<br>
     <form action="select-part-servlet" method="POST">
-    	<input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る"><br>
+    	<input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る">
 	</form>
 
 	<form action="top" method="POST">

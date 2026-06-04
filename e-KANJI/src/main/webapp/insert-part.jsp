@@ -7,7 +7,31 @@
 <title>参加者登録画面</title>
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body {
+    text-align: center; /* 画面全体を中央寄せ */
+}
 
+/* フォームを中央に配置しつつ中身は左揃え */
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* 入力エリア */
+.part-data {
+    text-align: left;
+    margin-left: 0;
+}
+
+/* 右上ボタン */
+.submit-top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+</style>
 </head>
 <body>
 <%@ include file="header-logo.jsp" %>
@@ -61,29 +85,29 @@
     <form action="select-part-servlet" method="POST">
 		<input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る">
 	</form>
-	
-	参加者情報登録画面<br>
+	参加者情報登録<br>
 
 	<span class="required">*は必須入力です</span><br>
 	<form action="insert-part-check-servlet" method="POST">
-	    氏名（漢字）：<span class="required"> *</span>
+	<div class="part-data">
+	    氏名（漢字）　　：<span class="required"> *</span>
 	    	<input type="text" name="part_name" value="<%=partName%>"
 	    				maxlength="100" required><br>
-		氏名（かな）：<span class="required"> *</span>
+		氏名（かな）　　：<span class="required"> *</span>
 			<input type="text" name="part_ruby" value="<%=partRuby%>"
 						maxlength="100" required><br>
-		性別：<span class="required"> *</span>
+		性別　　　　　　：<span class="required"> *</span>
 			<input type="radio" name="part_gender" value="男" required
 					<%=partGender.equals("男") ? "checked" : ""%>>男
 		      <input type="radio" name="part_gender" value="女"
 		      		<%=partGender.equals("女") ? "checked" : ""%>>女<br>
-		年齢：<span class="required"> *</span>
+		年齢　　　　　　：<span class="required"> *</span>
 			<input type="number" name="part_age" value="<%= partAge == 0 ? "18" : partAge %>"
 						min="18" max="100" required><br>
-		入社年度：<span class="required"> *</span>
+		入社年度　　　　：<span class="required"> *</span>
 			<input type="number" name="part_empyear" min="1900" max="2100" required
 					value="<%=partEmpyear == 0 ? "0" :partEmpyear%>"><br>
-		役職：<select name="part_post">
+		役職　　　　　　：<select name="part_post">
 						<option value="0" <%=partPost == 0 ? "selected" : ""%>>-</option>
 						<option value="1" <%=partPost == 1 ? "selected" : ""%>>一般社員</option>
 						<option value="2" <%=partPost == 2 ? "selected" : ""%>>主任・主査</option>
@@ -98,10 +122,10 @@
 						<option value="11" <%=partPost == 11 ? "selected" : ""%>>社長</option>
 						<option value="12" <%=partPost == 12 ? "selected" : ""%>>会長</option>
 				</select><br>
-		予算：<span class="required"> *</span>
+		予算　　　　　　：<span class="required"> *</span>
 			<input type="number" name="part_budget" value="<%= partBudget == 0 ? "1000" :partBudget%>" 
 							min="1000" max="50000" step="500" required><br>
-		アレルギー：<input type="text" name="part_allergy"
+		アレルギー　　　：<input type="text" name="part_allergy"
 						value="<%=partAllergy%>" maxlength="100"><br>
 		好きな食べ物のジャンル：<select name="part_genre">
 							<option value="0" <%=partGenre == 0 ? "selected" : ""%>>特になし</option>
@@ -135,12 +159,12 @@
 							<option value="5" <%=partBeer == 5 ? "selected" : ""%>>エビス</option>
 							<option value="6" <%=partBeer == 6 ? "selected" : ""%>>クラフトビール</option>
 		    </select><br>
-		喫煙者は☑：<input type="checkbox" name="part_smoke" value="1"
-						<%=partSmoke == 1 ? "checked" : ""%>><br>
-	
-	<br>※個人情報の取扱いについては<a href="https://www.bsnnet.co.jp/company/privacy-policy.html" target="_blank" rel="noopener noreferrer">
+		喫煙者は☑　　　：<input type="checkbox" name="part_smoke" value="1"
+						<%=partSmoke == 1 ? "checked" : ""%>>
+	</div>
+	※個人情報の取扱いについては<a href="https://www.bsnnet.co.jp/company/privacy-policy.html" target="_blank" rel="noopener noreferrer">
   こちら</a>をご確認のうえで確認画面へお進みください。<br>
-		<input type="submit" value="確認画面へ">
+		<input type="submit"  value="確認画面へ">
 	</form>
 	
 	

@@ -7,6 +7,22 @@
 <title>参加者情報変更画面</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
+body {
+    text-align: center; /* 画面全体を中央寄せ */
+}
+
+/* フォームを中央に配置しつつ中身は左揃え */
+form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* 入力エリア */
+.part-data {
+    text-align: left;
+    margin-left: 0;
+}
+
 .submit-top-right {
         position: fixed;   
         top: 10px;         
@@ -16,11 +32,7 @@
         }
         
 .submit-under-right {
-        position: fixed;   
-        bottom: 10px;         
-        right: 10px;       
-        padding: 10px 20px;
-        cursor: pointer;
+       margin-left:120px;
         }
 </style>
 </head>
@@ -30,7 +42,7 @@
         <input type="submit" class="submit-top-right" value="参加者一覧表示・検索画面へ戻る">
     </form>
 
-参加者情報変更画面<br>
+参加者情報変更画面<br><br>
 
 		<span class="required">*は必須入力です</span><br>
  <%
@@ -39,6 +51,7 @@
     %>
 
     <form action="update-part-check-servlet" method="post">
+    <div class="part-data">
         氏名（漢字）：<span class="required"> *</span><input type="text" name="partName"
             value=<%=bean.getPartName() %> maxlength="100" required><br>
         氏名（かな）：<span class="required"> *</span><input type="text" name="partRuby"
@@ -119,6 +132,8 @@
         <input type="radio" name="partSmoke" value="0" <%= bean.getPartSmoke() == 0 ? "checked" : "" %>>吸わない<br>
         
         <input type="hidden" name="partId" value="<%= bean.getPartID() %>">
+        
+        </div>
         
         <input type="submit" class="submit-under-right" value="確認画面へ">
     </form>

@@ -6,6 +6,16 @@
 <meta charset="UTF-8">
 <title>参加者情報変更確認画面</title>
 <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+table {
+	border: 2px solid #000;
+	text-align: center;
+	margin: 0 auto;
+	/* ← これを追加：上下マージン0、左右マージンを自動調整して中央配置 */
+	background-color: rgb(255, 255, 255);
+}
+</style>
 </head>
 <body>
     <%
@@ -14,17 +24,18 @@
 	
 	<%@ include file="header-logo.jsp" %>
 	
-	参加者情報変更確認画面<br>
+	<h4>参加者情報変更確認画面</h4>
 	<br>
 	参加者情報を以下の内容に変更します。よろしいですか？<br>
 
 
-	氏名（漢字）：<%=part.getPartName()%><br>
-	氏名（かな）：<%=part.getPartRuby()%><br>
-	性別：<%=part.getPartGender()%><br>
-	年齢：<%=part.getPartAge()%><br>
-	入社年度：<%=part.getPartEmpyear()%><br>
-	役職：
+<table>
+	<tr><th>氏名（漢字）：</th><td><%=part.getPartName()%></td></tr>
+	<tr><th>氏名（かな）：</th><td><%=part.getPartRuby()%></td></tr>
+	<tr><th>性別：</th><td><%=part.getPartGender()%></td></tr>
+	<tr><th>年齢：</th><td><%=part.getPartAge()%></td></tr>
+	<tr><th>入社年度：</th><td><%=part.getPartEmpyear()%></td></tr>
+	<tr><th>役職：</th><td>
 	<%
 					switch(part.getPartPostId()){
 					case 0:
@@ -67,10 +78,10 @@
 					    out.print("会長");
 					    break;
 					}
-					%><br>
-    予算：<%=part.getPartBudget()%><br>
-    アレルギー：<%=part.getPartAllergy()%><br>
-    好きな食べ物のジャンル：
+					%></td></tr>
+    <tr><th>予算：</th><td><%=part.getPartBudget()%></td></tr>
+    <tr><th>アレルギー：</th><td><%=part.getPartAllergy()%></td></tr>
+    <tr><th>好きな食べ物のジャンル：</th><td>
     <%
 					switch(part.getPartGenreId()){
 					case 0:
@@ -107,8 +118,8 @@
 					    out.print("鍋");
 					    break;
 					}
-					%><br>
-    好きな食べ物のカテゴリ：
+					%></td></tr>
+    <tr><th>好きな食べ物のカテゴリ：</th><td>
     <%
 					switch(part.getPartCategoryId()){
 					case 0:
@@ -136,8 +147,8 @@
 					    out.print("お酒");
 					    break;
 					}
-					%><br>
-    好きなビールの種類：
+					%></td></tr>
+    <tr><th>好きなビールの種類：</th><td>
     <%
 					switch(part.getPartBeerId()){
 					case 0:
@@ -162,9 +173,9 @@
 					    out.print("クラフトビール");
 					    break;
 					}
-					%><br>
-    タバコ：<%= part.getPartSmoke() == 1 ? "吸う" : "吸わない" %><br>
-
+					%></td></tr>
+    <tr><th>タバコ：</th><td><%= part.getPartSmoke() == 1 ? "吸う" : "吸わない" %></td></tr>
+</table>
 	<form action="update-part-ok-servlet" method="POST">
 		<input type="hidden" name="partID" value="<%=part.getPartID()%>">
 		<input type="hidden" name="partName" value="<%=part.getPartName()%>">
