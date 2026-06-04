@@ -35,19 +35,19 @@ public class UserDAO {
 		}
 		return userList;
 	}
-	
+
 	public UserBean select(String userId) throws SQLException, ClassNotFoundException {
 
 		UserBean user = new UserBean();
-		
+
 		String sql = "SELECT * FROM m_user WHERE user_id = ?";
 
 		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			
+
 			pstmt.setString(1, userId);
-			
+
 			ResultSet res = pstmt.executeQuery();
 
 			// 結果の操作
@@ -61,7 +61,7 @@ public class UserDAO {
 		}
 		return user;
 	}
-	
+
 	public List<UserBean> selectStopUser() throws SQLException, ClassNotFoundException {
 
 		List<UserBean> userList = new ArrayList<UserBean>();
@@ -86,7 +86,7 @@ public class UserDAO {
 		}
 		return userList;
 	}
-	
+
 	public List<UserBean> search(String userId, String userName, Integer userStop)
 			throws SQLException, ClassNotFoundException {
 
@@ -153,7 +153,7 @@ public class UserDAO {
 		}
 		return false;
 	}
-	
+
 	public boolean loginCheckForPart(String userId) throws ClassNotFoundException, SQLException {
 
 		String sql = "SELECT * FROM m_user WHERE user_id = ? AND user_stop = 0";
@@ -171,7 +171,7 @@ public class UserDAO {
 		}
 		return false;
 	}
-	
+
 	public int insert(UserBean user) throws SQLException, ClassNotFoundException {
 		int count = 0; //処理件数
 		String sql = "INSERT INTO m_user(user_id, user_name, user_pass) VALUES(?, ?, ?)";
@@ -197,9 +197,9 @@ public class UserDAO {
 		return count;
 
 	}
-	
+
 	public int updateStop(String user_id) throws SQLException, ClassNotFoundException {
-		
+
 		int count = 0; //処理件数
 		String sql = "UPDATE m_user SET user_stop = 1 WHERE user_id = ?";
 
@@ -214,11 +214,10 @@ public class UserDAO {
 			count = pstmt.executeUpdate();
 		}
 
-		
 		return count;
 
 	}
-	
+
 	public int updateChoice(int rest_id, String user_id) throws SQLException, ClassNotFoundException {
 		int count = 0; //処理件数
 		String sql = "UPDATE m_user SET user_choice = ? WHERE user_id = ?";
@@ -238,7 +237,7 @@ public class UserDAO {
 		return count;
 
 	}
-	
+
 	public int delete(String userId) throws SQLException, ClassNotFoundException {
 		int count = 0;
 
@@ -258,7 +257,7 @@ public class UserDAO {
 				// 訪問履歴削除
 				pstmtLog.setString(1, userId);
 				pstmtLog.executeUpdate();
-				
+
 				// 参加者履歴削除
 				pstmtPart.setString(1, userId);
 				pstmtPart.executeUpdate();
@@ -267,7 +266,6 @@ public class UserDAO {
 				pstmtUser.setString(1, userId);
 				count = pstmtUser.executeUpdate();
 
-				
 				con.commit();
 
 			} catch (Exception e) {
