@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
 	<%@ include file="adm-header-logo.jsp" %>
 	
 	<h2>管理者ログイン</h2>
