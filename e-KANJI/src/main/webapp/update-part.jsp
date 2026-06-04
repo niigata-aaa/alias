@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.entity.PartBean" %>
+    pageEncoding="UTF-8" import="java.time.Year, model.entity.PartBean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +47,7 @@ form {
 		<span class="required">*は必須入力です</span><br>
  <%
         PartBean bean = (PartBean) request.getAttribute("bean");
+ 		int currentYear = Year.now().getValue();
  
     %>
 
@@ -63,7 +64,7 @@ form {
         
         年齢：<span class="required"> *</span><input type="number" name="partAge" min="18" max="100" required
             value=<%=bean.getPartAge() %>><br>
-        入社年度：<input type="number" name="partEmpyear" min="1950" required
+        入社年度：<input type="number" name="partEmpyear" min="1950" max="<%= currentYear %>" required
             value=<%=bean.getPartEmpyear() %>><br>
         
         役職：

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"  import="java.time.Year"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,6 +54,8 @@
 		partGender = "男";
 	if (partAllergy == null)
 		partAllergy = "";
+	
+	int currentYear = Year.now().getValue();
 	%>
 
 
@@ -62,6 +64,7 @@
 	<a><%=userName%>さんの参加者</a><br> 
 	<span class="required">*は必須入力です</span>
 	<br>
+
 	<div class="tableArea">
 		<form action="part-insert-check" method="post">
 			<table>
@@ -90,7 +93,7 @@
 				<tr>
 					<th>入社年度<span class="required"> *</span></th>
 					<td><input type="number" name="part_empyear" value="<%=partEmpyear == 0 ? "1950" :partEmpyear%>" 
-							min="1950" required></td>
+							min="1950" max="<%= currentYear %>" required></td>
 				</tr>
 				<tr>
 					<th>役職名</th>
@@ -170,11 +173,16 @@
 						<%=partSmoke == 1 ? "checked" : ""%>></td>
 				</tr>
 			</table>
+			
+			<br>
 
 			<input type="submit" value="確認">
 		</form>
 	</div>
-
+	
+		※個人情報の取扱いについては<a href="https://www.bsnnet.co.jp/company/privacy-policy.html" target="_blank" rel="noopener noreferrer">
+  こちら</a>をご確認のうえで確認画面へお進みください。<br>
+	
 	<div>
 		<form action="part-logout" method="post">
 			<input type="submit" value="ログイン画面に戻る">

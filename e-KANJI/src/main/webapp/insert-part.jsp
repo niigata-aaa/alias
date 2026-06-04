@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.time.Year"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,6 +79,8 @@ form {
 		partGender = "男";
 	if (partAllergy == null)
 		partAllergy = "";
+	
+    int currentYear = Year.now().getValue();
 	%>
 	
 	
@@ -105,7 +107,7 @@ form {
 			<input type="number" name="part_age" value="<%= partAge == 0 ? "18" : partAge %>"
 						min="18" max="100" required><br>
 		入社年度　　　　：<span class="required"> *</span>
-			<input type="number" name="part_empyear" min="1950" value="<%= partAge == 0 ? "1950" : partAge %>" required
+			<input type="number" name="part_empyear" min="1950" max="<%= currentYear %>" value="<%= partAge == 0 ? "1950" : partAge %>" required
 					value="<%=partEmpyear == 0 ? "0" :partEmpyear%>"><br>
 		役職　　　　　　：<select name="part_post">
 						<option value="0" <%=partPost == 0 ? "selected" : ""%>>-</option>
