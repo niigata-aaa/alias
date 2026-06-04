@@ -55,10 +55,11 @@ public class AdmSelectUserServlet extends HttpServlet {
 		String userId = request.getParameter("user_id");
 		String userName = request.getParameter("user_name");
 		String stopParam = request.getParameter("user_stop");
-		int userStop = 0; // デフォルト
+
+		Integer userStop = null;
 
 		if (stopParam != null) {
-		    userStop = Integer.parseInt(stopParam);
+			userStop = Integer.parseInt(stopParam);
 		}
 
 		// DAOの生成
