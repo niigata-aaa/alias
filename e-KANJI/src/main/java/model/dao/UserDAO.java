@@ -39,6 +39,7 @@ public class UserDAO {
 	public UserBean select(String userId) throws SQLException, ClassNotFoundException {
 
 		UserBean user = new UserBean();
+		
 		String sql = "SELECT * FROM m_user WHERE user_id = ?";
 
 		// データベースへの接続の取得、Statementの取得、SQLステートメントの実行
@@ -240,17 +241,33 @@ public class UserDAO {
 	
 	public int delete(String userId) throws SQLException, ClassNotFoundException {
 		int count = 0;
-		String sql = "DELETE FROM m_user WHERE user_id = ?";
+
+		String sqlLog = "DELETE FROM t_log WHERE log_user = ?";
+		String sqlUser = "DELETE FROM m_user WHERE user_id = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)) {
+		try (Connection con = ConnectionManager.getConnection()) {
 
-			// プレースホルダへの値の設定
-			pstmt.setString(1, userId);
+			con.setAutoCommit(false);
 
-			// SQLステートメントの実行
-			count = pstmt.executeUpdate();
+			try (PreparedStatement pstmtLog = con.prepareStatement(sqlLog);
+					PreparedStatement pstmtUser = con.prepareStatement(sqlUser)) {
+
+				// 訪問履歴削除
+				pstmtLog.setString(1, userId);
+				pstmtLog.executeUpdate();
+
+				// ユーザー削除
+				pstmtUser.setString(1, userId);
+				count = pstmtUser.executeUpdate();
+
+				
+				con.commit();
+
+			} catch (Exception e) {
+				con.rollback();
+				throw e;
+			}
 		}
 
 		return count;

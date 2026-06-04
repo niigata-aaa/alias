@@ -705,7 +705,6 @@ public class RestaurantDAO {
 		int processingNumber = 0;
 
 		String sqlLog = "DELETE FROM t_log WHERE log_rest = ?";
-
 		String sqlRest = "DELETE FROM m_restaurant WHERE rest_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection()) {

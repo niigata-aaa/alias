@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%@ include file="header-logo.jsp" %>
-	<div>
+	<div class="background">
 	    <div class="bubble"></div>
 	    <div class="bubble"></div>
 	    <div class="bubble"></div>

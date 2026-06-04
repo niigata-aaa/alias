@@ -165,6 +165,7 @@ table table {
 <!--						<option value="1">あり</option>-->
 <!--						<option value="2">なし</option>-->
 <!--				</select></td>-->
+				<input type="hidden" name="log" value="0">
 				<th>新潟駅からの距離</th>
 				<td><select name="distance">
 						<option value="0">指定なし</option>
