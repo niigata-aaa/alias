@@ -63,7 +63,7 @@
 			</tr>
 			
 		</table>
-		
+		</div>
 		<%
 			if (rest.getRestCapacity() < partList.size()) {
 		%>
@@ -77,7 +77,6 @@
 		<%
 			}
 		%>
-		</div>
 
 	
 	<br>

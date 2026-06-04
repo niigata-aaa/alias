@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.LogDAO;
+import model.dao.ParticipantDAO;
 import model.dao.RestaurantDAO;
 import model.entity.LogBean;
 import model.entity.RestBean;
@@ -53,10 +54,14 @@ public class SelectRestDetailServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("user_id");
+		
+		int count = 0;
 
 		// DAOの生成
 		RestaurantDAO rDao = new RestaurantDAO();
 		RestBean bean = new RestBean();
+
+		ParticipantDAO pdao = new ParticipantDAO(); 
 
 		LogDAO lDao = new LogDAO();
 		List<LogBean> logList = new ArrayList<LogBean>();
@@ -64,9 +69,11 @@ public class SelectRestDetailServlet extends HttpServlet {
 		try {
 			bean = rDao.select(userId, restId);
 			logList = lDao.select(userId, restId);
+			count = pdao.getParticipantCount(userId);
 
 			request.setAttribute("bean", bean);
 			request.setAttribute("logList", logList);
+			request.setAttribute("partCount", count);
 
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
