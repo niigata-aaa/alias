@@ -97,7 +97,7 @@
 	    性別順
 	
 	    <input type="radio" name="sortType" value="smoke" <%= sortType.equals("smoke") ? "checked" : "" %>>
-	    喫煙者配慮
+	    非喫煙者配慮
 
 	    <br>
 	    <input type="submit" value="並び替える">
