@@ -35,9 +35,7 @@ public class InsertPartBackServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 
 		String partName = request.getParameter("part_name");
@@ -52,7 +50,6 @@ public class InsertPartBackServlet extends HttpServlet {
 		int partCategory = Integer.parseInt(request.getParameter("part_category"));
 		int partBeer = Integer.parseInt(request.getParameter("part_beer"));
 		int partSmoke = Integer.parseInt(request.getParameter("part_smoke"));
-		
 
 		request.setAttribute("part_name", partName);
 		request.setAttribute("part_ruby", partRuby);

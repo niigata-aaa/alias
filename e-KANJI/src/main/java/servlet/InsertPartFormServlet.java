@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class InsertPartForm
+ * Servlet implementation class InsertPartFormServlet
  */
 @WebServlet("/insert-part-form")
 public class InsertPartFormServlet extends HttpServlet {
@@ -36,12 +36,9 @@ public class InsertPartFormServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String url = null;
-		
 
 		// セッションオブジェクトの取得
 		HttpSession session = request.getSession();
@@ -57,5 +54,4 @@ public class InsertPartFormServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
-
 }
