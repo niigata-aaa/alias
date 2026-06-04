@@ -23,9 +23,10 @@ row span {
 	<form action="top.jsp" method="post" class="back-top-form">
 		<input type="submit" value="トップ画面に戻る">
 	</form>
+	
 
 	<%
-	List<PartBean> partList = (List<PartBean>) request.getAttribute("partList");
+		List<PartBean> partList = (List<PartBean>) request.getAttribute("partList");
 	%>
 
 
@@ -53,10 +54,10 @@ row span {
 	 <input type="submit" value="割り算計算">
 
 	</form>
-	<p> 会員ID：<%=request.getAttribute("user_id")%><br>
 
 
-
+	<br>
+	<h3>参加者数：<%=partList.size() %>名</h3>
 
 	<%
 	if (partList != null) {
@@ -65,6 +66,7 @@ row span {
 		<tr>
 			<th>参加者氏名（漢字）</th>
 			<th>参加者氏名（かな）</th>
+			<th>役職名</th>
 			<th>集金済みチェック</th>
 		</tr>
 
@@ -75,6 +77,7 @@ row span {
 		<tr>
 			<td><%=part.getPartName()%></td>
 			<td><%=part.getPartRuby()%></td>
+			<td><%=part.getPartPost()%></td>
 			<td><input type="checkbox" name="check"></td>
 		</tr>
 
@@ -83,6 +86,16 @@ row span {
 		}
 		%>
 	</table>
+	
+	<br>
+	
+	<form action="delete-all-part-check-from-money" method="post">
+		<input type="submit" class="sub-btn" value="参加者一括削除">
+	</form>
+	
+	<br><br>
+	
+	
 </div>
 </body>
 </html>

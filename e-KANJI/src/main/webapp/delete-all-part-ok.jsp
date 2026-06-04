@@ -12,9 +12,15 @@
 <body>
 <%@ include file="header-logo.jsp" %>
 <h2>参加者情報一括削除完了</h2>
-<form action="select-part-servlet" method="POST">
+
+<form action="top" method="POST" class="d4">
 登録していた参加者情報をすべて削除しました。<br>
-<input type="submit" value="参加者一覧表示・検索画面へ戻る">
+幹事 お疲れさまでした！！😊👍
+<p>
+<input type="submit" value="トップ画面へ戻る">
 </form>
+
+
+
 </body>
 </html>

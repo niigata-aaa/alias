@@ -47,6 +47,15 @@
 	</div>
 	
 	<div>
+		<form action="insert-user" method="post">
+			<input type="hidden" name="user_id" value="<%=userId %>">
+			<input type="hidden" name="user_name" value="<%=userName %>">
+			<input type="hidden" name="user_pass" value="<%=userPass %>">
+			<input type="submit" value="登録">
+		</form>
+	</div>
+	
+	<div>
 		<form action="insert-user-form" method="post">
 			<input type="hidden" name="user_id" value="<%=userId %>">
 			<input type="hidden" name="user_name" value="<%=userName %>">
@@ -55,14 +64,7 @@
 		</form>
 	</div>
 	
-	<div>
-		<form action="insert-user" method="post">
-			<input type="hidden" name="user_id" value="<%=userId %>">
-			<input type="hidden" name="user_name" value="<%=userName %>">
-			<input type="hidden" name="user_pass" value="<%=userPass %>">
-			<input type="submit" value="登録">
-		</form>
-	</div>
+
 
 </body>
 </html>
