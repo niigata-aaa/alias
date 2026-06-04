@@ -100,14 +100,13 @@
 			<option value="6"<%= bean.getRestBeer() == "クラフトビール" ? "selected" : "" %>>クラフトビール</option>
 		</select><br>
 		
-		オープン時間： <input type="text" name="restOpen"
+		オープン時間： <input type="time" name="restOpen"
 			value=<%=bean.getRestOpen() %>><br> 
 			
 		クローズ時間： <input
-			type="text" name="restClose" value=<%=bean.getRestClose() %>><br>
+			type="time" name="restClose" value=<%=bean.getRestClose() %>><br>
 
-		日跨ぎ営業： <input type="text" name="restNextday"
-			value=<%=bean.getRestNextday() %>><br> 
+		日跨ぎ営業： <input type="text" name="restNextday" value=<%=bean.getRestNextday() %>><br> 
 			
 		距離： <input
 			type="text" name="restDistance" value=<%=bean.getRestDistance() %>><br>

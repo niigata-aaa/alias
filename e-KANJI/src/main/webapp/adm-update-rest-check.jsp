@@ -75,6 +75,23 @@
 	</form>
 
 	<form action="adm-update-rest-servlet" method="POST">
+		<input type="hidden" name="restId" value="${rest.restId}">
+		<input type="hidden" name="restName" value="${rest.restName}">
+		<input type="hidden" name="restGenre" value="${rest.restGenre}">
+		<input type="hidden" name="restCategory" value="${rest.restCategory}">
+		<input type="hidden" name="restOpen" value="${rest.restOpen}">
+		<input type="hidden" name="restClose" value="${rest.restClose}">
+		<input type="hidden" name="restNextday" value="${rest.restNextday}">
+		<input type="hidden" name="restDistance" value="${rest.restDistance}">
+		<input type="hidden" name="restBudget" value="${rest.restBudget}">
+		<input type="hidden" name="restCapacity" value="${rest.restCapacity}">
+		<input type="hidden" name="restTel" value="${rest.restTel}">
+		<input type="hidden" name="restAddress" value="${rest.restAddress}">
+		<input type="hidden" name="restUrl" value="${rest.restUrl}">
+		<input type="hidden" name="restReview" value="${rest.restReview}">
+		<input type="hidden" name="restBeer" value="${rest.restBeer}">
+		<input type="hidden" name="restSmoke" value="${rest.restSmoke}">
+		<input type="hidden" name="restSmokeroom" value="${rest.restSmokeroom}">
 		<input type="submit" value="変更画面に戻る">
 	</form>
 </body>

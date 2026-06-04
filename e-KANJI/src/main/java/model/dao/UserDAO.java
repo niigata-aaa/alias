@@ -243,6 +243,7 @@ public class UserDAO {
 		int count = 0;
 
 		String sqlLog = "DELETE FROM t_log WHERE log_user = ?";
+		String sqlPart = "DELETE FROM m_participant WHERE part_user = ?";
 		String sqlUser = "DELETE FROM m_user WHERE user_id = ?";
 
 		// データベースへの接続の取得、PreparedStatementの取得
@@ -251,11 +252,16 @@ public class UserDAO {
 			con.setAutoCommit(false);
 
 			try (PreparedStatement pstmtLog = con.prepareStatement(sqlLog);
+					PreparedStatement pstmtPart = con.prepareStatement(sqlPart);
 					PreparedStatement pstmtUser = con.prepareStatement(sqlUser)) {
 
 				// 訪問履歴削除
 				pstmtLog.setString(1, userId);
 				pstmtLog.executeUpdate();
+				
+				// 参加者履歴削除
+				pstmtPart.setString(1, userId);
+				pstmtPart.executeUpdate();
 
 				// ユーザー削除
 				pstmtUser.setString(1, userId);

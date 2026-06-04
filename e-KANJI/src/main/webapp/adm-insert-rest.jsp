@@ -58,13 +58,13 @@
 		</select>
 		<br>  
 		
-		距離：<input type="text" name="rest_distance">ｍ<br>  
+		距離：<input type="number" name="rest_distance">ｍ<br>  
 		
-		予算：<input type="text" name="rest_budget">円<br>  
+		予算：<input type="number" name="rest_budget">円<br>  
 		
-		最大収容数：<input type="text" name="rest_capacity">人<br>  
+		最大収容数：<input type="number" name="rest_capacity">人<br>  
 		
-		電話番号：<input type="text" name="rest_tel"><br>  
+		電話番号(-あり)：<input type="text" name="rest_tel"><br>  
 		
 		住所：<input type="text" name="rest_address"><br>  
 		
