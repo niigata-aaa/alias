@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>飲食店一覧表示</title>
 <link rel="stylesheet" href="css/select-rest.css">
+<link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 .search {
@@ -36,12 +37,15 @@ table table {
 <body>
 	<h1>飲食店一覧表示・検索画面</h1>
 	<br>
+	
 	<form action="adm-insert-rest.jsp" method="post">
 		<input type="submit" value="飲食店追加はこちら">
 	</form>
 	<form action="adm-top" method="post">
 		<input type="submit"class="submit-top-right" value="管理者トップ画面へ戻る"><%--class="submit-top-right" --%>
 	</form>
+	
+	<div class="formArea">
 	<form action="adm-narrow-rest-servlet" method="post">
 		店舗名キーワード検索：<input type="text" name="keyword" value="">
 		<%--<input type="submit" value="検索"><br> <br>--%>
@@ -158,8 +162,7 @@ table table {
 						<option value="15">10～15人</option>
 						<option value="100">15～人</option>
 				</select></td>
-			</tr>
-			<tr>
+
 <!--				<th>訪問履歴</th>-->
 <!--				<td><select name="log">-->
 <!--						<option value="0">指定なし</option>-->
@@ -204,6 +207,7 @@ table table {
 		</table>
 		<input type="submit" value="検索">
 	</form>
+	</div>
 
 	<br>
 
@@ -212,6 +216,7 @@ table table {
 	%>
 
 
+	<div class="tableArea">
 	<table border=1>
 		<tr>
 			<th>店名</th>
@@ -266,8 +271,8 @@ table table {
 		}
 		}
 		%>
-
-
 	</table>
+	</div>
+	
 </body>
 </html>

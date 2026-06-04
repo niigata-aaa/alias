@@ -235,12 +235,12 @@ if(rest== null){
 		%>
 		店内に喫煙所：<%= smokeroomText%><br>
 		
-	<form action="adm-top.jsp" method="post">
+	<form action="adm-top" method="post">
 		<input type="submit" class="submit-top-right" value="管理者トップ画面へ戻る"><br>
 		<input type="hidden" name="" >
 	</form>
 	
-	<form action="adm-select-rest.jsp" method="post">
+	<form action="adm-select-rest" method="post">
 		<input type="submit" value="飲食店一覧表示・検索画面へ戻る">
 		
 	</form>

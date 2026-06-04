@@ -9,13 +9,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<h2>参加者情報変更エラー</h2><br>
+<h2>飲食店情報変更エラー</h2><br>
 
-入力された情報に誤りがあります。<br>
+飲食店情報を変更できませんでした。<br>
 もう一度入力してください。
 
-<form action="adm-update-rest-servlet" method="post">
-<input type="submit" value="飲食店情報変更画面へ戻る"><br>
+<form action="adm-select-rest" method="post">
+<input type="submit" value="飲食店一覧表示・検索画面へ戻る"><br>
 </form>
 </body>
 </html>

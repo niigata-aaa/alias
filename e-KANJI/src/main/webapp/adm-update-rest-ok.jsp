@@ -21,11 +21,10 @@
 RestBean bean = (RestBean) request.getAttribute("bean");
 %>
 
-以下の参加者情報を変更しました。<br>
 
 <form action="adm-select-rest" method="post">
 
-	以下の飲食店情報を変更しました。<br>
+	以下のように飲食店情報を変更しました。<br>
 
 	<jsp:useBean id="rest" scope="session" class="model.entity.RestBean" />
 	飲食店ID:<jsp:setProperty name="rest" property="restId" /><br>
