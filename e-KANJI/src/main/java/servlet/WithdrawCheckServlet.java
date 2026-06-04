@@ -56,7 +56,7 @@ public class WithdrawCheckServlet extends HttpServlet {
 		}
 
 		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("withdraw-ok.html");
+		RequestDispatcher rd = request.getRequestDispatcher("withdraw-ok.jsp");
 		rd.forward(request, response);
 	}
 
