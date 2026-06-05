@@ -206,7 +206,7 @@ table table {
 	int count = (Integer)request.getAttribute("partCount");
 	%>
 <div class="explain_text"><span class="title">　　◆店舗検索結果</span><br>　　　　　：条件指定なしで検索をした場合はすべての店舗が表示されます。
-	　　参加者数：<%=count %>名</div>
+	　参加者数：<%=count %>名</div>
 <div class="exampleResult">
 <br>
 	<table border=1>

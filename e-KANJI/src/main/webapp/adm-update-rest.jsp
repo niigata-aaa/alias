@@ -31,7 +31,7 @@
 		<input type="submit" class="submit-top-right" value="管理者飲食店一覧表示・検索画面へ戻る">
 	</form>
 
-	参加者情報変更画面
+	飲食店情報変更画面
 	<br>
 	<%
         RestBean bean = (RestBean) request.getAttribute("bean");
