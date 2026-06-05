@@ -194,7 +194,7 @@ form {
 	</div>
 	※個人情報の取扱いについては<a href="https://www.bsnnet.co.jp/company/privacy-policy.html" target="_blank" rel="noopener noreferrer">
   こちら</a>をご確認のうえで確認画面へお進みください。<br>
-		<input type="submit"  value="確認画面へ" class="formArea">
+		<input type="submit"  value="確認画面へ">
 	</form>
 	
 
