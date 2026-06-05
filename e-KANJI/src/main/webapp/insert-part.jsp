@@ -90,26 +90,39 @@ form {
 	参加者情報登録<br>
 
 	<span class="required">*は必須入力です</span><br>
+	<div class="tableArea">
+	<table>
 	<form action="insert-part-check-servlet" method="POST">
 	<div class="part-data">
-	    氏名　　　　　：<span class="required"> *</span>
-	    	<input type="text" name="part_name" value="<%=partName%>"
-	    				maxlength="100" required><br>
-		氏名（かな）　　：<span class="required"> *</span>
-			<input type="text" name="part_ruby" value="<%=partRuby%>"
-						maxlength="100" required><br>
-		性別　　　　　　：<span class="required"> *</span>
-			<input type="radio" name="part_gender" value="男" required
+	    <tr><th>氏名　　　　　：<span class="required"> *</span></th>
+	    	<td><input type="text" name="part_name" value="<%=partName%>"
+	    				maxlength="100" required></td><br>
+	    </tr>
+	    
+	    <tr>
+		<th>氏名（かな）　　：<span class="required"> *</span></th>
+			<td><input type="text" name="part_ruby" value="<%=partRuby%>"
+						maxlength="100" required></td><br>
+		</tr>
+		
+		<tr>
+		<th>性別　　　　　　：<span class="required"> *</span></th>
+			<td><input type="radio" name="part_gender" value="男" required
 					<%=partGender.equals("男") ? "checked" : ""%>>男
 		      <input type="radio" name="part_gender" value="女"
-		      		<%=partGender.equals("女") ? "checked" : ""%>>女<br>
-		年齢　　　　　　：<span class="required"> *</span>
-			<input type="number" name="part_age" value="<%= partAge == 0 ? "18" : partAge %>"
-						min="18" max="100" required><br>
-		入社年度　　　　：<span class="required"> *</span>
-			<input type="number" name="part_empyear" min="1950" max="<%= currentYear %>" value="<%= partAge == 0 ? "1950" : partAge %>" required
-					value="<%=partEmpyear == 0 ? "0" :partEmpyear%>"><br>
-		役職　　　　　　：<select name="part_post">
+		      		<%=partGender.equals("女") ? "checked" : ""%>>女</td><br>
+		 </tr>
+		 <tr>
+		<th>年齢　　　　　　：<span class="required"> *</span></th>
+			<td><input type="number" name="part_age" value="<%= partAge == 0 ? "18" : partAge %>"
+						min="18" max="100" required></td><br>
+		</tr>
+		<tr>
+		<th>入社年度　　　　：<span class="required"> *</span></th>
+			<td><input type="number" name="part_empyear" min="1950" max="<%= currentYear %>" value="<%= partAge == 0 ? "1950" : partAge %>" required
+					value="<%=partEmpyear == 0 ? "0" :partEmpyear%>"></td><br>
+		<tr>
+		<th>役職　　　　　　：</th><td><select name="part_post">
 						<option value="0" <%=partPost == 0 ? "selected" : ""%>>-</option>
 						<option value="1" <%=partPost == 1 ? "selected" : ""%>>一般社員</option>
 						<option value="2" <%=partPost == 2 ? "selected" : ""%>>主任・主査</option>
@@ -123,13 +136,19 @@ form {
 						<option value="10" <%=partPost == 10 ? "selected" : ""%>>専務取締役</option>
 						<option value="11" <%=partPost == 11 ? "selected" : ""%>>社長</option>
 						<option value="12" <%=partPost == 12 ? "selected" : ""%>>会長</option>
-				</select><br>
-		予算　　　　　　：<span class="required"> *</span>
-			<input type="number" name="part_budget" value="<%= partBudget == 0 ? "1000" :partBudget%>" 
-							min="1000" max="50000" step="500" required><br>
-		アレルギー　　　：<input type="text" name="part_allergy"
-						value="<%=partAllergy%>" maxlength="100"><br>
-		好きな食べ物のジャンル：<select name="part_genre">
+				</select></td><br>
+		</tr>
+		<tr>
+		<th>予算　　　　　　：<span class="required"> *</span></th>
+			<td><input type="number" name="part_budget" value="<%= partBudget == 0 ? "1000" :partBudget%>" 
+							min="1000" max="50000" step="500" required></td><br>
+		</tr>
+		<tr>
+		<th>アレルギー　　　：</th><td><input type="text" name="part_allergy"
+						value="<%=partAllergy%>" maxlength="100"></td><br>
+		</tr>
+		<tr>
+		<th>好きな食べ物のジャンル：</th><td><select name="part_genre">
 							<option value="0" <%=partGenre == 0 ? "selected" : ""%>>特になし</option>
 							<option value="1" <%=partGenre == 1 ? "selected" : ""%>>和食</option>
 							<option value="2" <%=partGenre == 2 ? "selected" : ""%>>洋食</option>
@@ -141,8 +160,10 @@ form {
 							<option value="8" <%=partGenre == 8 ? "selected" : ""%>>焼肉</option>
 							<option value="9" <%=partGenre == 9 ? "selected" : ""%>>カレー</option>
 							<option value="10" <%=partGenre == 10 ? "selected" : ""%>>鍋</option>
-		    </select><br>
-		好きな食べ物のカテゴリ：<select name="part_category">
+		    </select></td><br>
+		  </tr>
+		 <tr>
+		<th>好きな食べ物のカテゴリ：</th><td><select name="part_category">
 							<option value="0" <%=partCategory == 0 ? "selected" : ""%>>特になし</option>
 							<option value="1" <%=partCategory == 1 ? "selected" : ""%>>肉</option>
 							<option value="2" <%=partCategory == 2 ? "selected" : ""%>>魚</option>
@@ -151,8 +172,10 @@ form {
 							<option value="5" <%=partCategory == 5 ? "selected" : ""%>>米料理</option>
 							<option value="6" <%=partCategory == 6 ? "selected" : ""%>>揚げ物</option>
 							<option value="7" <%=partCategory == 7 ? "selected" : ""%>>お酒</option>
-		    </select><br>
-		好きなビールの種類：<select name="part_beer">
+		    </select></td><br>
+		    </tr>
+		    <tr>
+		<th>好きなビールの種類：</th><td><select name="part_beer">
 							<option value="0" <%=partBeer == 0 ? "selected" : ""%>>特になし</option>
 							<option value="1" <%=partBeer == 1 ? "selected" : ""%>>アサヒ</option>
 							<option value="2" <%=partBeer == 2 ? "selected" : ""%>>キリン</option>
@@ -160,9 +183,13 @@ form {
 							<option value="4" <%=partBeer == 4 ? "selected" : ""%>>サッポロ</option>
 							<option value="5" <%=partBeer == 5 ? "selected" : ""%>>エビス</option>
 							<option value="6" <%=partBeer == 6 ? "selected" : ""%>>クラフトビール</option>
-		    </select><br>
-		喫煙者は☑　　　：<input type="checkbox" name="part_smoke" value="1"
-						<%=partSmoke == 1 ? "checked" : ""%>>
+		    </select></td><br>
+		    </tr>
+		    <tr>
+		<th>喫煙者は☑　　　：</th><td><input type="checkbox" name="part_smoke" value="1"
+						<%=partSmoke == 1 ? "checked" : ""%>></td>
+	</div>
+	</table>
 	</div>
 	※個人情報の取扱いについては<a href="https://www.bsnnet.co.jp/company/privacy-policy.html" target="_blank" rel="noopener noreferrer">
   こちら</a>をご確認のうえで確認画面へお進みください。<br>

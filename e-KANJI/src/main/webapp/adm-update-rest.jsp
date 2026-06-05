@@ -38,15 +38,21 @@
  
     %>
 <span class="required">*は必須入力です</span><br>
+<div class="tableArea">
+<table>
 	<form action="adm-update-rest-check-servlet" method="post">
 	
-		飲食店ID：
-		<%=bean.getRestId() %><br> 
+		<tr>
+		<th>飲食店ID：</th>
+		<td><%=bean.getRestId() %></td><br> 
+		</tr>
+		<tr>
+		<th>飲食店名：<span class="required"> *</span></th>
+		<td><input type="text" name="restName" value=<%=bean.getRestName() %> required></td><br> 
+		</tr>
 		
-		飲食店名：<span class="required"> *</span>
-		<input type="text" name="restName" value=<%=bean.getRestName() %> required><br> 
-
-		店ジャンル： <select name="restGenre">
+		<tr>
+		<th>店ジャンル：</th><td> <select name="restGenre">
 			<option value="0"
 				<%= bean.getRestGenre() == "特になし" ? "selected" : "" %>>特になし</option>
 			<option value="1"
@@ -69,9 +75,10 @@
 				<%= bean.getRestGenre() == "カレー" ? "selected" : "" %>>カレー</option>
 			<option value="10"
 				<%= bean.getRestGenre() == "鍋" ? "selected" : "" %>>鍋</option>
-		</select><br> 
-		
-		食材カテゴリ： <select name="restCategory">
+		</select></td><br> 
+		</tr>
+		<tr>
+		<th>食材カテゴリ：</th><td> <select name="restCategory">
 			<option value="0"
 				<%= bean.getRestCategory() == "特になし" ? "selected" : "" %>>特になし</option>
 			<option value="1"
@@ -88,10 +95,11 @@
 				<%= bean.getRestCategory() == "揚げ物" ? "selected" : "" %>>揚げ物</option>
 			<option value="7"
 				<%= bean.getRestCategory() == "酒" ? "selected" : "" %>>酒</option>
-		</select><br> 
-		
-		ビールの種類：
-		<select name="restBeer">
+		</select></td><br> 
+		</tr>
+		<tr>
+		<th>ビールの種類：</th>
+		<td><select name="restBeer">
 			<option value="0"<%= bean.getRestBeer() == "特になし" ? "selected" : "" %>>特になし</option>
 			<option value="1"<%= bean.getRestBeer() == "アサヒ" ? "selected" : "" %>>アサヒ</option>
 			<option value="2"<%= bean.getRestBeer() == "キリン" ? "selected" : "" %>>キリン</option>
@@ -99,50 +107,65 @@
 			<option value="4"<%= bean.getRestBeer() == "サントリー" ? "selected" : "" %>>サントリー</option>
 			<option value="5"<%= bean.getRestBeer() == "エビス" ? "selected" : "" %>>エビス</option>
 			<option value="6"<%= bean.getRestBeer() == "クラフトビール" ? "selected" : "" %>>クラフトビール</option>
-		</select><br>
+		</select></td><br>
+		</tr>
+		<tr>
+		<th>オープン時間：</th> <td><input type="time" name="restOpen" value=<%=bean.getRestOpen() %>></td><br> 
+		</tr>	
+		<tr>
+		<th>クローズ時間： </th><td><input type="time" name="restClose" value=<%=bean.getRestClose() %>></td><br>
+		</tr>
+		<tr>
+		<th>日跨ぎ営業：</th>
 		
-		オープン時間： <input type="time" name="restOpen" value=<%=bean.getRestOpen() %>><br> 
-			
-		クローズ時間： <input type="time" name="restClose" value=<%=bean.getRestClose() %>><br>
-
-		日跨ぎ営業：
-		
-		<input type="radio" name="restNextday" value="1" <%= bean.getRestNextday() == 1 ? "checked" : "" %>>してる
+		<td><input type="radio" name="restNextday" value="1" <%= bean.getRestNextday() == 1 ? "checked" : "" %>>してる
         <input type="radio" name="restNextday" value="0" <%= bean.getRestNextday() == 0 ? "checked" : "" %>>してない
-        <br>
-			
-		距離： <span class="required"> *</span>
-		<input type="number" name="restDistance" value=<%=bean.getRestDistance() %> min="0" required><br>
-
-		予算：<span class="required"> *</span> 
-		<input type="number" name="restBudget"
-			value=<%=bean.getRestBudget() %> min="0" required><br> 
-			
-		最大収容数：
-		<span class="required"> *</span> <input
-			type="number" name="restCapacity" value=<%=bean.getRestCapacity() %> min="0" required><br>
-
-		電話番号： <input type="text" name="restTel" value=<%=bean.getRestTel() %>><br>
-
-		住所： <input type="text" name="restAddress"
-			value=<%=bean.getRestAddress() %>><br> 
-			
-		詳細URL： <input
-			type="text" name="restUrl" value=<%=bean.getRestUrl() %>><br>
-
-		口コミ：<span class="required"> *</span>
-		 <input type="number" name="restReview" min="0.0" max="5.0" step="0.1" required
-			value=<%=bean.getRestReview() %>><br> 
-			
-		喫煙席の有無：
-		<input type="radio" name="restSmoke" value="1" <%= bean.getRestSmoke() == 1 ? "checked" : "" %>>ある
-        <input type="radio" name="restSmoke" value="0" <%= bean.getRestSmoke() == 0 ? "checked" : "" %>>ない
-		<br>
+        </td><br>
+		</tr>	
+		<tr>
+		<th>距離： <span class="required"> *</span></th>
+		<td><input type="number" name="restDistance" value=<%=bean.getRestDistance() %> min="0" required></td><br>
+		</tr>
+		<tr>
+		<th>予算：<span class="required"> *</span></th> 
+		<td><input type="number" name="restBudget"
+			value=<%=bean.getRestBudget() %> min="0" required></td><br> 
+		</tr>
+		<tr>	
+		<th>最大収容数：
+		<span class="required"> *</span></th>
+		 <td><input type="number" name="restCapacity" value=<%=bean.getRestCapacity() %> min="0" required></td><br>
+		</tr>
+		<tr>
+		<th>電話番号： </th><td><input type="text" name="restTel" value=<%=bean.getRestTel() %>></td><br>
+		</tr>
 		
-		店内に喫煙所：	
-		<input type="radio" name="restSmokeRoom" value="1" <%= bean.getRestSmokeroom() == 1 ? "checked" : "" %>>ある
+		<tr>
+		<th>住所：</th> <td><input type="text" name="restAddress"
+			value=<%=bean.getRestAddress() %>></td><br> 
+		</tr>	
+		<tr><th>詳細URL：</th><td> <input
+			type="text" name="restUrl" value=<%=bean.getRestUrl() %>></td><br>
+		</tr>
+		<tr>
+		<th>口コミ：<span class="required"> *</span></th>
+		 <td><input type="number" name="restReview" min="0.0" max="5.0" step="0.1" required
+			value=<%=bean.getRestReview() %>></td><br> 
+		</tr>
+		<tr>	
+		<th>喫煙席の有無：</th>
+		<td><input type="radio" name="restSmoke" value="1" <%= bean.getRestSmoke() == 1 ? "checked" : "" %>>ある
+        <input type="radio" name="restSmoke" value="0" <%= bean.getRestSmoke() == 0 ? "checked" : "" %>>ない
+		</td><br>
+		</tr>
+		<tr>
+		<th>店内に喫煙所：</th>	
+		<td><input type="radio" name="restSmokeRoom" value="1" <%= bean.getRestSmokeroom() == 1 ? "checked" : "" %>>ある
         <input type="radio" name="restSmokeRoom" value="0" <%= bean.getRestSmokeroom() == 0 ? "checked" : "" %>>ない
-		<br>
+		</td><br>
+		</tr>
+	</table>
+</div>
 		<%-- 
 		店ジャンル：<input type="text" name="partRuby"
 			value=<%=bean.getPartRuby() %>><br> 食材カテゴリ： <input

@@ -52,23 +52,33 @@ form {
     %>
 
     <form action="update-part-check-servlet" method="post">
+    <div class="tableArea">
+    <table>
     <div class="part-data">
-        氏名：<span class="required"> *</span><input type="text" name="partName"
-            value=<%=bean.getPartName() %> maxlength="100" required><br>
-        氏名（かな）：<span class="required"> *</span><input type="text" name="partRuby"
-            value=<%=bean.getPartRuby() %> maxlength="100" required><br>
-        
-        性別：<span class="required"> *</span>
-        <input type="radio" name="partGender" value="男" <%= "男".equals(bean.getPartGender()) ? "checked" : "" %>>男
-        <input type="radio" name="partGender" value="女" <%= "女".equals(bean.getPartGender()) ? "checked" : "" %>>女<br>
-        
-        年齢：<span class="required"> *</span><input type="number" name="partAge" min="18" max="100" required
-            value=<%=bean.getPartAge() %>><br>
-        入社年度：<input type="number" name="partEmpyear" min="1950" max="<%= currentYear %>" required
-            value=<%=bean.getPartEmpyear() %>><br>
-        
-        役職：
-        <select name="partPostId">         	
+    <tr>
+        <th>氏名：<span class="required"> *</span></th><td><input type="text" name="partName"
+            value=<%=bean.getPartName() %> maxlength="100" required></td><br>
+    </tr>
+    <tr>
+        <th>氏名（かな）：<span class="required"> *</span></th><td><input type="text" name="partRuby"
+            value=<%=bean.getPartRuby() %> maxlength="100" required></td><br>
+    </tr>
+    <tr>    
+        <th>性別：<span class="required"> *</span></th>
+        <td><input type="radio" name="partGender" value="男" <%= "男".equals(bean.getPartGender()) ? "checked" : "" %>>男
+        <input type="radio" name="partGender" value="女" <%= "女".equals(bean.getPartGender()) ? "checked" : "" %>>女</td><br>
+    </tr>
+    <tr>    
+        <th>年齢：<span class="required"> *</span></th><td><input type="number" name="partAge" min="18" max="100" required
+            value=<%=bean.getPartAge() %>></td><br>
+    </tr>
+    <tr>
+        <th>入社年度：</th><td><input type="number" name="partEmpyear" min="1950" max="<%= currentYear %>" required
+            value=<%=bean.getPartEmpyear() %>></td><br>
+    </tr>
+    <tr>
+        <th>役職：</th>
+        <td><select name="partPostId">         	
             <option value="0" <%= "-".equals(bean.getPartPost()) ? "selected" : "" %>>-</option>
             <option value="1" <%= "一般社員".equals(bean.getPartPost()) ? "selected" : "" %>>一般社員</option>
             <option value="2" <%= "主任・主査".equals(bean.getPartPost()) ? "selected" : "" %>>主任・主査</option>
@@ -82,16 +92,19 @@ form {
             <option value="10" <%= "専務取締役".equals(bean.getPartPost()) ? "selected" : "" %>>専務取締役</option>
             <option value="11" <%= "社長".equals(bean.getPartPost()) ? "selected" : "" %>>社長</option>
             <option value="12" <%= "会長".equals(bean.getPartPost()) ? "selected" : "" %>>会長</option>
-        </select>
+        </select></td>
         <br>
-        
-        予算：<span class="required"> *</span><input type="number" name="partBudget" min="1000" max="50000" step="500" required
-            value=<%=bean.getPartBudget() %>><br>
-        アレルギー：<input type="text" name="partAllergy" maxlength="100"
-            value=<%=bean.getPartAllergy() %> ><br>
-        
-        好きな食べ物のジャンル：
-        <select name="partGenreId">
+        <tr>
+        <th>予算：<span class="required"> *</span></th><td><input type="number" name="partBudget" min="1000" max="50000" step="500" required
+            value=<%=bean.getPartBudget() %>></td><br>
+        </tr>
+        <tr>
+        <th>アレルギー：</th><td><input type="text" name="partAllergy" maxlength="100"
+            value=<%=bean.getPartAllergy() %> ></td><br>
+        </tr>
+        <tr>
+        <th>好きな食べ物のジャンル：</th>
+        <td><select name="partGenreId">
             <option value="0" <%= "0".equals(bean.getPartGenre()) ? "selected" : "" %>>特になし</option>
             <option value="1" <%= "1".equals(bean.getPartGenre()) ? "selected" : "" %>>和食</option>
             <option value="2" <%= "2".equals(bean.getPartGenre()) ? "selected" : "" %>>洋食</option>
@@ -103,10 +116,11 @@ form {
             <option value="8" <%= "8".equals(bean.getPartGenre()) ? "selected" : "" %>>焼肉</option>
             <option value="9" <%= "9".equals(bean.getPartGenre()) ? "selected" : "" %>>カレー</option>
             <option value="10" <%= "10".equals(bean.getPartGenre()) ? "selected" : "" %>>鍋</option>
-        </select><br>
-        
-        好きな食べ物のカテゴリ：
-        <select name="partCategoryId">
+        </select></td><br>
+        </tr>
+        <tr>
+        <th>好きな食べ物のカテゴリ：</th>
+        <td><select name="partCategoryId">
             <option value="0" <%= "0".equals(bean.getPartCategory()) ? "selected" : "" %>>特になし</option>
             <option value="1" <%= "1".equals(bean.getPartCategory()) ? "selected" : "" %>>肉</option>
             <option value="2" <%= "2".equals(bean.getPartCategory()) ? "selected" : "" %>>魚</option>
@@ -115,10 +129,10 @@ form {
             <option value="5" <%= "5".equals(bean.getPartCategory()) ? "selected" : "" %>>米料理</option>
             <option value="6" <%= "6".equals(bean.getPartCategory()) ? "selected" : "" %>>揚げ物</option>
             <option value="7" <%= "7".equals(bean.getPartCategory()) ? "selected" : "" %>>お酒</option>
-        </select><br>
-        
-        好きなビールの種類：
-        <select name="partBeerId">
+        </select></td><br>
+        <tr>
+        <th>好きなビールの種類：</th>
+        <td><select name="partBeerId">
             <option value="0" <%= "0".equals(bean.getPartBeer()) ? "selected" : "" %>>特になし</option>
             <option value="1" <%= "1".equals(bean.getPartBeer()) ? "selected" : "" %>>アサヒ</option>
             <option value="2" <%= "2".equals(bean.getPartBeer()) ? "selected" : "" %>>キリン</option>
@@ -126,14 +140,18 @@ form {
             <option value="4" <%= "4".equals(bean.getPartBeer()) ? "selected" : "" %>>サッポロ</option>
             <option value="5" <%= "5".equals(bean.getPartBeer()) ? "selected" : "" %>>エビス</option>
             <option value="6" <%= "6".equals(bean.getPartBeer()) ? "selected" : "" %>>クラフトビール</option>
-        </select><br>
-        
-        タバコ：
-        <input type="radio" name="partSmoke" value="1" <%= bean.getPartSmoke() == 1 ? "checked" : "" %>>吸う
-        <input type="radio" name="partSmoke" value="0" <%= bean.getPartSmoke() == 0 ? "checked" : "" %>>吸わない<br>
+        </select></td><br>
+        </tr>
+        <tr>
+        <th>タバコ：</th>
+        <td><input type="radio" name="partSmoke" value="1" <%= bean.getPartSmoke() == 1 ? "checked" : "" %>>吸う
+        <input type="radio" name="partSmoke" value="0" <%= bean.getPartSmoke() == 0 ? "checked" : "" %>>吸わない</td><br>
+        </tr>
         
         <input type="hidden" name="partId" value="<%= bean.getPartID() %>">
         
+        </div>
+        </table>
         </div>
         
         <input type="submit" class="submit-under-right" value="確認画面へ">
