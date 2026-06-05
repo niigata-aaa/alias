@@ -78,6 +78,7 @@ table table {
                     <td><input type="checkbox" name="genre" value="">鍋</td>
                 </tr>
                 --%>
+                
 
 						料理ジャンル
 						<select name="genre">
