@@ -48,6 +48,8 @@
 				<th>営業時間</th>
 				<th>評価</th>
 				<th>TEL</th>
+				<th>喫煙席</th>
+				<th>店内喫煙所</th>
 			</tr>
 	
 			<tr>
@@ -57,9 +59,11 @@
 				<td><%=rest.getRestDistance() / 1000.0 %> km</td>
 				<td><%=rest.getRestBudget() %> 円</td>
 				<td><%=rest.getRestCapacity() %> 席</td>
-				<td><%=rest.getRestOpen().substring(0, 5)%> ~ <%=rest.getRestClose().substring(0, 5)%></td>
+				<td><%=rest.getRestOpen().substring(0, 5) %> ~ <%=rest.getRestClose().substring(0, 5) %></td>
 				<td>★ <%=rest.getRestReview() %></td>
 				<td><%=rest.getRestTel() %></td>
+				<td><%=rest.getRestSmoke() == 1 ? "🚬" : "なし" %></td>
+				<td><%=rest.getRestSmokeroom() == 1 ? "🚬" : "なし" %></td>
 			</tr>
 			
 		</table>
