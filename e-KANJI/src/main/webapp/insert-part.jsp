@@ -120,7 +120,7 @@ form {
 		</tr>
 		<tr>
 		<th>入社年度　　　　：<span class="required"> *</span></th>
-			<td><input type="number" name="part_empyear" min="1950" max="<%= currentYear %>" value="<%= partAge == 0 ? "1950" : partAge %>" required
+			<td><input type="number" name="part_empyear" min="1950" max="<%= currentYear %>" value="<%= partAge == 0 ? "2000" : partAge %>" required
 					value="<%=partEmpyear == 0 ? "0" :partEmpyear%>"></td><br>
 		<tr>
 		<th>役職　　　　　　：</th><td><select name="part_post">
