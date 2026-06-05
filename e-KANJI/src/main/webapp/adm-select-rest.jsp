@@ -162,7 +162,7 @@ table table {
 
 		<table class="search" border=0>
 			<tr>
-				<th>評価</th>
+				<th>　評価</th>
 				<td><select name="review">
 						<option value="0.0">指定なし</option>
 						<option value="1.0">☆～１</option>
@@ -172,7 +172,7 @@ table table {
 						<option value="5.0">☆～５</option>
 				</select>
 				</td>
-				<th>最大収容数</th>
+				<th>　最大収容数</th>
 				<td><select name="capacity">
 						<option value="0">指定なし</option>
 						<option value="5">1～5人</option>
@@ -188,7 +188,7 @@ table table {
 <!--						<option value="2">なし</option>-->
 <!--				</select></td>-->
 				<input type="hidden" name="log" value="0">
-				<th>新潟駅からの距離</th>
+				<th>　新潟駅からの距離</th>
 				<td><select name="distance">
 						<option value="0">指定なし</option>
 						<option value="500">～５００ｍ</option>
@@ -199,7 +199,7 @@ table table {
 				</select></td>
 			</tr>
 			<tr>
-				<th>予算</th>
+				<th>　予算</th>
 				<td><select name="budget">
 						<option value="0">指定なし</option>
 						<option value="3000">3,000円以下</option>
@@ -207,7 +207,7 @@ table table {
 						<option value="10000">5,000～10,000円</option>
 						<%--<option value="1000000">10,000円～</option>--%>
 				</select></td>
-				<th>喫煙席の有無</th>
+				<th>　喫煙席の有無</th>
 				<td><select name="smoke">
 						<option value="0">指定なし</option>
 						<option value="1">あり</option>
