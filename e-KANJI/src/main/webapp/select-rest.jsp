@@ -160,7 +160,7 @@ table table {
 						<option value="5">1～5人</option>
 						<option value="10">～10人</option>
 						<option value="15">～15人</option>
-						<option value="100">15人～</option>
+						<option value="1000">15人～</option>
 				</select></td>
 			</tr>
 			<tr>
