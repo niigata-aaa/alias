@@ -178,7 +178,7 @@ table table {
 						<option value="5">～5人</option>
 						<option value="10">～10人</option>
 						<option value="15">～15人</option>
-						<option value="100">15～人</option>
+						<option value="100">15人～</option>
 				</select></td>
 
 <!--				<th>訪問履歴</th>-->
