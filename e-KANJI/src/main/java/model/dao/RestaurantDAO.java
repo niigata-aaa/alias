@@ -705,6 +705,7 @@ public class RestaurantDAO {
 		int processingNumber = 0;
 
 		String sqlLog = "DELETE FROM t_log WHERE log_rest = ?";
+		String sqlUser = "UPDATE m_USER SET user_choice = 0 WHERE user_choice = ?";
 		String sqlRest = "DELETE FROM m_restaurant WHERE rest_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection()) {
@@ -712,11 +713,16 @@ public class RestaurantDAO {
 			con.setAutoCommit(false);
 
 			try (PreparedStatement pstmtLog = con.prepareStatement(sqlLog);
+					PreparedStatement pstmtUser = con.prepareStatement(sqlUser);
 					PreparedStatement pstmtRest = con.prepareStatement(sqlRest)) {
 
 				// 訪問履歴削除
 				pstmtLog.setInt(1, restId);
 				pstmtLog.executeUpdate();
+				
+				// 訪問履歴削除
+				pstmtUser.setInt(1, restId);
+				pstmtUser.executeUpdate();
 
 				// 店舗削除
 				pstmtRest.setInt(1, restId);
