@@ -160,7 +160,7 @@ table table {
 						<option value="5">1～5人</option>
 						<option value="10">5～10人</option>
 						<option value="15">10～15人</option>
-						<option value="100">15～人</option>
+						<%--<option value="100">15～人</option>--%>
 				</select></td>
 			</tr>
 			<tr>
@@ -177,7 +177,7 @@ table table {
 						<option value="1000">～１ｋｍ</option>
 						<option value="3000">～３ｋｍ</option>
 						<option value="5000">～５ｋｍ</option>
-						<option value="40000000">５ｋｍ～</option>
+						<%--<option value="40000000">５ｋｍ～</option>--%>
 				</select></td>
 			</tr>
 			<tr>
@@ -187,7 +187,7 @@ table table {
 						<option value="3000">3,000円以下</option>
 						<option value="5000">3,000～5,000円</option>
 						<option value="10000">5,000～10,000円</option>
-						<option value="1000000">10,000円～</option>
+						<%--<option value="1000000">10,000円～</option>--%>
 				</select></td>
 				<th>　　喫煙席の有無</th>
 				<td><select name="smoke">

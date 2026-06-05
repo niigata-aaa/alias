@@ -337,7 +337,7 @@ public class RestaurantDAO {
 		sql.append("WHERE 1=1 ");
 		List<Object> params = new ArrayList<>();
 
-		// ⭐ 条件はすべて AND で追加する（ここが重要）
+		//  条件はすべて AND で追加する（ここが重要）
 
 		if (keyword != null && !keyword.trim().isEmpty()) {
 			sql.append(" AND A.rest_name LIKE ? ");
