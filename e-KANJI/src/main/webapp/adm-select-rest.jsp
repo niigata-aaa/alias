@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>飲食店一覧表示</title>
 <link rel="stylesheet" href="css/select-rest.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/scroll.css">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 .search {
@@ -45,7 +45,7 @@ table table {
 		<input type="submit"class="submit-top-right" value="管理者トップ画面へ戻る"><%--class="submit-top-right" --%>
 	</form>
 	
-	<div class="formArea">
+	<div class="exampleSearch">
 	<form action="adm-narrow-rest-servlet" method="post">
 		店舗名キーワード検索：<input type="text" name="keyword" value="">
 		<%--<input type="submit" value="検索"><br> <br>--%>
@@ -216,7 +216,7 @@ table table {
 	%>
 
 
-	<div class="tableArea">
+	<div class="exampleResult">
 	<table border=1>
 		<tr>
 			<th>店名</th>
@@ -256,13 +256,13 @@ table table {
 			<td>
 				<form action="adm-update-rest-servlet" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" value="変更">
+					<input type="submit" class="decide-btn" value="変更">
 				</form>
 			</td>
 			<td>
 				<form action="adm-delete-rest-check" method="POST">
 					<input type="hidden" name="restId" value="<%=rest.getRestId()%>">
-					<input type="submit" value="削除">
+					<input type="submit" class="decide-btn" value="削除">
 				</form>
 			</td>
 		</tr>
