@@ -25,8 +25,25 @@ table table {
 	position: fixed;
 	top: 10px;
 	right: 10px;
+	padding: 10px 34px;
+	cursor: pointer;
+}
+
+.submit-top-right2 {
+	position: fixed;
+	top: 60px;
+	right: 10px;
 	padding: 10px 20px;
 	cursor: pointer;
+}
+
+.exampleResult {
+    overflow-x: hidden;   /* 横スクロールは禁止 */
+    width: 95%;          
+	height: calc(100vh - 380px);
+	overflow-y: auto;
+ 
+	margin:0 auto;
 }
 
 </style>
@@ -39,15 +56,15 @@ table table {
 	<br>
 	
 	<form action="adm-insert-rest.jsp" method="post">
-		<input type="submit" value="飲食店追加はこちら">
+		<input type="submit" class="submit-top-right" value="飲食店追加はこちら">
 	</form>
 	<form action="adm-top" method="post">
-		<input type="submit"class="submit-top-right" value="管理者トップ画面へ戻る"><%--class="submit-top-right" --%>
+		<input type="submit" class="submit-top-right2" value="管理者トップ画面へ戻る"><%--class="submit-top-right" --%>
 	</form>
 	
 	<div class="exampleSearch">
 	<form action="adm-narrow-rest-servlet" method="post">
-		店舗名キーワード検索：<input type="text" name="keyword" value="">
+		店舗名キーワード検索：<input type="text" name="keyword" value="">　<input type="submit" id="sub-btn" value="検索"><br><br>
 		<%--<input type="submit" value="検索"><br> <br>--%>
 		<table class="search">
 			<tr>
@@ -206,7 +223,6 @@ table table {
 
 			</tr>
 		</table>
-		<input type="submit" value="検索">
 	</form>
 	</div>
 
