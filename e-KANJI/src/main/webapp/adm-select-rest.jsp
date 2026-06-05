@@ -214,6 +214,7 @@ table table {
 
 	<%
 	List<RestBean> list = (List<RestBean>) request.getAttribute("restList");
+	double distance = 0;
 	%>
 
 
@@ -237,6 +238,7 @@ table table {
 		<%
 		if (list != null) {
 			for (RestBean rest : list) {
+				distance = rest.getRestDistance() / 1000.0;
 		%>
 
 
@@ -244,12 +246,12 @@ table table {
 			<td><%=rest.getRestName()%></td>
 			<td><%=rest.getRestGenre()%></td>
 			<td><%=rest.getRestCategory()%></td>
-			<td><%=rest.getRestDistance()%></td>
-			<td><%=rest.getRestBudget()%></td>
-			<td><%=rest.getRestCapacity()%></td>
-			<td><%=rest.getRestOpen()%></td>
-			<td><%=rest.getRestClose()%></td>
-			<td><%=rest.getRestReview()%></td>
+			<td><%=distance%> km</td>
+			<td><%=rest.getRestBudget()%> 円</td>
+			<td><%=rest.getRestCapacity()%> 席</td>
+			<td><%=rest.getRestOpen().substring(0, 5)%></td>
+			<td><%=rest.getRestClose().substring(0, 5)%></td>
+			<td>★ <%=rest.getRestReview()%></td>
 			<td><%=rest.getRestTel()%></td>
 
 
