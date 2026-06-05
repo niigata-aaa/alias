@@ -39,7 +39,7 @@
 	<div class="center">
 		<h2>新規会員登録</h2>
 		<span class="required">*は必須入力です</span><br> <br>
-		<form action="insert-user-check" method="post" class="insert-user" s>
+		<form action="insert-user-check" method="post" class="insert-user">
 			<table>
 				<tr>
 					<th>会員ID <span class="required">*</span></th>
@@ -52,14 +52,15 @@
 						maxlength="32" required></td>
 				</tr>
 				<tr>
-					<th>パスワード <span class="required">*</span></th>
+					<th>パスワード <span class="required">*</span><br>
+						(8文字以上)</th>
 					<td><input type="password" name="user_pass"
 						value="<%=userPass %>" minlength="8" maxlength="255" required></td>
 				</tr>
 			</table>
+		<input type="submit" value="登録">
+		</form>
 	</div>
-	<input type="submit" value="登録">
-	</form>
 
 
 	<div>

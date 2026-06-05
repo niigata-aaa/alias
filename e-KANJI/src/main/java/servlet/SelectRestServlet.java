@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.dao.ParticipantDAO;
 import model.dao.RestaurantDAO;
 import model.entity.RestBean;
 
@@ -50,20 +51,26 @@ public class SelectRestServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String userId = (String)session.getAttribute("user_id");
+		
+		int count = 0;
 
 		
 		// DAOの生成
 		RestaurantDAO dao = new RestaurantDAO();
+		ParticipantDAO pdao = new ParticipantDAO(); 
 		
 		try {
 			// DAOの利用
 			restList = dao.selectAll(userId);
+			count = pdao.getParticipantCount(userId);
+			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 
 		// リクエストスコープへの属性の設定
 		request.setAttribute("restList", restList);
+		request.setAttribute("partCount", count);
 
 		// リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("/select-rest.jsp");

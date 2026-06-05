@@ -203,8 +203,10 @@ table table {
 	<%
 	List<RestBean> list = (List<RestBean>) request.getAttribute("restList");
 	double distance = 0;
+	int count = (Integer)request.getAttribute("partCount");
 	%>
-<div class="explain_text"><span class="title">　　◆店舗検索結果</span><br>　　　　　：条件指定なしで検索をした場合はすべての店舗が表示されます。</div>
+<div class="explain_text"><span class="title">　　◆店舗検索結果</span><br>　　　　　：条件指定なしで検索をした場合はすべての店舗が表示されます。
+	　　参加者数：<%=count %>名</div>
 <div class="exampleResult">
 <br>
 	<table border=1>
@@ -237,11 +239,12 @@ table table {
 			<td><%=rest.getRestCategory()%></td>
 			<td><%=distance%> km</td>
 			<td><%=rest.getRestBudget()%> 円</td>
-			<td><%=rest.getRestCapacity()%> 席</td>
+			<td class="<%= rest.getRestCapacity() < count ? "required" : ""%>"><%=rest.getRestCapacity()%> 席</td>
 			<td><%=rest.getRestOpen().substring(0, 5)%> ~ <%=rest.getRestClose().substring(0, 5)%></td>
 			<td>★ <%=rest.getRestReview()%></td>
 			<td><%=rest.getRestTel()%></td>
 			<td><%= rest.getVisitCount() == 0 ? "未訪問" : rest.getVisitCount() + "件" %></td>
+			
 			
 			<td>
 				<form action="select-rest-detail" method="POST">

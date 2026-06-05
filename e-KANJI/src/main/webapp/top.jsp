@@ -35,7 +35,7 @@
 		<input type="submit" value="配席画面">
 	</form>
 	<form action="money-check-box" method="POST">
-		<input type="submit" value="割り勘・勘定管理画面">
+		<input type="submit" value="割り勘・集金管理画面">
 	</form>
 	<form action="logout" method="POST">
 		<input type="submit" value="ログアウト">

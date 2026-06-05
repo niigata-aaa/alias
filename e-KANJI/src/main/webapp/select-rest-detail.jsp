@@ -20,6 +20,7 @@
 	List<LogBean> logList = (List<LogBean>) request.getAttribute("logList");
 
 	double distance = bean.getRestDistance() / 1000.0;
+	int partCount = (Integer)request.getAttribute("partCount");
 %>
 <%
 	if(bean != null){
@@ -31,7 +32,7 @@
 			<tr><th>食材カテゴリ</th><td><%=bean.getRestCategory() %></td></tr>
 			<tr><th>新潟駅からの距離</th><td><%=distance %> km</td></tr>
 			<tr><th>予算</th><td><%=bean.getRestBudget() %> 円</td></tr>
-			<tr><th>最大収容数</th><td><%=bean.getRestCapacity() %> 席</td></tr>
+			<tr><th>最大収容数</th><td class="<%= bean.getRestCapacity() < partCount ? "alert" : ""%>"><%=bean.getRestCapacity() %> 席</td></tr>
 			<tr><th>住所</th><td><%=bean.getRestAddress() %></td></tr>
 			<tr>
 				<th>営業時間</th>

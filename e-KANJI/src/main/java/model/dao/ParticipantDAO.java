@@ -344,6 +344,35 @@ public class ParticipantDAO {
 		return bean;
 	}
 
+	public int getParticipantCount(String userId) {
+
+		int count = 0;
+
+		String sql = "SELECT "
+				+ "COUNT(*) "
+				+ "FROM "
+				+ "m_participant "
+				+ "WHERE "
+				+ "part_user = ?";
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, userId);
+
+			ResultSet res = pstmt.executeQuery();
+
+			if (res.next()) {
+				count = res.getInt(1);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return count;
+	}
+
 	public List<PartBean> selectForSC(String partUserID) throws SQLException, ClassNotFoundException {
 
 		List<PartBean> partList = new ArrayList<PartBean>();
@@ -502,8 +531,6 @@ public class ParticipantDAO {
 		}
 		return processingNumber;
 	}
-
-
 
 	public int update(PartBean part) throws ClassNotFoundException, SQLException {
 
