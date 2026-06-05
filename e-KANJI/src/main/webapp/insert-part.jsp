@@ -89,6 +89,7 @@ form {
 	</form>
 	参加者情報登録<br>
 
+
 	<span class="required">*は必須入力です</span><br>
 	<div class="tableArea">
 	<table>

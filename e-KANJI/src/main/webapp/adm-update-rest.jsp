@@ -166,6 +166,7 @@
 		</tr>
 	</table>
 </div>
+
 		<%-- 
 		店ジャンル：<input type="text" name="partRuby"
 			value=<%=bean.getPartRuby() %>><br> 食材カテゴリ： <input
